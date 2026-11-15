@@ -1,0 +1,72 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="隐私政策与跨国数据合规 | EU DPP Provider"
+  description="欧盟 GDPR、EU Data Act 及中国《个人信息保护法》《数据安全法》合规政策、数据出境安全边界与零知识证明数据主权托管体系。"
+>
+  <div class="py-16 sm:py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="eyebrow-pill mb-3 mx-auto">法定数据安全与隐私合规</div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        隐私政策与 <br class="hidden sm:inline" />
+        <span class="text-cyan-600">跨国数据主权治理</span>
+      </h1>
+      <p class="mt-4 text-base text-slate-600 leading-relaxed">
+        生效日期：2026年11月 · 严格符合欧盟《通用数据保护条例》(GDPR)、《欧盟数据法案》(EU Data Act) 以及中国《个人信息保护法》(PIPL) 与《数据安全法》(DSL)。
+      </p>
+    </div>
+
+    <div class="space-y-8 text-sm text-slate-700 leading-relaxed">
+      
+      <div class="neo-surface p-8 sm:p-10">
+        <h2 class="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+          <span class="w-7 h-7 rounded-xl bg-cyan-100 text-cyan-700 flex items-center justify-center font-bold text-xs">1</span>
+          <span>数据出境边界与境内计算隔离架构</span>
+        </h2>
+        <p class="mb-3">
+          EU DPP Provider 遵循严格的数据最小化与数据出境安全评估要求。根据欧盟新电池法第 77 条及中国跨境数据安全规范：
+        </p>
+        <ul class="space-y-2 list-disc pl-5 text-xs text-slate-600">
+          <li><strong>境内计算引擎：</strong> 制造基地原始工艺数据、企业完整物料清单（BOM）及采购成本核算全部在境内安全沙箱内完成。</li>
+          <li><strong>字段级白名单出口引擎：</strong> 仅有法定必须向欧盟披露的字段允许出境，未登记的新增专有字段默认一律阻断。</li>
+          <li><strong>零知识证明 (ZKP) 保密机制：</strong> 上游核心化学配比与供应商单价仅通过密码学证明验证合规，绝不向买方传输原始底层数据。</li>
+        </ul>
+      </div>
+
+      <div class="neo-surface p-8 sm:p-10">
+        <h2 class="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+          <span class="w-7 h-7 rounded-xl bg-green-100 text-green-700 flex items-center justify-center font-bold text-xs">2</span>
+          <span>客户数据全权归属与十年代维保障</span>
+        </h2>
+        <p class="mb-3">
+          所有同步至系统的电池数据所有权 100% 归属于客户企业。EU DPP Provider 严格作为 GDPR 第 28 条规定的受托数据处理方：
+        </p>
+        <ul class="space-y-2 list-disc pl-5 text-xs text-slate-600">
+          <li><strong>十年全生命周期托管：</strong> 护照数据与 GS1 Digital Link 二维码解析服务在电池进入欧盟市场后持续保持 10 年有效，覆盖电池从出厂到报废回收的全周期。</li>
+          <li><strong>随时全量导出：</strong> 客户可随时以标准 JSON-LD / XML 格式导出全部历史数据包、审计日志与电子签名凭证。</li>
+        </ul>
+      </div>
+
+      <div class="neo-surface p-8 sm:p-10">
+        <h2 class="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+          <span class="w-7 h-7 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-xs">3</span>
+          <span>数据保护官 (DPO) 联络方式</span>
+        </h2>
+        <div class="neo-well p-4 flex items-center justify-between">
+          <div>
+            <div class="text-xs font-bold text-slate-900">数据保护办公室 (DPO Desk)</div>
+            <div class="text-xs text-slate-500">EU DPP Provider · 欧洲法兰克福运营中心</div>
+          </div>
+          <a href="mailto:info@eudppprovider.com" class="text-xs font-bold text-cyan-700 hover:text-cyan-800 font-mono">
+            info@eudppprovider.com
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</Layout>

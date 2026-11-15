@@ -1,0 +1,81 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import BatteryPassportViewer from '../../../components/BatteryPassportViewer.astro';
+---
+
+<Layout
+  title="动力电池 (EV) 护照解决方案 | EU DPP Provider"
+  description="面向电动汽车动力电池系统的欧盟新电池法全生命周期数字产品护照合规方案。"
+>
+  <div class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="eyebrow-pill mb-3 mx-auto">电动汽车动力电池专属方案</div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        动力电池 (EV) 护照 <br class="hidden sm:inline" />
+        <span class="text-cyan-600">一站式数字化合规方案</span>
+      </h1>
+      <p class="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+        覆盖电动乘用车、商用车及客车牵引电池包，严格满足欧盟新电池法第 77 条及附件 XIII 全部强制披露要求。
+      </p>
+
+      <div class="mt-6 flex justify-center gap-4">
+        <a href="mailto:info@eudppprovider.com" class="neo-btn-primary">
+          预约动力电池合规咨询 →
+        </a>
+      </div>
+    </div>
+
+    <!-- 交互式护照 -->
+    <div class="mb-16">
+      <BatteryPassportViewer />
+    </div>
+
+    <!-- 核心能力 -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16">
+      <div class="neo-surface p-7">
+        <div class="w-10 h-10 rounded-2xl bg-cyan-100 text-cyan-700 flex items-center justify-center font-bold text-lg mb-4">
+          🚗
+        </div>
+        <h3 class="text-base font-bold text-slate-900 mb-2">主机厂车辆 VIN 码联动</h3>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          实现电池包唯一序列号与整车 VIN 码的动态绑定，支持与 Catena-X 汽车数据空间及数字孪生系统互通。
+        </p>
+      </div>
+
+      <div class="neo-surface p-7">
+        <div class="w-10 h-10 rounded-2xl bg-green-100 text-green-700 flex items-center justify-center font-bold text-lg mb-4">
+          ⚡
+        </div>
+        <h3 class="text-base font-bold text-slate-900 mb-2">碳足迹声明 (CFD) 自动核算</h3>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          预置三元锂与磷酸铁锂 PEFCR 生命周期模型，自动生成符合欧洲型式认证要求的碳足迹声明书。
+        </p>
+      </div>
+
+      <div class="neo-surface p-7">
+        <div class="w-10 h-10 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-lg mb-4">
+          🔒
+        </div>
+        <h3 class="text-base font-bold text-slate-900 mb-2">零知识证明配方保密</h3>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          通过密码学证明保护电芯活性材料配比及采购成本，打消向欧洲车企提供数据时的泄密顾虑。
+        </p>
+      </div>
+    </div>
+
+    <!-- 底部联络卡片 -->
+    <div class="neo-surface p-8 max-w-4xl mx-auto text-center">
+      <h3 class="text-lg font-bold text-slate-900">探讨动力电池护照实施方案</h3>
+      <p class="text-xs text-slate-500 mt-1 max-w-lg mx-auto">
+        联系我们的汽车电池合规工程团队，获取技术咨询。
+      </p>
+      <div class="mt-5">
+        <a href="mailto:info@eudppprovider.com" class="neo-btn-primary inline-flex items-center gap-2">
+          <span>官方邮箱：info@eudppprovider.com</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</Layout>

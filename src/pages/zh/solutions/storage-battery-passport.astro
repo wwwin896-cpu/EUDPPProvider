@@ -1,0 +1,81 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import BatteryPassportViewer from '../../../components/BatteryPassportViewer.astro';
+---
+
+<Layout
+  title="储能与工业电池 (>2kWh) 护照解决方案 | EU DPP Provider"
+  description="面向工商业储能、大储集装箱及大于2kWh工业电池的欧盟新电池法数字产品护照合规方案。"
+>
+  <div class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="eyebrow-pill mb-3 mx-auto">工商业储能与工业电池 (>2kWh)</div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        储能与工业电池护照 <br class="hidden sm:inline" />
+        <span class="text-cyan-600">合规与数据链解决方案</span>
+      </h1>
+      <p class="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+        针对集装箱储能系统 (BESS)、工商业储能 (C&I) 以及容量大于 2kWh 的工业备用电池，提供层级化赋码与欧盟中央注册簿合规解决方案。
+      </p>
+
+      <div class="mt-6 flex justify-center gap-4">
+        <a href="mailto:info@eudppprovider.com" class="neo-btn-primary">
+          预约储能合规咨询 →
+        </a>
+      </div>
+    </div>
+
+    <!-- 交互式护照 -->
+    <div class="mb-16">
+      <BatteryPassportViewer />
+    </div>
+
+    <!-- 核心能力 -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16">
+      <div class="neo-surface p-7">
+        <div class="w-10 h-10 rounded-2xl bg-cyan-100 text-cyan-700 flex items-center justify-center font-bold text-lg mb-4">
+          🔋
+        </div>
+        <h3 class="text-base font-bold text-slate-900 mb-2">簇/舱/柜层级化赋码</h3>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          支持从电芯模组、电池簇到整舱（20尺/40尺集装箱）的多层级序列化关联与统一解析。
+        </p>
+      </div>
+
+      <div class="neo-surface p-7">
+        <div class="w-10 h-10 rounded-2xl bg-green-100 text-green-700 flex items-center justify-center font-bold text-lg mb-4">
+          ⚙️
+        </div>
+        <h3 class="text-base font-bold text-slate-900 mb-2">BMS 运行与健康状态 (SOH)</h3>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          标准化 API 对接储能 EMS/BMS 遥测数据，支持容量衰减记录与梯次利用残值评估。
+        </p>
+      </div>
+
+      <div class="neo-surface p-7">
+        <div class="w-10 h-10 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-lg mb-4">
+          🇪🇺
+        </div>
+        <h3 class="text-base font-bold text-slate-900 mb-2">欧洲电网与海关合规包</h3>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          一键生成符合欧洲电网运营商与进口海关清关审查的符合性声明 (DoC) 与第三方检测档案。
+        </p>
+      </div>
+    </div>
+
+    <!-- 底部联络卡片 -->
+    <div class="neo-surface p-8 max-w-4xl mx-auto text-center">
+      <h3 class="text-lg font-bold text-slate-900">为您的储能出海项目定制合规方案</h3>
+      <p class="text-xs text-slate-500 mt-1 max-w-lg mx-auto">
+        联系储能合规团队，获取系统集成与数据托管方案。
+      </p>
+      <div class="mt-5">
+        <a href="mailto:info@eudppprovider.com" class="neo-btn-primary inline-flex items-center gap-2">
+          <span>官方邮箱：info@eudppprovider.com</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</Layout>

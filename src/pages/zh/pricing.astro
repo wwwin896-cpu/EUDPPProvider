@@ -1,0 +1,79 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PricingCalculator from '../../components/PricingCalculator.astro';
+---
+
+<Layout
+  title="产品定价与交付模式 | EU DPP Provider"
+  description="透明的欧盟电池护照商业合作模式：企业独立软件私有化采购 vs 欧洲主权数据安全托管十年代维计划。"
+>
+  <div class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="eyebrow-pill mb-3 mx-auto">商业合作与交付模式</div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        透明清晰的定价体系 & <br class="hidden sm:inline" />
+        <span class="text-cyan-600">双轨企业交付方案</span>
+      </h1>
+      <p class="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+        支持购买企业独立软件私有化部署掌握完全数据主权，或由我们提供十年代维主权数据托管代办服务。
+      </p>
+
+      <div class="mt-6 flex justify-center gap-4">
+        <a href="mailto:info@eudppprovider.com" class="neo-btn-primary">
+          获取商务报价清单 →
+        </a>
+      </div>
+    </div>
+
+    <!-- 定价卡片 -->
+    <div class="mb-16">
+      <PricingCalculator />
+    </div>
+
+    <!-- 对比表格 -->
+    <div class="neo-surface p-8 sm:p-10 max-w-5xl mx-auto">
+      <h3 class="text-lg font-bold text-slate-900 mb-6 text-center">核心交付能力全景对比表</h3>
+      
+      <div class="overflow-x-auto">
+        <table class="w-full text-xs text-left border-collapse">
+          <thead>
+            <tr class="border-b border-slate-200">
+              <th class="py-3 px-4 text-slate-400 font-bold uppercase tracking-wider">能力维度</th>
+              <th class="py-3 px-4 text-cyan-800 font-bold uppercase tracking-wider">企业私有化软件采购</th>
+              <th class="py-3 px-4 text-green-800 font-bold uppercase tracking-wider">十年代维主权数据托管</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200/60 text-slate-700">
+            <tr>
+              <td class="py-3 px-4 font-semibold text-slate-900">部署与运行环境</td>
+              <td class="py-3 px-4">客户指定私有云 (AWS/Azure/阿里云欧洲)</td>
+              <td class="py-3 px-4 font-semibold text-green-700">欧洲主权云机房 (德国法兰克福/慕尼黑)</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-semibold text-slate-900">源码与数据控制权</td>
+              <td class="py-3 px-4 font-semibold text-cyan-700">完全自主可控，开放全套接口</td>
+              <td class="py-3 px-4">全托管 API 网关，提供 ZKP 隐私防护</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-semibold text-slate-900">扫码与生成附加费</td>
+              <td class="py-3 px-4 font-semibold text-green-700">零费用 (€0) · 无限产线序列化</td>
+              <td class="py-3 px-4">按年阶梯用量订阅，费用透明可预测</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-semibold text-slate-900">欧盟中央注册簿直连</td>
+              <td class="py-3 px-4">内嵌自动化直连组件</td>
+              <td class="py-3 px-4 font-semibold text-green-700">全套代办 eIDAS QSeal 签名与 UPI 登记</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-semibold text-slate-900">法规变更响应承诺</td>
+              <td class="py-3 px-4">包含年度维护与版本升级支持</td>
+              <td class="py-3 px-4 font-semibold text-green-700">10年存续代维 + 法规变更30天内免费补丁</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</Layout>

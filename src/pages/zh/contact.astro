@@ -1,0 +1,116 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="预约技术方案咨询与商务对接 | EU DPP Provider"
+  description="联系 EU DPP Provider 获取合规差距诊断、软件私有化采购或数据安全托管代维服务。官方业务邮箱：info@eudppprovider.com。"
+>
+  <div class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
+      
+      <!-- 左侧信息 -->
+      <div class="space-y-8">
+        <div>
+          <div class="eyebrow-pill mb-2">官方直联通道</div>
+          <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            开启欧盟电池护照技术方案对接
+          </h1>
+          <p class="mt-4 text-base text-slate-600 leading-relaxed">
+            直接对接我们的资深合规架构师，评估产品型号数据就绪度，获取定制化系统演示或数据托管方案。
+          </p>
+        </div>
+
+        <div class="neo-surface p-6 bg-gradient-to-br from-white to-cyan-50/40 border-cyan-200/80">
+          <div class="flex items-center gap-3 mb-2">
+            <div class="w-9 h-9 rounded-xl bg-cyan-100 text-cyan-700 flex items-center justify-center font-bold text-base">✉️</div>
+            <div>
+              <div class="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">官方业务与商务对接邮箱</div>
+              <div class="text-lg font-bold font-mono text-navy-900">info@eudppprovider.com</div>
+            </div>
+          </div>
+          <p class="text-xs text-slate-500 mt-2">
+            承诺 1 个工作日内响应。紧急招标评估项目请在邮件主题注明【紧急评估】。
+          </p>
+        </div>
+
+        <div class="neo-surface p-6 space-y-4">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400">全球交付运营中心</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+            <div class="neo-well p-3">
+              <div class="font-bold text-slate-900 mb-0.5">🇩🇪 欧洲运营中心</div>
+              <div class="text-slate-500">德国 · 法兰克福 / 慕尼黑</div>
+              <div class="text-[11px] text-cyan-700 mt-1 font-mono">eIDAS 证书与注册簿运维</div>
+            </div>
+            <div class="neo-well p-3">
+              <div class="font-bold text-slate-900 mb-0.5">🇨🇳 供应链集成中心</div>
+              <div class="text-slate-500">中国 · 上海 / 深圳</div>
+              <div class="text-[11px] text-green-700 mt-1 font-mono">MES 赋码与现场集成</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 右侧表单 -->
+      <div class="neo-surface p-8 sm:p-10">
+        <h3 class="text-xl font-bold text-slate-900 mb-2">技术方案与差距评估申请</h3>
+        <p class="text-xs text-slate-500 mb-6">填写您的电池产品参数，我们将为您发送 70+ 字段合规差距清单。</p>
+        
+        <form class="space-y-4" onsubmit="event.preventDefault(); alert('感谢您的提交！我们的合规架构师将在24小时内与您联系。您也可以直接发送邮件至 info@eudppprovider.com');">
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">联系人姓名与职位</label>
+            <input type="text" required placeholder="如：李总 · 质量合规总监" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm text-slate-900 focus:outline-none focus:border-cyan-500 bg-white" />
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">企业工作邮箱</label>
+            <input type="email" required placeholder="name@company.com" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm text-slate-900 focus:outline-none focus:border-cyan-500 bg-white" />
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">企业名称</label>
+            <input type="text" required placeholder="如：某某新能源科技股份有限公司" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm text-slate-900 focus:outline-none focus:border-cyan-500 bg-white" />
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">电池类型</label>
+              <select class="w-full px-3 py-2.5 rounded-xl border border-slate-300 text-sm text-slate-900 focus:outline-none focus:border-cyan-500 bg-white">
+                <option>电动汽车动力电池包 (EV)</option>
+                <option>工商业储能/大储集装箱 (>2kWh)</option>
+                <option>轻型交通工具电池 (LMT)</option>
+                <option>电芯/正负极材料供应商</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">意向交付模式</label>
+              <select class="w-full px-3 py-2.5 rounded-xl border border-slate-300 text-sm text-slate-900 focus:outline-none focus:border-cyan-500 bg-white">
+                <option>单型号合规评估</option>
+                <option>十年代维数据主权托管</option>
+                <option>企业独立软件私有化采购</option>
+                <option>eIDAS 电子印章代办</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">项目背景与出海时间节点</label>
+            <textarea rows="3" placeholder="请简要说明涉及的电池型号、出口欧洲时间节点或特定车企合规要求..." class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm text-slate-900 focus:outline-none focus:border-cyan-500 bg-white"></textarea>
+          </div>
+
+          <button type="submit" class="w-full py-3.5 rounded-xl neo-btn-primary font-bold text-sm transition-all">
+            提交技术评估申请 →
+          </button>
+
+          <div class="text-center pt-2">
+            <span class="text-xs text-slate-400">更倾向邮件直联？请发送至 <a href="mailto:info@eudppprovider.com" class="font-mono font-bold text-navy-900 hover:text-cyan-600">info@eudppprovider.com</a></span>
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+</Layout>
