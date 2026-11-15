@@ -4,56 +4,68 @@ export default {
   theme: {
     extend: {
       colors: {
-        stone: {
-          50: '#fafaf9',
-          100: '#f5f5f4',
-          150: '#eeeeec',
-          200: '#e7e5e4',
-          300: '#d6d3d1',
-          400: '#a8a29e',
-          500: '#78716c',
-          600: '#57534e',
-          700: '#44403c',
-          800: '#292524',
-          900: '#1c1917',
-          950: '#0c0a09',
+        // Sovereign Navy 墨蓝
+        navy: {
+          900: '#061A2B',
+          800: '#0A2540',
+          700: '#0E3257',
+          600: '#14456F',
+          500: '#1B5C8F',
+          400: '#2E78B0',
         },
-        eu: {
-          blue: '#1e40af',
-          navy: '#0f172a',
-          emerald: '#047857',
-          teal: '#0f766e',
-          gold: '#b45309',
-        }
+        // Compliance Green 合规绿
+        green: {
+          700: '#17734E',
+          600: '#1E8A5F',
+          500: '#27A56F',
+          100: '#DCF0E5',
+        },
+        // Signal Cyan 科技青
+        cyan: {
+          600: '#0B7FA3',
+          500: '#0E9BC4',
+          100: '#DBF0F7',
+        },
+        // Regulatory Amber 监管琥珀
+        amber: {
+          600: '#A85F12',
+          500: '#C9791E',
+          100: '#FBEAD2',
+        },
+        // Brass 点睛金
+        gold: {
+          500: '#B08D3E',
+        },
+        // Slate / Neutral 冷灰阶
+        slate: {
+          50: '#F7F9FB',
+          100: '#EEF2F6',
+          200: '#DCE3EA',
+          300: '#C2CDD6',
+          500: '#6B7A89',
+          600: '#52606D',
+          700: '#3C4A57',
+          900: '#14212B',
+        },
+        // Semantic
+        danger: {
+          600: '#B42318',
+        },
+        info: {
+          600: '#1B5C8F',
+        },
       },
       fontFamily: {
-        sans: [
-          'Inter',
-          '-apple-system',
-          'BlinkMacSystemFont',
-          'Segoe UI',
-          'Roboto',
-          'Helvetica Neue',
-          'sans-serif',
-        ],
-        mono: [
-          'JetBrains Mono',
-          'ui-monospace',
-          'SFMono-Regular',
-          'monospace',
-        ],
+        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'PingFang SC', 'Microsoft YaHei', 'sans-serif'],
+        mono: ['JetBrains Mono', 'SF Mono', 'Menlo', 'monospace'],
       },
-      letterSpacing: {
-        tighter: '-0.04em',
-        tight: '-0.025em',
-        normal: '-0.01em',
+      borderRadius: {
+        sm: '8px',
+        md: '12px',
+        lg: '16px',
+        xl: '24px',
       },
-      boxShadow: {
-        'soft': '0 2px 20px -2px rgba(0, 0, 0, 0.04), 0 1px 6px -1px rgba(0, 0, 0, 0.02)',
-        'float': '0 20px 40px -15px rgba(0, 0, 0, 0.06), 0 0 1px 1px rgba(0, 0, 0, 0.04)',
-        'card': '0 0 0 1px rgba(0,0,0,0.06), 0 4px 20px rgba(0,0,0,0.04)',
-      }
     },
   },
   plugins: [],
-}
+};

@@ -11,158 +11,180 @@ const t = useTranslations(lang);
 
 <Layout
   title="EU DPP Provider | Enterprise EU Battery Passport Software & Managed Data Vault"
-  description="Turnkey EU Battery Passport compliance platform (Regulation EU 2023/1542). Enterprise software license or fully managed DPP data hosting with Zero-Knowledge BOM protection."
+  description="The enterprise platform for EU Battery Passport compliance (Regulation EU 2023/1542). Procure independent DPP software or delegate secure data vault hosting."
 >
-  <!-- Hero Section (Airy, Editorial, Swiss Minimalist Typography) -->
-  <section class="relative pt-24 pb-28 md:pt-32 md:pb-36 overflow-hidden">
-    <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10 text-center">
+
+  <!-- ==================== HERO SECTION (Sovereign Navy Gradient per Spec) ==================== -->
+  <section class="hero-gradient text-white pt-24 pb-20 border-b border-navy-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <!-- Regulatory Pill Badge -->
-      <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs font-medium bg-stone-100 text-stone-700 border border-stone-200/90 shadow-xs mb-8">
-        <span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
-        <span>{t('hero.badge')}</span>
+      <div class="max-w-4xl">
+        <!-- Top Pill Badge -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase text-cyan-200 bg-white/[0.06] border border-white/[0.14] mb-6">
+          <span class="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></span>
+          <span>EU Regulation 2023/1542 · Battery Passport Ready</span>
+        </div>
+
+        <!-- Display Headline with Cyan Em -->
+        <h1 class="text-4xl sm:text-6xl lg:text-[62px] font-extrabold tracking-tight leading-[1.04] text-white">
+          The Enterprise Platform for <br class="hidden sm:inline" />
+          <em class="not-italic text-cyan-500">EU Battery Passports</em> & DPP Compliance
+        </h1>
+
+        <!-- Lead Paragraph -->
+        <p class="mt-6 text-lg sm:text-[19px] leading-relaxed text-white/75 max-w-2xl font-normal">
+          A high-performance compliance engine built for regulatory rigor and supply chain secrecy. Deploy our turnkey Enterprise Software on-premise, or delegate to our Sovereign EU Data Vault.
+        </p>
+
+        <!-- CTA Row -->
+        <div class="mt-8 flex flex-wrap gap-4 items-center">
+          <a
+            href={`/${lang === 'en' ? '' : lang + '/'}contact`}
+            class="btn-primary-cyan inline-flex items-center gap-2 shadow-lg"
+          >
+            <span>Book a Technical Demo</span>
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+          
+          <a
+            href={`/${lang === 'en' ? '' : lang + '/'}pricing`}
+            class="btn-ghost-hero inline-flex items-center gap-2"
+          >
+            <span>Explore Software vs. Hosting</span>
+          </a>
+        </div>
       </div>
 
-      <!-- Hero Headline (Large, confident, refined) -->
-      <h1 class="text-4xl sm:text-6xl lg:text-7xl font-semibold text-stone-900 tracking-tighter leading-[1.1] max-w-5xl mx-auto">
-        {t('hero.title.prefix')} <br class="hidden sm:inline" />
-        <span class="text-stone-900 underline decoration-stone-300 underline-offset-8">
-          {t('hero.title.highlight')}
-        </span> <br class="hidden sm:inline" />
-        {t('hero.title.suffix')}
-      </h1>
-
-      <!-- Subtitle -->
-      <p class="text-lg sm:text-xl lg:text-2xl text-stone-600 max-w-3xl mx-auto mt-8 leading-relaxed font-normal">
-        {t('hero.subtitle')}
-      </p>
-
-      <!-- CTA Buttons -->
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-10">
-        <a
-          href="/contact"
-          class="w-full sm:w-auto px-8 py-4 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-medium text-base shadow-soft hover:shadow-float transition-all hover:scale-[1.01]"
-        >
-          {t('hero.cta.primary')} &rarr;
-        </a>
-        <a
-          href="/pricing"
-          class="w-full sm:w-auto px-8 py-4 rounded-xl bg-white border border-stone-200/90 hover:bg-stone-50 text-stone-800 font-medium text-base shadow-soft transition-colors"
-        >
-          {t('hero.cta.secondary')}
-        </a>
-      </div>
-
-      <!-- Trust Badges (Minimalist Grid) -->
-      <div class="pt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto text-left">
-        <div class="p-5 rounded-2xl bg-white border border-stone-200/80 shadow-xs">
-          <div class="text-xs text-stone-400 font-medium">Compliance Target</div>
-          <div class="text-sm font-semibold text-stone-900 mt-1">EU 2023/1542 (Art. 77)</div>
+      <!-- 4-Column Metrics Bar (Direct from Design Specification) -->
+      <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-0 border border-white/[0.12] rounded-2xl overflow-hidden bg-white/[0.03] backdrop-blur-sm">
+        <div class="p-5 sm:p-6 border-b sm:border-b-0 border-r border-white/[0.1]">
+          <div class="font-mono text-xs uppercase tracking-wider text-cyan-500 font-semibold">Compliance Target</div>
+          <div class="text-base sm:text-lg font-semibold text-white mt-1.5">EU 2023/1542 · Art.77</div>
         </div>
-        <div class="p-5 rounded-2xl bg-white border border-stone-200/80 shadow-xs">
-          <div class="text-xs text-stone-400 font-medium">Serialization Protocol</div>
-          <div class="text-sm font-semibold text-stone-900 mt-1">GS1 Digital Link 2D</div>
+        <div class="p-5 sm:p-6 border-b sm:border-b-0 md:border-r border-white/[0.1]">
+          <div class="font-mono text-xs uppercase tracking-wider text-cyan-500 font-semibold">Serialization</div>
+          <div class="text-base sm:text-lg font-semibold text-white mt-1.5">GS1 Digital Link 2D</div>
         </div>
-        <div class="p-5 rounded-2xl bg-white border border-stone-200/80 shadow-xs">
-          <div class="text-xs text-stone-400 font-medium">Trade Secret Shield</div>
-          <div class="text-sm font-semibold text-emerald-800 mt-1">Zero-Knowledge Proofs</div>
+        <div class="p-5 sm:p-6 border-r border-white/[0.1]">
+          <div class="font-mono text-xs uppercase tracking-wider text-cyan-500 font-semibold">Trade Secret Shield</div>
+          <div class="text-base sm:text-lg font-semibold text-white mt-1.5">Zero-Knowledge Proofs</div>
         </div>
-        <div class="p-5 rounded-2xl bg-white border border-stone-200/80 shadow-xs">
-          <div class="text-xs text-stone-400 font-medium">Data Sovereignty</div>
-          <div class="text-sm font-semibold text-stone-900 mt-1">Catena-X Aligned</div>
+        <div class="p-5 sm:p-6">
+          <div class="font-mono text-xs uppercase tracking-wider text-cyan-500 font-semibold">Data Sovereignty</div>
+          <div class="text-base sm:text-lg font-semibold text-white mt-1.5">Catena-X Aligned</div>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- Countdown & Regulatory Roadmap -->
-  <section class="py-16 md:py-24 bg-stone-100/60 border-y border-stone-200/80">
-    <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+  <!-- ==================== LIVE PASSPORT DEMO SECTION ==================== -->
+  <section class="py-20 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <div class="eyebrow mb-2">01 · Interactive Verification</div>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
+          Experience the 4-Tier Role-Based Passport
+        </h2>
+        <p class="mt-4 text-base text-slate-500 leading-relaxed">
+          Regulation (EU) 2023/1542 mandates distinct information access for consumers, authorities, dismantlers, and manufacturers. Toggle roles below to test the permission resolver.
+        </p>
+      </div>
+
+      <!-- Passport Viewer Mockup -->
+      <div class="max-w-5xl mx-auto">
+        <BatteryPassportViewer />
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== COUNTDOWN SECTION (Sovereign Navy 800) ==================== -->
+  <section class="py-20 bg-navy-900 border-b border-navy-800 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <ComplianceCountdown />
     </div>
   </section>
 
-  <!-- Interactive Digital Battery Passport Simulation -->
-  <section class="py-24 md:py-32 bg-stone-50">
-    <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+  <!-- ==================== DELIVERY MODELS (Software vs Hosting) ==================== -->
+  <section class="py-20 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-medium bg-stone-100 text-stone-700 border border-stone-200 mb-4">
-          Interactive Simulation
-        </div>
-        <h2 class="text-3xl sm:text-5xl font-semibold text-stone-900 tracking-tight">
-          {t('viewer.title')}
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <div class="eyebrow mb-2">02 · Delivery Models</div>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
+          Two Ways to Achieve Battery Passport Compliance
         </h2>
-        <p class="text-lg text-stone-500 mt-3 font-normal leading-relaxed">
-          {t('viewer.subtitle')}
+        <p class="mt-4 text-base text-slate-500 leading-relaxed">
+          Whether you want full on-premise code ownership or effortless delegated cloud hosting, we have the tailored enterprise solution.
         </p>
       </div>
 
-      <BatteryPassportViewer />
-
-    </div>
-  </section>
-
-  <!-- Dual Delivery Model -->
-  <section class="py-24 md:py-32 bg-stone-100/60 border-y border-stone-200/80">
-    <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
       <PricingCalculator />
+
     </div>
   </section>
 
-  <!-- 4 Core Pillars of Technical Superiority -->
-  <section class="py-24 md:py-32 bg-stone-50">
-    <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+  <!-- ==================== PLATFORM CAPABILITIES (Feature Cards) ==================== -->
+  <section class="py-20 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="text-center max-w-3xl mx-auto mb-20">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-medium bg-stone-100 text-stone-700 border border-stone-200 mb-4">
-          Technical Architecture
-        </div>
-        <h2 class="text-3xl sm:text-5xl font-semibold text-stone-900 tracking-tight">
-          Engineered for High-Throughput Battery Supply Chains
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="eyebrow mb-2">03 · Core Engines</div>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
+          Engineered for Heavy Industrial Compliance
         </h2>
+        <p class="mt-4 text-base text-slate-500 leading-relaxed">
+          Four proprietary engines handling everything from cradle-to-gate carbon footprint to high-speed laser marking serialization.
+        </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         
-        <div class="bg-white p-8 rounded-3xl border border-stone-200/80 shadow-soft space-y-4">
-          <div class="w-12 h-12 rounded-2xl bg-stone-100 text-stone-800 flex items-center justify-center font-bold text-xl">
-            🌱
+        <!-- Card 1 -->
+        <div class="feature-card p-6">
+          <div class="w-10 h-10 rounded-xl bg-navy-800 text-cyan-500 flex items-center justify-center font-bold text-lg mb-5">
+            ⚡
           </div>
-          <h3 class="text-lg font-bold text-stone-900">Automated PCF Carbon Engine</h3>
-          <p class="text-sm text-stone-500 leading-relaxed font-normal">
-            PEFCR-compliant lifecycle greenhouse gas calculations across Raw Material, Manufacturing, Distribution, and Recycling stages.
+          <h4 class="text-lg font-semibold text-slate-900 mb-2">PCF Carbon Engine</h4>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Automated Product Carbon Footprint calculation strictly compliant with PEFCR and ISO 14040/44 standards.
           </p>
         </div>
 
-        <div class="bg-white p-8 rounded-3xl border border-stone-200/80 shadow-soft space-y-4">
-          <div class="w-12 h-12 rounded-2xl bg-stone-100 text-stone-800 flex items-center justify-center font-bold text-xl">
+        <!-- Card 2 -->
+        <div class="feature-card p-6">
+          <div class="w-10 h-10 rounded-xl bg-navy-800 text-green-500 flex items-center justify-center font-bold text-lg mb-5">
             🔒
           </div>
-          <h3 class="text-lg font-bold text-stone-900">Zero-Knowledge BOM Privacy</h3>
-          <p class="text-sm text-stone-500 leading-relaxed font-normal">
-            Suppliers prove regulatory compliance and material origins without exposing proprietary chemical formulas or commercial procurement pricing.
+          <h4 class="text-lg font-semibold text-slate-900 mb-2">ZKP Privacy Shield</h4>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Upstream chemical formulas and procurement prices verified without exposing sensitive trade secrets to buyers.
           </p>
         </div>
 
-        <div class="bg-white p-8 rounded-3xl border border-stone-200/80 shadow-soft space-y-4">
-          <div class="w-12 h-12 rounded-2xl bg-stone-100 text-stone-800 flex items-center justify-center font-bold text-xl">
+        <!-- Card 3 -->
+        <div class="feature-card p-6">
+          <div class="w-10 h-10 rounded-xl bg-navy-800 text-cyan-500 flex items-center justify-center font-bold text-lg mb-5">
             🏷️
           </div>
-          <h3 class="text-lg font-bold text-stone-900">High-Speed GS1 Serialization</h3>
-          <p class="text-sm text-stone-500 leading-relaxed font-normal">
-            Laser-etching & 2D QR code generation at 120+ packs/min. Native GS1 Digital Link resolver with global low-latency CDN routing.
+          <h4 class="text-lg font-semibold text-slate-900 mb-2">GS1 Digital Link</h4>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            High-speed production line 2D QR serialization with millisecond-latency global decentralized resolver.
           </p>
         </div>
 
-        <div class="bg-white p-8 rounded-3xl border border-stone-200/80 shadow-soft space-y-4">
-          <div class="w-12 h-12 rounded-2xl bg-stone-100 text-stone-800 flex items-center justify-center font-bold text-xl">
-            ⚖️
+        <!-- Card 4 -->
+        <div class="feature-card p-6">
+          <div class="w-10 h-10 rounded-xl bg-navy-800 text-amber-500 flex items-center justify-center font-bold text-lg mb-5">
+            🌐
           </div>
-          <h3 class="text-lg font-bold text-stone-900">OECD Due Diligence Tracker</h3>
-          <p class="text-sm text-stone-500 leading-relaxed font-normal">
-            Chain of custody for critical raw materials (Cobalt, Lithium, Nickel, Graphite) with third-party audit verification hooks.
+          <h4 class="text-lg font-semibold text-slate-900 mb-2">Catena-X Connector</h4>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Native interoperability with European automotive data spaces, Battery Pass Consortium, and Cirpass nodes.
           </p>
         </div>
 
@@ -171,23 +193,27 @@ const t = useTranslations(lang);
     </div>
   </section>
 
-  <!-- Final CTA Callout (Refined Minimalist Banner) -->
-  <section class="py-24 md:py-32 bg-stone-900 text-white relative overflow-hidden">
-    <div class="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 text-center relative z-10 space-y-6">
-      <h2 class="text-3xl sm:text-5xl font-semibold tracking-tight text-white">
-        Ready to Launch Your EU Battery Passport?
+  <!-- ==================== FINAL CTA BANNER ==================== -->
+  <section class="py-20 hero-gradient text-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-semibold uppercase tracking-wider bg-white/10 text-cyan-300 border border-white/20 mb-6">
+        Get Ready for 2027 Enforcement
+      </span>
+      <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
+        Deploy Your EU Battery Passport in Weeks
       </h2>
-      <p class="text-base sm:text-lg text-stone-300 max-w-2xl mx-auto font-normal leading-relaxed">
-        Speak with our senior EU compliance engineers. Receive a customized gap analysis and architecture roadmap for your battery product portfolio.
+      <p class="mt-5 text-lg text-white/75 max-w-2xl mx-auto">
+        Speak with our compliance engineers to evaluate your battery data readiness, review software license options, or explore managed data vault onboarding.
       </p>
-      <div class="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a
-          href="/contact"
-          class="w-full sm:w-auto px-8 py-4 rounded-xl bg-white hover:bg-stone-100 text-stone-900 font-semibold text-base shadow-soft transition-all hover:scale-[1.01]"
-        >
-          Schedule a Technical Consultation &rarr;
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a href={`/${lang === 'en' ? '' : lang + '/'}contact`} class="btn-primary-cyan">
+          Book a Technical Consultation →
+        </a>
+        <a href={`/${lang === 'en' ? '' : lang + '/'}compliance/eu-battery-regulation-2023-1542`} class="btn-ghost-hero">
+          Read EU 2023/1542 Guide
         </a>
       </div>
     </div>
   </section>
+
 </Layout>

@@ -5,268 +5,323 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<div class="bg-white border border-stone-200/90 rounded-3xl overflow-hidden shadow-card">
+<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-lg">
   
-  <!-- Top Mockup Device Header (Refined Apple/Minimal Style) -->
-  <div class="bg-stone-50 px-6 sm:px-8 py-4 border-b border-stone-200/80 flex flex-wrap items-center justify-between gap-4">
+  <!-- Top Mockup Device Header (Sovereign Navy 900) -->
+  <div class="bg-navy-900 px-6 sm:px-8 py-4 border-b border-navy-800 flex flex-wrap items-center justify-between gap-4">
     <div class="flex items-center gap-3">
       <div class="flex items-center gap-1.5">
-        <div class="w-2.5 h-2.5 rounded-full bg-stone-300"></div>
-        <div class="w-2.5 h-2.5 rounded-full bg-stone-300"></div>
-        <div class="w-2.5 h-2.5 rounded-full bg-stone-300"></div>
+        <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+        <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
+        <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
       </div>
-      <div class="ml-2 font-mono text-xs text-stone-600 bg-white px-3.5 py-1.5 rounded-xl border border-stone-200/80 flex items-center gap-2 shadow-xs">
-        <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-        </svg>
-        <span class="truncate max-w-[280px] sm:max-w-md">https://id.eudppprovider.com/01/04012345678901/21/BP-2027-EU-88902</span>
+      <div class="h-4 w-px bg-white/20"></div>
+      <div class="font-mono text-xs text-cyan-400 font-semibold tracking-wide">
+        GS1 Resolver · https://id.eudppprovider.com/01/04012345999991/21/BP-2027-EU-88902
       </div>
     </div>
-    <div class="flex items-center gap-2 text-xs font-mono text-stone-500">
-      <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-      GS1 Digital Link Verified
+    
+    <div class="flex items-center gap-2">
+      <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-green-500/10 text-green-400 border border-green-500/20">
+        <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+        Valid Signature (ECDSA P-256)
+      </span>
     </div>
   </div>
 
-  <!-- Role View Selector Tabs (Minimalist Segmented Control) -->
-  <div class="bg-stone-50/50 p-2 border-b border-stone-200/70 grid grid-cols-2 sm:grid-cols-4 gap-1.5">
-    <button class="passport-tab-btn active px-4 py-2.5 rounded-xl text-xs font-semibold text-center transition-all bg-white text-stone-900 border border-stone-200 shadow-xs" data-target="view-public">
-      🌐 {t('viewer.tab.public')}
-    </button>
-    <button class="passport-tab-btn px-4 py-2.5 rounded-xl text-xs font-semibold text-center transition-all text-stone-500 hover:text-stone-900 hover:bg-stone-100/80 border border-transparent" data-target="view-customs">
-      🏛️ {t('viewer.tab.customs')}
-    </button>
-    <button class="passport-tab-btn px-4 py-2.5 rounded-xl text-xs font-semibold text-center transition-all text-stone-500 hover:text-stone-900 hover:bg-stone-100/80 border border-transparent" data-target="view-recycler">
-      ♻️ {t('viewer.tab.recycler')}
-    </button>
-    <button class="passport-tab-btn px-4 py-2.5 rounded-xl text-xs font-semibold text-center transition-all text-stone-500 hover:text-stone-900 hover:bg-stone-100/80 border border-transparent" data-target="view-oem">
-      ⚡ {t('viewer.tab.oem')}
-    </button>
+  <!-- Role Selector Tabs -->
+  <div class="bg-slate-100 border-b border-slate-200 p-2 sm:p-3 flex flex-wrap items-center justify-between gap-2">
+    <div class="flex flex-wrap gap-1.5 sm:gap-2">
+      <button 
+        id="tab-btn-public" 
+        class="role-tab px-4 py-2 text-xs font-semibold rounded-lg bg-navy-800 text-cyan-400 border border-navy-700 shadow-sm transition-all"
+        onclick="switchPassportRole('public')"
+      >
+        👁️ 1. Public / Consumer
+      </button>
+
+      <button 
+        id="tab-btn-customs" 
+        class="role-tab px-4 py-2 text-xs font-semibold rounded-lg bg-white text-slate-700 hover:bg-slate-50 border border-slate-200 transition-all"
+        onclick="switchPassportRole('customs')"
+      >
+        🏛️ 2. Customs & Authorities (DoC)
+      </button>
+
+      <button 
+        id="tab-btn-recycler" 
+        class="role-tab px-4 py-2 text-xs font-semibold rounded-lg bg-white text-slate-700 hover:bg-slate-50 border border-slate-200 transition-all"
+        onclick="switchPassportRole('recycler')"
+      >
+        ♻️ 3. Dismantlers & Recyclers
+      </button>
+
+      <button 
+        id="tab-btn-oem" 
+        class="role-tab px-4 py-2 text-xs font-semibold rounded-lg bg-white text-slate-700 hover:bg-slate-50 border border-slate-200 transition-all"
+        onclick="switchPassportRole('oem')"
+      >
+        ⚙️ 4. OEM / Manufacturer (BMS)
+      </button>
+    </div>
+
+    <div class="hidden sm:flex items-center gap-2 px-3 py-1 bg-white border border-slate-200 rounded-lg text-xs font-mono text-slate-600">
+      <span>Role RBAC Token:</span>
+      <span class="text-cyan-600 font-bold" id="role-token-display">EU-PUB-OPEN</span>
+    </div>
   </div>
 
-  <!-- Content Container (Spacious, Crisp & High-Contrast) -->
-  <div class="p-8 sm:p-12 bg-white min-h-[480px]">
-
-    <!-- 1. PUBLIC / CONSUMER VIEW -->
-    <div id="view-public" class="passport-view space-y-8">
-      
-      <!-- Battery Hero Header -->
-      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 p-6 sm:p-8 rounded-2xl bg-stone-50/80 border border-stone-200/80">
-        <div>
-          <div class="flex items-center gap-2 mb-2">
-            <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-stone-200 text-stone-800">EV TRACTION PACK</span>
-            <span class="text-xs font-mono text-stone-500">UID: BP-88902-EU</span>
-          </div>
-          <h4 class="text-xl sm:text-2xl font-bold text-stone-900">ApexVolt High-Density NMC 811 Pack</h4>
-          <p class="text-xs text-stone-500 mt-1">Manufacturer: Apex Energy Technologies Europe GmbH (Munich)</p>
+  <!-- Main Passport Dynamic Content Body -->
+  <div class="p-6 sm:p-8 bg-white min-h-[440px]">
+    
+    <!-- Top Battery Info Header -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-200">
+      <div>
+        <div class="flex items-center gap-2 text-xs font-mono text-slate-500 mb-1">
+          <span>Battery Model: <strong class="text-slate-900 font-semibold">APEX-EV-Pack-82kWh</strong></span>
+          <span>•</span>
+          <span>Category: <strong class="text-slate-900 font-semibold">Electric Vehicle (EV)</strong></span>
         </div>
-        <div class="text-left sm:text-right sm:border-l sm:border-stone-200 sm:pl-8">
-          <div class="text-xs text-stone-400 uppercase tracking-wider font-medium">Rated Capacity</div>
-          <div class="text-3xl font-extrabold font-mono text-stone-900">82.4 <span class="text-sm font-normal text-stone-500">kWh</span></div>
-        </div>
-      </div>
-
-      <!-- Quick Metrics Grid -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
-        <div class="p-5 rounded-2xl bg-white border border-stone-200/90 shadow-xs">
-          <div class="text-xs text-stone-500 font-medium">Carbon Footprint (PCF)</div>
-          <div class="text-2xl font-bold font-mono text-emerald-700 mt-1.5">68.2 <span class="text-xs text-stone-400 font-sans">kg CO₂e/kWh</span></div>
-          <div class="text-[11px] text-emerald-700 font-medium mt-1">Class A Rating (PEFCR)</div>
-        </div>
-        <div class="p-5 rounded-2xl bg-white border border-stone-200/90 shadow-xs">
-          <div class="text-xs text-stone-500 font-medium">Recycled Content</div>
-          <div class="text-2xl font-bold font-mono text-stone-900 mt-1.5">16.8%</div>
-          <div class="text-[11px] text-stone-500 mt-1">Co: 18% | Li: 12% | Ni: 15%</div>
-        </div>
-        <div class="p-5 rounded-2xl bg-white border border-stone-200/90 shadow-xs">
-          <div class="text-xs text-stone-500 font-medium">Expected Lifetime</div>
-          <div class="text-2xl font-bold font-mono text-stone-900 mt-1.5">3,000 <span class="text-xs text-stone-400 font-sans">Cycles</span></div>
-          <div class="text-[11px] text-stone-500 mt-1">8 Years / 160,000 km</div>
-        </div>
-        <div class="p-5 rounded-2xl bg-white border border-stone-200/90 shadow-xs">
-          <div class="text-xs text-stone-500 font-medium">Recyclability Rate</div>
-          <div class="text-2xl font-bold font-mono text-teal-700 mt-1.5">94.5%</div>
-          <div class="text-[11px] text-stone-500 mt-1">EU Directive Compliant</div>
-        </div>
-      </div>
-
-      <!-- General Consumer Instructions -->
-      <div class="p-5 rounded-2xl bg-stone-50 border border-stone-200/80 text-xs text-stone-600 space-y-2">
-        <div class="font-semibold text-stone-900 flex items-center gap-2">
-          <svg class="w-4 h-4 text-emerald-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-          Consumer End-of-Life & Safety Information
-        </div>
-        <p class="leading-relaxed font-normal">
-          This battery is designed for closed-loop recycling. At the end of vehicle life, deliver to an authorized treatment facility (ATF) in accordance with Directive 2000/53/EC. Do not dispose of as unsorted municipal waste.
+        <h3 class="text-xl sm:text-2xl font-bold text-slate-900">
+          High-Energy NMC 811 Traction Battery System
+        </h3>
+        <p class="text-xs text-slate-500 mt-1">
+          Manufacturer: <span class="font-medium text-slate-700">Apex Energy Tech SE</span> • Manufacturing Location: <span class="font-medium text-slate-700">Saxony, Germany (Plant 02)</span>
         </p>
       </div>
 
+      <!-- Verified Stamp Badge -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-green-50 border border-green-200 self-start md:self-auto">
+        <span class="text-green-700 font-bold text-sm">✓ EU Conformity Granted</span>
+      </div>
     </div>
 
-    <!-- 2. CUSTOMS & REGULATORY VIEW -->
-    <div id="view-customs" class="passport-view hidden space-y-8">
-      
-      <div class="p-5 rounded-2xl bg-emerald-50/70 border border-emerald-200 flex items-center justify-between">
-        <div class="flex items-center gap-3.5">
-          <div class="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold text-sm">✓</div>
+    <!-- VIEW 1: PUBLIC / CONSUMER VIEW -->
+    <div id="view-public" class="role-view pt-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="panel-card p-5">
+          <div class="text-xs font-mono font-medium text-slate-500 uppercase">Carbon Footprint (PCF)</div>
+          <div class="text-3xl font-extrabold text-green-700 mt-2">68.4 <span class="text-sm font-normal text-slate-500">kg CO₂e/kWh</span></div>
+          <div class="mt-3 flex items-center justify-between text-xs">
+            <span class="text-slate-600">EU Class Rating:</span>
+            <span class="px-2 py-0.5 rounded font-bold bg-green-100 text-green-700">Class A (Top 10%)</span>
+          </div>
+          <div class="mt-2 text-[11px] text-slate-500 border-t border-slate-100 pt-2">
+            Verified by: TÜV Rheinland (Audit ID: TR-2026-9908)
+          </div>
+        </div>
+
+        <div class="panel-card p-5">
+          <div class="text-xs font-mono font-medium text-slate-500 uppercase">Nominal Capacity & Voltage</div>
+          <div class="text-3xl font-extrabold text-navy-900 mt-2">82.0 <span class="text-sm font-normal text-slate-500">kWh</span></div>
+          <div class="mt-3 flex items-center justify-between text-xs">
+            <span class="text-slate-600">Rated Voltage:</span>
+            <span class="font-mono font-bold text-slate-900">800V Architecture</span>
+          </div>
+          <div class="mt-2 text-[11px] text-slate-500 border-t border-slate-100 pt-2">
+            Warranty: 8 Years / 160,000 km (>75% SOH)
+          </div>
+        </div>
+
+        <div class="panel-card p-5">
+          <div class="text-xs font-mono font-medium text-slate-500 uppercase">Circular Economy & Recycled Share</div>
+          <div class="text-3xl font-extrabold text-cyan-600 mt-2">94.2% <span class="text-sm font-normal text-slate-500">Recyclability</span></div>
+          <div class="mt-3 flex items-center justify-between text-xs">
+            <span class="text-slate-600">Recycled Cobalt:</span>
+            <span class="font-mono font-bold text-green-700">18.5% (Target >16%)</span>
+          </div>
+          <div class="mt-2 text-[11px] text-slate-500 border-t border-slate-100 pt-2">
+            Collection Point: Certified EU Take-Back Network
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- VIEW 2: CUSTOMS & AUTHORITIES VIEW -->
+    <div id="view-customs" class="role-view hidden pt-6">
+      <div class="bg-cyan-50/50 border border-cyan-200/80 rounded-xl p-4 mb-6 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <span class="text-xl">🏛️</span>
           <div>
-            <div class="text-base font-bold text-stone-900">EU Conformity & Market Access Granted</div>
-            <div class="text-xs text-stone-600">Notified Body Audit: TÜV Rheinland (ID: NB-0035-2026-BATT)</div>
+            <div class="text-xs font-semibold text-cyan-900">EU Market Surveillance & Customs Portal Mode</div>
+            <div class="text-xs text-cyan-700">Full legal compliance documents and test certificates unlocked for notified authorities.</div>
           </div>
         </div>
-        <span class="px-3 py-1 rounded-full text-xs font-mono bg-emerald-100 text-emerald-900 font-bold border border-emerald-300">CE MARKED</span>
+        <span class="px-2.5 py-1 rounded bg-cyan-100 text-cyan-700 text-xs font-mono font-bold">CLEARANCE: PASS</span>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs">
-        <div class="p-6 rounded-2xl bg-white border border-stone-200 space-y-3.5 shadow-xs">
-          <div class="font-bold text-stone-900 text-sm">Legal Compliance Dossier</div>
-          <div class="flex justify-between py-1.5 border-b border-stone-100">
-            <span class="text-stone-500">EU Regulation Articles:</span>
-            <span class="font-mono text-stone-900 font-medium">Articles 7, 8, 10, 13, 77</span>
-          </div>
-          <div class="flex justify-between py-1.5 border-b border-stone-100">
-            <span class="text-stone-500">Declaration of Conformity (DoC):</span>
-            <span class="font-mono text-stone-900 font-medium underline cursor-pointer">DoC_APEX_2026_09.pdf</span>
-          </div>
-          <div class="flex justify-between py-1.5 border-b border-stone-100">
-            <span class="text-stone-500">UN 38.3 Safety Test:</span>
-            <span class="font-mono text-emerald-700 font-semibold">PASSED (Report #TR-8812)</span>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="panel-card p-5 space-y-3">
+          <h4 class="text-sm font-bold text-slate-900 uppercase tracking-wide">Legal Compliance & Declaration of Conformity</h4>
+          <div class="space-y-2 text-xs">
+            <div class="flex justify-between py-1.5 border-b border-slate-100">
+              <span class="text-slate-500">EU Declaration of Conformity (DoC):</span>
+              <span class="font-mono text-cyan-600 font-bold">DOC-2023-1542-APEX-01.pdf (Signed)</span>
+            </div>
+            <div class="flex justify-between py-1.5 border-b border-slate-100">
+              <span class="text-slate-500">Notified Body Registration:</span>
+              <span class="font-mono text-slate-900">NB 0123 (TÜV SÜD Product Service)</span>
+            </div>
+            <div class="flex justify-between py-1.5 border-b border-slate-100">
+              <span class="text-slate-500">Safety Standard UN GTR No. 20:</span>
+              <span class="font-mono text-green-700 font-bold">PASSED (ECE R100 Rev 3)</span>
+            </div>
+            <div class="flex justify-between py-1.5">
+              <span class="text-slate-500">Transport Certification:</span>
+              <span class="font-mono text-slate-900">UN 38.3 Test Summary Verified</span>
+            </div>
           </div>
         </div>
 
-        <div class="p-6 rounded-2xl bg-white border border-stone-200 space-y-3.5 shadow-xs">
-          <div class="font-bold text-stone-900 text-sm">OECD Supply Chain Due Diligence</div>
-          <div class="flex justify-between py-1.5 border-b border-stone-100">
-            <span class="text-stone-500">Cobalt Provenance:</span>
-            <span class="font-mono text-stone-900 font-medium">RCS Global Audited (Mine ID: DRC-L-44)</span>
+        <div class="panel-card p-5 space-y-3">
+          <h4 class="text-sm font-bold text-slate-900 uppercase tracking-wide">Supply Chain Due Diligence (OECD Aligned)</h4>
+          <div class="space-y-2 text-xs">
+            <div class="flex justify-between py-1.5 border-b border-slate-100">
+              <span class="text-slate-500">Responsible Cobalt Sourcing:</span>
+              <span class="font-mono text-green-700 font-bold">Audit Pass · RMI Certified</span>
+            </div>
+            <div class="flex justify-between py-1.5 border-b border-slate-100">
+              <span class="text-slate-500">Lithium Origin Trace:</span>
+              <span class="font-mono text-slate-900">Atacama (Chile) · IRMA Audited</span>
+            </div>
+            <div class="flex justify-between py-1.5 border-b border-slate-100">
+              <span class="text-slate-500">Nickel ESG Rating:</span>
+              <span class="font-mono text-green-700 font-bold">Low Carbon Class 1 (Nordic)</span>
+            </div>
+            <div class="flex justify-between py-1.5">
+              <span class="text-slate-500">Human Rights Due Diligence (CSDDD):</span>
+              <span class="font-mono text-green-700 font-bold">Independent 3rd Party Report Attached</span>
+            </div>
           </div>
-          <div class="flex justify-between py-1.5 border-b border-stone-100">
-            <span class="text-stone-500">Lithium Origin:</span>
-            <span class="font-mono text-stone-900 font-medium">IRMA Certified (Atacama Brine)</span>
-          </div>
-          <div class="flex justify-between py-1.5 border-b border-stone-100">
-            <span class="text-stone-500">Audit Verification Hash:</span>
-            <span class="font-mono text-stone-400 truncate max-w-[150px]">0x8f3a9e...4c21b</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- 3. RECYCLER VIEW -->
-    <div id="view-recycler" class="passport-view hidden space-y-8">
-      <div class="p-6 rounded-2xl bg-stone-50 border border-stone-200/90">
-        <h5 class="text-sm font-bold text-stone-900 mb-4">Critical Raw Materials Bill of Materials (Exact Weights)</h5>
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
-          <div class="bg-white p-4 rounded-xl border border-stone-200 shadow-xs">
-            <div class="text-xs text-stone-500">Cobalt (Co)</div>
-            <div class="text-xl font-bold font-mono text-stone-900 mt-1">11.45 kg</div>
-            <div class="text-[11px] text-stone-400">2.1% of Pack</div>
-          </div>
-          <div class="bg-white p-4 rounded-xl border border-stone-200 shadow-xs">
-            <div class="text-xs text-stone-500">Lithium (Li)</div>
-            <div class="text-xl font-bold font-mono text-stone-900 mt-1">7.82 kg</div>
-            <div class="text-[11px] text-stone-400">1.4% of Pack</div>
-          </div>
-          <div class="bg-white p-4 rounded-xl border border-stone-200 shadow-xs">
-            <div class="text-xs text-stone-500">Nickel (Ni)</div>
-            <div class="text-xl font-bold font-mono text-stone-900 mt-1">48.90 kg</div>
-            <div class="text-[11px] text-stone-400">8.9% of Pack</div>
-          </div>
-          <div class="bg-white p-4 rounded-xl border border-stone-200 shadow-xs">
-            <div class="text-xs text-stone-500">Natural Graphite</div>
-            <div class="text-xl font-bold font-mono text-stone-900 mt-1">62.30 kg</div>
-            <div class="text-[11px] text-stone-400">11.3% of Pack</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-xs">
-        <div class="p-6 rounded-2xl bg-white border border-stone-200 space-y-2.5">
-          <div class="font-bold text-stone-900 text-sm">Dismantling & Extinguishing Guidelines</div>
-          <p class="text-stone-600 leading-relaxed">
-            Chemistry: LiNi0.8Mn0.1Co0.1O2. High-voltage isolation switch located at Central Tunnel Interface. In case of thermal runaway, use continuous water flooding (minimum 10,000L).
-          </p>
-        </div>
-        <div class="p-6 rounded-2xl bg-white border border-stone-200 space-y-2.5">
-          <div class="font-bold text-stone-900 text-sm">Second-Life & Repurposing Readiness</div>
-          <p class="text-stone-600 leading-relaxed">
-            Standard module architecture (8S4P). Compatible with stationary ESS BESS racking. Pinout diagrams and BMS CAN protocol specification v2.4 attached.
-          </p>
         </div>
       </div>
     </div>
 
-    <!-- 4. OEM VIEW -->
-    <div id="view-oem" class="passport-view hidden space-y-8">
-      
-      <div class="p-5 rounded-2xl bg-stone-50 border border-stone-200 grid grid-cols-1 sm:grid-cols-3 gap-6 text-xs">
-        <div>
-          <div class="text-stone-500">ZKP Privacy Shield</div>
-          <div class="text-sm font-bold text-emerald-700 mt-1">Active (Trade Secret Protected)</div>
-          <div class="text-[10px] text-stone-400">BOM pricing hidden from 3rd parties</div>
+    <!-- VIEW 3: RECYCLERS VIEW -->
+    <div id="view-recycler" class="role-view hidden pt-6">
+      <div class="bg-amber-50/60 border border-amber-200/80 rounded-xl p-4 mb-6 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <span class="text-xl">♻️</span>
+          <div>
+            <div class="text-xs font-semibold text-amber-900">Certified Dismantler & Recycler Technical Guide</div>
+            <div class="text-xs text-amber-700">Detailed chemical breakdown, safety manual and precious metal weights for end-of-life recovery.</div>
+          </div>
         </div>
-        <div>
-          <div class="text-stone-500">Real-Time BMS Telemetry Hook</div>
-          <div class="text-sm font-bold text-stone-900 mt-1">Connected (SoH: 98.4%)</div>
-          <div class="text-[10px] text-stone-400">Daily synchronization cycle</div>
-        </div>
-        <div>
-          <div class="text-stone-500">Digital Signature</div>
-          <div class="text-sm font-mono text-stone-900 mt-1 truncate">ECDSA-secp256k1 Signed</div>
-          <div class="text-[10px] text-emerald-700">Verifiable Credential (W3C VC)</div>
-        </div>
+        <span class="px-2.5 py-1 rounded bg-amber-100 text-amber-700 text-xs font-mono font-bold">RECOVERY CLASS 1</span>
       </div>
 
-      <div class="p-6 rounded-2xl bg-stone-900 border border-stone-800 font-mono text-xs text-stone-300 overflow-x-auto shadow-md">
-        <div class="text-stone-400 text-[10px] mb-2 uppercase tracking-wider">// API JSON-LD Payload (Battery Pass Standard v2.1)</div>
-        <pre class="text-stone-200 leading-relaxed">
-{`{
-  "@context": ["https://schema.eudppprovider.com/v1/batterypassport.jsonld"],
-  "id": "urn:eudpp:battery:pack:APEX-88902-2027",
-  "issuer": "did:eudpp:authority:apex-energy",
-  "issuanceDate": "2026-11-14T08:00:00Z",
-  "batteryPassportData": {
-    "carbonFootprint": {
-      "lifecycleGwpTotal": 68.2,
-      "performanceClass": "A",
-      "pefcrStandard": "PEFCR-Batteries-v2.1"
-    },
-    "provenance": {
-      "zkProofHash": "0x4e9c71a391d8e12b7a8...",
-      "dueDiligenceAudited": true
-    }
-  }
-}`}
-        </pre>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="panel-card p-5">
+          <h4 class="text-sm font-bold text-slate-900 uppercase tracking-wide mb-3">Critical Raw Materials Weight per Pack</h4>
+          <div class="space-y-2 text-xs">
+            <div class="flex justify-between py-1.5 border-b border-slate-100">
+              <span class="text-slate-600 font-medium">Cobalt (Co):</span>
+              <span class="font-mono font-bold text-slate-900">11.45 kg</span>
+            </div>
+            <div class="flex justify-between py-1.5 border-b border-slate-100">
+              <span class="text-slate-600 font-medium">Lithium (Li):</span>
+              <span class="font-mono font-bold text-slate-900">7.20 kg</span>
+            </div>
+            <div class="flex justify-between py-1.5 border-b border-slate-100">
+              <span class="text-slate-600 font-medium">Nickel (Ni):</span>
+              <span class="font-mono font-bold text-slate-900">48.60 kg</span>
+            </div>
+            <div class="flex justify-between py-1.5">
+              <span class="text-slate-600 font-medium">Natural Graphite (Anode):</span>
+              <span class="font-mono font-bold text-slate-900">62.80 kg</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-card p-5">
+          <h4 class="text-sm font-bold text-slate-900 uppercase tracking-wide mb-3">Disassembly & Fire Safety Guidance</h4>
+          <ul class="space-y-2 text-xs text-slate-600">
+            <li class="flex items-start gap-2">
+              <span class="text-green-600 font-bold">✓</span>
+              <span><strong>Enclosure Fasteners:</strong> 24x Torx Plus M8 bolts (Torque: 28 Nm). Removable without destructive cutting.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-green-600 font-bold">✓</span>
+              <span><strong>Cooling Liquid:</strong> 8.5L Water-Glycol 50/50 mix. Drain via Port B before cell removal.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-amber-600 font-bold">⚠</span>
+              <span><strong>Hazardous Components:</strong> Electrolyte contains LiPF6 (6.2%). Wear Level 3 PPE during opening.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIEW 4: OEM / BMS VIEW -->
+    <div id="view-oem" class="role-view hidden pt-6">
+      <div class="bg-navy-900 border border-navy-800 rounded-xl p-4 mb-6 flex items-center justify-between text-white">
+        <div class="flex items-center gap-3">
+          <span class="text-xl">⚙️</span>
+          <div>
+            <div class="text-xs font-semibold text-cyan-400">OEM & Vehicle Integrator Private Cloud (Catena-X)</div>
+            <div class="text-xs text-slate-300">Live battery telemetry, dynamic State of Health (SOH) and VIN synchronization.</div>
+          </div>
+        </div>
+        <span class="px-2.5 py-1 rounded bg-navy-800 text-cyan-400 text-xs font-mono font-bold border border-navy-700">LIVE TELEMETRY</span>
       </div>
 
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="panel-card p-5">
+          <div class="text-xs font-mono font-medium text-slate-500 uppercase">Current State of Health (SOH)</div>
+          <div class="text-3xl font-extrabold text-navy-900 mt-2">98.6%</div>
+          <div class="mt-2 text-xs text-slate-600">Cycle Count: <span class="font-mono font-bold text-slate-900">142 Cycles</span></div>
+          <div class="mt-2 text-[11px] text-slate-500 border-t border-slate-100 pt-2">Updated: Real-time via ISO 15118 / Cloud BMS</div>
+        </div>
+
+        <div class="panel-card p-5">
+          <div class="text-xs font-mono font-medium text-slate-500 uppercase">Vehicle VIN Pairing</div>
+          <div class="font-mono text-sm font-bold text-navy-900 mt-2">WBA1120938472910</div>
+          <div class="mt-2 text-xs text-slate-600">Model: <span class="font-bold text-slate-900">Apex GT E-SUV</span></div>
+          <div class="mt-2 text-[11px] text-slate-500 border-t border-slate-100 pt-2">OEM Digital Twin: Active</div>
+        </div>
+
+        <div class="panel-card p-5">
+          <div class="text-xs font-mono font-medium text-slate-500 uppercase">ZKP Privacy Status</div>
+          <div class="text-lg font-bold text-green-700 mt-2">Shield Active</div>
+          <div class="mt-2 text-xs text-slate-600">BOM Pricing: <span class="font-mono font-bold text-slate-500">Encrypted (Zero-Leak)</span></div>
+          <div class="mt-2 text-[11px] text-slate-500 border-t border-slate-100 pt-2">ZKP Proof: Groth16 Snark Verified</div>
+        </div>
+      </div>
     </div>
 
   </div>
 </div>
 
-<script>
-  const tabBtns = document.querySelectorAll('.passport-tab-btn');
-  const views = document.querySelectorAll('.passport-view');
+<script is:inline>
+  function switchPassportRole(role) {
+    const roles = ['public', 'customs', 'recycler', 'oem'];
+    const tokenMap = {
+      public: 'EU-PUB-OPEN',
+      customs: 'EU-AUTH-CERT-2023',
+      recycler: 'EU-REC-DISMANTLE-L1',
+      oem: 'EU-OEM-PRIVATE-KEY'
+    };
 
-  tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      tabBtns.forEach(b => {
-        b.classList.remove('active', 'bg-white', 'text-stone-900', 'border-stone-200', 'shadow-xs');
-        b.classList.add('text-stone-500', 'border-transparent');
-      });
-      btn.classList.add('active', 'bg-white', 'text-stone-900', 'border-stone-200', 'shadow-xs');
-      btn.classList.remove('text-stone-500', 'border-transparent');
-
-      const targetId = btn.getAttribute('data-target');
-      views.forEach(v => {
-        if (v.id === targetId) {
-          v.classList.remove('hidden');
+    roles.forEach(r => {
+      const view = document.getElementById(`view-${r}`);
+      const btn = document.getElementById(`tab-btn-${r}`);
+      if (view && btn) {
+        if (r === role) {
+          view.classList.remove('hidden');
+          btn.className = 'role-tab px-4 py-2 text-xs font-semibold rounded-lg bg-navy-800 text-cyan-400 border border-navy-700 shadow-sm transition-all';
         } else {
-          v.classList.add('hidden');
+          view.classList.add('hidden');
+          btn.className = 'role-tab px-4 py-2 text-xs font-semibold rounded-lg bg-white text-slate-700 hover:bg-slate-50 border border-slate-200 transition-all';
         }
-      });
+      }
     });
-  });
+
+    const tokenEl = document.getElementById('role-token-display');
+    if (tokenEl && tokenMap[role]) {
+      tokenEl.innerText = tokenMap[role];
+    }
+  }
 </script>

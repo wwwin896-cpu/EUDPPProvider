@@ -5,117 +5,117 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<div class="py-8">
-  <div class="text-center max-w-3xl mx-auto mb-16">
-    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-medium bg-stone-100 text-stone-700 border border-stone-200 mb-4">
-      Delivery Architecture
-    </div>
-    <h2 class="text-3xl sm:text-5xl font-semibold text-stone-900 tracking-tight">
-      {t('business.dual.title')}
-    </h2>
-    <p class="text-lg text-stone-500 mt-4 font-normal leading-relaxed">
-      {t('business.dual.subtitle')}
-    </p>
-  </div>
-
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 max-w-6xl mx-auto">
+<div class="py-4">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
     
-    <!-- Option 1: Buy DPP Enterprise Software -->
-    <div class="bg-white p-8 sm:p-12 rounded-3xl border border-stone-200/90 shadow-soft flex flex-col justify-between relative group hover:border-stone-400 transition-all">
-      <div class="absolute -top-3.5 left-8 px-3.5 py-1 rounded-full text-xs font-medium bg-stone-900 text-white shadow-xs">
-        {t('business.software.tag')}
-      </div>
-
+    <!-- OPTION A: Buy DPP Enterprise Software (Private Cloud / On-Premise) -->
+    <div class="panel-card p-8 sm:p-10 relative flex flex-col justify-between hover:border-cyan-500/80 transition-all group">
+      
       <div>
-        <div class="flex items-center justify-between mb-4 mt-2">
-          <h3 class="text-2xl font-bold text-stone-900">{t('business.software.title')}</h3>
-          <span class="text-xs font-mono text-stone-600 bg-stone-100 px-3 py-1 rounded-md border border-stone-200">Private Cloud / On-Prem</span>
+        <div class="flex items-center justify-between mb-4">
+          <span class="px-3 py-1 rounded-full text-xs font-semibold bg-cyan-100 text-cyan-700 font-mono">
+            Model 01 · Software License
+          </span>
+          <span class="text-xs text-slate-500 font-medium">For Battery Cell & Pack OEMs</span>
         </div>
-        <p class="text-base text-stone-500 leading-relaxed mb-8 font-normal">
-          {t('business.software.desc')}
+
+        <h3 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+          {t('pricing.software.title')}
+        </h3>
+        <p class="text-sm text-slate-500 mt-2 leading-relaxed">
+          {t('pricing.software.desc')}
         </p>
 
-        <div class="space-y-3.5 mb-10">
-          <div class="flex items-start gap-3.5 text-sm text-stone-700">
-            <svg class="w-5 h-5 text-emerald-700 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
-            <span class="leading-normal">{t('business.software.item1')}</span>
-          </div>
-          <div class="flex items-start gap-3.5 text-sm text-stone-700">
-            <svg class="w-5 h-5 text-emerald-700 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
-            <span class="leading-normal">{t('business.software.item2')}</span>
-          </div>
-          <div class="flex items-start gap-3.5 text-sm text-stone-700">
-            <svg class="w-5 h-5 text-emerald-700 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
-            <span class="leading-normal">{t('business.software.item3')}</span>
-          </div>
-          <div class="flex items-start gap-3.5 text-sm text-stone-700">
-            <svg class="w-5 h-5 text-emerald-700 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
-            <span class="leading-normal">{t('business.software.item4')}</span>
-          </div>
-        </div>
+        <div class="my-6 border-t border-slate-100"></div>
+
+        <ul class="space-y-3 text-sm text-slate-600">
+          <li class="flex items-start gap-2.5">
+            <span class="text-cyan-600 font-bold mt-0.5">✓</span>
+            <span><strong>100% Code & Data Sovereignty:</strong> Deploy in your own AWS/Azure/Alibaba Cloud EU Region.</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="text-cyan-600 font-bold mt-0.5">✓</span>
+            <span><strong>Unlimited Serialization:</strong> Zero per-passport or per-scan surcharge fees.</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="text-cyan-600 font-bold mt-0.5">✓</span>
+            <span><strong>MES / ERP / BMS Connectors:</strong> Direct API integration with plant automation.</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="text-cyan-600 font-bold mt-0.5">✓</span>
+            <span><strong>Annual Regulatory Updates:</strong> Ongoing updates for delegated EU acts.</span>
+          </li>
+        </ul>
       </div>
 
-      <div class="pt-8 border-t border-stone-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="mt-8 pt-6 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <div class="text-xs text-stone-400">Licensing Model</div>
-          <div class="text-lg font-bold text-stone-900">Annual / Enterprise License</div>
+          <div class="text-xs font-mono text-slate-500 uppercase">License Type</div>
+          <div class="text-base font-bold text-slate-900">Perpetual / Annual Enterprise</div>
         </div>
         <a
           href={`/${lang === 'en' ? '' : lang + '/'}solutions/software-license`}
-          class="w-full sm:w-auto text-center px-6 py-3.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-900 font-semibold text-sm transition-colors"
+          class="inline-flex items-center justify-center px-5 py-2.5 rounded-xl bg-navy-800 text-white font-semibold text-sm hover:bg-navy-900 transition-colors shadow-sm"
         >
-          {t('business.software.cta')} &rarr;
+          {t('pricing.software.cta')}
         </a>
       </div>
+
     </div>
 
-    <!-- Option 2: Managed DPP Data Vault Hosting -->
-    <div class="bg-white p-8 sm:p-12 rounded-3xl border-2 border-stone-900 shadow-float flex flex-col justify-between relative group">
-      <div class="absolute -top-3.5 left-8 px-3.5 py-1 rounded-full text-xs font-medium bg-emerald-800 text-white shadow-xs">
-        {t('business.hosting.tag')}
-      </div>
-
+    <!-- OPTION B: Managed DPP Data Vault (Turnkey Cloud Hosting) -->
+    <div class="panel-card p-8 sm:p-10 relative flex flex-col justify-between border-green-500/40 bg-gradient-to-b from-white to-green-50/20 hover:border-green-500 transition-all group">
+      
       <div>
-        <div class="flex items-center justify-between mb-4 mt-2">
-          <h3 class="text-2xl font-bold text-stone-900">{t('business.hosting.title')}</h3>
-          <span class="text-xs font-mono text-emerald-800 bg-emerald-50 px-3 py-1 rounded-md border border-emerald-200">Turnkey Managed Cloud</span>
+        <div class="flex items-center justify-between mb-4">
+          <span class="px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-700 font-mono">
+            Model 02 · Managed Vault
+          </span>
+          <span class="text-xs text-green-700 font-bold">Fastest Time-to-Market</span>
         </div>
-        <p class="text-base text-stone-500 leading-relaxed mb-8 font-normal">
-          {t('business.hosting.desc')}
+
+        <h3 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+          {t('pricing.hosting.title')}
+        </h3>
+        <p class="text-sm text-slate-500 mt-2 leading-relaxed">
+          {t('pricing.hosting.desc')}
         </p>
 
-        <div class="space-y-3.5 mb-10">
-          <div class="flex items-start gap-3.5 text-sm text-stone-700">
-            <svg class="w-5 h-5 text-emerald-700 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
-            <span class="leading-normal">{t('business.hosting.item1')}</span>
-          </div>
-          <div class="flex items-start gap-3.5 text-sm text-stone-700">
-            <svg class="w-5 h-5 text-emerald-700 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
-            <span class="leading-normal">{t('business.hosting.item2')}</span>
-          </div>
-          <div class="flex items-start gap-3.5 text-sm text-stone-700">
-            <svg class="w-5 h-5 text-emerald-700 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
-            <span class="leading-normal">{t('business.hosting.item3')}</span>
-          </div>
-          <div class="flex items-start gap-3.5 text-sm text-stone-700">
-            <svg class="w-5 h-5 text-emerald-700 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
-            <span class="leading-normal">{t('business.hosting.item4')}</span>
-          </div>
-        </div>
+        <div class="my-6 border-t border-slate-100"></div>
+
+        <ul class="space-y-3 text-sm text-slate-600">
+          <li class="flex items-start gap-2.5">
+            <span class="text-green-600 font-bold mt-0.5">✓</span>
+            <span><strong>Turnkey EU Sovereign Vault:</strong> Hosted in ISO 27001 certified Frankfurt/Munich nodes.</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="text-green-600 font-bold mt-0.5">✓</span>
+            <span><strong>ZKP Trade Secret Shield:</strong> Prove compliance without exposing raw BOM or pricing.</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="text-green-600 font-bold mt-0.5">✓</span>
+            <span><strong>Full-Service PCF Calculation:</strong> Our LCA engineers handle PEFCR data modeling.</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="text-green-600 font-bold mt-0.5">✓</span>
+            <span><strong>Dedicated SLA & Support:</strong> 99.99% uptime guarantee with GS1 QR resolution.</span>
+          </li>
+        </ul>
       </div>
 
-      <div class="pt-8 border-t border-stone-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="mt-8 pt-6 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <div class="text-xs text-stone-400">Hosting Model</div>
-          <div class="text-lg font-bold text-emerald-800">Per-Passport / Managed Vault</div>
+          <div class="text-xs font-mono text-slate-500 uppercase">Billing Structure</div>
+          <div class="text-base font-bold text-green-700">Tiered Volume / Predictable SaaS</div>
         </div>
         <a
           href={`/${lang === 'en' ? '' : lang + '/'}solutions/managed-data-hosting`}
-          class="w-full sm:w-auto text-center px-6 py-3.5 rounded-xl bg-stone-900 text-white hover:bg-stone-800 font-semibold text-sm transition-colors shadow-xs"
+          class="inline-flex items-center justify-center px-5 py-2.5 rounded-xl bg-green-700 text-white font-semibold text-sm hover:bg-green-800 transition-colors shadow-sm"
         >
-          {t('business.hosting.cta')} &rarr;
+          {t('pricing.hosting.cta')}
         </a>
       </div>
+
     </div>
 
   </div>

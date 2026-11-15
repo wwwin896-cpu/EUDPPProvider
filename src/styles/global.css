@@ -1,31 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --navy-900: #061A2B;
+    --navy-800: #0A2540;
+    --navy-700: #0E3257;
+    --navy-600: #14456F;
+    --navy-500: #1B5C8F;
+    --navy-400: #2E78B0;
+    --green-700: #17734E;
+    --green-600: #1E8A5F;
+    --green-500: #27A56F;
+    --green-100: #DCF0E5;
+    --cyan-600: #0B7FA3;
+    --cyan-500: #0E9BC4;
+    --cyan-100: #DBF0F7;
+    --amber-600: #A85F12;
+    --amber-500: #C9791E;
+    --amber-100: #FBEAD2;
+    --gold-500: #B08D3E;
+    --white: #FFFFFF;
+    --s-50: #F7F9FB;
+    --s-100: #EEF2F6;
+    --s-200: #DCE3EA;
+    --s-300: #C2CDD6;
+    --s-500: #6B7A89;
+    --s-600: #52606D;
+    --s-700: #3C4A57;
+    --s-900: #14212B;
+    --danger-600: #B42318;
+    --info-600: #1B5C8F;
+  }
+
   html {
     scroll-behavior: smooth;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
   body {
-    @apply bg-stone-50 text-stone-900 font-sans antialiased selection:bg-stone-900 selection:text-white;
+    background-color: var(--s-50);
+    color: var(--s-900);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    line-height: 1.5;
     min-height: 100vh;
   }
 }
 
 @layer utilities {
-  .minimal-card {
-    @apply bg-white border border-stone-200/80 rounded-2xl md:rounded-3xl shadow-soft transition-all duration-300;
+  .hero-gradient {
+    background:
+      radial-gradient(1200px 480px at 82% -8%, rgba(14, 155, 196, 0.28), transparent 60%),
+      radial-gradient(900px 420px at 8% 110%, rgba(39, 165, 111, 0.20), transparent 60%),
+      linear-gradient(160deg, #061A2B 0%, #0A2540 46%, #0E3257 100%);
   }
-  .minimal-card-hover {
-    @apply hover:border-stone-300 hover:shadow-float;
+
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #0B7FA3;
   }
-  .pill-badge {
-    @apply inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium bg-stone-100 text-stone-700 border border-stone-200/80;
+
+  .panel-card {
+    background-color: #FFFFFF;
+    border: 1px solid #DCE3EA;
+    border-radius: 16px;
+    box-shadow: 0 1px 3px rgba(6, 26, 43, 0.04);
   }
-  .pill-badge-emerald {
-    @apply inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium bg-emerald-50 text-emerald-800 border border-emerald-200/70;
+
+  .feature-card {
+    background: linear-gradient(180deg, #FFFFFF, #FBFCFD);
+    border: 1px solid #DCE3EA;
+    border-radius: 14px;
+    box-shadow: 0 1px 3px rgba(6, 26, 43, 0.04);
+    transition: all 0.2s ease-in-out;
+  }
+
+  .feature-card:hover {
+    border-color: #0E9BC4;
+    box-shadow: 0 8px 24px rgba(11, 127, 163, 0.08);
+    transform: translateY(-2px);
+  }
+
+  .tag-ok {
+    background-color: #DCF0E5;
+    color: #17734E;
+  }
+
+  .tag-cy {
+    background-color: #DBF0F7;
+    color: #0B7FA3;
+  }
+
+  .tag-am {
+    background-color: #FBEAD2;
+    color: #A85F12;
+  }
+
+  .tag-danger {
+    background-color: #F7E3E1;
+    color: #B42318;
+  }
+
+  .btn-primary-cyan {
+    background-color: #0E9BC4;
+    color: #04202B;
+    font-weight: 600;
+    border-radius: 10px;
+    padding: 12px 22px;
+    transition: all 0.2s ease;
+  }
+
+  .btn-primary-cyan:hover {
+    background-color: #12abd6;
+    box-shadow: 0 4px 14px rgba(14, 155, 196, 0.35);
+  }
+
+  .btn-ghost-hero {
+    background: transparent;
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-weight: 600;
+    border-radius: 10px;
+    padding: 12px 22px;
+    transition: all 0.2s ease;
+  }
+
+  .btn-ghost-hero:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.6);
   }
 }
