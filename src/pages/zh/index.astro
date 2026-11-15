@@ -11,7 +11,7 @@ const t = useTranslations(lang);
 
 <Layout
   title="EU DPP Provider | 欧盟电池护照 (EU Battery Passport) 企业合规与数据托管服务商"
-  description="面向中国出海动力电池、储能系统及上游材料企业的欧盟电池护照（EU 2023/1542法规）一站式数字化合规系统。支持企业软件采购部署与数据安全托管。"
+  description="把电池护照做成一条能过审的数据链。单型号6周试点交付、欧盟70+与国内96项双重合规、原始数据不出境、零知识证明保护配方机密。"
 >
 
   <!-- ==================== HERO SECTION (Sovereign Navy 渐变) ==================== -->
@@ -21,19 +21,19 @@ const t = useTranslations(lang);
       <div class="max-w-4xl">
         <!-- Top Pill Badge -->
         <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase text-cyan-200 bg-white/[0.06] border border-white/[0.14] mb-6">
-          <span class="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></span>
+          <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
           <span>欧盟新电池法 EU 2023/1542 · 电池护照权威合规平台</span>
         </div>
 
         <!-- Headline -->
         <h1 class="text-4xl sm:text-6xl lg:text-[58px] font-extrabold tracking-tight leading-[1.12] text-white">
-          面向全球供应链的 <br class="hidden sm:inline" />
-          <em class="not-italic text-cyan-500">欧盟电池护照</em> 数字化合规系统
+          把电池护照做成一条 <br class="hidden sm:inline" />
+          <em class="not-italic text-cyan-500">能过审的数据链</em>
         </h1>
 
         <!-- Lead -->
         <p class="mt-6 text-lg sm:text-[19px] leading-relaxed text-white/75 max-w-2xl font-normal">
-          专为出海欧洲的动力电池、储能系统（>2kWh）及上游核心材料供应商打造。提供「企业独立软件采购」与「欧盟主权数据托管代维」双轨服务，依托零知识证明（ZKP）保护核心配方商业机密。
+          二维码只是入口，能过审的，是它背后那条链。<strong>我们用一个型号、六周时间先证明这件事</strong>——支持欧盟 70+ 项与国内 96 项双重对齐，原始数据不出境，零知识证明保护核心配方。
         </p>
 
         <!-- CTA Row -->
@@ -42,17 +42,17 @@ const t = useTranslations(lang);
             href={`/${lang === 'en' ? '' : lang + '/'}contact`}
             class="btn-primary-cyan inline-flex items-center gap-2 shadow-lg"
           >
-            <span>预约专家技术演示</span>
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
+            <span>申请 6 周单型号试点交付 →</span>
           </a>
           
           <a
-            href={`/${lang === 'en' ? '' : lang + '/'}pricing`}
+            href="mailto:info@eudppprovider.com"
             class="btn-ghost-hero inline-flex items-center gap-2"
           >
-            <span>对比软件采购 vs 数据托管</span>
+            <svg class="w-4 h-4 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <span>官方对接：info@eudppprovider.com</span>
           </a>
         </div>
       </div>
@@ -60,21 +60,97 @@ const t = useTranslations(lang);
       <!-- 4-Column Metrics Bar -->
       <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-0 border border-white/[0.12] rounded-2xl overflow-hidden bg-white/[0.03] backdrop-blur-sm">
         <div class="p-5 sm:p-6 border-b sm:border-b-0 border-r border-white/[0.1]">
-          <div class="font-mono text-xs uppercase tracking-wider text-cyan-500 font-semibold">法规合规标准</div>
-          <div class="text-base sm:text-lg font-semibold text-white mt-1.5">EU 2023/1542 · 第77条</div>
+          <div class="font-mono text-xs uppercase tracking-wider text-cyan-500 font-semibold">快速试点周期</div>
+          <div class="text-base sm:text-lg font-semibold text-white mt-1.5">6周出首个可扫码护照</div>
         </div>
         <div class="p-5 sm:p-6 border-b sm:border-b-0 md:border-r border-white/[0.1]">
-          <div class="font-mono text-xs uppercase tracking-wider text-cyan-500 font-semibold">产线赋码规范</div>
-          <div class="text-base sm:text-lg font-semibold text-white mt-1.5">GS1 Digital Link 2D</div>
+          <div class="font-mono text-xs uppercase tracking-wider text-cyan-500 font-semibold">双轨法规对齐</div>
+          <div class="text-base sm:text-lg font-semibold text-white mt-1.5">欧盟70+项 & 国内96项</div>
         </div>
         <div class="p-5 sm:p-6 border-r border-white/[0.1]">
           <div class="font-mono text-xs uppercase tracking-wider text-cyan-500 font-semibold">配方商业保密</div>
           <div class="text-base sm:text-lg font-semibold text-white mt-1.5">零知识证明 (ZKP)</div>
         </div>
         <div class="p-5 sm:p-6">
-          <div class="font-mono text-xs uppercase tracking-wider text-cyan-500 font-semibold">欧洲数据主权</div>
-          <div class="text-base sm:text-lg font-semibold text-white mt-1.5">Catena-X 协议互通</div>
+          <div class="font-mono text-xs uppercase tracking-wider text-cyan-500 font-semibold">托管服务 SLA</div>
+          <div class="text-base sm:text-lg font-semibold text-white mt-1.5">十年起步 · 99.9%可用性</div>
         </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 六周落地方法论 ==================== -->
+  <section class="py-20 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="eyebrow mb-2">01 · 单型号六周交付路径</div>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
+          从字段盘点到拿到欧盟注册簿回执
+        </h2>
+        <p class="mt-4 text-base text-slate-500 leading-relaxed">
+          先用一个型号跑通全流程，阶段成果逐项验收，不达标不进入下一阶段，把合规确定性握在手里。
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+        
+        <div class="panel-card p-5 border-t-4 border-t-cyan-500">
+          <div class="font-mono text-xs font-bold text-cyan-600 mb-1">第 1 周</div>
+          <h4 class="text-sm font-bold text-slate-900 mb-2">字段盘点</h4>
+          <p class="text-xs text-slate-500 leading-relaxed">
+            对照欧盟附件 XIII 与国内 96 项做差距表，标出无主字段与系统归属。
+          </p>
+          <div class="mt-3 text-[11px] font-mono text-cyan-700 bg-cyan-50 px-2 py-1 rounded">
+            → 字段—系统—责任人矩阵
+          </div>
+        </div>
+
+        <div class="panel-card p-5 border-t-4 border-t-cyan-600">
+          <div class="font-mono text-xs font-bold text-cyan-600 mb-1">第 2 周</div>
+          <h4 class="text-sm font-bold text-slate-900 mb-2">数据建模</h4>
+          <p class="text-xs text-slate-500 leading-relaxed">
+            映射到七大字段域，定下口径与校验规则，冻结映射关系。
+          </p>
+          <div class="mt-3 text-[11px] font-mono text-cyan-700 bg-cyan-50 px-2 py-1 rounded">
+            → 统一模型与映射表
+          </div>
+        </div>
+
+        <div class="panel-card p-5 border-t-4 border-t-navy-600">
+          <div class="font-mono text-xs font-bold text-navy-600 mb-1">第 3–4 周</div>
+          <h4 class="text-sm font-bold text-slate-900 mb-2">系统只读接入</h4>
+          <p class="text-xs text-slate-500 leading-relaxed">
+            部署 MES、ERP、PLM、BMS 只读连接器，增量同步与异常告警上线。
+          </p>
+          <div class="mt-3 text-[11px] font-mono text-navy-800 bg-slate-100 px-2 py-1 rounded">
+            → 取数任务与监控看板
+          </div>
+        </div>
+
+        <div class="panel-card p-5 border-t-4 border-t-amber-500">
+          <div class="font-mono text-xs font-bold text-amber-600 mb-1">第 5 周</div>
+          <h4 class="text-sm font-bold text-slate-900 mb-2">对账与完整度</h4>
+          <p class="text-xs text-slate-500 leading-relaxed">
+            抽样比对、缺项回填，完整度 ≥95% 门槛达标才允许放行。
+          </p>
+          <div class="mt-3 text-[11px] font-mono text-amber-700 bg-amber-50 px-2 py-1 rounded">
+            → 字段完整度报告 (≥95%)
+          </div>
+        </div>
+
+        <div class="panel-card p-5 border-t-4 border-t-green-600">
+          <div class="font-mono text-xs font-bold text-green-700 mb-1">第 6 周</div>
+          <h4 class="text-sm font-bold text-slate-900 mb-2">发布与登记</h4>
+          <p class="text-xs text-slate-500 leading-relaxed">
+            生成四级分权护照，完成欧盟中央 DPP 注册簿登记并交付回执。
+          </p>
+          <div class="mt-3 text-[11px] font-mono text-green-800 bg-green-50 px-2 py-1 rounded">
+            → 可扫码护照 + 官方登记回执
+          </div>
+        </div>
+
       </div>
 
     </div>
@@ -85,7 +161,7 @@ const t = useTranslations(lang);
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-3xl mx-auto mb-14">
-        <div class="eyebrow mb-2">01 · 真实交互体验</div>
+        <div class="eyebrow mb-2">02 · 真实交互体验</div>
         <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
           体验四级角色分权电池护照系统
         </h2>
@@ -108,12 +184,69 @@ const t = useTranslations(lang);
     </div>
   </section>
 
-  <!-- ==================== 双轨交付模式 ==================== -->
+  <!-- ==================== 中欧双重合规与数据出境安全 ==================== -->
+  <section class="py-20 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="eyebrow mb-2">03 · 跨国数据主权治理</div>
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
+            原始数据不出境，出门的只有披露字段
+          </h2>
+          <p class="mt-4 text-slate-600 text-base leading-relaxed">
+            针对出海制造企业对《数据安全法》《个人信息保护法》数据出境红线的担忧，我们采用境内计算与字段级白名单引擎，境外仅存储披露字段与访问地址。
+          </p>
+
+          <div class="mt-6 space-y-3 text-sm text-slate-600">
+            <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-xl border border-slate-200">
+              <span class="text-cyan-600 font-bold">01</span>
+              <span><strong>字段级分类分级：</strong> 公开、监管、合法利益、禁止出境四级，各有明确审批人。</span>
+            </div>
+            <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-xl border border-slate-200">
+              <span class="text-green-600 font-bold">02</span>
+              <span><strong>白名单规则引擎：</strong> 只有登记过的披露字段能出境，新增字段默认全部拒绝。</span>
+            </div>
+            <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-xl border border-slate-200">
+              <span class="text-amber-600 font-bold">03</span>
+              <span><strong>全量审计回放：</strong> 每次访问与导出均留痕，监管问询可完整重放操作证据。</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-card p-8 bg-slate-50">
+          <h3 class="text-lg font-bold text-slate-900 mb-4 flex items-center justify-between">
+            <span>两套监管体系 · 一次采集两处复用</span>
+            <span class="text-xs font-mono font-bold px-2 py-0.5 bg-cyan-100 text-cyan-800 rounded">降本70%</span>
+          </h3>
+
+          <div class="space-y-4 text-xs">
+            <div class="p-3 bg-white rounded-xl border border-slate-200">
+              <div class="font-bold text-slate-900 text-sm mb-1">🇪🇺 欧盟电池护照 (Regulation EU 2023/1542)</div>
+              <p class="text-slate-500">70 余项数据点：涵盖材料成分、PEFCR 碳足迹、OECD 供应链尽调、SOH 健康状态，GS1 UPI 注册簿登记。</p>
+            </div>
+
+            <div class="p-3 bg-white rounded-xl border border-slate-200">
+              <div class="font-bold text-slate-900 text-sm mb-1">🇨🇳 国内动力电池数字身份证 (24位编码体系)</div>
+              <p class="text-slate-500">96 项信息：54 项基础、24 项运维、18 项回收，直连全国新能源汽车废旧动力电池溯源综合平台。</p>
+            </div>
+
+            <div class="p-3 bg-green-50 rounded-xl border border-green-200 text-green-900 font-medium">
+              💡 <strong>核心技术价值：</strong> 材料、性能、维修、回收共用一套底层主数据模型，企业无需为国内外双重合规重复支付两套系统对接与采集成本。
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 交付模式 ==================== -->
   <section class="py-20 bg-slate-50 border-b border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-3xl mx-auto mb-14">
-        <div class="eyebrow mb-2">02 · 商业合作模式</div>
+        <div class="eyebrow mb-2">04 · 商业合作模式</div>
         <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
           两种交付方案：软件采购 或 数据安全托管
         </h2>
@@ -127,67 +260,6 @@ const t = useTranslations(lang);
     </div>
   </section>
 
-  <!-- ==================== 核心能力 ==================== -->
-  <section class="py-20 bg-white border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <div class="eyebrow mb-2">03 · 核心技术引擎</div>
-        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
-          为工业级大批量合规而生的技术底座
-        </h2>
-        <p class="mt-4 text-base text-slate-500 leading-relaxed">
-          从摇篮到大门的碳足迹模型、上游供应链隐私加密协同，到产线毫秒级激光二维码赋码。
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        
-        <div class="feature-card p-6">
-          <div class="w-10 h-10 rounded-xl bg-navy-800 text-cyan-500 flex items-center justify-center font-bold text-lg mb-5">
-            ⚡
-          </div>
-          <h4 class="text-lg font-semibold text-slate-900 mb-2">PCF 电池碳足迹引擎</h4>
-          <p class="text-sm text-slate-500 leading-relaxed">
-            严格按照欧盟 PEFCR 方法学与 ISO 14040/44 标准，自动化建立电芯与电池包 LCA 碳足迹模型。
-          </p>
-        </div>
-
-        <div class="feature-card p-6">
-          <div class="w-10 h-10 rounded-xl bg-navy-800 text-green-500 flex items-center justify-center font-bold text-lg mb-5">
-            🔒
-          </div>
-          <h4 class="text-lg font-semibold text-slate-900 mb-2">零知识证明隐私保护</h4>
-          <p class="text-sm text-slate-500 leading-relaxed">
-            上游材料厂商可在不向车企暴露专有化学配方与采购成本的前提下，向欧盟监管机构完成数据证明。
-          </p>
-        </div>
-
-        <div class="feature-card p-6">
-          <div class="w-10 h-10 rounded-xl bg-navy-800 text-cyan-500 flex items-center justify-center font-bold text-lg mb-5">
-            🏷️
-          </div>
-          <h4 class="text-lg font-semibold text-slate-900 mb-2">GS1 Digital Link 赋码</h4>
-          <p class="text-sm text-slate-500 leading-relaxed">
-            支持与产线 MES/激光打码机无缝对接，生成唯一 GS1 二维码，毫秒级全球分布式解析。
-          </p>
-        </div>
-
-        <div class="feature-card p-6">
-          <div class="w-10 h-10 rounded-xl bg-navy-800 text-amber-500 flex items-center justify-center font-bold text-lg mb-5">
-            🌐
-          </div>
-          <h4 class="text-lg font-semibold text-slate-900 mb-2">Catena-X 协议互通</h4>
-          <p class="text-sm text-slate-500 leading-relaxed">
-            原生兼容欧洲汽车数据空间、Battery Pass Consortium 行业标准及 Cirpass 数字护照节点。
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
   <!-- ==================== 底部 CTA ==================== -->
   <section class="py-20 hero-gradient text-white">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -195,17 +267,17 @@ const t = useTranslations(lang);
         2027 年强制合规倒计时中
       </span>
       <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
-        在数周内完成您的欧盟电池护照部署
+        从一个试点型号开始，6周先见结果
       </h2>
       <p class="mt-5 text-lg text-white/75 max-w-2xl mx-auto">
-        联系我们的资深合规工程师，评估企业电池数据就绪度，获取定制化系统演示或数据托管方案。
+        用一份能过审的电池护照，回答所有关于能力和承诺的问题。
       </p>
       <div class="mt-8 flex flex-wrap justify-center gap-4">
-        <a href={`/${lang === 'en' ? '' : lang + '/'}contact`} class="btn-primary-cyan">
-          立即预约技术咨询 →
+        <a href="mailto:info@eudppprovider.com" class="btn-primary-cyan">
+          官方业务邮箱：info@eudppprovider.com
         </a>
-        <a href={`/${lang === 'en' ? '' : lang + '/'}compliance/eu-battery-regulation-2023-1542`} class="btn-ghost-hero">
-          查看 EU 2023/1542 合规指南
+        <a href={`/${lang === 'en' ? '' : lang + '/'}about`} class="btn-ghost-hero">
+          了解我们的工程团队与背景 →
         </a>
       </div>
     </div>
