@@ -13,92 +13,88 @@ const t = useTranslations(lang);
   title="EU DPP Provider | Enterprise EU Battery Passport Software & Managed Data Vault"
   description="Turnkey EU Battery Passport compliance platform (Regulation EU 2023/1542). Enterprise software license or fully managed DPP data hosting with Zero-Knowledge BOM protection."
 >
-  <!-- Hero Section -->
-  <section class="relative pt-16 pb-20 overflow-hidden bg-radial-gradient">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  <!-- Hero Section (Airy, Editorial, Swiss Minimalist Typography) -->
+  <section class="relative pt-24 pb-28 md:pt-32 md:pb-36 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10 text-center">
       
-      <div class="text-center max-w-4xl mx-auto space-y-6">
-        
-        <!-- Regulation Badge -->
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-brand-500/10 text-brand-300 border border-brand-500/20 shadow-inner">
-          <span class="w-2 h-2 rounded-full bg-accent-emerald animate-pulse"></span>
-          <span>{t('hero.badge')}</span>
+      <!-- Regulatory Pill Badge -->
+      <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs font-medium bg-stone-100 text-stone-700 border border-stone-200/90 shadow-xs mb-8">
+        <span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+        <span>{t('hero.badge')}</span>
+      </div>
+
+      <!-- Hero Headline (Large, confident, refined) -->
+      <h1 class="text-4xl sm:text-6xl lg:text-7xl font-semibold text-stone-900 tracking-tighter leading-[1.1] max-w-5xl mx-auto">
+        {t('hero.title.prefix')} <br class="hidden sm:inline" />
+        <span class="text-stone-900 underline decoration-stone-300 underline-offset-8">
+          {t('hero.title.highlight')}
+        </span> <br class="hidden sm:inline" />
+        {t('hero.title.suffix')}
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="text-lg sm:text-xl lg:text-2xl text-stone-600 max-w-3xl mx-auto mt-8 leading-relaxed font-normal">
+        {t('hero.subtitle')}
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-10">
+        <a
+          href="/contact"
+          class="w-full sm:w-auto px-8 py-4 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-medium text-base shadow-soft hover:shadow-float transition-all hover:scale-[1.01]"
+        >
+          {t('hero.cta.primary')} &rarr;
+        </a>
+        <a
+          href="/pricing"
+          class="w-full sm:w-auto px-8 py-4 rounded-xl bg-white border border-stone-200/90 hover:bg-stone-50 text-stone-800 font-medium text-base shadow-soft transition-colors"
+        >
+          {t('hero.cta.secondary')}
+        </a>
+      </div>
+
+      <!-- Trust Badges (Minimalist Grid) -->
+      <div class="pt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto text-left">
+        <div class="p-5 rounded-2xl bg-white border border-stone-200/80 shadow-xs">
+          <div class="text-xs text-stone-400 font-medium">Compliance Target</div>
+          <div class="text-sm font-semibold text-stone-900 mt-1">EU 2023/1542 (Art. 77)</div>
         </div>
-
-        <!-- Hero Headline -->
-        <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-[1.15]">
-          {t('hero.title.prefix')} <br />
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-accent-cyan to-accent-emerald text-glow">
-            {t('hero.title.highlight')}
-          </span> <br />
-          {t('hero.title.suffix')}
-        </h1>
-
-        <!-- Subtitle -->
-        <p class="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-          {t('hero.subtitle')}
-        </p>
-
-        <!-- CTA Buttons -->
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-          <a
-            href="/contact"
-            class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-500 via-accent-teal to-accent-emerald text-white font-bold text-base shadow-xl shadow-brand-500/25 hover:opacity-95 hover:scale-[1.02] transition-all"
-          >
-            {t('hero.cta.primary')} &rarr;
-          </a>
-          <a
-            href="/pricing"
-            class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900/90 border border-slate-700/80 hover:bg-slate-800 text-slate-200 font-semibold text-base transition-colors"
-          >
-            {t('hero.cta.secondary')}
-          </a>
+        <div class="p-5 rounded-2xl bg-white border border-stone-200/80 shadow-xs">
+          <div class="text-xs text-stone-400 font-medium">Serialization Protocol</div>
+          <div class="text-sm font-semibold text-stone-900 mt-1">GS1 Digital Link 2D</div>
         </div>
-
-        <!-- Trust & Compliance Badges -->
-        <div class="pt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto text-left">
-          <div class="p-3 rounded-xl bg-slate-900/40 border border-slate-800/80">
-            <div class="text-xs text-slate-400">Compliance Standard</div>
-            <div class="text-sm font-bold text-white mt-0.5">EU 2023/1542 (Art. 77)</div>
-          </div>
-          <div class="p-3 rounded-xl bg-slate-900/40 border border-slate-800/80">
-            <div class="text-xs text-slate-400">Serialization Protocol</div>
-            <div class="text-sm font-bold text-brand-400 mt-0.5">GS1 Digital Link 2D</div>
-          </div>
-          <div class="p-3 rounded-xl bg-slate-900/40 border border-slate-800/80">
-            <div class="text-xs text-slate-400">Data Protection</div>
-            <div class="text-sm font-bold text-accent-emerald mt-0.5">Zero-Knowledge Proofs</div>
-          </div>
-          <div class="p-3 rounded-xl bg-slate-900/40 border border-slate-800/80">
-            <div class="text-xs text-slate-400">Ecosystem Alignment</div>
-            <div class="text-sm font-bold text-accent-teal mt-0.5">Catena-X & Battery Pass</div>
-          </div>
+        <div class="p-5 rounded-2xl bg-white border border-stone-200/80 shadow-xs">
+          <div class="text-xs text-stone-400 font-medium">Trade Secret Shield</div>
+          <div class="text-sm font-semibold text-emerald-800 mt-1">Zero-Knowledge Proofs</div>
         </div>
-
+        <div class="p-5 rounded-2xl bg-white border border-stone-200/80 shadow-xs">
+          <div class="text-xs text-stone-400 font-medium">Data Sovereignty</div>
+          <div class="text-sm font-semibold text-stone-900 mt-1">Catena-X Aligned</div>
+        </div>
       </div>
 
     </div>
   </section>
 
-  <!-- Countdown & Regulatory Milestone Section -->
-  <section class="py-12 bg-slate-950">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- Countdown & Regulatory Roadmap -->
+  <section class="py-16 md:py-24 bg-stone-100/60 border-y border-stone-200/80">
+    <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
       <ComplianceCountdown />
     </div>
   </section>
 
   <!-- Interactive Digital Battery Passport Simulation -->
-  <section class="py-20 bg-slate-900/40 border-y border-slate-900">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section class="py-24 md:py-32 bg-stone-50">
+    <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
       
-      <div class="text-center max-w-3xl mx-auto mb-12">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-accent-emerald/10 text-accent-emerald border border-accent-emerald/20 mb-3">
-          Live Interactive Simulator
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-medium bg-stone-100 text-stone-700 border border-stone-200 mb-4">
+          Interactive Simulation
         </div>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+        <h2 class="text-3xl sm:text-5xl font-semibold text-stone-900 tracking-tight">
           {t('viewer.title')}
         </h2>
-        <p class="text-base text-slate-400 mt-3">
+        <p class="text-lg text-stone-500 mt-3 font-normal leading-relaxed">
           {t('viewer.subtitle')}
         </p>
       </div>
@@ -108,64 +104,64 @@ const t = useTranslations(lang);
     </div>
   </section>
 
-  <!-- Dual Delivery Model: Software License vs Data Hosting -->
-  <section class="py-20 bg-slate-950">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- Dual Delivery Model -->
+  <section class="py-24 md:py-32 bg-stone-100/60 border-y border-stone-200/80">
+    <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
       <PricingCalculator />
     </div>
   </section>
 
   <!-- 4 Core Pillars of Technical Superiority -->
-  <section class="py-20 bg-slate-900/30 border-t border-slate-900">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section class="py-24 md:py-32 bg-stone-50">
+    <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
       
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-brand-500/10 text-brand-400 border border-brand-500/20 mb-3">
-          Enterprise Capabilities
+      <div class="text-center max-w-3xl mx-auto mb-20">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-medium bg-stone-100 text-stone-700 border border-stone-200 mb-4">
+          Technical Architecture
         </div>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+        <h2 class="text-3xl sm:text-5xl font-semibold text-stone-900 tracking-tight">
           Engineered for High-Throughput Battery Supply Chains
         </h2>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
         
-        <div class="glass-card p-6 border border-slate-800 space-y-3">
-          <div class="w-12 h-12 rounded-xl bg-brand-500/20 text-brand-400 flex items-center justify-center font-bold text-xl">
+        <div class="bg-white p-8 rounded-3xl border border-stone-200/80 shadow-soft space-y-4">
+          <div class="w-12 h-12 rounded-2xl bg-stone-100 text-stone-800 flex items-center justify-center font-bold text-xl">
             🌱
           </div>
-          <h3 class="text-lg font-bold text-white">Automated PCF Carbon Engine</h3>
-          <p class="text-xs text-slate-400 leading-relaxed">
+          <h3 class="text-lg font-bold text-stone-900">Automated PCF Carbon Engine</h3>
+          <p class="text-sm text-stone-500 leading-relaxed font-normal">
             PEFCR-compliant lifecycle greenhouse gas calculations across Raw Material, Manufacturing, Distribution, and Recycling stages.
           </p>
         </div>
 
-        <div class="glass-card p-6 border border-slate-800 space-y-3">
-          <div class="w-12 h-12 rounded-xl bg-accent-emerald/20 text-accent-emerald flex items-center justify-center font-bold text-xl">
+        <div class="bg-white p-8 rounded-3xl border border-stone-200/80 shadow-soft space-y-4">
+          <div class="w-12 h-12 rounded-2xl bg-stone-100 text-stone-800 flex items-center justify-center font-bold text-xl">
             🔒
           </div>
-          <h3 class="text-lg font-bold text-white">Zero-Knowledge BOM Privacy</h3>
-          <p class="text-xs text-slate-400 leading-relaxed">
+          <h3 class="text-lg font-bold text-stone-900">Zero-Knowledge BOM Privacy</h3>
+          <p class="text-sm text-stone-500 leading-relaxed font-normal">
             Suppliers prove regulatory compliance and material origins without exposing proprietary chemical formulas or commercial procurement pricing.
           </p>
         </div>
 
-        <div class="glass-card p-6 border border-slate-800 space-y-3">
-          <div class="w-12 h-12 rounded-xl bg-accent-cyan/20 text-accent-cyan flex items-center justify-center font-bold text-xl">
+        <div class="bg-white p-8 rounded-3xl border border-stone-200/80 shadow-soft space-y-4">
+          <div class="w-12 h-12 rounded-2xl bg-stone-100 text-stone-800 flex items-center justify-center font-bold text-xl">
             🏷️
           </div>
-          <h3 class="text-lg font-bold text-white">High-Speed GS1 Serialization</h3>
-          <p class="text-xs text-slate-400 leading-relaxed">
+          <h3 class="text-lg font-bold text-stone-900">High-Speed GS1 Serialization</h3>
+          <p class="text-sm text-stone-500 leading-relaxed font-normal">
             Laser-etching & 2D QR code generation at 120+ packs/min. Native GS1 Digital Link resolver with global low-latency CDN routing.
           </p>
         </div>
 
-        <div class="glass-card p-6 border border-slate-800 space-y-3">
-          <div class="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-xl">
+        <div class="bg-white p-8 rounded-3xl border border-stone-200/80 shadow-soft space-y-4">
+          <div class="w-12 h-12 rounded-2xl bg-stone-100 text-stone-800 flex items-center justify-center font-bold text-xl">
             ⚖️
           </div>
-          <h3 class="text-lg font-bold text-white">OECD Due Diligence Tracker</h3>
-          <p class="text-xs text-slate-400 leading-relaxed">
+          <h3 class="text-lg font-bold text-stone-900">OECD Due Diligence Tracker</h3>
+          <p class="text-sm text-stone-500 leading-relaxed font-normal">
             Chain of custody for critical raw materials (Cobalt, Lithium, Nickel, Graphite) with third-party audit verification hooks.
           </p>
         </div>
@@ -175,19 +171,19 @@ const t = useTranslations(lang);
     </div>
   </section>
 
-  <!-- Final CTA Callout -->
-  <section class="py-20 bg-gradient-to-b from-slate-950 to-brand-950/40 relative overflow-hidden">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
-      <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
+  <!-- Final CTA Callout (Refined Minimalist Banner) -->
+  <section class="py-24 md:py-32 bg-stone-900 text-white relative overflow-hidden">
+    <div class="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 text-center relative z-10 space-y-6">
+      <h2 class="text-3xl sm:text-5xl font-semibold tracking-tight text-white">
         Ready to Launch Your EU Battery Passport?
       </h2>
-      <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto">
+      <p class="text-base sm:text-lg text-stone-300 max-w-2xl mx-auto font-normal leading-relaxed">
         Speak with our senior EU compliance engineers. Receive a customized gap analysis and architecture roadmap for your battery product portfolio.
       </p>
-      <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
         <a
           href="/contact"
-          class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-500 to-accent-emerald text-white font-bold text-base shadow-xl shadow-brand-500/30 hover:scale-105 transition-all"
+          class="w-full sm:w-auto px-8 py-4 rounded-xl bg-white hover:bg-stone-100 text-stone-900 font-semibold text-base shadow-soft transition-all hover:scale-[1.01]"
         >
           Schedule a Technical Consultation &rarr;
         </a>

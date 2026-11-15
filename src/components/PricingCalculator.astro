@@ -5,64 +5,64 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<div class="py-12">
-  <div class="text-center max-w-3xl mx-auto mb-12">
-    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-brand-500/10 text-brand-400 border border-brand-500/20 mb-3">
-      Dual Business Delivery Model
+<div class="py-8">
+  <div class="text-center max-w-3xl mx-auto mb-16">
+    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-medium bg-stone-100 text-stone-700 border border-stone-200 mb-4">
+      Delivery Architecture
     </div>
-    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+    <h2 class="text-3xl sm:text-5xl font-semibold text-stone-900 tracking-tight">
       {t('business.dual.title')}
     </h2>
-    <p class="text-base text-slate-400 mt-3">
+    <p class="text-lg text-stone-500 mt-4 font-normal leading-relaxed">
       {t('business.dual.subtitle')}
     </p>
   </div>
 
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 max-w-6xl mx-auto">
     
     <!-- Option 1: Buy DPP Enterprise Software -->
-    <div class="glass-card p-8 flex flex-col justify-between border-2 border-slate-800 hover:border-brand-500/50 transition-all duration-300 relative group">
-      <div class="absolute -top-3.5 left-8 px-3 py-1 rounded-full text-[11px] font-bold bg-brand-500 text-white shadow-lg">
+    <div class="bg-white p-8 sm:p-12 rounded-3xl border border-stone-200/90 shadow-soft flex flex-col justify-between relative group hover:border-stone-400 transition-all">
+      <div class="absolute -top-3.5 left-8 px-3.5 py-1 rounded-full text-xs font-medium bg-stone-900 text-white shadow-xs">
         {t('business.software.tag')}
       </div>
 
       <div>
-        <div class="flex items-center justify-between mb-4">
-          <h3 class="text-2xl font-bold text-white">{t('business.software.title')}</h3>
-          <span class="text-xs font-mono text-brand-400 bg-brand-500/10 px-2.5 py-1 rounded border border-brand-500/20">Private Cloud / On-Prem</span>
+        <div class="flex items-center justify-between mb-4 mt-2">
+          <h3 class="text-2xl font-bold text-stone-900">{t('business.software.title')}</h3>
+          <span class="text-xs font-mono text-stone-600 bg-stone-100 px-3 py-1 rounded-md border border-stone-200">Private Cloud / On-Prem</span>
         </div>
-        <p class="text-sm text-slate-300 leading-relaxed mb-6">
+        <p class="text-base text-stone-500 leading-relaxed mb-8 font-normal">
           {t('business.software.desc')}
         </p>
 
-        <div class="space-y-3 mb-8">
-          <div class="flex items-start gap-3 text-sm text-slate-300">
-            <svg class="w-5 h-5 text-accent-emerald shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
-            <span>{t('business.software.item1')}</span>
+        <div class="space-y-3.5 mb-10">
+          <div class="flex items-start gap-3.5 text-sm text-stone-700">
+            <svg class="w-5 h-5 text-emerald-700 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+            <span class="leading-normal">{t('business.software.item1')}</span>
           </div>
-          <div class="flex items-start gap-3 text-sm text-slate-300">
-            <svg class="w-5 h-5 text-accent-emerald shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
-            <span>{t('business.software.item2')}</span>
+          <div class="flex items-start gap-3.5 text-sm text-stone-700">
+            <svg class="w-5 h-5 text-emerald-700 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+            <span class="leading-normal">{t('business.software.item2')}</span>
           </div>
-          <div class="flex items-start gap-3 text-sm text-slate-300">
-            <svg class="w-5 h-5 text-accent-emerald shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
-            <span>{t('business.software.item3')}</span>
+          <div class="flex items-start gap-3.5 text-sm text-stone-700">
+            <svg class="w-5 h-5 text-emerald-700 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+            <span class="leading-normal">{t('business.software.item3')}</span>
           </div>
-          <div class="flex items-start gap-3 text-sm text-slate-300">
-            <svg class="w-5 h-5 text-accent-emerald shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
-            <span>{t('business.software.item4')}</span>
+          <div class="flex items-start gap-3.5 text-sm text-stone-700">
+            <svg class="w-5 h-5 text-emerald-700 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+            <span class="leading-normal">{t('business.software.item4')}</span>
           </div>
         </div>
       </div>
 
-      <div class="pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="pt-8 border-t border-stone-100 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div>
-          <div class="text-xs text-slate-400">Licensing Model</div>
-          <div class="text-lg font-bold text-white">Annual / Perpetual License</div>
+          <div class="text-xs text-stone-400">Licensing Model</div>
+          <div class="text-lg font-bold text-stone-900">Annual / Enterprise License</div>
         </div>
         <a
           href={`/${lang === 'en' ? '' : lang + '/'}solutions/software-license`}
-          class="w-full sm:w-auto text-center px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm transition-colors"
+          class="w-full sm:w-auto text-center px-6 py-3.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-900 font-semibold text-sm transition-colors"
         >
           {t('business.software.cta')} &rarr;
         </a>
@@ -70,48 +70,48 @@ const t = useTranslations(lang);
     </div>
 
     <!-- Option 2: Managed DPP Data Vault Hosting -->
-    <div class="glass-card p-8 flex flex-col justify-between border-2 border-brand-500/40 bg-slate-900/90 shadow-2xl shadow-brand-950/60 relative group">
-      <div class="absolute -top-3.5 left-8 px-3 py-1 rounded-full text-[11px] font-bold bg-gradient-to-r from-accent-emerald to-accent-teal text-white shadow-lg">
+    <div class="bg-white p-8 sm:p-12 rounded-3xl border-2 border-stone-900 shadow-float flex flex-col justify-between relative group">
+      <div class="absolute -top-3.5 left-8 px-3.5 py-1 rounded-full text-xs font-medium bg-emerald-800 text-white shadow-xs">
         {t('business.hosting.tag')}
       </div>
 
       <div>
-        <div class="flex items-center justify-between mb-4">
-          <h3 class="text-2xl font-bold text-white">{t('business.hosting.title')}</h3>
-          <span class="text-xs font-mono text-accent-emerald bg-accent-emerald/10 px-2.5 py-1 rounded border border-accent-emerald/20">Turnkey Managed Cloud</span>
+        <div class="flex items-center justify-between mb-4 mt-2">
+          <h3 class="text-2xl font-bold text-stone-900">{t('business.hosting.title')}</h3>
+          <span class="text-xs font-mono text-emerald-800 bg-emerald-50 px-3 py-1 rounded-md border border-emerald-200">Turnkey Managed Cloud</span>
         </div>
-        <p class="text-sm text-slate-300 leading-relaxed mb-6">
+        <p class="text-base text-stone-500 leading-relaxed mb-8 font-normal">
           {t('business.hosting.desc')}
         </p>
 
-        <div class="space-y-3 mb-8">
-          <div class="flex items-start gap-3 text-sm text-slate-300">
-            <svg class="w-5 h-5 text-accent-teal shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
-            <span>{t('business.hosting.item1')}</span>
+        <div class="space-y-3.5 mb-10">
+          <div class="flex items-start gap-3.5 text-sm text-stone-700">
+            <svg class="w-5 h-5 text-emerald-700 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+            <span class="leading-normal">{t('business.hosting.item1')}</span>
           </div>
-          <div class="flex items-start gap-3 text-sm text-slate-300">
-            <svg class="w-5 h-5 text-accent-teal shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
-            <span>{t('business.hosting.item2')}</span>
+          <div class="flex items-start gap-3.5 text-sm text-stone-700">
+            <svg class="w-5 h-5 text-emerald-700 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+            <span class="leading-normal">{t('business.hosting.item2')}</span>
           </div>
-          <div class="flex items-start gap-3 text-sm text-slate-300">
-            <svg class="w-5 h-5 text-accent-teal shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
-            <span>{t('business.hosting.item3')}</span>
+          <div class="flex items-start gap-3.5 text-sm text-stone-700">
+            <svg class="w-5 h-5 text-emerald-700 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+            <span class="leading-normal">{t('business.hosting.item3')}</span>
           </div>
-          <div class="flex items-start gap-3 text-sm text-slate-300">
-            <svg class="w-5 h-5 text-accent-teal shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
-            <span>{t('business.hosting.item4')}</span>
+          <div class="flex items-start gap-3.5 text-sm text-stone-700">
+            <svg class="w-5 h-5 text-emerald-700 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+            <span class="leading-normal">{t('business.hosting.item4')}</span>
           </div>
         </div>
       </div>
 
-      <div class="pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="pt-8 border-t border-stone-100 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div>
-          <div class="text-xs text-slate-400">Hosting Model</div>
-          <div class="text-lg font-bold text-accent-emerald">Per-Passport / Managed Vault</div>
+          <div class="text-xs text-stone-400">Hosting Model</div>
+          <div class="text-lg font-bold text-emerald-800">Per-Passport / Managed Vault</div>
         </div>
         <a
           href={`/${lang === 'en' ? '' : lang + '/'}solutions/managed-data-hosting`}
-          class="w-full sm:w-auto text-center px-6 py-3 rounded-xl bg-gradient-to-r from-brand-500 to-accent-teal text-white font-semibold text-sm hover:opacity-95 shadow-lg shadow-brand-500/25 transition-all"
+          class="w-full sm:w-auto text-center px-6 py-3.5 rounded-xl bg-stone-900 text-white hover:bg-stone-800 font-semibold text-sm transition-colors shadow-xs"
         >
           {t('business.hosting.cta')} &rarr;
         </a>

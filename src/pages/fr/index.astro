@@ -13,61 +13,57 @@ const t = useTranslations(lang);
   title="EU DPP Provider | Logiciel Passeport Batterie UE & Hébergement Sécurisé"
   description="Plateforme de conformité clé en main pour le passeport batterie UE (Règlement UE 2023/1542). Logiciel d'entreprise ou hébergement sécurisé avec protection Zero-Knowledge."
 >
-  <section class="relative pt-16 pb-20 overflow-hidden bg-radial-gradient">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  <section class="relative pt-24 pb-28 md:pt-32 md:pb-36 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10 text-center">
       
-      <div class="text-center max-w-4xl mx-auto space-y-6">
-        
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-brand-500/10 text-brand-300 border border-brand-500/20 shadow-inner">
-          <span class="w-2 h-2 rounded-full bg-accent-emerald animate-pulse"></span>
-          <span>{t('hero.badge')}</span>
-        </div>
+      <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs font-medium bg-stone-100 text-stone-700 border border-stone-200/90 shadow-xs mb-8">
+        <span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+        <span>{t('hero.badge')}</span>
+      </div>
 
-        <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-[1.15]">
-          {t('hero.title.prefix')} <br />
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-accent-cyan to-accent-emerald text-glow">
-            {t('hero.title.highlight')}
-          </span> <br />
-          {t('hero.title.suffix')}
-        </h1>
+      <h1 class="text-4xl sm:text-6xl lg:text-7xl font-semibold text-stone-900 tracking-tight leading-[1.15] max-w-5xl mx-auto">
+        {t('hero.title.prefix')} <br class="hidden sm:inline" />
+        <span class="text-stone-900 underline decoration-stone-300 underline-offset-8">
+          {t('hero.title.highlight')}
+        </span> <br class="hidden sm:inline" />
+        {t('hero.title.suffix')}
+      </h1>
 
-        <p class="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-          {t('hero.subtitle')}
-        </p>
+      <p class="text-lg sm:text-xl lg:text-2xl text-stone-600 max-w-3xl mx-auto mt-8 leading-relaxed font-normal">
+        {t('hero.subtitle')}
+      </p>
 
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-          <a
-            href="/fr/contact"
-            class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-500 via-accent-teal to-accent-emerald text-white font-bold text-base shadow-xl shadow-brand-500/25 hover:opacity-95 hover:scale-[1.02] transition-all"
-          >
-            {t('hero.cta.primary')} &rarr;
-          </a>
-          <a
-            href="/fr/pricing"
-            class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900/90 border border-slate-700/80 hover:bg-slate-800 text-slate-200 font-semibold text-base transition-colors"
-          >
-            {t('hero.cta.secondary')}
-          </a>
-        </div>
-
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-10">
+        <a
+          href="/fr/contact"
+          class="w-full sm:w-auto px-8 py-4 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-medium text-base shadow-soft hover:shadow-float transition-all hover:scale-[1.01]"
+        >
+          {t('hero.cta.primary')} &rarr;
+        </a>
+        <a
+          href="/fr/pricing"
+          class="w-full sm:w-auto px-8 py-4 rounded-xl bg-white border border-stone-200/90 hover:bg-stone-50 text-stone-800 font-medium text-base shadow-soft transition-colors"
+        >
+          {t('hero.cta.secondary')}
+        </a>
       </div>
 
     </div>
   </section>
 
-  <section class="py-12 bg-slate-950">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section class="py-16 md:py-24 bg-stone-100/60 border-y border-stone-200/80">
+    <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
       <ComplianceCountdown />
     </div>
   </section>
 
-  <section class="py-20 bg-slate-900/40 border-y border-slate-900">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-12">
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+  <section class="py-24 md:py-32 bg-stone-50">
+    <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl sm:text-5xl font-semibold text-stone-900 tracking-tight">
           {t('viewer.title')}
         </h2>
-        <p class="text-base text-slate-400 mt-3">
+        <p class="text-lg text-stone-500 mt-3 font-normal leading-relaxed">
           {t('viewer.subtitle')}
         </p>
       </div>
@@ -75,8 +71,8 @@ const t = useTranslations(lang);
     </div>
   </section>
 
-  <section class="py-20 bg-slate-950">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section class="py-24 md:py-32 bg-stone-100/60 border-y border-stone-200/80">
+    <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
       <PricingCalculator />
     </div>
   </section>

@@ -6,24 +6,26 @@
   html {
     scroll-behavior: smooth;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   body {
-    @apply bg-slate-950 text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white;
+    @apply bg-stone-50 text-stone-900 font-sans antialiased selection:bg-stone-900 selection:text-white;
     min-height: 100vh;
   }
 }
 
 @layer utilities {
-  .text-glow {
-    text-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+  .minimal-card {
+    @apply bg-white border border-stone-200/80 rounded-2xl md:rounded-3xl shadow-soft transition-all duration-300;
   }
-  .bg-radial-gradient {
-    background-image: radial-gradient(circle at 50% 0%, rgba(2, 132, 199, 0.15) 0%, rgba(3, 24, 40, 0) 70%);
+  .minimal-card-hover {
+    @apply hover:border-stone-300 hover:shadow-float;
   }
-  .glass-card {
-    @apply bg-slate-900/70 backdrop-blur-md border border-slate-800/80 rounded-2xl;
+  .pill-badge {
+    @apply inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium bg-stone-100 text-stone-700 border border-stone-200/80;
   }
-  .glass-card-hover {
-    @apply hover:border-brand-500/50 hover:bg-slate-900/90 transition-all duration-300;
+  .pill-badge-emerald {
+    @apply inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium bg-emerald-50 text-emerald-800 border border-emerald-200/70;
   }
 }

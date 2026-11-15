@@ -56,7 +56,7 @@ const schemaOrg = {
 ---
 
 <!doctype html>
-<html lang={lang} class="dark">
+<html lang={lang} class="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -96,16 +96,17 @@ const schemaOrg = {
     <!-- Fonts preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   </head>
-  <body class="bg-slate-950 text-slate-100 flex flex-col min-h-screen">
-    <!-- Top Announcement Bar -->
-    <div class="bg-gradient-to-r from-brand-900 via-slate-900 to-brand-950 border-b border-brand-500/20 py-2 px-4 text-xs text-center text-slate-300 flex items-center justify-center gap-2">
-      <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-accent-emerald/20 text-accent-emerald border border-accent-emerald/30">
+  <body class="bg-stone-50 text-stone-900 flex flex-col min-h-screen selection:bg-stone-900 selection:text-white">
+    
+    <!-- Top Announcement Bar (Minimalist & Crisp) -->
+    <div class="bg-white border-b border-stone-200/80 py-2.5 px-4 text-xs text-center text-stone-600 flex items-center justify-center gap-2.5">
+      <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium bg-emerald-50 text-emerald-800 border border-emerald-200/60">
         Regulation (EU) 2023/1542
       </span>
-      <span>{t('hero.badge')}</span>
-      <a href={`/${lang === 'en' ? '' : lang + '/'}compliance/eu-battery-regulation-2023-1542`} class="underline text-brand-400 hover:text-brand-300 ml-1 font-medium hidden sm:inline">
+      <span class="font-normal">{t('hero.badge')}</span>
+      <a href={`/${lang === 'en' ? '' : lang + '/'}compliance/eu-battery-regulation-2023-1542`} class="font-medium text-stone-900 hover:text-emerald-700 underline underline-offset-2 ml-1 hidden sm:inline transition-colors">
         Read Checklist &rarr;
       </a>
     </div>
