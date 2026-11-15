@@ -18,238 +18,90 @@ function switchLanguageUrl(targetLang: string) {
 }
 ---
 
-<header class="sticky top-0 z-50 bg-white/85 backdrop-blur-xl border-b border-slate-200/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_4px_20px_-4px_rgba(6,26,43,0.05)] transition-all">
+<header class="sticky top-3 z-50 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto transition-all">
   
-  <!-- Top Utility Bar (Tactile Micro-Bar) -->
-  <div class="bg-navy-900 text-white text-[11px] font-mono py-1.5 px-4 sm:px-8 border-b border-navy-800 hidden md:flex items-center justify-between">
-    <div class="flex items-center gap-4">
-      <span class="inline-flex items-center gap-1.5 text-cyan-400">
-        <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
-        EU 2023/1542 · Article 77/78 Ready
-      </span>
-      <span class="text-slate-400">|</span>
-      <span class="text-slate-300">Single Model 6-Week Rapid Deployment</span>
-    </div>
+  <!-- Floating Centered Neomorphic Navbar Island -->
+  <div class="bg-[#F0F4F8]/90 backdrop-blur-xl rounded-full px-5 sm:px-7 py-3 border border-white/80 shadow-[8px_8px_24px_rgba(209,217,230,0.7),-8px_-8px_24px_rgba(255,255,255,0.95)] flex items-center justify-between gap-4">
+    
+    <!-- Left: Brand Logo -->
+    <a href={`/${lang === 'en' ? '' : lang}`} class="flex items-center flex-shrink-0 group">
+      <img 
+        src="/eudpp_logo_light.svg" 
+        alt="EU DPP Provider" 
+        class="h-9 sm:h-10 w-auto object-contain transition-transform group-hover:scale-[1.02]"
+      />
+    </a>
 
-    <div class="flex items-center gap-6">
-      <a href="mailto:info@eudppprovider.com" class="inline-flex items-center gap-1.5 text-slate-300 hover:text-cyan-400 transition-colors">
-        <svg class="w-3.5 h-3.5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-        </svg>
-        <span>Business Desk: <strong>info@eudppprovider.com</strong></span>
-      </a>
-      <span class="text-slate-500">|</span>
-      <span class="text-slate-300">Frankfurt · Munich · Shanghai</span>
-    </div>
-  </div>
-
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-20">
+    <!-- Center: Clean Minimal Menu Items -->
+    <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
       
-      <!-- Brand Logo -->
-      <a href={`/${lang === 'en' ? '' : lang}`} class="flex items-center group py-2">
-        <img 
-          src="/eudpp_logo_light.svg" 
-          alt="EU DPP Provider - Digital Product Passport System" 
-          class="h-10 sm:h-11 w-auto object-contain transition-transform group-hover:scale-[1.01]"
-        />
-      </a>
-
-      <!-- Desktop Navigation Links (Tactile Neumorphic Feel) -->
-      <nav class="hidden lg:flex items-center space-x-1 xl:space-x-2">
-        
-        <!-- Solutions Dropdown -->
-        <div class="relative group">
-          <button class="inline-flex items-center px-3.5 py-2 text-sm font-semibold text-slate-700 hover:text-navy-900 rounded-xl hover:bg-slate-100/80 transition-all">
-            <span>{t('nav.solutions')}</span>
-            <svg class="ml-1.5 w-4 h-4 text-slate-400 group-hover:text-navy-900 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-          
-          <div class="absolute left-0 mt-2 w-80 rounded-2xl bg-white/95 backdrop-blur-xl shadow-2xl border border-slate-200/90 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-2.5 z-50">
-            <a href={`/${lang === 'en' ? '' : lang + '/'}solutions/ev-battery-passport`} class="block p-3 rounded-xl hover:bg-slate-50 transition-colors">
-              <div class="text-sm font-bold text-slate-900 flex items-center justify-between">
-                <span>{t('nav.evBattery')}</span>
-                <span class="text-[10px] font-mono font-bold px-1.5 py-0.5 bg-slate-100 text-slate-700 rounded">EV Pack</span>
-              </div>
-              <div class="text-xs text-slate-500 mt-1">Full battery passport lifecycle & OEM VIN link</div>
-            </a>
-            
-            <a href={`/${lang === 'en' ? '' : lang + '/'}solutions/storage-battery-passport`} class="block p-3 rounded-xl hover:bg-slate-50 transition-colors">
-              <div class="text-sm font-bold text-slate-900 flex items-center justify-between">
-                <span>{t('nav.storageBattery')}</span>
-                <span class="text-[10px] font-mono font-bold px-1.5 py-0.5 bg-slate-100 text-slate-700 rounded">>2kWh</span>
-              </div>
-              <div class="text-xs text-slate-500 mt-1">Industrial & BESS containerized energy storage</div>
-            </a>
-
-            <div class="my-1.5 border-t border-slate-100"></div>
-
-            <a href={`/${lang === 'en' ? '' : lang + '/'}solutions/software-license`} class="block p-3 rounded-xl hover:bg-cyan-50/60 transition-colors">
-              <div class="text-sm font-bold text-cyan-700 flex items-center justify-between">
-                <span>{t('nav.software')}</span>
-                <span class="text-[10px] font-mono uppercase font-bold tracking-wider px-2 py-0.5 bg-cyan-100 text-cyan-800 rounded-full">On-Prem</span>
-              </div>
-              <div class="text-xs text-slate-500 mt-1">Independent code deployment & private cloud</div>
-            </a>
-
-            <a href={`/${lang === 'en' ? '' : lang + '/'}solutions/managed-data-hosting`} class="block p-3 rounded-xl hover:bg-green-50/60 transition-colors">
-              <div class="text-sm font-bold text-green-700 flex items-center justify-between">
-                <span>{t('nav.hosting')}</span>
-                <span class="text-[10px] font-mono uppercase font-bold tracking-wider px-2 py-0.5 bg-green-100 text-green-800 rounded-full">10-Yr SLA</span>
-              </div>
-              <div class="text-xs text-slate-500 mt-1">EU sovereign data vault, ZKP shield & full registry service</div>
-            </a>
-          </div>
-        </div>
-
-        <!-- Platform Links -->
-        <a href={`/${lang === 'en' ? '' : lang + '/'}platform/carbon-footprint-engine`} class="px-3.5 py-2 text-sm font-semibold text-slate-700 hover:text-navy-900 rounded-xl hover:bg-slate-100/80 transition-colors">
-          {t('nav.pcf')}
-        </a>
-        <a href={`/${lang === 'en' ? '' : lang + '/'}platform/gs1-qr-serialization`} class="px-3.5 py-2 text-sm font-semibold text-slate-700 hover:text-navy-900 rounded-xl hover:bg-slate-100/80 transition-colors">
-          {t('nav.gs1')}
-        </a>
-        <a href={`/${lang === 'en' ? '' : lang + '/'}compliance/eu-battery-regulation-2023-1542`} class="px-3.5 py-2 text-sm font-semibold text-slate-700 hover:text-navy-900 rounded-xl hover:bg-slate-100/80 transition-colors">
-          {t('nav.regulation')}
-        </a>
-        <a href={`/${lang === 'en' ? '' : lang + '/'}about`} class="px-3.5 py-2 text-sm font-semibold text-slate-700 hover:text-navy-900 rounded-xl hover:bg-slate-100/80 transition-colors">
-          {t('nav.about')}
-        </a>
-        <a href={`/${lang === 'en' ? '' : lang + '/'}pricing`} class="px-3.5 py-2 text-sm font-semibold text-slate-700 hover:text-navy-900 rounded-xl hover:bg-slate-100/80 transition-colors">
-          {t('nav.pricing')}
-        </a>
-      </nav>
-
-      <!-- Right CTAs & Language Switcher -->
-      <div class="flex items-center space-x-3">
-        
-        <!-- Language Switcher Pill (Tactile) -->
-        <div class="relative group">
-          <button class="inline-flex items-center px-3 py-1.5 text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200/90 rounded-xl border border-slate-200 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] transition-all">
-            <svg class="w-3.5 h-3.5 mr-1.5 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
-            </svg>
-            <span>{languages[lang]}</span>
-            <svg class="ml-1 w-3 h-3 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-          
-          <div class="absolute right-0 mt-2 w-40 rounded-2xl bg-white shadow-xl border border-slate-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-2 z-50">
-            {Object.entries(languages).map(([l, name]) => (
-              <a
-                href={switchLanguageUrl(l)}
-                class={`block px-3 py-2 text-xs font-semibold rounded-lg transition-colors ${
-                  lang === l ? 'bg-cyan-50 text-cyan-600 font-bold' : 'text-slate-700 hover:bg-slate-50'
-                }`}
-              >
-                {name}
-              </a>
-            ))}
-          </div>
-        </div>
-
-        <!-- Book a Demo Button (Tactile Cyan Glow) -->
-        <a
-          href={`/${lang === 'en' ? '' : lang + '/'}contact`}
-          class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2.5 text-sm font-semibold rounded-xl bg-cyan-500 hover:bg-cyan-600 text-slate-900 transition-all shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_2px_6px_rgba(14,155,196,0.25)] hover:shadow-[0_4px_12px_rgba(14,155,196,0.35)]"
-        >
-          <span>{t('nav.bookDemo')}</span>
-          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-          </svg>
-        </a>
-
-        <!-- Mobile Menu Toggle Button (Neumorphic tactile button) -->
-        <button
-          id="mobile-menu-btn"
-          aria-label="Toggle Mobile Menu"
-          class="lg:hidden p-2.5 rounded-xl bg-slate-100 text-slate-700 hover:text-navy-900 hover:bg-slate-200/80 border border-slate-200 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] transition-all"
-        >
-          <svg id="menu-icon-open" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-          <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      <!-- Solutions Dropdown -->
+      <div class="relative group">
+        <button class="px-4 py-2 text-xs font-bold uppercase tracking-wider text-slate-700 hover:text-cyan-700 rounded-full hover:bg-white/60 transition-all flex items-center gap-1.5">
+          <span>{t('nav.solutions')}</span>
+          <svg class="w-3.5 h-3.5 text-slate-400 group-hover:text-cyan-700 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
           </svg>
         </button>
 
+        <div class="absolute left-1/2 -translate-x-1/2 mt-3 w-80 rounded-2xl bg-[#F0F4F8]/95 backdrop-blur-xl border border-white/80 shadow-[10px_10px_30px_rgba(209,217,230,0.8),-10px_-10px_30px_rgba(255,255,255,0.95)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 p-3 z-50">
+          <a href={`/${lang === 'en' ? '' : lang + '/'}solutions/ev-battery-passport`} class="block p-3 rounded-xl hover:bg-white/70 transition-all">
+            <div class="text-xs font-bold text-slate-900">{t('nav.evBattery')}</div>
+            <div class="text-[11px] text-slate-500 mt-0.5">EV battery pack compliance & OEM linking</div>
+          </a>
+          <a href={`/${lang === 'en' ? '' : lang + '/'}solutions/storage-battery-passport`} class="block p-3 rounded-xl hover:bg-white/70 transition-all">
+            <div class="text-xs font-bold text-slate-900">{t('nav.storageBattery')}</div>
+            <div class="text-[11px] text-slate-500 mt-0.5">Industrial & stationary BESS (>2kWh)</div>
+          </a>
+          <div class="my-1.5 border-t border-slate-200/60"></div>
+          <a href={`/${lang === 'en' ? '' : lang + '/'}solutions/software-license`} class="block p-3 rounded-xl hover:bg-cyan-100/40 transition-all">
+            <div class="text-xs font-bold text-cyan-800 flex items-center justify-between">
+              <span>{t('nav.software')}</span>
+              <span class="text-[10px] px-1.5 py-0.5 bg-cyan-200/70 text-cyan-800 rounded font-mono">On-Prem</span>
+            </div>
+          </a>
+          <a href={`/${lang === 'en' ? '' : lang + '/'}solutions/managed-data-hosting`} class="block p-3 rounded-xl hover:bg-green-100/40 transition-all">
+            <div class="text-xs font-bold text-green-800 flex items-center justify-between">
+              <span>{t('nav.hosting')}</span>
+              <span class="text-[10px] px-1.5 py-0.5 bg-green-200/70 text-green-800 rounded font-mono">10-Yr SLA</span>
+            </div>
+          </a>
+        </div>
       </div>
 
-    </div>
-  </div>
+      <!-- Core Links -->
+      <a href={`/${lang === 'en' ? '' : lang + '/'}platform/carbon-footprint-engine`} class="px-4 py-2 text-xs font-bold uppercase tracking-wider text-slate-700 hover:text-cyan-700 rounded-full hover:bg-white/60 transition-all">
+        Technology
+      </a>
+      <a href={`/${lang === 'en' ? '' : lang + '/'}compliance/eu-battery-regulation-2023-1542`} class="px-4 py-2 text-xs font-bold uppercase tracking-wider text-slate-700 hover:text-cyan-700 rounded-full hover:bg-white/60 transition-all">
+        EU 2023/1542
+      </a>
+      <a href={`/${lang === 'en' ? '' : lang + '/'}about`} class="px-4 py-2 text-xs font-bold uppercase tracking-wider text-slate-700 hover:text-cyan-700 rounded-full hover:bg-white/60 transition-all">
+        {t('nav.about')}
+      </a>
+      <a href={`/${lang === 'en' ? '' : lang + '/'}pricing`} class="px-4 py-2 text-xs font-bold uppercase tracking-wider text-slate-700 hover:text-cyan-700 rounded-full hover:bg-white/60 transition-all">
+        {t('nav.pricing')}
+      </a>
+    </nav>
 
-  <!-- Mobile Slide-Down Tactile Navigation Drawer -->
-  <div id="mobile-menu" class="hidden lg:hidden bg-white/95 backdrop-blur-2xl border-b border-slate-200 shadow-2xl px-5 pt-3 pb-8 transition-all">
-    <div class="space-y-4">
+    <!-- Right: Language Pill & Primary Neomorphic Action Button -->
+    <div class="flex items-center gap-2.5">
       
-      <!-- Top Direct Contact Box for Mobile -->
-      <div class="p-3.5 bg-slate-50 border border-slate-200 rounded-2xl flex items-center justify-between">
-        <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-xl bg-cyan-100 text-cyan-700 flex items-center justify-center font-bold text-sm">✉️</div>
-          <div>
-            <div class="text-[11px] font-bold text-slate-500 uppercase tracking-wide">Business Desk</div>
-            <a href="mailto:info@eudppprovider.com" class="text-xs font-bold font-mono text-navy-900 hover:text-cyan-600">info@eudppprovider.com</a>
-          </div>
-        </div>
-        <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-green-100 text-green-700 font-bold">Live Support</span>
-      </div>
+      <!-- Language Switcher Pill -->
+      <div class="relative group">
+        <button class="neo-pill px-3 py-1.5 rounded-full text-xs font-bold text-slate-700 flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+          </svg>
+          <span>{languages[lang]}</span>
+        </button>
 
-      <!-- Solutions Group -->
-      <div class="p-4 bg-white border border-slate-200 rounded-2xl shadow-sm space-y-2.5">
-        <div class="text-xs font-bold uppercase tracking-wider text-slate-400">{t('nav.solutions')}</div>
-        <div class="grid grid-cols-1 gap-2 pt-1">
-          <a href={`/${lang === 'en' ? '' : lang + '/'}solutions/ev-battery-passport`} class="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-50 text-sm font-semibold text-slate-800">
-            <span>{t('nav.evBattery')}</span>
-            <span class="text-xs text-cyan-600">→</span>
-          </a>
-          <a href={`/${lang === 'en' ? '' : lang + '/'}solutions/storage-battery-passport`} class="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-50 text-sm font-semibold text-slate-800">
-            <span>{t('nav.storageBattery')}</span>
-            <span class="text-xs text-cyan-600">→</span>
-          </a>
-          <a href={`/${lang === 'en' ? '' : lang + '/'}solutions/software-license`} class="flex items-center justify-between p-2.5 rounded-xl bg-cyan-50/50 text-sm font-semibold text-cyan-800">
-            <span>{t('nav.software')}</span>
-            <span class="text-[10px] font-bold px-2 py-0.5 bg-cyan-200/80 rounded">On-Prem</span>
-          </a>
-          <a href={`/${lang === 'en' ? '' : lang + '/'}solutions/managed-data-hosting`} class="flex items-center justify-between p-2.5 rounded-xl bg-green-50/50 text-sm font-semibold text-green-800">
-            <span>{t('nav.hosting')}</span>
-            <span class="text-[10px] font-bold px-2 py-0.5 bg-green-200/80 rounded">10-Yr Vault</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Main Navigation Links -->
-      <div class="p-4 bg-white border border-slate-200 rounded-2xl shadow-sm space-y-1">
-        <a href={`/${lang === 'en' ? '' : lang + '/'}platform/carbon-footprint-engine`} class="block p-2.5 rounded-xl hover:bg-slate-50 text-sm font-semibold text-slate-800">
-          {t('nav.pcf')}
-        </a>
-        <a href={`/${lang === 'en' ? '' : lang + '/'}platform/gs1-qr-serialization`} class="block p-2.5 rounded-xl hover:bg-slate-50 text-sm font-semibold text-slate-800">
-          {t('nav.gs1')}
-        </a>
-        <a href={`/${lang === 'en' ? '' : lang + '/'}compliance/eu-battery-regulation-2023-1542`} class="block p-2.5 rounded-xl hover:bg-slate-50 text-sm font-semibold text-slate-800">
-          {t('nav.regulation')}
-        </a>
-        <a href={`/${lang === 'en' ? '' : lang + '/'}about`} class="block p-2.5 rounded-xl hover:bg-slate-50 text-sm font-semibold text-slate-800">
-          {t('nav.about')}
-        </a>
-        <a href={`/${lang === 'en' ? '' : lang + '/'}pricing`} class="block p-2.5 rounded-xl hover:bg-slate-50 text-sm font-semibold text-slate-800">
-          {t('nav.pricing')}
-        </a>
-      </div>
-
-      <!-- Mobile Language Bar -->
-      <div class="p-3 bg-slate-50 border border-slate-200 rounded-2xl flex items-center justify-between">
-        <span class="text-xs font-bold text-slate-500">Language:</span>
-        <div class="flex items-center gap-1">
+        <div class="absolute right-0 mt-2 w-36 rounded-2xl bg-[#F0F4F8] border border-white/80 shadow-[6px_6px_16px_rgba(209,217,230,0.8),-6px_-6px_16px_rgba(255,255,255,0.9)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 p-2 z-50">
           {Object.entries(languages).map(([l, name]) => (
             <a
               href={switchLanguageUrl(l)}
-              class={`px-2.5 py-1 text-xs font-semibold rounded-lg transition-all ${
-                lang === l 
-                  ? 'bg-navy-800 text-cyan-400 font-bold shadow-sm' 
-                  : 'text-slate-600 hover:bg-slate-200'
+              class={`block px-3 py-1.5 text-xs font-bold rounded-xl transition-all ${
+                lang === l ? 'bg-[#E6ECF2] text-cyan-600 shadow-inner' : 'text-slate-700 hover:bg-white/60'
               }`}
             >
               {name}
@@ -258,33 +110,94 @@ function switchLanguageUrl(targetLang: string) {
         </div>
       </div>
 
-      <!-- Action Button for Mobile -->
+      <!-- Action Button -->
       <a
         href={`/${lang === 'en' ? '' : lang + '/'}contact`}
-        class="block w-full text-center py-3.5 rounded-xl bg-cyan-500 text-slate-900 font-bold text-sm shadow-md"
+        class="hidden sm:inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-cyan-500 hover:to-cyan-400 text-white shadow-[3px_3px_10px_rgba(11,127,163,0.3),-2px_-2px_8px_rgba(255,255,255,0.8)] transition-all"
       >
-        {t('hero.cta.primary')} →
+        <span>{t('hero.cta.primary')}</span>
+        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
       </a>
 
+      <!-- Mobile Hamburger Button -->
+      <button
+        id="mobile-nav-toggle"
+        aria-label="Toggle Mobile Menu"
+        class="md:hidden neo-pill p-2 rounded-full text-slate-700"
+      >
+        <svg id="mob-icon-open" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="mob-icon-close" class="w-5 h-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
     </div>
+
   </div>
+
+  <!-- Mobile Neomorphic Slide-Down Menu -->
+  <div id="mobile-nav-drawer" class="hidden md:hidden mt-3 neo-surface p-5 space-y-3 transition-all">
+    <div class="space-y-1.5">
+      <div class="text-[10px] font-bold font-mono uppercase tracking-wider text-slate-400 px-3">Navigation</div>
+      <a href={`/${lang === 'en' ? '' : lang + '/'}solutions/ev-battery-passport`} class="block px-3.5 py-2 text-xs font-bold text-slate-800 rounded-xl hover:bg-white/60">
+        {t('nav.evBattery')}
+      </a>
+      <a href={`/${lang === 'en' ? '' : lang + '/'}solutions/storage-battery-passport`} class="block px-3.5 py-2 text-xs font-bold text-slate-800 rounded-xl hover:bg-white/60">
+        {t('nav.storageBattery')}
+      </a>
+      <a href={`/${lang === 'en' ? '' : lang + '/'}solutions/software-license`} class="block px-3.5 py-2 text-xs font-bold text-cyan-800 rounded-xl hover:bg-cyan-50">
+        {t('nav.software')}
+      </a>
+      <a href={`/${lang === 'en' ? '' : lang + '/'}solutions/managed-data-hosting`} class="block px-3.5 py-2 text-xs font-bold text-green-800 rounded-xl hover:bg-green-50">
+        {t('nav.hosting')}
+      </a>
+      <a href={`/${lang === 'en' ? '' : lang + '/'}platform/carbon-footprint-engine`} class="block px-3.5 py-2 text-xs font-bold text-slate-800 rounded-xl hover:bg-white/60">
+        Technology & PCF
+      </a>
+      <a href={`/${lang === 'en' ? '' : lang + '/'}about`} class="block px-3.5 py-2 text-xs font-bold text-slate-800 rounded-xl hover:bg-white/60">
+        {t('nav.about')}
+      </a>
+      <a href={`/${lang === 'en' ? '' : lang + '/'}pricing`} class="block px-3.5 py-2 text-xs font-bold text-slate-800 rounded-xl hover:bg-white/60">
+        {t('nav.pricing')}
+      </a>
+    </div>
+
+    <!-- Mobile Quick Email Box -->
+    <div class="neo-well p-3 text-center">
+      <div class="text-[11px] text-slate-500 font-medium">Official Business Desk</div>
+      <a href="mailto:info@eudppprovider.com" class="text-xs font-bold font-mono text-navy-900 hover:text-cyan-600">info@eudppprovider.com</a>
+    </div>
+
+    <!-- Mobile CTA -->
+    <a
+      href={`/${lang === 'en' ? '' : lang + '/'}contact`}
+      class="block w-full text-center py-2.5 rounded-full bg-cyan-600 text-white font-bold text-xs shadow-md"
+    >
+      {t('hero.cta.primary')} →
+    </a>
+  </div>
+
 </header>
 
 <script is:inline>
-  const btn = document.getElementById('mobile-menu-btn');
-  const menu = document.getElementById('mobile-menu');
-  const iconOpen = document.getElementById('menu-icon-open');
-  const iconClose = document.getElementById('menu-icon-close');
+  const toggleBtn = document.getElementById('mobile-nav-toggle');
+  const drawer = document.getElementById('mobile-nav-drawer');
+  const iconOpen = document.getElementById('mob-icon-open');
+  const iconClose = document.getElementById('mob-icon-close');
 
-  if (btn && menu) {
-    btn.addEventListener('click', () => {
-      const isHidden = menu.classList.contains('hidden');
+  if (toggleBtn && drawer) {
+    toggleBtn.addEventListener('click', () => {
+      const isHidden = drawer.classList.contains('hidden');
       if (isHidden) {
-        menu.classList.remove('hidden');
+        drawer.classList.remove('hidden');
         iconOpen.classList.add('hidden');
         iconClose.classList.remove('hidden');
       } else {
-        menu.classList.add('hidden');
+        drawer.classList.add('hidden');
         iconOpen.classList.remove('hidden');
         iconClose.classList.add('hidden');
       }

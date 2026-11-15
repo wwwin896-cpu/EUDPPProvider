@@ -5,305 +5,189 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-lg">
+<div class="neo-surface p-6 sm:p-8">
   
-  <!-- Top Mockup Device Header (Sovereign Navy 900) -->
-  <div class="bg-navy-900 px-6 sm:px-8 py-4 border-b border-navy-800 flex flex-wrap items-center justify-between gap-4">
-    <div class="flex items-center gap-3">
-      <div class="flex items-center gap-1.5">
-        <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
-        <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
-        <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
-      </div>
-      <div class="h-4 w-px bg-white/20"></div>
-      <div class="font-mono text-xs text-cyan-400 font-semibold tracking-wide">
-        GS1 Resolver · https://id.eudppprovider.com/01/04012345999991/21/BP-2027-EU-88902
-      </div>
-    </div>
-    
-    <div class="flex items-center gap-2">
-      <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-green-500/10 text-green-400 border border-green-500/20">
-        <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
-        Valid Signature (ECDSA P-256)
+  <!-- Top Simulated GS1 URL Status Bar (Neomorphic Well) -->
+  <div class="neo-well px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3 mb-6">
+    <div class="flex items-center gap-2.5">
+      <span class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
+      <span class="font-mono text-xs text-slate-700 font-semibold truncate max-w-xs sm:max-w-md">
+        https://id.eudppprovider.com/01/04012345999991/21/BP-2027-EU-88902
       </span>
     </div>
+    <span class="text-[11px] font-mono font-bold text-green-700 bg-green-100/80 px-2.5 py-0.5 rounded-full">
+      eIDAS QSeal Verified
+    </span>
   </div>
 
-  <!-- Role Selector Tabs -->
-  <div class="bg-slate-100 border-b border-slate-200 p-2 sm:p-3 flex flex-wrap items-center justify-between gap-2">
-    <div class="flex flex-wrap gap-1.5 sm:gap-2">
-      <button 
-        id="tab-btn-public" 
-        class="role-tab px-4 py-2 text-xs font-semibold rounded-lg bg-navy-800 text-cyan-400 border border-navy-700 shadow-sm transition-all"
-        onclick="switchPassportRole('public')"
-      >
-        👁️ 1. Public / Consumer
-      </button>
+  <!-- Role Selector Pills (Tactile Neomorphic Tabs) -->
+  <div class="flex flex-wrap gap-2 mb-6">
+    <button 
+      id="tab-btn-public" 
+      class="neo-pill-active px-4 py-2 rounded-full text-xs font-bold transition-all"
+      onclick="switchPassportRole('public')"
+    >
+      👁️ Public View
+    </button>
 
-      <button 
-        id="tab-btn-customs" 
-        class="role-tab px-4 py-2 text-xs font-semibold rounded-lg bg-white text-slate-700 hover:bg-slate-50 border border-slate-200 transition-all"
-        onclick="switchPassportRole('customs')"
-      >
-        🏛️ 2. Customs & Authorities (DoC)
-      </button>
+    <button 
+      id="tab-btn-customs" 
+      class="neo-pill px-4 py-2 rounded-full text-xs font-bold text-slate-700 transition-all"
+      onclick="switchPassportRole('customs')"
+    >
+      🏛️ Customs & Authority (DoC)
+    </button>
 
-      <button 
-        id="tab-btn-recycler" 
-        class="role-tab px-4 py-2 text-xs font-semibold rounded-lg bg-white text-slate-700 hover:bg-slate-50 border border-slate-200 transition-all"
-        onclick="switchPassportRole('recycler')"
-      >
-        ♻️ 3. Dismantlers & Recyclers
-      </button>
+    <button 
+      id="tab-btn-recycler" 
+      class="neo-pill px-4 py-2 rounded-full text-xs font-bold text-slate-700 transition-all"
+      onclick="switchPassportRole('recycler')"
+    >
+      ♻️ Dismantler / Recycler
+    </button>
 
-      <button 
-        id="tab-btn-oem" 
-        class="role-tab px-4 py-2 text-xs font-semibold rounded-lg bg-white text-slate-700 hover:bg-slate-50 border border-slate-200 transition-all"
-        onclick="switchPassportRole('oem')"
-      >
-        ⚙️ 4. OEM / Manufacturer (BMS)
-      </button>
-    </div>
-
-    <div class="hidden sm:flex items-center gap-2 px-3 py-1 bg-white border border-slate-200 rounded-lg text-xs font-mono text-slate-600">
-      <span>Role RBAC Token:</span>
-      <span class="text-cyan-600 font-bold" id="role-token-display">EU-PUB-OPEN</span>
-    </div>
+    <button 
+      id="tab-btn-oem" 
+      class="neo-pill px-4 py-2 rounded-full text-xs font-bold text-slate-700 transition-all"
+      onclick="switchPassportRole('oem')"
+    >
+      ⚙️ OEM / Cloud BMS
+    </button>
   </div>
 
-  <!-- Main Passport Dynamic Content Body -->
-  <div class="p-6 sm:p-8 bg-white min-h-[440px]">
+  <!-- Main Content Card -->
+  <div class="p-6 rounded-2xl bg-white/70 border border-white/90 shadow-sm min-h-[320px]">
     
-    <!-- Top Battery Info Header -->
-    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-200">
+    <!-- Header -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200/80">
       <div>
-        <div class="flex items-center gap-2 text-xs font-mono text-slate-500 mb-1">
-          <span>Battery Model: <strong class="text-slate-900 font-semibold">APEX-EV-Pack-82kWh</strong></span>
-          <span>•</span>
-          <span>Category: <strong class="text-slate-900 font-semibold">Electric Vehicle (EV)</strong></span>
-        </div>
-        <h3 class="text-xl sm:text-2xl font-bold text-slate-900">
-          High-Energy NMC 811 Traction Battery System
-        </h3>
-        <p class="text-xs text-slate-500 mt-1">
-          Manufacturer: <span class="font-medium text-slate-700">Apex Energy Tech SE</span> • Manufacturing Location: <span class="font-medium text-slate-700">Saxony, Germany (Plant 02)</span>
-        </p>
+        <div class="text-[11px] font-mono text-slate-400 uppercase tracking-wider">Model: APEX-EV-Pack-82kWh · Traction Battery</div>
+        <h4 class="text-lg sm:text-xl font-bold text-slate-900 mt-0.5">High-Energy NMC 811 Traction Battery System</h4>
       </div>
-
-      <!-- Verified Stamp Badge -->
-      <div class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-green-50 border border-green-200 self-start md:self-auto">
-        <span class="text-green-700 font-bold text-sm">✓ EU Conformity Granted</span>
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-100 text-green-800 text-xs font-bold self-start sm:self-auto">
+        <span>✓ Regulation EU 2023/1542 Conformity Granted</span>
       </div>
     </div>
 
     <!-- VIEW 1: PUBLIC / CONSUMER VIEW -->
-    <div id="view-public" class="role-view pt-6">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div id="view-public" class="role-view pt-5">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
         
-        <div class="panel-card p-5">
-          <div class="text-xs font-mono font-medium text-slate-500 uppercase">Carbon Footprint (PCF)</div>
-          <div class="text-3xl font-extrabold text-green-700 mt-2">68.4 <span class="text-sm font-normal text-slate-500">kg CO₂e/kWh</span></div>
-          <div class="mt-3 flex items-center justify-between text-xs">
-            <span class="text-slate-600">EU Class Rating:</span>
-            <span class="px-2 py-0.5 rounded font-bold bg-green-100 text-green-700">Class A (Top 10%)</span>
-          </div>
-          <div class="mt-2 text-[11px] text-slate-500 border-t border-slate-100 pt-2">
-            Verified by: TÜV Rheinland (Audit ID: TR-2026-9908)
-          </div>
+        <div class="neo-well p-4">
+          <div class="text-[11px] font-mono font-bold text-slate-500 uppercase">Carbon Footprint (PCF)</div>
+          <div class="text-2xl font-extrabold text-green-700 mt-1">68.4 <span class="text-xs font-normal text-slate-500">kg CO₂e/kWh</span></div>
+          <div class="text-[11px] text-slate-600 mt-1">EU Rating: <strong class="text-green-700">Class A (Top 10%)</strong></div>
         </div>
 
-        <div class="panel-card p-5">
-          <div class="text-xs font-mono font-medium text-slate-500 uppercase">Nominal Capacity & Voltage</div>
-          <div class="text-3xl font-extrabold text-navy-900 mt-2">82.0 <span class="text-sm font-normal text-slate-500">kWh</span></div>
-          <div class="mt-3 flex items-center justify-between text-xs">
-            <span class="text-slate-600">Rated Voltage:</span>
-            <span class="font-mono font-bold text-slate-900">800V Architecture</span>
-          </div>
-          <div class="mt-2 text-[11px] text-slate-500 border-t border-slate-100 pt-2">
-            Warranty: 8 Years / 160,000 km (>75% SOH)
-          </div>
+        <div class="neo-well p-4">
+          <div class="text-[11px] font-mono font-bold text-slate-500 uppercase">Capacity & Voltage</div>
+          <div class="text-2xl font-extrabold text-navy-900 mt-1">82.0 <span class="text-xs font-normal text-slate-500">kWh</span></div>
+          <div class="text-[11px] text-slate-600 mt-1">Architecture: <strong class="text-slate-900 font-mono">800V System</strong></div>
         </div>
 
-        <div class="panel-card p-5">
-          <div class="text-xs font-mono font-medium text-slate-500 uppercase">Circular Economy & Recycled Share</div>
-          <div class="text-3xl font-extrabold text-cyan-600 mt-2">94.2% <span class="text-sm font-normal text-slate-500">Recyclability</span></div>
-          <div class="mt-3 flex items-center justify-between text-xs">
-            <span class="text-slate-600">Recycled Cobalt:</span>
-            <span class="font-mono font-bold text-green-700">18.5% (Target >16%)</span>
-          </div>
-          <div class="mt-2 text-[11px] text-slate-500 border-t border-slate-100 pt-2">
-            Collection Point: Certified EU Take-Back Network
-          </div>
+        <div class="neo-well p-4">
+          <div class="text-[11px] font-mono font-bold text-slate-500 uppercase">Circularity Share</div>
+          <div class="text-2xl font-extrabold text-cyan-700 mt-1">94.2% <span class="text-xs font-normal text-slate-500">Recyclability</span></div>
+          <div class="text-[11px] text-slate-600 mt-1">Recycled Cobalt: <strong class="text-green-700 font-mono">18.5%</strong></div>
         </div>
 
       </div>
     </div>
 
     <!-- VIEW 2: CUSTOMS & AUTHORITIES VIEW -->
-    <div id="view-customs" class="role-view hidden pt-6">
-      <div class="bg-cyan-50/50 border border-cyan-200/80 rounded-xl p-4 mb-6 flex items-center justify-between">
-        <div class="flex items-center gap-3">
-          <span class="text-xl">🏛️</span>
-          <div>
-            <div class="text-xs font-semibold text-cyan-900">EU Market Surveillance & Customs Portal Mode</div>
-            <div class="text-xs text-cyan-700">Full legal compliance documents and test certificates unlocked for notified authorities.</div>
+    <div id="view-customs" class="role-view hidden pt-5">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="neo-well p-4 space-y-2 text-xs">
+          <div class="font-bold text-slate-900 mb-1">Declaration of Conformity (DoC)</div>
+          <div class="flex justify-between py-1 border-b border-slate-200/60">
+            <span class="text-slate-500">EU DoC File:</span>
+            <span class="font-mono font-bold text-cyan-700">DOC-2023-1542-APEX.pdf (Signed)</span>
           </div>
-        </div>
-        <span class="px-2.5 py-1 rounded bg-cyan-100 text-cyan-700 text-xs font-mono font-bold">CLEARANCE: PASS</span>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="panel-card p-5 space-y-3">
-          <h4 class="text-sm font-bold text-slate-900 uppercase tracking-wide">Legal Compliance & Declaration of Conformity</h4>
-          <div class="space-y-2 text-xs">
-            <div class="flex justify-between py-1.5 border-b border-slate-100">
-              <span class="text-slate-500">EU Declaration of Conformity (DoC):</span>
-              <span class="font-mono text-cyan-600 font-bold">DOC-2023-1542-APEX-01.pdf (Signed)</span>
-            </div>
-            <div class="flex justify-between py-1.5 border-b border-slate-100">
-              <span class="text-slate-500">Notified Body Registration:</span>
-              <span class="font-mono text-slate-900">NB 0123 (TÜV SÜD Product Service)</span>
-            </div>
-            <div class="flex justify-between py-1.5 border-b border-slate-100">
-              <span class="text-slate-500">Safety Standard UN GTR No. 20:</span>
-              <span class="font-mono text-green-700 font-bold">PASSED (ECE R100 Rev 3)</span>
-            </div>
-            <div class="flex justify-between py-1.5">
-              <span class="text-slate-500">Transport Certification:</span>
-              <span class="font-mono text-slate-900">UN 38.3 Test Summary Verified</span>
-            </div>
+          <div class="flex justify-between py-1 border-b border-slate-200/60">
+            <span class="text-slate-500">Notified Body:</span>
+            <span class="font-mono text-slate-800">NB 0123 (TÜV SÜD)</span>
+          </div>
+          <div class="flex justify-between py-1">
+            <span class="text-slate-500">Safety Test:</span>
+            <span class="font-mono font-bold text-green-700">UN GTR 20 / ECE R100 Passed</span>
           </div>
         </div>
 
-        <div class="panel-card p-5 space-y-3">
-          <h4 class="text-sm font-bold text-slate-900 uppercase tracking-wide">Supply Chain Due Diligence (OECD Aligned)</h4>
-          <div class="space-y-2 text-xs">
-            <div class="flex justify-between py-1.5 border-b border-slate-100">
-              <span class="text-slate-500">Responsible Cobalt Sourcing:</span>
-              <span class="font-mono text-green-700 font-bold">Audit Pass · RMI Certified</span>
-            </div>
-            <div class="flex justify-between py-1.5 border-b border-slate-100">
-              <span class="text-slate-500">Lithium Origin Trace:</span>
-              <span class="font-mono text-slate-900">Atacama (Chile) · IRMA Audited</span>
-            </div>
-            <div class="flex justify-between py-1.5 border-b border-slate-100">
-              <span class="text-slate-500">Nickel ESG Rating:</span>
-              <span class="font-mono text-green-700 font-bold">Low Carbon Class 1 (Nordic)</span>
-            </div>
-            <div class="flex justify-between py-1.5">
-              <span class="text-slate-500">Human Rights Due Diligence (CSDDD):</span>
-              <span class="font-mono text-green-700 font-bold">Independent 3rd Party Report Attached</span>
-            </div>
+        <div class="neo-well p-4 space-y-2 text-xs">
+          <div class="font-bold text-slate-900 mb-1">OECD Supply Chain Due Diligence</div>
+          <div class="flex justify-between py-1 border-b border-slate-200/60">
+            <span class="text-slate-500">Cobalt Sourcing:</span>
+            <span class="font-mono font-bold text-green-700">RMI Audited / Conflict-Free</span>
+          </div>
+          <div class="flex justify-between py-1 border-b border-slate-200/60">
+            <span class="text-slate-500">Lithium Origin:</span>
+            <span class="font-mono text-slate-800">IRMA Certified Origin</span>
+          </div>
+          <div class="flex justify-between py-1">
+            <span class="text-slate-500">Human Rights (CSDDD):</span>
+            <span class="font-mono font-bold text-green-700">Full 3rd Party Report Attached</span>
           </div>
         </div>
       </div>
     </div>
 
     <!-- VIEW 3: RECYCLERS VIEW -->
-    <div id="view-recycler" class="role-view hidden pt-6">
-      <div class="bg-amber-50/60 border border-amber-200/80 rounded-xl p-4 mb-6 flex items-center justify-between">
-        <div class="flex items-center gap-3">
-          <span class="text-xl">♻️</span>
-          <div>
-            <div class="text-xs font-semibold text-amber-900">Certified Dismantler & Recycler Technical Guide</div>
-            <div class="text-xs text-amber-700">Detailed chemical breakdown, safety manual and precious metal weights for end-of-life recovery.</div>
+    <div id="view-recycler" class="role-view hidden pt-5">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="neo-well p-4 text-xs space-y-1.5">
+          <div class="font-bold text-slate-900 mb-1">Precious & Critical Raw Materials</div>
+          <div class="flex justify-between py-1 border-b border-slate-200/60">
+            <span class="text-slate-500">Cobalt (Co):</span>
+            <span class="font-mono font-bold text-slate-800">11.45 kg</span>
           </div>
-        </div>
-        <span class="px-2.5 py-1 rounded bg-amber-100 text-amber-700 text-xs font-mono font-bold">RECOVERY CLASS 1</span>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="panel-card p-5">
-          <h4 class="text-sm font-bold text-slate-900 uppercase tracking-wide mb-3">Critical Raw Materials Weight per Pack</h4>
-          <div class="space-y-2 text-xs">
-            <div class="flex justify-between py-1.5 border-b border-slate-100">
-              <span class="text-slate-600 font-medium">Cobalt (Co):</span>
-              <span class="font-mono font-bold text-slate-900">11.45 kg</span>
-            </div>
-            <div class="flex justify-between py-1.5 border-b border-slate-100">
-              <span class="text-slate-600 font-medium">Lithium (Li):</span>
-              <span class="font-mono font-bold text-slate-900">7.20 kg</span>
-            </div>
-            <div class="flex justify-between py-1.5 border-b border-slate-100">
-              <span class="text-slate-600 font-medium">Nickel (Ni):</span>
-              <span class="font-mono font-bold text-slate-900">48.60 kg</span>
-            </div>
-            <div class="flex justify-between py-1.5">
-              <span class="text-slate-600 font-medium">Natural Graphite (Anode):</span>
-              <span class="font-mono font-bold text-slate-900">62.80 kg</span>
-            </div>
+          <div class="flex justify-between py-1 border-b border-slate-200/60">
+            <span class="text-slate-500">Lithium (Li):</span>
+            <span class="font-mono font-bold text-slate-800">7.20 kg</span>
+          </div>
+          <div class="flex justify-between py-1">
+            <span class="text-slate-500">Nickel (Ni):</span>
+            <span class="font-mono font-bold text-slate-800">48.60 kg</span>
           </div>
         </div>
 
-        <div class="panel-card p-5">
-          <h4 class="text-sm font-bold text-slate-900 uppercase tracking-wide mb-3">Disassembly & Fire Safety Guidance</h4>
-          <ul class="space-y-2 text-xs text-slate-600">
-            <li class="flex items-start gap-2">
-              <span class="text-green-600 font-bold">✓</span>
-              <span><strong>Enclosure Fasteners:</strong> 24x Torx Plus M8 bolts (Torque: 28 Nm). Removable without destructive cutting.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-green-600 font-bold">✓</span>
-              <span><strong>Cooling Liquid:</strong> 8.5L Water-Glycol 50/50 mix. Drain via Port B before cell removal.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-amber-600 font-bold">⚠</span>
-              <span><strong>Hazardous Components:</strong> Electrolyte contains LiPF6 (6.2%). Wear Level 3 PPE during opening.</span>
-            </li>
-          </ul>
+        <div class="neo-well p-4 text-xs space-y-1.5">
+          <div class="font-bold text-slate-900 mb-1">Disassembly & Safety Guidance</div>
+          <p class="text-slate-600"><strong>Enclosure:</strong> 24x Torx Plus M8 bolts (Torque: 28 Nm). Non-destructive removal.</p>
+          <p class="text-slate-600"><strong>Coolant:</strong> 8.5L Water-Glycol. Drain via Port B before dismantling.</p>
         </div>
       </div>
     </div>
 
     <!-- VIEW 4: OEM / BMS VIEW -->
-    <div id="view-oem" class="role-view hidden pt-6">
-      <div class="bg-navy-900 border border-navy-800 rounded-xl p-4 mb-6 flex items-center justify-between text-white">
-        <div class="flex items-center gap-3">
-          <span class="text-xl">⚙️</span>
-          <div>
-            <div class="text-xs font-semibold text-cyan-400">OEM & Vehicle Integrator Private Cloud (Catena-X)</div>
-            <div class="text-xs text-slate-300">Live battery telemetry, dynamic State of Health (SOH) and VIN synchronization.</div>
-          </div>
-        </div>
-        <span class="px-2.5 py-1 rounded bg-navy-800 text-cyan-400 text-xs font-mono font-bold border border-navy-700">LIVE TELEMETRY</span>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="panel-card p-5">
-          <div class="text-xs font-mono font-medium text-slate-500 uppercase">Current State of Health (SOH)</div>
-          <div class="text-3xl font-extrabold text-navy-900 mt-2">98.6%</div>
-          <div class="mt-2 text-xs text-slate-600">Cycle Count: <span class="font-mono font-bold text-slate-900">142 Cycles</span></div>
-          <div class="mt-2 text-[11px] text-slate-500 border-t border-slate-100 pt-2">Updated: Real-time via ISO 15118 / Cloud BMS</div>
+    <div id="view-oem" class="role-view hidden pt-5">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="neo-well p-4">
+          <div class="text-[11px] font-mono font-bold text-slate-500 uppercase">State of Health (SOH)</div>
+          <div class="text-2xl font-extrabold text-navy-900 mt-1">98.6%</div>
+          <div class="text-[11px] text-slate-600 mt-1">Cycles: <strong class="font-mono text-slate-900">142</strong></div>
         </div>
 
-        <div class="panel-card p-5">
-          <div class="text-xs font-mono font-medium text-slate-500 uppercase">Vehicle VIN Pairing</div>
-          <div class="font-mono text-sm font-bold text-navy-900 mt-2">WBA1120938472910</div>
-          <div class="mt-2 text-xs text-slate-600">Model: <span class="font-bold text-slate-900">Apex GT E-SUV</span></div>
-          <div class="mt-2 text-[11px] text-slate-500 border-t border-slate-100 pt-2">OEM Digital Twin: Active</div>
+        <div class="neo-well p-4">
+          <div class="text-[11px] font-mono font-bold text-slate-500 uppercase">Vehicle Pairing</div>
+          <div class="font-mono text-sm font-bold text-navy-900 mt-1">VIN: WBA11209384...</div>
+          <div class="text-[11px] text-slate-600 mt-1">Digital Twin: <strong class="text-green-700">Active</strong></div>
         </div>
 
-        <div class="panel-card p-5">
-          <div class="text-xs font-mono font-medium text-slate-500 uppercase">ZKP Privacy Status</div>
-          <div class="text-lg font-bold text-green-700 mt-2">Shield Active</div>
-          <div class="mt-2 text-xs text-slate-600">BOM Pricing: <span class="font-mono font-bold text-slate-500">Encrypted (Zero-Leak)</span></div>
-          <div class="mt-2 text-[11px] text-slate-500 border-t border-slate-100 pt-2">ZKP Proof: Groth16 Snark Verified</div>
+        <div class="neo-well p-4">
+          <div class="text-[11px] font-mono font-bold text-slate-500 uppercase">ZKP Privacy Status</div>
+          <div class="text-base font-bold text-green-700 mt-1">Shield Active</div>
+          <div class="text-[11px] text-slate-600 mt-1">BOM Secrets: <strong class="text-slate-500">Zero-Leak</strong></div>
         </div>
       </div>
     </div>
 
   </div>
+
 </div>
 
 <script is:inline>
   function switchPassportRole(role) {
     const roles = ['public', 'customs', 'recycler', 'oem'];
-    const tokenMap = {
-      public: 'EU-PUB-OPEN',
-      customs: 'EU-AUTH-CERT-2023',
-      recycler: 'EU-REC-DISMANTLE-L1',
-      oem: 'EU-OEM-PRIVATE-KEY'
-    };
 
     roles.forEach(r => {
       const view = document.getElementById(`view-${r}`);
@@ -311,17 +195,12 @@ const t = useTranslations(lang);
       if (view && btn) {
         if (r === role) {
           view.classList.remove('hidden');
-          btn.className = 'role-tab px-4 py-2 text-xs font-semibold rounded-lg bg-navy-800 text-cyan-400 border border-navy-700 shadow-sm transition-all';
+          btn.className = 'neo-pill-active px-4 py-2 rounded-full text-xs font-bold transition-all';
         } else {
           view.classList.add('hidden');
-          btn.className = 'role-tab px-4 py-2 text-xs font-semibold rounded-lg bg-white text-slate-700 hover:bg-slate-50 border border-slate-200 transition-all';
+          btn.className = 'neo-pill px-4 py-2 rounded-full text-xs font-bold text-slate-700 transition-all';
         }
       }
     });
-
-    const tokenEl = document.getElementById('role-token-display');
-    if (tokenEl && tokenMap[role]) {
-      tokenEl.innerText = tokenMap[role];
-    }
   }
 </script>

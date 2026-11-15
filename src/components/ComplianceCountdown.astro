@@ -2,107 +2,77 @@
 import { getLangFromUrl } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
-
-const milestones = [
-  {
-    date: 'Aug 2025',
-    title: 'Carbon Footprint Declaration',
-    desc: 'Mandatory PCF lifecycle reporting for EV batteries.',
-    status: 'Step 1'
-  },
-  {
-    date: '18 Feb 2027',
-    title: 'Battery Passport Mandatory',
-    desc: 'Article 77 & 78: Full Digital Product Passport required for EV, LMT & BESS (>2kWh).',
-    status: 'Legal Deadline',
-    highlight: true
-  },
-  {
-    date: 'Aug 2028',
-    title: 'Carbon Footprint Thresholds',
-    desc: 'Maximum carbon footprint thresholds enforced across EU market.',
-    status: 'Step 3'
-  },
-  {
-    date: 'Aug 2031',
-    title: 'Recycled Content Targets',
-    desc: 'Mandatory minimum recycled shares for Cobalt, Lead, Lithium and Nickel.',
-    status: 'Step 4'
-  }
-];
 ---
 
-<div class="max-w-5xl mx-auto">
-  
-  <!-- Countdown Banner Container (Navy-800 / Amber-500 per Spec) -->
-  <div class="bg-navy-800 border border-white/10 rounded-2xl p-8 sm:p-10 shadow-2xl">
+<div class="max-w-4xl mx-auto">
+  <div class="neo-surface p-6 sm:p-10">
     
-    <div class="flex flex-col lg:flex-row items-center justify-between gap-8 pb-8 border-b border-white/10">
-      
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-slate-200/80">
       <div>
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-amber-500/10 text-amber-500 border border-amber-500/20 mb-3">
+        <div class="eyebrow-pill mb-2">
           <span class="w-2 h-2 rounded-full bg-amber-500 animate-ping"></span>
-          <span>Enforcement Clock · 距强制生效倒计时</span>
+          <span>EU 2023/1542 Enforcement Clock</span>
         </div>
-        <h3 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-          Regulation (EU) 2023/1542 Compliance Deadline
+        <h3 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+          Mandatory Battery Passport Deadline
         </h3>
-        <p class="text-slate-400 text-sm mt-1">
-          Target Date: <strong class="text-white font-mono">February 18, 2027 · 00:00:00 CET</strong>
+        <p class="text-slate-500 text-xs mt-1">
+          Effective: <strong class="text-navy-900 font-mono">February 18, 2027</strong> · Applicable to EV, LMT & Industrial >2kWh
         </p>
       </div>
 
-      <!-- Live Countdown Grid -->
-      <div id="countdown-timer" class="grid grid-cols-4 gap-3 sm:gap-4 w-full lg:w-auto">
-        <div class="bg-white/[0.06] border border-white/[0.12] rounded-xl p-3 sm:p-4 text-center min-w-[70px] sm:min-w-[85px]">
-          <div id="cd-days" class="font-mono text-2xl sm:text-3xl font-bold text-amber-500">---</div>
-          <div class="text-[11px] font-medium uppercase tracking-wider text-slate-400 mt-1">Days</div>
+      <!-- Neomorphic Inset Countdown Display -->
+      <div class="grid grid-cols-4 gap-2.5 sm:gap-3 w-full md:w-auto">
+        <div class="neo-well p-3 text-center min-w-[64px] sm:min-w-[76px]">
+          <div id="cd-days" class="font-mono text-2xl sm:text-3xl font-extrabold text-amber-600">---</div>
+          <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mt-0.5">Days</div>
         </div>
-        <div class="bg-white/[0.06] border border-white/[0.12] rounded-xl p-3 sm:p-4 text-center min-w-[70px] sm:min-w-[85px]">
-          <div id="cd-hours" class="font-mono text-2xl sm:text-3xl font-bold text-amber-500">--</div>
-          <div class="text-[11px] font-medium uppercase tracking-wider text-slate-400 mt-1">Hours</div>
+        <div class="neo-well p-3 text-center min-w-[64px] sm:min-w-[76px]">
+          <div id="cd-hours" class="font-mono text-2xl sm:text-3xl font-extrabold text-amber-600">--</div>
+          <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mt-0.5">Hours</div>
         </div>
-        <div class="bg-white/[0.06] border border-white/[0.12] rounded-xl p-3 sm:p-4 text-center min-w-[70px] sm:min-w-[85px]">
-          <div id="cd-mins" class="font-mono text-2xl sm:text-3xl font-bold text-amber-500">--</div>
-          <div class="text-[11px] font-medium uppercase tracking-wider text-slate-400 mt-1">Mins</div>
+        <div class="neo-well p-3 text-center min-w-[64px] sm:min-w-[76px]">
+          <div id="cd-mins" class="font-mono text-2xl sm:text-3xl font-extrabold text-amber-600">--</div>
+          <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mt-0.5">Mins</div>
         </div>
-        <div class="bg-white/[0.06] border border-white/[0.12] rounded-xl p-3 sm:p-4 text-center min-w-[70px] sm:min-w-[85px]">
-          <div id="cd-secs" class="font-mono text-2xl sm:text-3xl font-bold text-amber-500">--</div>
-          <div class="text-[11px] font-medium uppercase tracking-wider text-slate-400 mt-1">Secs</div>
+        <div class="neo-well p-3 text-center min-w-[64px] sm:min-w-[76px]">
+          <div id="cd-secs" class="font-mono text-2xl sm:text-3xl font-extrabold text-amber-600">--</div>
+          <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mt-0.5">Secs</div>
         </div>
       </div>
-
     </div>
 
-    <!-- Milestones Timeline -->
-    <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-      {milestones.map((m) => (
-        <div class={`p-4 rounded-xl border transition-all ${
-          m.highlight 
-            ? 'bg-amber-500/10 border-amber-500/30' 
-            : 'bg-white/[0.03] border-white/5'
-        }`}>
-          <div class="flex items-center justify-between mb-2">
-            <span class="font-mono text-xs font-semibold text-cyan-400">{m.date}</span>
-            <span class={`text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full ${
-              m.highlight 
-                ? 'bg-amber-500 text-navy-900 font-extrabold' 
-                : 'bg-white/10 text-slate-300'
-            }`}>
-              {m.status}
-            </span>
-          </div>
-          <h4 class="text-sm font-semibold text-white mb-1">{m.title}</h4>
-          <p class="text-xs text-slate-400 leading-relaxed">{m.desc}</p>
-        </div>
-      ))}
+    <!-- Milestones Horizontal Bar -->
+    <div class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-3">
+      <div class="p-3 rounded-2xl bg-white/60 border border-white/80 shadow-sm">
+        <div class="font-mono text-[11px] font-bold text-cyan-600">Aug 2025</div>
+        <div class="text-xs font-bold text-slate-900 mt-0.5">Carbon Footprint</div>
+        <div class="text-[11px] text-slate-500">Mandatory PCF</div>
+      </div>
+
+      <div class="p-3 rounded-2xl bg-amber-500/10 border border-amber-500/30 shadow-sm">
+        <div class="font-mono text-[11px] font-bold text-amber-600">18 Feb 2027</div>
+        <div class="text-xs font-bold text-slate-900 mt-0.5">DPP Mandatory</div>
+        <div class="text-[11px] text-amber-700">QR on All Packs</div>
+      </div>
+
+      <div class="p-3 rounded-2xl bg-white/60 border border-white/80 shadow-sm">
+        <div class="font-mono text-[11px] font-bold text-cyan-600">Aug 2027</div>
+        <div class="text-xs font-bold text-slate-900 mt-0.5">Due Diligence</div>
+        <div class="text-[11px] text-slate-500">OECD Sourcing</div>
+      </div>
+
+      <div class="p-3 rounded-2xl bg-white/60 border border-white/80 shadow-sm">
+        <div class="font-mono text-[11px] font-bold text-cyan-600">Aug 2031</div>
+        <div class="text-xs font-bold text-slate-900 mt-0.5">Recycled Targets</div>
+        <div class="text-[11px] text-slate-500">Co 16% · Li 6%</div>
+      </div>
     </div>
 
   </div>
-
 </div>
 
-<script>
+<script is:inline>
   function updateCountdown() {
     const targetDate = new Date('2027-02-18T00:00:00Z').getTime();
     const now = new Date().getTime();

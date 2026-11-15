@@ -4,6 +4,13 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Soft UI Backgrounds
+        soft: {
+          bg: '#EEF2F6',
+          surface: '#F0F4F8',
+          well: '#E6ECF2',
+          border: '#DCE4EC',
+        },
         // Sovereign Navy 墨蓝
         navy: {
           900: '#061A2B',
@@ -32,11 +39,7 @@ export default {
           500: '#C9791E',
           100: '#FBEAD2',
         },
-        // Brass 点睛金
-        gold: {
-          500: '#B08D3E',
-        },
-        // Slate / Neutral 冷灰阶
+        // Slate Text / Accents
         slate: {
           50: '#F7F9FB',
           100: '#EEF2F6',
@@ -45,26 +48,28 @@ export default {
           500: '#6B7A89',
           600: '#52606D',
           700: '#3C4A57',
+          800: '#212D38',
           900: '#14212B',
-        },
-        // Semantic
-        danger: {
-          600: '#B42318',
-        },
-        info: {
-          600: '#1B5C8F',
         },
       },
       fontFamily: {
         sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'PingFang SC', 'Microsoft YaHei', 'sans-serif'],
         mono: ['JetBrains Mono', 'SF Mono', 'Menlo', 'monospace'],
       },
-      borderRadius: {
-        sm: '8px',
-        md: '12px',
-        lg: '16px',
-        xl: '24px',
+      boxShadow: {
+        // Neomorphic Soft UI shadows
+        'neo-card': '12px 12px 28px #D1D9E6, -12px -12px 28px #FFFFFF',
+        'neo-card-sm': '6px 6px 16px #D1D9E6, -6px -6px 16px #FFFFFF',
+        'neo-btn': '4px 4px 10px #D1D9E6, -4px -4px 10px #FFFFFF',
+        'neo-btn-hover': '2px 2px 6px #D1D9E6, -2px -2px 6px #FFFFFF',
+        'neo-inset': 'inset 4px 4px 8px #D1D9E6, inset -4px -4px 8px #FFFFFF',
+        'neo-inset-sm': 'inset 2px 2px 5px #D1D9E6, inset -2px -2px 5px #FFFFFF',
+        'neo-nav': '0 10px 30px -5px rgba(209, 217, 230, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.8) inset',
       },
+      borderRadius: {
+        'neo': '20px',
+        'neo-lg': '28px',
+      }
     },
   },
   plugins: [],
