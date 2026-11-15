@@ -6,56 +6,103 @@ import Layout from '../../layouts/Layout.astro';
   title="Battery Carbon Footprint (PCF) & LCA Engine | EU DPP Provider"
   description="Automated Product Carbon Footprint (PCF) engine compliant with EU PEFCR rules and ISO 14040/44 for battery life-cycle assessment."
 >
-  <div class="py-24 md:py-32 bg-stone-50">
-    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-      
-      <div class="max-w-3xl">
-        <span class="text-xs font-mono font-medium text-emerald-800 uppercase tracking-widest bg-emerald-50 px-3.5 py-1.5 rounded-full border border-emerald-200">
-          PCF & LCA Automation
-        </span>
-        <h1 class="text-4xl sm:text-6xl font-semibold text-stone-900 tracking-tight mt-6 mb-6">
-          PEFCR-Compliant Battery Carbon Footprint Engine
-        </h1>
-        <p class="text-lg sm:text-xl text-stone-500 leading-relaxed font-normal">
-          The EU Battery Regulation mandates strict lifecycle carbon accounting across 4 lifecycle stages: Raw Material Acquisition, Battery Manufacturing, Distribution, and Recycling. Our engine automates primary activity data ingestion and calculation with verified emission factor databases.
-        </p>
-      </div>
+  <div class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="eyebrow-pill mb-3 mx-auto">PCF & LCA Automation Engine</div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        PEFCR-Compliant Battery <br class="hidden sm:inline" />
+        <span class="text-cyan-600">Carbon Footprint Engine</span>
+      </h1>
+      <p class="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+        The EU Battery Regulation mandates strict lifecycle carbon accounting across 4 lifecycle stages: Raw Material Acquisition, Battery Manufacturing, Distribution, and Recycling.
+      </p>
 
-      <!-- 4 Stages Grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 my-20">
-        <div class="bg-white p-8 rounded-3xl border border-stone-200 shadow-soft space-y-3">
-          <div class="text-xs font-mono font-bold text-stone-900">STAGE 1</div>
-          <h3 class="text-lg font-bold text-stone-900">Raw Material Extraction</h3>
-          <p class="text-sm text-stone-500 leading-relaxed font-normal">Mining and refining emissions for Lithium, Cobalt, Nickel, Manganese, and Aluminum cathode precursors.</p>
-        </div>
-        <div class="bg-white p-8 rounded-3xl border border-stone-200 shadow-soft space-y-3">
-          <div class="text-xs font-mono font-bold text-stone-900">STAGE 2</div>
-          <h3 class="text-lg font-bold text-stone-900">Battery Manufacturing</h3>
-          <p class="text-sm text-stone-500 leading-relaxed font-normal">Dry-room electricity, electrode coating, cell assembly, and formation cycling energy consumption.</p>
-        </div>
-        <div class="bg-white p-8 rounded-3xl border border-stone-200 shadow-soft space-y-3">
-          <div class="text-xs font-mono font-bold text-stone-900">STAGE 3</div>
-          <h3 class="text-lg font-bold text-stone-900">Distribution & Logistics</h3>
-          <p class="text-sm text-stone-500 leading-relaxed font-normal">Maritime shipping, rail freight, and European road transport from gigafactory to OEM port of entry.</p>
-        </div>
-        <div class="bg-white p-8 rounded-3xl border border-stone-200 shadow-soft space-y-3">
-          <div class="text-xs font-mono font-bold text-emerald-800">STAGE 4</div>
-          <h3 class="text-lg font-bold text-stone-900">Recycling & Recovery</h3>
-          <p class="text-sm text-stone-500 leading-relaxed font-normal">End-of-life hydrometallurgical recovery credits and recycled content substitution offsets.</p>
-        </div>
-      </div>
-
-      <!-- CTA -->
-      <div class="p-12 rounded-3xl bg-stone-900 text-white text-center space-y-4">
-        <h3 class="text-3xl font-semibold text-white">Calculate Your Battery Carbon Footprint</h3>
-        <p class="text-base text-stone-300 max-w-xl mx-auto font-normal">
-          Request a sample carbon declaration report and test your BOM against European PEFCR benchmarks.
-        </p>
-        <a href="/contact" class="inline-flex px-8 py-4 rounded-xl bg-white text-stone-900 font-semibold text-sm hover:bg-stone-100 transition-colors">
-          Book PCF Demonstration &rarr;
+      <div class="mt-6 flex justify-center gap-4">
+        <a href="mailto:info@eudppprovider.com" class="neo-btn-primary">
+          Contact Carbon Engineering Desk →
         </a>
+      </div>
+    </div>
+
+    <!-- 4 Lifecycle Stages Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+      
+      <div class="neo-surface p-6">
+        <div class="font-mono text-xs font-bold text-cyan-600 mb-1">Stage 01</div>
+        <h3 class="text-base font-bold text-slate-900 mb-2">Raw Material Acquisition</h3>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          Cradle-to-gate mining and chemical precursor extraction (Cathode, Anode, Electrolyte, Separator) with ecoinvent / Gabi emission factor integration.
+        </p>
+      </div>
+
+      <div class="neo-surface p-6">
+        <div class="font-mono text-xs font-bold text-cyan-600 mb-1">Stage 02</div>
+        <h3 class="text-base font-bold text-slate-900 mb-2">Battery Manufacturing</h3>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          Primary energy consumption, cleanroom electricity mix, cell electrode coating, module formation, and pack assembly line emissions.
+        </p>
+      </div>
+
+      <div class="neo-surface p-6">
+        <div class="font-mono text-xs font-bold text-cyan-600 mb-1">Stage 03</div>
+        <h3 class="text-base font-bold text-slate-900 mb-2">Distribution & Transport</h3>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          Intercontinental sea freight, domestic European road logistics, and warehouse staging carbon calculation per battery unit.
+        </p>
+      </div>
+
+      <div class="neo-surface p-6">
+        <div class="font-mono text-xs font-bold text-green-700 mb-1">Stage 04</div>
+        <h3 class="text-base font-bold text-slate-900 mb-2">End-of-Life & Recycling</h3>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          Circular economy credits, hydrometallurgical recycling efficiencies, and avoided burden offsets for reclaimed precious metals.
+        </p>
       </div>
 
     </div>
+
+    <!-- Technical Feature Details -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
+      
+      <div class="neo-surface p-8">
+        <h3 class="text-lg font-bold text-slate-900 mb-3">Automated PEFCR Data Modeling</h3>
+        <p class="text-xs text-slate-600 leading-relaxed mb-4">
+          Our calculation engine strictly applies Product Environmental Footprint Category Rules (PEFCR) specific to EV and industrial batteries, eliminating manual LCA spreadsheet errors.
+        </p>
+        <ul class="space-y-2 text-xs text-slate-600">
+          <li class="flex items-center gap-2"><span class="text-cyan-600 font-bold">✓</span> Direct connector to factory energy meters & MES bills of materials</li>
+          <li class="flex items-center gap-2"><span class="text-cyan-600 font-bold">✓</span> Supplier portal for upstream precursor emission declaration</li>
+          <li class="flex items-center gap-2"><span class="text-cyan-600 font-bold">✓</span> Automated generation of EU Carbon Footprint Declaration (CFD)</li>
+        </ul>
+      </div>
+
+      <div class="neo-surface p-8">
+        <h3 class="text-lg font-bold text-slate-900 mb-3">Notified Body (NB) Verification Bridge</h3>
+        <p class="text-xs text-slate-600 leading-relaxed mb-4">
+          Seamless export of auditable calculation packages for third-party verification bodies (TÜV Rheinland, TÜV SÜD, SGS, DEKRA), slashing certification lead time.
+        </p>
+        <ul class="space-y-2 text-xs text-slate-600">
+          <li class="flex items-center gap-2"><span class="text-green-700 font-bold">✓</span> Pre-formatted audit packages with full data provenance trace</li>
+          <li class="flex items-center gap-2"><span class="text-green-700 font-bold">✓</span> Tamper-evident cryptographic timestamps for activity data</li>
+          <li class="flex items-center gap-2"><span class="text-green-700 font-bold">✓</span> Automated class rating derivation (Class A / B / C benchmarks)</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom Action Card -->
+    <div class="neo-surface p-8 max-w-4xl mx-auto text-center">
+      <h3 class="text-lg font-bold text-slate-900">Request PCF Carbon Footprint Scoping</h3>
+      <p class="text-xs text-slate-500 mt-1 max-w-lg mx-auto">
+        Speak with our certified LCA engineers to evaluate your battery cell or pack carbon accounting readiness.
+      </p>
+      <div class="mt-5">
+        <a href="mailto:info@eudppprovider.com" class="neo-btn-primary inline-flex items-center gap-2">
+          <span>Email: info@eudppprovider.com</span>
+        </a>
+      </div>
+    </div>
+
   </div>
 </Layout>

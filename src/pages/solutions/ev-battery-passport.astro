@@ -7,68 +7,77 @@ import BatteryPassportViewer from '../../components/BatteryPassportViewer.astro'
   title="EV Battery Passport Solutions | EU DPP Provider"
   description="Full-lifecycle Digital Product Passport compliance for electric vehicle (EV) battery packs under Regulation (EU) 2023/1542."
 >
-  <div class="py-24 md:py-32 bg-stone-50">
-    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-      
-      <div class="max-w-3xl">
-        <span class="text-xs font-mono font-medium text-stone-600 uppercase tracking-widest bg-stone-100 px-3.5 py-1.5 rounded-full border border-stone-200">
-          Automotive & Traction Batteries
-        </span>
-        <h1 class="text-4xl sm:text-6xl font-semibold text-stone-900 tracking-tight mt-6 mb-6">
-          EV Battery Passport (Article 77 & 78) Compliance Engine
-        </h1>
-        <p class="text-lg sm:text-xl text-stone-500 leading-relaxed font-normal">
-          From cell manufacturing and pack assembly to OEM vehicle integration and end-of-life recycling, EU DPP Provider delivers the complete data infrastructure mandated for electric vehicles sold in the European Union.
-        </p>
-      </div>
+  <div class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="eyebrow-pill mb-3 mx-auto">Automotive Traction Batteries</div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        EV Battery Passport <br class="hidden sm:inline" />
+        <span class="text-cyan-600">Enterprise Solutions</span>
+      </h1>
+      <p class="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+        End-to-end regulatory compliance for traction battery systems powering electric passenger cars, buses, and commercial transport under Article 77 of Regulation (EU) 2023/1542.
+      </p>
 
-      <!-- Feature Matrix -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 my-20">
-        <div class="bg-white p-8 rounded-3xl border border-stone-200 shadow-soft space-y-3">
-          <div class="text-3xl mb-2">⚡</div>
-          <h3 class="text-xl font-bold text-stone-900">Automotive OEM & Tier-1 Integration</h3>
-          <p class="text-sm text-stone-500 leading-relaxed font-normal">
-            Seamlessly bridge battery manufacturing MES with OEM vehicle assembly lines. Link VIN (Vehicle Identification Number) with individual Battery Passport UIDs.
-          </p>
-        </div>
-
-        <div class="bg-white p-8 rounded-3xl border border-stone-200 shadow-soft space-y-3">
-          <div class="text-3xl mb-2">🔋</div>
-          <h3 class="text-xl font-bold text-stone-900">Dynamic SoH / Telemetry Hooks</h3>
-          <p class="text-sm text-stone-500 leading-relaxed font-normal">
-            Connect vehicle on-board BMS data to provide certified State of Health (SoH) and capacity throughput readings for second-life vehicle trade-ins and repurposing.
-          </p>
-        </div>
-
-        <div class="bg-white p-8 rounded-3xl border border-stone-200 shadow-soft space-y-3">
-          <div class="text-3xl mb-2">🛡️</div>
-          <h3 class="text-xl font-bold text-stone-900">OEM Brand White-Labeling</h3>
-          <p class="text-sm text-stone-500 leading-relaxed font-normal">
-            Display your car brand's bespoke design on public consumer scan portals while maintaining rigorous EU authority verification channels.
-          </p>
-        </div>
-      </div>
-
-      <!-- Live Simulator -->
-      <div class="my-20">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl font-semibold text-stone-900">Live EV Battery Passport Interactive Model</h2>
-          <p class="text-sm text-stone-500 mt-2">Simulate an actual EV traction pack scan below</p>
-        </div>
-        <BatteryPassportViewer />
-      </div>
-
-      <!-- CTA -->
-      <div class="p-12 rounded-3xl bg-stone-900 text-white text-center space-y-4">
-        <h3 class="text-3xl font-semibold text-white">Equip Your EV Battery Portfolio for 2027</h3>
-        <p class="text-base text-stone-300 max-w-xl mx-auto font-normal">
-          Schedule an automotive compliance consultation and review our technical integration API documentation.
-        </p>
-        <a href="/contact" class="inline-flex px-8 py-4 rounded-xl bg-white text-stone-900 font-semibold text-sm hover:bg-stone-100 transition-colors">
-          Book Automotive Demo &rarr;
+      <div class="mt-6 flex justify-center gap-4">
+        <a href="mailto:info@eudppprovider.com" class="neo-btn-primary">
+          Request EV Battery Scoping →
         </a>
+      </div>
+    </div>
+
+    <!-- Live Interactive Viewer -->
+    <div class="mb-16">
+      <BatteryPassportViewer />
+    </div>
+
+    <!-- Core Features Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16">
+      
+      <div class="neo-surface p-7">
+        <div class="w-10 h-10 rounded-2xl bg-cyan-100 text-cyan-700 flex items-center justify-center font-bold text-lg mb-4">
+          🚗
+        </div>
+        <h3 class="text-base font-bold text-slate-900 mb-2">OEM Vehicle VIN Pairing</h3>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          Dynamic synchronization between battery pack serials, vehicle VIN, and OEM digital twin architectures via ISO 15118 and Catena-X data spaces.
+        </p>
+      </div>
+
+      <div class="neo-surface p-7">
+        <div class="w-10 h-10 rounded-2xl bg-green-100 text-green-700 flex items-center justify-center font-bold text-lg mb-4">
+          ⚡
+        </div>
+        <h3 class="text-base font-bold text-slate-900 mb-2">Carbon Footprint (CFD)</h3>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          Pre-built PEFCR modeling for ternary NMC and LFP chemistries, generating certified Carbon Footprint Declarations for European homologation.
+        </p>
+      </div>
+
+      <div class="neo-surface p-7">
+        <div class="w-10 h-10 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-lg mb-4">
+          🔒
+        </div>
+        <h3 class="text-base font-bold text-slate-900 mb-2">BOM Privacy Shield</h3>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          Protect cell active material formulations and supplier purchase prices through zero-knowledge cryptographic proofs.
+        </p>
       </div>
 
     </div>
+
+    <!-- Bottom Action Card -->
+    <div class="neo-surface p-8 max-w-4xl mx-auto text-center">
+      <h3 class="text-lg font-bold text-slate-900">Discuss Your EV Battery Passport Implementation</h3>
+      <p class="text-xs text-slate-500 mt-1 max-w-lg mx-auto">
+        Connect with our automotive battery compliance desk for technical consultation.
+      </p>
+      <div class="mt-5">
+        <a href="mailto:info@eudppprovider.com" class="neo-btn-primary inline-flex items-center gap-2">
+          <span>Email: info@eudppprovider.com</span>
+        </a>
+      </div>
+    </div>
+
   </div>
 </Layout>

@@ -7,97 +7,132 @@ import ComplianceCountdown from '../../components/ComplianceCountdown.astro';
   title="EU Battery Regulation (EU 2023/1542) Complete Compliance Guide | EU DPP Provider"
   description="In-depth analysis of Regulation (EU) 2023/1542 requirements, Article 77/78 Battery Passport mandates, 2027 enforcement timeline, and technical checklist."
 >
-  <div class="py-24 md:py-32 bg-stone-50">
-    <div class="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 space-y-16">
+  <div class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Hero Header -->
+    <div class="text-center max-w-4xl mx-auto mb-16">
+      <div class="eyebrow-pill mb-4 mx-auto">Regulatory Knowledge Center</div>
       
-      <!-- Page Header -->
-      <div class="space-y-6 text-center">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium bg-stone-100 text-stone-700 border border-stone-200">
-          Regulatory Knowledge Center
-        </div>
-        <h1 class="text-4xl sm:text-6xl font-semibold text-stone-900 tracking-tight leading-tight">
-          EU Battery Regulation (EU 2023/1542): The Definitive Guide
-        </h1>
-        <p class="text-lg sm:text-xl text-stone-500 leading-relaxed font-normal max-w-2xl mx-auto">
-          The European Union's Regulation 2023/1542 establishes the world's most rigorous regulatory framework for the design, manufacture, traceability, and recycling of batteries.
-        </p>
-      </div>
+      <!-- Balanced Title to prevent awkward wrap -->
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.15] max-w-3xl mx-auto">
+        EU Battery Regulation <br class="hidden sm:inline" />
+        <span class="text-cyan-600">(EU 2023/1542) Compliance Guide</span>
+      </h1>
 
-      <ComplianceCountdown />
+      <p class="mt-5 text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
+        The European Union's Regulation 2023/1542 establishes the world's most comprehensive regulatory framework for battery design, traceability, carbon accounting, and end-of-life recycling.
+      </p>
 
-      <!-- Section: Key Scope and Categories -->
-      <div class="bg-white p-8 sm:p-12 rounded-3xl border border-stone-200 shadow-soft space-y-6">
-        <h2 class="text-2xl sm:text-3xl font-bold text-stone-900">1. Which Batteries Require a Digital Passport?</h2>
-        <p class="text-base text-stone-600 leading-relaxed font-normal">
-          Starting <strong>18 February 2027</strong>, Article 77 mandates that each individual battery in the following categories placed on the EU market must be registered with a unique Digital Battery Passport:
-        </p>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4 text-xs">
-          <div class="p-6 bg-stone-50 rounded-2xl border border-stone-200">
-            <span class="font-bold text-stone-900 text-sm block mb-2">EV Batteries</span>
-            <p class="text-stone-500 text-xs leading-relaxed font-normal">Traction batteries used in electric road vehicles (BEV, PHEV, buses, commercial EV trucks).</p>
-          </div>
-          <div class="p-6 bg-stone-50 rounded-2xl border border-stone-200">
-            <span class="font-bold text-stone-900 text-sm block mb-2">LMT Batteries</span>
-            <p class="text-stone-500 text-xs leading-relaxed font-normal">Light Means of Transport batteries used in e-bikes, electric scooters, and light mopeds (&le; 25kg).</p>
-          </div>
-          <div class="p-6 bg-stone-50 rounded-2xl border border-stone-200">
-            <span class="font-bold text-stone-900 text-sm block mb-2">Industrial Batteries</span>
-            <p class="text-stone-500 text-xs leading-relaxed font-normal">All stationary energy storage systems (BESS), telecom backup, and industrial packs with capacity &gt; 2 kWh.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Section: 90+ Mandatory Data Attributes Checklist -->
-      <div class="bg-white p-8 sm:p-12 rounded-3xl border border-stone-200 shadow-soft space-y-8">
-        <h2 class="text-2xl sm:text-3xl font-bold text-stone-900">2. Core Data Dimensions Mandated by the Regulation</h2>
-        <p class="text-base text-stone-600 leading-relaxed font-normal">
-          The Battery Passport is structured into four distinct access tiers to protect commercial confidentiality while fulfilling environmental obligations:
-        </p>
-
-        <div class="space-y-6 text-xs">
-          <div class="p-6 rounded-2xl bg-stone-50 border border-stone-200 space-y-2.5">
-            <div class="font-bold text-stone-900 text-base flex items-center justify-between">
-              <span>Tier A: General Product Information (Public)</span>
-              <span class="text-xs text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">Unrestricted</span>
-            </div>
-            <p class="text-stone-600 text-xs leading-relaxed font-normal">
-              Manufacturer identity, registered trademark, manufacturing date & location, battery category & weight, rated capacity, minimum voltage, certified lifecycle Carbon Footprint (PCF) rating, and consumer end-of-life collection guidelines.
-            </p>
-          </div>
-
-          <div class="p-6 rounded-2xl bg-stone-50 border border-stone-200 space-y-2.5">
-            <div class="font-bold text-stone-900 text-base flex items-center justify-between">
-              <span>Tier B: Compliance & Due Diligence (Authorities)</span>
-              <span class="text-xs text-stone-700 bg-stone-200 px-2.5 py-1 rounded-full">Authenticated</span>
-            </div>
-            <p class="text-stone-600 text-xs leading-relaxed font-normal">
-              EU Declaration of Conformity (DoC), UN 38.3 test results, CE certification documentation, independent third-party audit reports, and OECD-compliant supply chain due diligence reports for Cobalt, Lithium, Nickel, and Natural Graphite.
-            </p>
-          </div>
-
-          <div class="p-6 rounded-2xl bg-stone-50 border border-stone-200 space-y-2.5">
-            <div class="font-bold text-stone-900 text-base flex items-center justify-between">
-              <span>Tier C: Dismantling & Material Breakdown (Recyclers)</span>
-              <span class="text-xs text-amber-800 bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200">Legitimate Interest</span>
-            </div>
-            <p class="text-stone-600 text-xs leading-relaxed font-normal">
-              Detailed Bill of Materials (BOM) with exact percentage and weight thresholds of critical raw materials, cathode/anode active material chemistry, hazardous substance declarations, and disassembly protocols.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Callout -->
-      <div class="p-10 rounded-3xl bg-stone-900 text-white text-center space-y-4">
-        <h3 class="text-2xl sm:text-3xl font-semibold text-white">Download the Complete EU Battery Passport Checklist</h3>
-        <p class="text-base text-stone-300 max-w-xl mx-auto font-normal leading-relaxed">
-          Get our 32-page compliance guide mapping all 90+ required data fields to your existing ERP and MES systems.
-        </p>
-        <a href="/contact" class="inline-flex px-8 py-3.5 rounded-xl bg-white text-stone-900 font-semibold text-sm hover:bg-stone-100 transition-colors">
-          Request Compliance Whitepaper &rarr;
+      <div class="mt-8 flex justify-center gap-4">
+        <a href="mailto:info@eudppprovider.com" class="neo-btn-primary">
+          Request Compliance Assessment →
         </a>
+      </div>
+    </div>
+
+    <!-- Countdown Component -->
+    <div class="mb-16">
+      <ComplianceCountdown />
+    </div>
+
+    <!-- Main Content Cards -->
+    <div class="space-y-8 max-w-4xl mx-auto">
+      
+      <!-- Card 1: Scope & Mandatory Categories -->
+      <div class="neo-surface p-8 sm:p-10">
+        <h2 class="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2.5">
+          <span class="w-8 h-8 rounded-xl bg-cyan-100 text-cyan-700 flex items-center justify-center font-bold text-sm">01</span>
+          <span>Scope: Which Batteries Require a Digital Passport?</span>
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+          According to Article 77, starting <strong>February 18, 2027</strong>, each battery placed on the EU market must have an electronic record (Battery Passport) if it falls into one of these categories:
+        </p>
+        <ul class="space-y-2.5 text-xs sm:text-sm text-slate-700">
+          <li class="flex items-start gap-2.5">
+            <span class="text-cyan-600 font-bold mt-0.5">•</span>
+            <span><strong>Electric Vehicle (EV) Batteries:</strong> Traction batteries specifically designed for road transport (M, N category vehicles).</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="text-cyan-600 font-bold mt-0.5">•</span>
+            <span><strong>Light Means of Transport (LMT) Batteries:</strong> Sealed traction batteries &le; 25 kg powering e-bikes, e-scooters, and light electric mopeds.</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="text-cyan-600 font-bold mt-0.5">•</span>
+            <span><strong>Industrial Batteries with Capacity &gt; 2 kWh:</strong> Including stationary battery energy storage systems (BESS), telecom backup, and industrial motive power.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Card 2: 4-Tier Information Disclosure Architecture -->
+      <div class="neo-surface p-8 sm:p-10">
+        <h2 class="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2.5">
+          <span class="w-8 h-8 rounded-xl bg-green-100 text-green-700 flex items-center justify-center font-bold text-sm">02</span>
+          <span>Four-Tier Access & Data Disclosure Matrix (Annex XIII)</span>
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+          The regulation strictly divides more than 70 data points into different access tiers to protect proprietary trade secrets while providing necessary transparency:
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+          <div class="neo-well p-4">
+            <div class="font-bold text-slate-900 text-sm mb-1">👁️ 1. Public Tier (Consumers)</div>
+            <p class="text-slate-500">General manufacturer info, battery model, manufacturing date, nominal capacity, chemistry category, carbon footprint performance class, and general recycling take-back instructions.</p>
+          </div>
+
+          <div class="neo-well p-4">
+            <div class="font-bold text-slate-900 text-sm mb-1">🏛️ 2. Authority Tier (Customs & Market Surveillance)</div>
+            <p class="text-slate-500">EU Declaration of Conformity (DoC), Notified Body test reports (UN GTR 20 / ECE R100), full lifecycle carbon audit calculations, and OECD supply chain due diligence audits.</p>
+          </div>
+
+          <div class="neo-well p-4">
+            <div class="font-bold text-slate-900 text-sm mb-1">♻️ 3. Recycler & Dismantler Tier</div>
+            <p class="text-slate-500">Exact weights of critical raw materials (Cobalt, Lithium, Nickel, Lead, Natural Graphite), battery enclosure opening manuals, safety handling instructions, and hazardous component locations.</p>
+          </div>
+
+          <div class="neo-well p-4">
+            <div class="font-bold text-slate-900 text-sm mb-1">⚙️ 4. Authorized Commercial Actors (OEMs & Refurbishers)</div>
+            <p class="text-slate-500">Dynamic State of Health (SOH), internal resistance, state of charge (SOC), cycle history, thermal telemetry, and battery module re-purposing specifications.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: eIDAS 2.0 & EU DPP Registry Bridge -->
+      <div class="neo-surface p-8 sm:p-10">
+        <h2 class="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2.5">
+          <span class="w-8 h-8 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-sm">03</span>
+          <span>eIDAS 2.0 Digital Signature & Central Registry Filing</span>
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+          The EU Commission Central DPP Registry acts as a public lookup directory for unique product identifiers (UPI) and data carrier URLs. Complete battery data remains securely hosted in sovereign enterprise vaults.
+        </p>
+
+        <div class="space-y-3 text-xs sm:text-sm text-slate-700">
+          <div class="p-3.5 bg-white/70 rounded-xl border border-slate-200">
+            <strong>1. Organization Identity Verification:</strong> Registration via EU Login and issuance of Qualified Electronic Seals (QSeal) or Qualified Signatures (QES) via an EU Qualified Trust Service Provider (QTSP, e.g. DigiCert).
+          </div>
+          <div class="p-3.5 bg-white/70 rounded-xl border border-slate-200">
+            <strong>2. PAdES Baseline Digital Sealing:</strong> Tamper-evident PDF/JSON-LD payload signing guaranteeing data integrity before submission.
+          </div>
+          <div class="p-3.5 bg-white/70 rounded-xl border border-slate-200">
+            <strong>3. UPI Registration & Official Receipt:</strong> Batch or individual product identifier registration in the EU Central Registry, returning verifiable registration certificates for customs clearance.
+          </div>
+        </div>
+      </div>
+
+      <!-- Direct Contact Card -->
+      <div class="neo-surface p-8 text-center bg-gradient-to-br from-[#F0F4F8] to-cyan-50/40">
+        <h3 class="text-lg font-bold text-slate-900">Need Assistance with EU Battery Compliance?</h3>
+        <p class="text-xs text-slate-500 mt-1 max-w-md mx-auto">
+          Our engineering desk provides gap audits, enterprise software licensing, and managed data vault onboarding.
+        </p>
+        <div class="mt-5">
+          <a href="mailto:info@eudppprovider.com" class="neo-btn-primary inline-flex items-center gap-2">
+            <span>Email: info@eudppprovider.com</span>
+          </a>
+        </div>
       </div>
 
     </div>
+
   </div>
 </Layout>

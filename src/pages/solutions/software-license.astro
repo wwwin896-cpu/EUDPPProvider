@@ -6,79 +6,72 @@ import Layout from '../../layouts/Layout.astro';
   title="Enterprise DPP Software License | On-Premise & Private Cloud | EU DPP Provider"
   description="Procure independent Enterprise DPP software licensing for complete data sovereignty, custom ERP/MES/BMS integrations, and unlimited battery serialization."
 >
-  <div class="py-24 md:py-32 bg-stone-50">
-    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+  <div class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="eyebrow-pill mb-3 mx-auto">Enterprise Software License</div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        Enterprise DPP Software <br class="hidden sm:inline" />
+        <span class="text-cyan-600">On-Premise & Private Cloud</span>
+      </h1>
+      <p class="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+        Procure full commercial software licenses for deployment in your own sovereign IT infrastructure (AWS, Azure, Alibaba Cloud EU, or bare-metal data centers).
+      </p>
+
+      <div class="mt-6 flex justify-center gap-4">
+        <a href="mailto:info@eudppprovider.com" class="neo-btn-primary">
+          Request Software Architecture Briefing →
+        </a>
+      </div>
+    </div>
+
+    <!-- Core Advantages Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16">
       
-      <div class="max-w-3xl">
-        <span class="text-xs font-mono font-medium text-stone-600 uppercase tracking-widest bg-stone-100 px-3.5 py-1.5 rounded-full border border-stone-200">
-          Independent Software License
-        </span>
-        <h1 class="text-4xl sm:text-6xl font-semibold text-stone-900 tracking-tight mt-6 mb-6">
-          Enterprise DPP Software Suite: 100% Data Sovereignty
-        </h1>
-        <p class="text-lg sm:text-xl text-stone-500 leading-relaxed font-normal">
-          Designed for tier-1 cell manufacturers, gigafactories, and automotive groups requiring on-premise or dedicated private cloud Kubernetes cluster deployment. Own your software stack, maintain absolute control over proprietary trade secrets, and scale with zero per-passport metering penalties.
+      <div class="neo-surface p-7">
+        <div class="w-10 h-10 rounded-2xl bg-cyan-100 text-cyan-700 flex items-center justify-center font-bold text-lg mb-4">
+          🔐
+        </div>
+        <h3 class="text-base font-bold text-slate-900 mb-2">100% Code & Data Sovereignty</h3>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          Full ownership of database schemas, cryptographic private keys, and application runtime within your enterprise perimeter.
         </p>
       </div>
 
-      <!-- Comparison Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-20">
-        
-        <div class="bg-white p-8 sm:p-12 rounded-3xl border border-stone-200 shadow-soft space-y-4">
-          <div class="text-xs font-mono font-bold text-stone-900">DEPLOYMENT ARCHITECTURE</div>
-          <h3 class="text-2xl font-bold text-stone-900">Private Cloud & On-Premise Kubernetes</h3>
-          <p class="text-sm text-stone-500 leading-relaxed font-normal">
-            Deploy via Helm Charts or Terraform across AWS, Azure, Google Cloud, Alibaba Cloud, or on-premise air-gapped bare metal.
-          </p>
-          <ul class="space-y-2.5 text-xs text-stone-700 pt-4 border-t border-stone-100 font-normal">
-            <li class="flex items-center gap-2">✓ Full physical data isolation (No multi-tenant mixing)</li>
-            <li class="flex items-center gap-2">✓ Open REST API & GraphQL endpoints for internal ERP</li>
-            <li class="flex items-center gap-2">✓ Compatible with Catena-X Eclipse Dataspace Connector (EDC)</li>
-          </ul>
+      <div class="neo-surface p-7">
+        <div class="w-10 h-10 rounded-2xl bg-green-100 text-green-700 flex items-center justify-center font-bold text-lg mb-4">
+          ♾️
         </div>
-
-        <div class="bg-white p-8 sm:p-12 rounded-3xl border border-stone-200 shadow-soft space-y-4">
-          <div class="text-xs font-mono font-bold text-emerald-800">UNLIMITED SERIALIZATION</div>
-          <h3 class="text-2xl font-bold text-stone-900">Zero Per-Passport Overages</h3>
-          <p class="text-sm text-stone-500 leading-relaxed font-normal">
-            Generate and manage millions of battery passports per year without variable per-unit SaaS taxes. Ideal for high-throughput Giga-scale production lines.
-          </p>
-          <ul class="space-y-2.5 text-xs text-stone-700 pt-4 border-t border-stone-100 font-normal">
-            <li class="flex items-center gap-2">✓ High-speed batch GS1 QR code generation (120+ packs/min)</li>
-            <li class="flex items-center gap-2">✓ Automated PEFCR LCA Carbon Footprint computation module</li>
-            <li class="flex items-center gap-2">✓ Dedicated technical support and annual upgrade SLA</li>
-          </ul>
-        </div>
-
+        <h3 class="text-base font-bold text-slate-900 mb-2">Unlimited Volume & Scans</h3>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          Predictable flat-fee enterprise licensing. Zero per-passport creation penalties, zero scan-rate charges, and unlimited production volume.
+        </p>
       </div>
 
-      <!-- Architecture Checklist -->
-      <div class="p-8 sm:p-12 rounded-3xl bg-white border border-stone-200 shadow-soft space-y-6">
-        <h3 class="text-2xl font-bold text-stone-900">Enterprise Software Capabilities Checklist</h3>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-xs pt-2">
-          <div class="p-6 bg-stone-50 rounded-2xl border border-stone-200">
-            <div class="font-bold text-stone-900 text-sm mb-2">PCF Carbon Calculator</div>
-            <p class="text-stone-500 leading-relaxed font-normal">Pre-built Ecoinvent & GaBi database mapping for instant cradle-to-gate battery carbon accounting.</p>
-          </div>
-          <div class="p-6 bg-stone-50 rounded-2xl border border-stone-200">
-            <div class="font-bold text-stone-900 text-sm mb-2">Due Diligence Vault</div>
-            <p class="text-stone-500 leading-relaxed font-normal">OECD 5-step framework management for Cobalt, Lithium, Nickel, and Graphite provenance audits.</p>
-          </div>
-          <div class="p-6 bg-stone-50 rounded-2xl border border-stone-200">
-            <div class="font-bold text-stone-900 text-sm mb-2">GS1 Resolver Server</div>
-            <p class="text-stone-500 leading-relaxed font-normal">Internal URI redirection server returning JSON-LD to machines and responsive HTML to consumers.</p>
-          </div>
+      <div class="neo-surface p-7">
+        <div class="w-10 h-10 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-lg mb-4">
+          🔄
         </div>
-      </div>
-
-      <!-- CTA -->
-      <div class="mt-20 text-center space-y-4">
-        <h3 class="text-3xl font-semibold text-stone-900">Request Software Trial & Architecture Whitepaper</h3>
-        <a href="/contact" class="inline-flex px-8 py-4 rounded-xl bg-stone-900 text-white font-medium text-base hover:bg-stone-800 transition-colors shadow-soft">
-          Request Enterprise Software License &rarr;
-        </a>
+        <h3 class="text-base font-bold text-slate-900 mb-2">Continuous EU Rule Updates</h3>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          Includes ongoing software updates as the European Commission releases new delegated acts and amended PEFCR methodologies.
+        </p>
       </div>
 
     </div>
+
+    <!-- Bottom Action Card -->
+    <div class="neo-surface p-8 max-w-4xl mx-auto text-center">
+      <h3 class="text-lg font-bold text-slate-900">Inquire About Enterprise Licensing</h3>
+      <p class="text-xs text-slate-500 mt-1 max-w-lg mx-auto">
+        Speak with our enterprise licensing desk to receive an architecture review and commercial proposal.
+      </p>
+      <div class="mt-5">
+        <a href="mailto:info@eudppprovider.com" class="neo-btn-primary inline-flex items-center gap-2">
+          <span>Email: info@eudppprovider.com</span>
+        </a>
+      </div>
+    </div>
+
   </div>
 </Layout>

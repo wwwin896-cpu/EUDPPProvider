@@ -7,68 +7,77 @@ import BatteryPassportViewer from '../../components/BatteryPassportViewer.astro'
   title="Stationary Storage & Industrial Battery Passports | EU DPP Provider"
   description="Digital Product Passport compliance for industrial batteries and stationary battery energy storage systems (BESS >2kWh) under EU 2023/1542."
 >
-  <div class="py-24 md:py-32 bg-stone-50">
-    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-      
-      <div class="max-w-3xl">
-        <span class="text-xs font-mono font-medium text-stone-600 uppercase tracking-widest bg-stone-100 px-3.5 py-1.5 rounded-full border border-stone-200">
-          Stationary ESS & Industrial Systems
-        </span>
-        <h1 class="text-4xl sm:text-6xl font-semibold text-stone-900 tracking-tight mt-6 mb-6">
-          Storage Battery Passports (>2kWh): Utility & C&I BESS
-        </h1>
-        <p class="text-lg sm:text-xl text-stone-500 leading-relaxed font-normal">
-          The European boom in renewable grid storage demands strict traceability. EU DPP Provider equips containerized BESS, commercial & industrial (C&I) racks, and telecom backup systems with compliant digital passports and lifecycle data tracking.
-        </p>
-      </div>
+  <div class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="eyebrow-pill mb-3 mx-auto">Stationary Storage & Industrial >2kWh</div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        Industrial & BESS Storage <br class="hidden sm:inline" />
+        <span class="text-cyan-600">Battery Passport Solutions</span>
+      </h1>
+      <p class="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+        Tailored compliance pipelines for containerized BESS, commercial & industrial (C&I) energy storage, and industrial backup batteries with capacity exceeding 2kWh.
+      </p>
 
-      <!-- Feature Matrix -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 my-20">
-        <div class="bg-white p-8 rounded-3xl border border-stone-200 shadow-soft space-y-3">
-          <div class="text-3xl mb-2">🏭</div>
-          <h3 class="text-xl font-bold text-stone-900">Containerized BESS & Rack Hierarchy</h3>
-          <p class="text-sm text-stone-500 leading-relaxed font-normal">
-            Multi-level digital passport hierarchy linking Container &rarr; Rack &rarr; High-voltage Module &rarr; Cell levels for granular maintenance and second-life tracking.
-          </p>
-        </div>
-
-        <div class="bg-white p-8 rounded-3xl border border-stone-200 shadow-soft space-y-3">
-          <div class="text-3xl mb-2">⚡</div>
-          <h3 class="text-xl font-bold text-stone-900">Grid Storage Round-Trip Efficiency</h3>
-          <p class="text-sm text-stone-500 leading-relaxed font-normal">
-            Standardized logging of certified initial capacity, internal resistance, and energy round-trip efficiency required for European grid operator interconnection audits.
-          </p>
-        </div>
-
-        <div class="bg-white p-8 rounded-3xl border border-stone-200 shadow-soft space-y-3">
-          <div class="text-3xl mb-2">🔄</div>
-          <h3 class="text-xl font-bold text-stone-900">Second-Life & Repurposing Protocols</h3>
-          <p class="text-sm text-stone-500 leading-relaxed font-normal">
-            Provide certified health certificates and residual capacity history when transitioning decommissioned EV packs into stationary storage systems.
-          </p>
-        </div>
-      </div>
-
-      <!-- Live Simulator -->
-      <div class="my-20">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl font-semibold text-stone-900">Interactive Industrial Battery Passport Simulation</h2>
-          <p class="text-sm text-stone-500 mt-2">Simulate an actual industrial storage passport below</p>
-        </div>
-        <BatteryPassportViewer />
-      </div>
-
-      <!-- CTA -->
-      <div class="p-12 rounded-3xl bg-stone-900 text-white text-center space-y-4">
-        <h3 class="text-3xl font-semibold text-white">Ensure Your Energy Storage Export Compliance</h3>
-        <p class="text-base text-stone-300 max-w-xl mx-auto font-normal">
-          Contact our stationary storage team for customized rack and container serialization workflows.
-        </p>
-        <a href="/contact" class="inline-flex px-8 py-4 rounded-xl bg-white text-stone-900 font-semibold text-sm hover:bg-stone-100 transition-colors">
-          Book Storage Solution Consultation &rarr;
+      <div class="mt-6 flex justify-center gap-4">
+        <a href="mailto:info@eudppprovider.com" class="neo-btn-primary">
+          Request Storage Battery Scoping →
         </a>
+      </div>
+    </div>
+
+    <!-- Live Interactive Viewer -->
+    <div class="mb-16">
+      <BatteryPassportViewer />
+    </div>
+
+    <!-- Core Features Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16">
+      
+      <div class="neo-surface p-7">
+        <div class="w-10 h-10 rounded-2xl bg-cyan-100 text-cyan-700 flex items-center justify-center font-bold text-lg mb-4">
+          🔋
+        </div>
+        <h3 class="text-base font-bold text-slate-900 mb-2">Hierarchical Rack/Pack Passports</h3>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          Supports multi-tier serialization from cell modules and battery racks to full 20ft/40ft BESS containerized energy storage enclosures.
+        </p>
+      </div>
+
+      <div class="neo-surface p-7">
+        <div class="w-10 h-10 rounded-2xl bg-green-100 text-green-700 flex items-center justify-center font-bold text-lg mb-4">
+          ⚙️
+        </div>
+        <h3 class="text-base font-bold text-slate-900 mb-2">BMS Telemetry & SoH Tracking</h3>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          Standardized API ingestion for stationary BMS parameters, capacity degradation tracking, and second-life repurposing eligibility scoring.
+        </p>
+      </div>
+
+      <div class="neo-surface p-7">
+        <div class="w-10 h-10 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-lg mb-4">
+          🇪🇺
+        </div>
+        <h3 class="text-base font-bold text-slate-900 mb-2">EU Customs & Project Portals</h3>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          Generate project-level compliance packages and Declaration of Conformity dossier for European grid operators and import customs clearance.
+        </p>
       </div>
 
     </div>
+
+    <!-- Bottom Action Card -->
+    <div class="neo-surface p-8 max-w-4xl mx-auto text-center">
+      <h3 class="text-lg font-bold text-slate-900">Prepare Your Energy Storage Exports for EU Compliance</h3>
+      <p class="text-xs text-slate-500 mt-1 max-w-lg mx-auto">
+        Speak with our energy storage compliance team for system integration and data vault scoping.
+      </p>
+      <div class="mt-5">
+        <a href="mailto:info@eudppprovider.com" class="neo-btn-primary inline-flex items-center gap-2">
+          <span>Email: info@eudppprovider.com</span>
+        </a>
+      </div>
+    </div>
+
   </div>
 </Layout>
