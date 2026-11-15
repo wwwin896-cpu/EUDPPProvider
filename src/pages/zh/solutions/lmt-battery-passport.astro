@@ -1,0 +1,100 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import BatteryPassportViewer from '../../../components/BatteryPassportViewer.astro';
+---
+
+<Layout
+  title="轻型交通 (LMT / 电动两轮车) 电池护照解决方案 (≤25kg) | EU DPP Provider"
+  description="面向电动自行车、电动滑板车、轻便电摩及三轮车（≤25kg）轻型交通电池的欧盟新电池法全生命周期数字产品护照合规方案。"
+>
+  <div class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="eyebrow-pill mb-3 mx-auto">轻型交通工具电池 (LMT &le; 25kg)</div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        轻型交通 (LMT) 电池护照 <br class="hidden sm:inline" />
+        <span class="text-cyan-600">合规与数据链解决方案</span>
+      </h1>
+      <p class="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+        覆盖电动自行车 (E-Bike)、电动滑板车、电摩及电动三轮车（重量 &le; 25kg）牵引电池包，从适用范围判定、供应链数据归集到赋码解析的一站式合规方案。
+      </p>
+
+      <div class="mt-6 flex justify-center gap-4">
+        <a href="mailto:info@eudppprovider.com" class="neo-btn-primary">
+          预约两轮/三轮车电池合规咨询 →
+        </a>
+      </div>
+    </div>
+
+    <!-- 交互式护照 -->
+    <div class="mb-16">
+      <BatteryPassportViewer />
+    </div>
+
+    <!-- 针对两/三轮车企业的四大难点攻关 -->
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <div class="eyebrow-pill mb-2">破局出海实务痛点</div>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+        两/三轮车电池护照四大难点攻关
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mb-16">
+      
+      <div class="neo-surface p-6">
+        <div class="w-9 h-9 rounded-xl bg-cyan-100 text-cyan-700 flex items-center justify-center font-bold text-sm mb-3.5">
+          01
+        </div>
+        <h3 class="text-sm font-bold text-slate-900 mb-2">多级供应链数据分散</h3>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          正负极材料、电解液、BMS与测试文件分散。提供明确的《数据责任矩阵》与标准化采集模板，一键分发协同。
+        </p>
+      </div>
+
+      <div class="neo-surface p-6">
+        <div class="w-9 h-9 rounded-xl bg-green-100 text-green-700 flex items-center justify-center font-bold text-sm mb-3.5">
+          02
+        </div>
+        <h3 class="text-sm font-bold text-slate-900 mb-2">碳数据核算边界统一</h3>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          预置符合 PEFCR 规则的工厂能耗、材料与运输核算模型，提供可解释、可审计的完整碳排放证据链。
+        </p>
+      </div>
+
+      <div class="neo-surface p-6">
+        <div class="w-9 h-9 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-sm mb-3.5">
+          03
+        </div>
+        <h3 class="text-sm font-bold text-slate-900 mb-2">BMS 动态数据边界</h3>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          动态数据不等于全部盲目上云。精准定义采集范围、留存周期、SOH 衰减计算与四级角色授权规则。
+        </p>
+      </div>
+
+      <div class="neo-surface p-6">
+        <div class="w-9 h-9 rounded-xl bg-navy-800 text-cyan-400 flex items-center justify-center font-bold text-sm mb-3.5">
+          04
+        </div>
+        <h3 class="text-sm font-bold text-slate-900 mb-2">外壳打码与解析前置</h3>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          生产标签一旦定版修改成本极高。在模具与铭牌设计阶段即前置规划唯一 GS1 Digital Link 域名与解析规则。
+        </p>
+      </div>
+
+    </div>
+
+    <!-- 底部联络卡片 -->
+    <div class="neo-surface p-8 max-w-4xl mx-auto text-center">
+      <h3 class="text-lg font-bold text-slate-900">为您的轻型车电池出海欧洲做好合规准备</h3>
+      <p class="text-xs text-slate-500 mt-1 max-w-lg mx-auto">
+        联系两/三轮车与电摩电池合规专家团队，获取试点落地指导。
+      </p>
+      <div class="mt-5">
+        <a href="mailto:info@eudppprovider.com" class="neo-btn-primary inline-flex items-center gap-2">
+          <span>官方邮箱：info@eudppprovider.com</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</Layout>

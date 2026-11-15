@@ -37,30 +37,39 @@ function switchLanguageUrl(targetLang: string) {
       
       <!-- Solutions Dropdown -->
       <div class="relative group">
-        <button class="px-4 py-2 text-xs font-bold uppercase tracking-wider text-slate-700 hover:text-cyan-700 rounded-full hover:bg-white/60 transition-all flex items-center gap-1.5">
+        <button class="px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-slate-700 hover:text-cyan-700 rounded-full hover:bg-white/60 transition-all flex items-center gap-1.5">
           <span>{t('nav.solutions')}</span>
           <svg class="w-3.5 h-3.5 text-slate-400 group-hover:text-cyan-700 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
           </svg>
         </button>
 
-        <div class="absolute left-1/2 -translate-x-1/2 mt-3 w-80 rounded-2xl bg-[#F0F4F8]/95 backdrop-blur-xl border border-white/80 shadow-[10px_10px_30px_rgba(209,217,230,0.8),-10px_-10px_30px_rgba(255,255,255,0.95)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 p-3 z-50">
-          <a href={`/${lang === 'en' ? '' : lang + '/'}solutions/ev-battery-passport`} class="block p-3 rounded-xl hover:bg-white/70 transition-all">
+        <div class="absolute left-1/2 -translate-x-1/2 mt-3 w-84 rounded-2xl bg-[#F0F4F8]/95 backdrop-blur-xl border border-white/80 shadow-[10px_10px_30px_rgba(209,217,230,0.8),-10px_-10px_30px_rgba(255,255,255,0.95)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 p-3 z-50">
+          <a href={`/${lang === 'en' ? '' : lang + '/'}solutions/ev-battery-passport`} class="block p-2.5 rounded-xl hover:bg-white/70 transition-all">
             <div class="text-xs font-bold text-slate-900">{t('nav.evBattery')}</div>
             <div class="text-[11px] text-slate-500 mt-0.5">EV battery pack compliance & OEM linking</div>
           </a>
-          <a href={`/${lang === 'en' ? '' : lang + '/'}solutions/storage-battery-passport`} class="block p-3 rounded-xl hover:bg-white/70 transition-all">
+          
+          <a href={`/${lang === 'en' ? '' : lang + '/'}solutions/lmt-battery-passport`} class="block p-2.5 rounded-xl hover:bg-white/70 transition-all">
+            <div class="text-xs font-bold text-slate-900 flex items-center justify-between">
+              <span>{t('nav.lmtBattery')}</span>
+              <span class="text-[10px] px-1.5 py-0.2 bg-cyan-100 text-cyan-800 rounded font-mono">E-Bike</span>
+            </div>
+            <div class="text-[11px] text-slate-500 mt-0.5">Light mobility & 2/3-wheeler traction packs</div>
+          </a>
+
+          <a href={`/${lang === 'en' ? '' : lang + '/'}solutions/storage-battery-passport`} class="block p-2.5 rounded-xl hover:bg-white/70 transition-all">
             <div class="text-xs font-bold text-slate-900">{t('nav.storageBattery')}</div>
             <div class="text-[11px] text-slate-500 mt-0.5">Industrial & stationary BESS (>2kWh)</div>
           </a>
           <div class="my-1.5 border-t border-slate-200/60"></div>
-          <a href={`/${lang === 'en' ? '' : lang + '/'}solutions/software-license`} class="block p-3 rounded-xl hover:bg-cyan-100/40 transition-all">
+          <a href={`/${lang === 'en' ? '' : lang + '/'}solutions/software-license`} class="block p-2.5 rounded-xl hover:bg-cyan-100/40 transition-all">
             <div class="text-xs font-bold text-cyan-800 flex items-center justify-between">
               <span>{t('nav.software')}</span>
               <span class="text-[10px] px-1.5 py-0.5 bg-cyan-200/70 text-cyan-800 rounded font-mono">On-Prem</span>
             </div>
           </a>
-          <a href={`/${lang === 'en' ? '' : lang + '/'}solutions/managed-data-hosting`} class="block p-3 rounded-xl hover:bg-green-100/40 transition-all">
+          <a href={`/${lang === 'en' ? '' : lang + '/'}solutions/managed-data-hosting`} class="block p-2.5 rounded-xl hover:bg-green-100/40 transition-all">
             <div class="text-xs font-bold text-green-800 flex items-center justify-between">
               <span>{t('nav.hosting')}</span>
               <span class="text-[10px] px-1.5 py-0.5 bg-green-200/70 text-green-800 rounded font-mono">10-Yr SLA</span>
@@ -69,22 +78,43 @@ function switchLanguageUrl(targetLang: string) {
         </div>
       </div>
 
+      <!-- Compliance Dropdown -->
+      <div class="relative group">
+        <button class="px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-slate-700 hover:text-cyan-700 rounded-full hover:bg-white/60 transition-all flex items-center gap-1.5">
+          <span>Regulation & Registry</span>
+          <svg class="w-3.5 h-3.5 text-slate-400 group-hover:text-cyan-700 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+
+        <div class="absolute left-1/2 -translate-x-1/2 mt-3 w-80 rounded-2xl bg-[#F0F4F8]/95 backdrop-blur-xl border border-white/80 shadow-[10px_10px_30px_rgba(209,217,230,0.8),-10px_-10px_30px_rgba(255,255,255,0.95)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 p-3 z-50">
+          <a href={`/${lang === 'en' ? '' : lang + '/'}compliance/eu-battery-regulation-2023-1542`} class="block p-2.5 rounded-xl hover:bg-white/70 transition-all">
+            <div class="text-xs font-bold text-slate-900">{t('nav.regulation')}</div>
+            <div class="text-[11px] text-slate-500 mt-0.5">EU 2023/1542 Article 77/78 Full Analysis</div>
+          </a>
+          <a href={`/${lang === 'en' ? '' : lang + '/'}compliance/eu-dpp-registry-guide`} class="block p-2.5 rounded-xl hover:bg-amber-50/70 transition-all">
+            <div class="text-xs font-bold text-amber-800 flex items-center justify-between">
+              <span>{t('nav.registry')}</span>
+              <span class="text-[10px] px-1.5 py-0.5 bg-amber-200/80 text-amber-900 rounded font-mono">eIDAS 2.0</span>
+            </div>
+            <div class="text-[11px] text-slate-500 mt-0.5">Official DG GROW Registry enrolment SOP</div>
+          </a>
+        </div>
+      </div>
+
       <!-- Core Links -->
-      <a href={`/${lang === 'en' ? '' : lang + '/'}platform/carbon-footprint-engine`} class="px-4 py-2 text-xs font-bold uppercase tracking-wider text-slate-700 hover:text-cyan-700 rounded-full hover:bg-white/60 transition-all">
+      <a href={`/${lang === 'en' ? '' : lang + '/'}platform/carbon-footprint-engine`} class="px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-slate-700 hover:text-cyan-700 rounded-full hover:bg-white/60 transition-all">
         Technology
       </a>
-      <a href={`/${lang === 'en' ? '' : lang + '/'}compliance/eu-battery-regulation-2023-1542`} class="px-4 py-2 text-xs font-bold uppercase tracking-wider text-slate-700 hover:text-cyan-700 rounded-full hover:bg-white/60 transition-all">
-        EU 2023/1542
-      </a>
-      <a href={`/${lang === 'en' ? '' : lang + '/'}about`} class="px-4 py-2 text-xs font-bold uppercase tracking-wider text-slate-700 hover:text-cyan-700 rounded-full hover:bg-white/60 transition-all">
+      <a href={`/${lang === 'en' ? '' : lang + '/'}about`} class="px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-slate-700 hover:text-cyan-700 rounded-full hover:bg-white/60 transition-all">
         {t('nav.about')}
       </a>
-      <a href={`/${lang === 'en' ? '' : lang + '/'}pricing`} class="px-4 py-2 text-xs font-bold uppercase tracking-wider text-slate-700 hover:text-cyan-700 rounded-full hover:bg-white/60 transition-all">
+      <a href={`/${lang === 'en' ? '' : lang + '/'}pricing`} class="px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-slate-700 hover:text-cyan-700 rounded-full hover:bg-white/60 transition-all">
         {t('nav.pricing')}
       </a>
     </nav>
 
-    <!-- Right: Language Pill & Primary Neomorphic Action Button -->
+    <!-- Right: Language Pill & Primary Action Button -->
     <div class="flex items-center gap-2.5">
       
       <!-- Language Switcher Pill -->
@@ -142,9 +172,12 @@ function switchLanguageUrl(targetLang: string) {
   <!-- Mobile Neomorphic Slide-Down Menu -->
   <div id="mobile-nav-drawer" class="hidden md:hidden mt-3 neo-surface p-5 space-y-3 transition-all">
     <div class="space-y-1.5">
-      <div class="text-[10px] font-bold font-mono uppercase tracking-wider text-slate-400 px-3">Navigation</div>
+      <div class="text-[10px] font-bold font-mono uppercase tracking-wider text-slate-400 px-3">Solutions</div>
       <a href={`/${lang === 'en' ? '' : lang + '/'}solutions/ev-battery-passport`} class="block px-3.5 py-2 text-xs font-bold text-slate-800 rounded-xl hover:bg-white/60">
         {t('nav.evBattery')}
+      </a>
+      <a href={`/${lang === 'en' ? '' : lang + '/'}solutions/lmt-battery-passport`} class="block px-3.5 py-2 text-xs font-bold text-slate-800 rounded-xl hover:bg-white/60">
+        {t('nav.lmtBattery')}
       </a>
       <a href={`/${lang === 'en' ? '' : lang + '/'}solutions/storage-battery-passport`} class="block px-3.5 py-2 text-xs font-bold text-slate-800 rounded-xl hover:bg-white/60">
         {t('nav.storageBattery')}
@@ -155,8 +188,15 @@ function switchLanguageUrl(targetLang: string) {
       <a href={`/${lang === 'en' ? '' : lang + '/'}solutions/managed-data-hosting`} class="block px-3.5 py-2 text-xs font-bold text-green-800 rounded-xl hover:bg-green-50">
         {t('nav.hosting')}
       </a>
-      <a href={`/${lang === 'en' ? '' : lang + '/'}platform/carbon-footprint-engine`} class="block px-3.5 py-2 text-xs font-bold text-slate-800 rounded-xl hover:bg-white/60">
-        Technology & PCF
+
+      <div class="my-2 border-t border-slate-200"></div>
+
+      <div class="text-[10px] font-bold font-mono uppercase tracking-wider text-slate-400 px-3">Compliance & Info</div>
+      <a href={`/${lang === 'en' ? '' : lang + '/'}compliance/eu-battery-regulation-2023-1542`} class="block px-3.5 py-2 text-xs font-bold text-slate-800 rounded-xl hover:bg-white/60">
+        {t('nav.regulation')}
+      </a>
+      <a href={`/${lang === 'en' ? '' : lang + '/'}compliance/eu-dpp-registry-guide`} class="block px-3.5 py-2 text-xs font-bold text-amber-800 rounded-xl hover:bg-amber-50">
+        {t('nav.registry')}
       </a>
       <a href={`/${lang === 'en' ? '' : lang + '/'}about`} class="block px-3.5 py-2 text-xs font-bold text-slate-800 rounded-xl hover:bg-white/60">
         {t('nav.about')}

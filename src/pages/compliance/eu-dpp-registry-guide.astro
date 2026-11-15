@@ -1,0 +1,114 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="EU DPP Registry & eIDAS 2.0 User Guide | EU DPP Provider"
+  description="Comprehensive guide to European Commission Central DPP Registry enrolment, EU Login authentication, QSeal/QES PAdES digital signing, and UPI submission under Regulation (EU) 2024/1781."
+>
+  <div class="py-16 sm:py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="eyebrow-pill mb-3 mx-auto">European Commission Central Registry</div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        EU DPP Registry & <br class="hidden sm:inline" />
+        <span class="text-cyan-600">eIDAS 2.0 Enrolment Guide</span>
+      </h1>
+      <p class="mt-4 text-base text-slate-600 leading-relaxed">
+        Step-by-step technical guide for Economic Operators (EOs) to enrol, verify organizational identity with Qualified Electronic Seals (QSeal), and register battery product identifiers on <code class="font-mono text-cyan-700 bg-cyan-50 px-2 py-0.5 rounded">registry.product-passport.ec.europa.eu</code>.
+      </p>
+
+      <div class="mt-6 flex justify-center gap-4">
+        <a href="mailto:info@eudppprovider.com" class="neo-btn-primary">
+          Delegate EU Registry & QSeal Filing →
+        </a>
+      </div>
+    </div>
+
+    <!-- 4-Step Architecture -->
+    <div class="space-y-8 text-sm text-slate-700 leading-relaxed mb-16">
+      
+      <!-- Step 1 -->
+      <div class="neo-surface p-8 sm:p-10">
+        <h2 class="text-xl font-bold text-slate-900 mb-3 flex items-center gap-3">
+          <span class="w-8 h-8 rounded-xl bg-cyan-100 text-cyan-700 flex items-center justify-center font-bold text-sm">01</span>
+          <span>Access & EU Login Creation</span>
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
+          All Economic Operators must authenticate via EU Login (the European Commission's Single Sign-On service) with multi-factor authentication (EU Login Mobile App PIN / Code).
+        </p>
+        <div class="neo-well p-4 text-xs">
+          <strong>Official Endpoint:</strong> <code class="font-mono text-cyan-700">https://registry.product-passport.ec.europa.eu/</code><br />
+          <strong>Test Staging:</strong> <code class="font-mono text-slate-600">https://registry.acc.product-passport.ec.europa.eu/</code>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="neo-surface p-8 sm:p-10">
+        <h2 class="text-xl font-bold text-slate-900 mb-3 flex items-center gap-3">
+          <span class="w-8 h-8 rounded-xl bg-green-100 text-green-700 flex items-center justify-center font-bold text-sm">02</span>
+          <span>Organization Enrolment & Legal Identity</span>
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
+          Applicants select organization type (<strong>Legal Person</strong> for corporations or <strong>Natural Person</strong> for sole operators) and provide verified company registration identifiers:
+        </p>
+        <ul class="space-y-2 text-xs sm:text-sm text-slate-600 list-disc pl-5">
+          <li><strong>Legal Identifiers:</strong> National Trade Register (NTR), Legal Entity Identifier (LEI), VAT number, or eID.</li>
+          <li><strong>Compliance Contact:</strong> Registered corporate legal representative, headquarters address, and country code.</li>
+        </ul>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="neo-surface p-8 sm:p-10">
+        <h2 class="text-xl font-bold text-slate-900 mb-3 flex items-center gap-3">
+          <span class="w-8 h-8 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-sm">03</span>
+          <span>eIDAS 2.0 Qualified Seal / Signature Verification</span>
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
+          The registry generates an official European Commission sealed PDF declaration that must be countersigned using qualified trust credentials:
+        </p>
+        <ul class="space-y-2 text-xs sm:text-sm text-slate-600 list-disc pl-5">
+          <li><strong>Required Seal Type:</strong> Qualified Electronic Seal (QSeal for companies) or Qualified Electronic Signature (QES for legal representatives).</li>
+          <li><strong>Approved Trust Provider (QTSP):</strong> Must be listed on the official EU Trusted List (e.g. DigiCert EU QTSP services).</li>
+          <li><strong>Format Standard:</strong> PAdES Baseline (B/T/LT/LTA), preserving original document integrity without modifying content.</li>
+        </ul>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="neo-surface p-8 sm:p-10">
+        <h2 class="text-xl font-bold text-slate-900 mb-3 flex items-center gap-3">
+          <span class="w-8 h-8 rounded-xl bg-navy-800 text-cyan-400 flex items-center justify-center font-bold text-sm">04</span>
+          <span>DPP Registration & UPI Directory Uplink</span>
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
+          Once verified, the organization administrator registers battery models and receives official customs clearance certificates:
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+          <div class="neo-well p-4">
+            <div class="font-bold text-slate-900 mb-1">Registration Payload</div>
+            <p class="text-slate-500">Unique Product Identifier (UPI in GS1 Digital Link URL format), Model Identifier, Batch Identifier. Supported via JSON/XML batch upload (up to 100 items per request) or REST API.</p>
+          </div>
+          <div class="neo-well p-4">
+            <div class="font-bold text-slate-900 mb-1">Customs Clearance Proof</div>
+            <p class="text-slate-500">Returns verifiable registration hash for European Customs Single Window verification at EU border entry points.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Delegated Service Card -->
+    <div class="neo-surface p-8 max-w-4xl mx-auto text-center bg-gradient-to-br from-[#F0F4F8] to-cyan-50/40">
+      <h3 class="text-lg font-bold text-slate-900">Let Us Handle Your Full EU DPP Registry Filing</h3>
+      <p class="text-xs text-slate-500 mt-1 max-w-lg mx-auto">
+        We provide complete agency services: EU Login setup, DigiCert QTSP QSeal seal procurement, PAdES signing, and UPI batch upload with 100% receipt guarantee.
+      </p>
+      <div class="mt-5">
+        <a href="mailto:info@eudppprovider.com" class="neo-btn-primary inline-flex items-center gap-2">
+          <span>Delegate Filing: info@eudppprovider.com</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</Layout>

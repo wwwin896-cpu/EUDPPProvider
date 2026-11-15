@@ -1,0 +1,114 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+
+<Layout
+  title="欧盟 DPP 中央注册簿与 eIDAS 2.0 电子印章操作指南 | EU DPP Provider"
+  description="欧盟委员会中央 DPP 注册簿注册全流程：EU Login 创建、组织机构认证、QSeal/QES 电子印章申请、PAdES 签名及 UPI 登记回执获取指导。"
+>
+  <div class="py-16 sm:py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="eyebrow-pill mb-3 mx-auto">欧盟委员会中央注册簿官方指南</div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        欧盟 DPP 注册簿与 <br class="hidden sm:inline" />
+        <span class="text-cyan-600">eIDAS 2.0 电子印章实务指南</span>
+      </h1>
+      <p class="mt-4 text-base text-slate-600 leading-relaxed">
+        基于欧盟委员会 DG GROW 官方标准，为经济运营商 (EO) 提供从 EU Login 认证、DigiCert QTSP 合规电子印章到 <code class="font-mono text-cyan-700 bg-cyan-50 px-2 py-0.5 rounded">registry.product-passport.ec.europa.eu</code> 注册登记与回执交付的全套实务解析。
+      </p>
+
+      <div class="mt-6 flex justify-center gap-4">
+        <a href="mailto:info@eudppprovider.com" class="neo-btn-primary">
+          委托全套注册与 QSeal 电子印章代办 →
+        </a>
+      </div>
+    </div>
+
+    <!-- 4 大核心阶段 -->
+    <div class="space-y-8 text-sm text-slate-700 leading-relaxed mb-16">
+      
+      <!-- 阶段一 -->
+      <div class="neo-surface p-8 sm:p-10">
+        <h2 class="text-xl font-bold text-slate-900 mb-3 flex items-center gap-3">
+          <span class="w-8 h-8 rounded-xl bg-cyan-100 text-cyan-700 flex items-center justify-center font-bold text-sm">01</span>
+          <span>访问入口与 EU Login 账号创建</span>
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
+          所有经济运营商必须通过 EU Login（欧盟委员会统一身份认证系统）进行单点登录，并强制绑定多因素身份认证（EU Login Mobile App 动态验证码）。
+        </p>
+        <div class="neo-well p-4 text-xs">
+          <strong>官方生产环境：</strong> <code class="font-mono text-cyan-700">https://registry.product-passport.ec.europa.eu/</code><br />
+          <strong>官方测试环境：</strong> <code class="font-mono text-slate-600">https://registry.acc.product-passport.ec.europa.eu/</code>
+        </div>
+      </div>
+
+      <!-- 阶段二 -->
+      <div class="neo-surface p-8 sm:p-10">
+        <h2 class="text-xl font-bold text-slate-900 mb-3 flex items-center gap-3">
+          <span class="w-8 h-8 rounded-xl bg-green-100 text-green-700 flex items-center justify-center font-bold text-sm">02</span>
+          <span>组织机构入驻申请 (Enrolment)</span>
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
+          申请主体选择机构类型（<strong>Legal Person 法人</strong> 或 <strong>Natural Person 自然人</strong>），并填写受国际认可的企业标识符信息：
+        </p>
+        <ul class="space-y-2 text-xs sm:text-sm text-slate-600 list-disc pl-5">
+          <li><strong>企业标识符：</strong> 统一社会信用代码/国家商业登记号 (NTR)、全球法人识别码 (LEI)、增值税号 (VAT) 或 eID。</li>
+          <li><strong>法定代表人信息：</strong> 法定代表人姓名、企业注册地合规联系邮箱与总部地址。</li>
+        </ul>
+      </div>
+
+      <!-- 阶段三 -->
+      <div class="neo-surface p-8 sm:p-10">
+        <h2 class="text-xl font-bold text-slate-900 mb-3 flex items-center gap-3">
+          <span class="w-8 h-8 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-sm">03</span>
+          <span>eIDAS 2.0 合规电子印章签名核验 (Verification)</span>
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
+          系统将生成带有欧盟委员会官方电子签封的 PDF 声明，申请人必须在系统外完成符合 eIDAS 规范的数字印章加盖：
+        </p>
+        <ul class="space-y-2 text-xs sm:text-sm text-slate-600 list-disc pl-5">
+          <li><strong>印章类型要求：</strong> 法人须使用合格电子印章 (QSeal)，自然人使用合格电子签名 (QES)。</li>
+          <li><strong>颁发机构资质：</strong> 必须由欧盟认可的合格信任服务提供商 (QTSP，如 DigiCert EU) 签发。</li>
+          <li><strong>签名格式规范：</strong> 严格遵循 PAdES Baseline (B/T/LT/LTA) 格式，严禁篡改原声明文件任何内容。</li>
+        </ul>
+      </div>
+
+      <!-- 阶段四 -->
+      <div class="neo-surface p-8 sm:p-10">
+        <h2 class="text-xl font-bold text-slate-900 mb-3 flex items-center gap-3">
+          <span class="w-8 h-8 rounded-xl bg-navy-800 text-cyan-400 flex items-center justify-center font-bold text-sm">04</span>
+          <span>DPP 注册登记与海关通关凭据获取</span>
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
+          验证通过后成为组织管理员，即可批量登记电池护照数据并生成海关查验哈希凭据：
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+          <div class="neo-well p-4">
+            <div class="font-bold text-slate-900 mb-1">注册所需数据载荷</div>
+            <p class="text-slate-500">唯一产品标识符 (UPI，以 GS1 Digital Link 规范 URL 格式)、型号代码与批次代码。支持 JSON/XML 单次最高 100 个批量上传或 API 直连。</p>
+          </div>
+          <div class="neo-well p-4">
+            <div class="font-bold text-slate-900 mb-1">海关查验凭证交付</div>
+            <p class="text-slate-500">注册成功后交付官方注册证书与哈希校验码，用于欧洲海关单一窗口 (EU Single Window) 自动化放行核验。</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 底部代办卡片 -->
+    <div class="neo-surface p-8 max-w-4xl mx-auto text-center bg-gradient-to-br from-[#F0F4F8] to-cyan-50/40">
+      <h3 class="text-lg font-bold text-slate-900">委托我们全权代办欧盟 DPP 注册簿登记</h3>
+      <p class="text-xs text-slate-500 mt-1 max-w-lg mx-auto">
+        从 EU Login 配置、DigiCert QTSP QSeal 电子印章申请，到 PAdES 签名与 UPI 批量上传，我们提供 100% 回执交付代办服务。
+      </p>
+      <div class="mt-5">
+        <a href="mailto:info@eudppprovider.com" class="neo-btn-primary inline-flex items-center gap-2">
+          <span>委托代办服务：info@eudppprovider.com</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</Layout>
