@@ -1,0 +1,141 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ComplianceCountdown from '../../components/ComplianceCountdown.astro';
+---
+
+<Layout
+  title="EU Battery Regulation (EU 2023/1542) Complete Compliance Guide | EU DPP Provider"
+  description="In-depth analysis of Regulation (EU) 2023/1542 requirements, Article 77/78 Battery Passport mandates, 2027 enforcement timeline, and technical checklist."
+>
+  <div class="py-16 bg-radial-gradient">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <!-- Page Header -->
+      <div class="space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-brand-500/10 text-brand-400 border border-brand-500/20">
+          Regulatory Knowledge Center
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
+          EU Battery Regulation (EU 2023/1542): The Definitive Technical & Compliance Guide
+        </h1>
+        <p class="text-base sm:text-lg text-slate-300 leading-relaxed">
+          The European Union's Regulation 2023/1542 establishes the world's most rigorous regulatory framework for the design, manufacture, traceability, and recycling of batteries placed on the EU single market.
+        </p>
+      </div>
+
+      <ComplianceCountdown />
+
+      <!-- Section: Key Scope and Categories -->
+      <div class="glass-card p-8 border border-slate-800 space-y-4">
+        <h2 class="text-2xl font-bold text-white">1. Which Batteries Require a Digital Passport?</h2>
+        <p class="text-sm text-slate-300 leading-relaxed">
+          Starting <strong>18 February 2027</strong>, Article 77 mandates that each individual battery in the following categories placed on the EU market must be registered with a unique Digital Battery Passport:
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2 text-xs">
+          <div class="p-4 bg-slate-950 rounded-xl border border-slate-800">
+            <span class="font-bold text-brand-400 block mb-1">EV Batteries</span>
+            <p class="text-slate-400">Traction batteries used in electric road vehicles (BEV, PHEV, buses, commercial EV trucks).</p>
+          </div>
+          <div class="p-4 bg-slate-950 rounded-xl border border-slate-800">
+            <span class="font-bold text-accent-emerald block mb-1">LMT Batteries</span>
+            <p class="text-slate-400">Light Means of Transport batteries used in e-bikes, electric scooters, and light mopeds (&le; 25kg).</p>
+          </div>
+          <div class="p-4 bg-slate-950 rounded-xl border border-slate-800">
+            <span class="font-bold text-accent-teal block mb-1">Industrial Batteries</span>
+            <p class="text-slate-400">All stationary energy storage systems (BESS), telecom backup, and industrial packs with capacity &gt; 2 kWh.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: 90+ Mandatory Data Attributes Checklist -->
+      <div class="glass-card p-8 border border-slate-800 space-y-6">
+        <h2 class="text-2xl font-bold text-white">2. Core Data Dimensions Mandated by the Regulation</h2>
+        <p class="text-sm text-slate-300 leading-relaxed">
+          The Battery Passport is structured into four distinct access tiers to protect commercial confidentiality while fulfilling environmental and public safety obligations:
+        </p>
+
+        <div class="space-y-4 text-xs">
+          <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
+            <div class="font-bold text-white text-sm flex items-center justify-between">
+              <span>Tier A: General Product & Manufacturer Information (Public)</span>
+              <span class="text-[10px] text-accent-emerald bg-accent-emerald/10 px-2 py-0.5 rounded">Unrestricted Access</span>
+            </div>
+            <p class="text-slate-400">
+              Manufacturer identity, registered trademark, manufacturing date & location, battery category & weight, rated capacity, minimum voltage, certified lifecycle Carbon Footprint (PCF) rating, and consumer end-of-life collection guidelines.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
+            <div class="font-bold text-white text-sm flex items-center justify-between">
+              <span>Tier B: Compliance, Conformity & Due Diligence (Authorities & Notified Bodies)</span>
+              <span class="text-[10px] text-brand-400 bg-brand-500/10 px-2 py-0.5 rounded">Authenticated Access</span>
+            </div>
+            <p class="text-slate-400">
+              EU Declaration of Conformity (DoC), UN 38.3 test results, CE certification documentation, independent third-party audit reports, and OECD-compliant supply chain due diligence reports for Cobalt, Lithium, Nickel, and Natural Graphite.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
+            <div class="font-bold text-white text-sm flex items-center justify-between">
+              <span>Tier C: Dismantling, Safety & Material Breakdown (Qualified Recyclers)</span>
+              <span class="text-[10px] text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded">Legitimate Interest Only</span>
+            </div>
+            <p class="text-slate-400">
+              Detailed Bill of Materials (BOM) with exact percentage and weight thresholds of critical raw materials, cathode/anode active material chemistry, hazardous substance declarations (REACH, RoHS), and step-by-step disassembly and fire extinguishing protocols.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
+            <div class="font-bold text-white text-sm flex items-center justify-between">
+              <span>Tier D: Performance, Durability & Real-Time Health (OEM & Operator)</span>
+              <span class="text-[10px] text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">Operator / Private</span>
+            </div>
+            <p class="text-slate-400">
+              Initial internal resistance, continuous State of Health (SoH), round-trip energy efficiency, cumulative capacity throughput, and thermal operating history logged via BMS connectors.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ Section for Search / GEO -->
+      <div class="glass-card p-8 border border-slate-800 space-y-6">
+        <h2 class="text-2xl font-bold text-white">Frequently Asked Questions (FAQ)</h2>
+        
+        <div class="space-y-4 text-xs">
+          <div class="p-4 bg-slate-950 rounded-xl border border-slate-800 space-y-1.5">
+            <h3 class="font-bold text-white text-sm">Who bears legal responsibility for generating the Battery Passport?</h3>
+            <p class="text-slate-300 leading-relaxed">
+              Under Article 77, the "economic operator that places the battery on the EU market" (either the EU manufacturer or the European importer/OEM) is legally liable for ensuring the battery passport is created, hosted, and maintained for a minimum of 10 years after placement.
+            </p>
+          </div>
+
+          <div class="p-4 bg-slate-950 rounded-xl border border-slate-800 space-y-1.5">
+            <h3 class="font-bold text-white text-sm">What data carrier must be physically printed on the battery?</h3>
+            <p class="text-slate-300 leading-relaxed">
+              Article 13 requires a scannable 2D QR barcode adhering to the <strong>GS1 Digital Link standard</strong>. When scanned by a standard smartphone, it opens the human-friendly web passport; when resolved by machine APIs, it returns structured JSON-LD data.
+            </p>
+          </div>
+
+          <div class="p-4 bg-slate-950 rounded-xl border border-slate-800 space-y-1.5">
+            <h3 class="font-bold text-white text-sm">How does EU DPP Provider protect supply chain commercial secrets?</h3>
+            <p class="text-slate-300 leading-relaxed">
+              We employ Zero-Knowledge Proofs (ZKP) and granular Role-Based Access Control (RBAC). Upstream material suppliers prove origin certifications and carbon metrics to the platform without exposing proprietary chemistries or pricing to downstream buyers or competitors.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Callout -->
+      <div class="p-8 rounded-2xl bg-gradient-to-r from-brand-900 via-slate-900 to-brand-950 border border-brand-500/30 text-center space-y-4">
+        <h3 class="text-2xl font-bold text-white">Download the Complete EU Battery Passport Checklist</h3>
+        <p class="text-sm text-slate-300 max-w-xl mx-auto">
+          Get our 32-page compliance guide mapping all 90+ required data fields to your existing ERP and MES systems.
+        </p>
+        <a href="/contact" class="inline-flex px-6 py-3 rounded-xl bg-brand-500 text-white font-bold text-sm hover:opacity-90">
+          Request Compliance Whitepaper &rarr;
+        </a>
+      </div>
+
+    </div>
+  </div>
+</Layout>

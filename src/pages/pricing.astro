@@ -1,0 +1,91 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PricingCalculator from '../components/PricingCalculator.astro';
+---
+
+<Layout
+  title="Pricing & Deployment Models | EU DPP Provider"
+  description="Transparent pricing for EU Battery Passport compliance: Enterprise DPP Software Licenses vs. Turnkey Managed Data Hosting plans."
+>
+  <div class="py-16 bg-radial-gradient">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold font-mono text-brand-400 uppercase tracking-widest bg-brand-500/10 px-3 py-1 rounded-full border border-brand-500/20">
+          Flexible Enterprise Plans
+        </span>
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight mt-4 mb-6">
+          Tailored for Every Stage of the Battery Supply Chain
+        </h1>
+        <p class="text-lg text-slate-300 leading-relaxed">
+          Whether you produce 5,000 industrial packs or 5 million EV cell modules per year, choose the pricing architecture that maximizes your ROI and compliance speed.
+        </p>
+      </div>
+
+      <PricingCalculator />
+
+      <!-- Comparison Feature Table -->
+      <div class="glass-card p-8 border border-slate-800 my-16 max-w-5xl mx-auto overflow-x-auto">
+        <h3 class="text-xl font-bold text-white mb-6">Feature & Architecture Comparison</h3>
+        <table class="w-full text-left text-xs border-collapse">
+          <thead>
+            <tr class="border-b border-slate-800 text-slate-400">
+              <th class="py-3 px-4">Feature / Capability</th>
+              <th class="py-3 px-4 text-brand-400 font-bold">1. Enterprise Software License</th>
+              <th class="py-3 px-4 text-accent-emerald font-bold">2. Managed Data Vault Hosting</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800/80 text-slate-300">
+            <tr>
+              <td class="py-3.5 px-4 font-semibold text-white">Target Audience</td>
+              <td class="py-3.5 px-4">Tier-1 Cell/Pack Makers, OEMs, Gigafactories</td>
+              <td class="py-3.5 px-4">Battery Exporters, Material Suppliers, ESS Integrators</td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-4 font-semibold text-white">Deployment Location</td>
+              <td class="py-3.5 px-4">Customer Private Cloud / On-Premise Airgap</td>
+              <td class="py-3.5 px-4">EU DPP Provider Sovereign Cloud (Frankfurt/Paris)</td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-4 font-semibold text-white">Passport Volume Quota</td>
+              <td class="py-3.5 px-4"><strong>Unlimited</strong> (No per-passport charge)</td>
+              <td class="py-3.5 px-4">Tiered by annual active passport count</td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-4 font-semibold text-white">Infrastructure Maintenance</td>
+              <td class="py-3.5 px-4">Managed by Client IT / DevOps</td>
+              <td class="py-3.5 px-4">100% Fully Managed by EU DPP Provider (99.99% SLA)</td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-4 font-semibold text-white">PCF Carbon Calculator</td>
+              <td class="py-3.5 px-4">Self-hosted calculation engine & database</td>
+              <td class="py-3.5 px-4">Automated calculation upon BOM upload</td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-4 font-semibold text-white">Supply Chain ZKP Privacy</td>
+              <td class="py-3.5 px-4">Native cryptography microservice</td>
+              <td class="py-3.5 px-4">Managed zero-knowledge verification service</td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-4 font-semibold text-white">Integration Customization</td>
+              <td class="py-3.5 px-4">Deep SAP/MES/BMS bespoke hooks</td>
+              <td class="py-3.5 px-4">Standard REST Webhooks & Excel Batch Import</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Book CTA -->
+      <div class="text-center space-y-4">
+        <h3 class="text-2xl font-bold text-white">Need a Formal Enterprise Quote?</h3>
+        <p class="text-sm text-slate-400 max-w-lg mx-auto">
+          Contact our pricing team for a customized volume evaluation and ROI analysis.
+        </p>
+        <a href="/contact" class="inline-flex px-8 py-3.5 rounded-xl bg-brand-500 text-white font-bold text-sm hover:opacity-90">
+          Request Custom Proposal &rarr;
+        </a>
+      </div>
+
+    </div>
+  </div>
+</Layout>

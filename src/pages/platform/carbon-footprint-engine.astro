@@ -1,0 +1,61 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Battery Carbon Footprint (PCF) & LCA Engine | EU DPP Provider"
+  description="Automated Product Carbon Footprint (PCF) engine compliant with EU PEFCR rules and ISO 14040/44 for battery life-cycle assessment."
+>
+  <div class="py-16 bg-radial-gradient">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl">
+        <span class="text-xs font-bold font-mono text-accent-emerald uppercase tracking-widest bg-accent-emerald/10 px-3 py-1 rounded-full border border-accent-emerald/20">
+          PCF & LCA Automation
+        </span>
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight mt-4 mb-6">
+          PEFCR-Compliant Battery Carbon Footprint Engine
+        </h1>
+        <p class="text-lg text-slate-300 leading-relaxed">
+          The EU Battery Regulation mandates strict lifecycle carbon accounting across 4 lifecycle stages: Raw Material Acquisition, Battery Manufacturing, Distribution, and Recycling. Our engine automates primary activity data ingestion and calculation with verified emission factor databases.
+        </p>
+      </div>
+
+      <!-- 4 Stages Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 my-16">
+        <div class="glass-card p-6 border border-slate-800 space-y-2">
+          <div class="text-xs font-mono font-bold text-brand-400">STAGE 1</div>
+          <h3 class="text-base font-bold text-white">Raw Material Extraction</h3>
+          <p class="text-xs text-slate-400">Mining and refining emissions for Lithium, Cobalt, Nickel, Manganese, and Aluminum cathode precursors.</p>
+        </div>
+        <div class="glass-card p-6 border border-slate-800 space-y-2">
+          <div class="text-xs font-mono font-bold text-brand-400">STAGE 2</div>
+          <h3 class="text-base font-bold text-white">Battery Manufacturing</h3>
+          <p class="text-xs text-slate-400">Dry-room electricity, electrode coating, cell assembly, and formation cycling energy consumption.</p>
+        </div>
+        <div class="glass-card p-6 border border-slate-800 space-y-2">
+          <div class="text-xs font-mono font-bold text-brand-400">STAGE 3</div>
+          <h3 class="text-base font-bold text-white">Distribution & Logistics</h3>
+          <p class="text-xs text-slate-400">Maritime shipping, rail freight, and European road transport from gigafactory to OEM port of entry.</p>
+        </div>
+        <div class="glass-card p-6 border border-slate-800 space-y-2">
+          <div class="text-xs font-mono font-bold text-accent-emerald">STAGE 4</div>
+          <h3 class="text-base font-bold text-white">Recycling & Recovery</h3>
+          <p class="text-xs text-slate-400">End-of-life hydrometallurgical recovery credits and recycled content substitution offsets.</p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="p-8 rounded-2xl bg-slate-900 border border-slate-800 text-center space-y-4">
+        <h3 class="text-2xl font-bold text-white">Calculate Your Battery Carbon Footprint</h3>
+        <p class="text-sm text-slate-300 max-w-xl mx-auto">
+          Request a sample carbon declaration report and test your BOM against European PEFCR benchmarks.
+        </p>
+        <a href="/contact" class="inline-flex px-6 py-3 rounded-xl bg-brand-500 text-white font-bold text-sm hover:opacity-90">
+          Book PCF Demonstration &rarr;
+        </a>
+      </div>
+
+    </div>
+  </div>
+</Layout>

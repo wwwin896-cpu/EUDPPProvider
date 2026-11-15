@@ -1,0 +1,121 @@
+---
+import { getLangFromUrl } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+
+const milestones = [
+  {
+    date: 'Aug 2025',
+    title: 'Carbon Footprint Declaration (EV)',
+    desc: 'Mandatory PCF calculations for EV batteries placed on EU market.',
+    status: 'Upcoming'
+  },
+  {
+    date: 'Feb 2027',
+    title: 'Battery Passport Mandatory Enforcement',
+    desc: 'Article 77 & 78: Digital Product Passport required for EV, LMT, and Industrial batteries >2kWh.',
+    status: 'Critical Deadline',
+    highlight: true
+  },
+  {
+    date: 'Aug 2028',
+    title: 'Recycled Content Minimum Shares',
+    desc: 'Mandatory documentation of recycled Cobalt, Lead, Lithium, and Nickel.',
+    status: 'Phase 3'
+  },
+  {
+    date: 'Feb 2030',
+    title: 'Supply Chain Due Diligence Verification',
+    desc: 'Third-party audited OECD-aligned due diligence for all battery raw materials.',
+    status: 'Phase 4'
+  }
+];
+---
+
+<div class="glass-card p-6 sm:p-8 relative overflow-hidden">
+  <div class="absolute -right-20 -top-20 w-60 h-60 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 pb-8 border-b border-slate-800">
+    <div>
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-red-500/10 text-red-400 border border-red-500/20 mb-3">
+        <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+        EU Regulation 2023/1542 Enforcement Clock
+      </div>
+      <h3 class="text-xl sm:text-2xl font-bold text-white tracking-tight">
+        Countdown to Mandatory Battery Passports (18 Feb 2027)
+      </h3>
+      <p class="text-sm text-slate-400 mt-1">
+        All EV, LMT, and industrial batteries &gt;2kWh exported to the EU must carry an accessible digital passport.
+      </p>
+    </div>
+
+    <!-- Live Dynamic Counter Grid -->
+    <div id="countdown-timer" class="grid grid-cols-4 gap-2 sm:gap-3 text-center w-full sm:w-auto">
+      <div class="bg-slate-950/80 border border-slate-800 rounded-xl p-3 min-w-[70px]">
+        <span id="days" class="text-2xl sm:text-3xl font-extrabold font-mono text-brand-400">000</span>
+        <span class="block text-[10px] uppercase tracking-wider text-slate-400 mt-0.5">Days</span>
+      </div>
+      <div class="bg-slate-950/80 border border-slate-800 rounded-xl p-3 min-w-[70px]">
+        <span id="hours" class="text-2xl sm:text-3xl font-extrabold font-mono text-slate-200">00</span>
+        <span class="block text-[10px] uppercase tracking-wider text-slate-400 mt-0.5">Hours</span>
+      </div>
+      <div class="bg-slate-950/80 border border-slate-800 rounded-xl p-3 min-w-[70px]">
+        <span id="mins" class="text-2xl sm:text-3xl font-extrabold font-mono text-slate-200">00</span>
+        <span class="block text-[10px] uppercase tracking-wider text-slate-400 mt-0.5">Mins</span>
+      </div>
+      <div class="bg-slate-950/80 border border-slate-800 rounded-xl p-3 min-w-[70px]">
+        <span id="secs" class="text-2xl sm:text-3xl font-extrabold font-mono text-accent-emerald">00</span>
+        <span class="block text-[10px] uppercase tracking-wider text-slate-400 mt-0.5">Secs</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Regulatory Milestones Horizontal Timeline -->
+  <div class="pt-6">
+    <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">
+      Official Regulatory Implementation Milestones
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {milestones.map((m) => (
+        <div class={`p-4 rounded-xl border ${m.highlight ? 'bg-brand-950/40 border-brand-500/40 shadow-lg shadow-brand-500/5' : 'bg-slate-950/50 border-slate-800/80'}`}>
+          <div class="flex items-center justify-between mb-2">
+            <span class={`text-xs font-mono font-bold ${m.highlight ? 'text-brand-400' : 'text-slate-400'}`}>{m.date}</span>
+            <span class={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${m.highlight ? 'bg-brand-500/20 text-brand-300' : 'bg-slate-800 text-slate-400'}`}>
+              {m.status}
+            </span>
+          </div>
+          <div class="text-sm font-bold text-slate-100">{m.title}</div>
+          <div class="text-xs text-slate-400 mt-1 leading-relaxed">{m.desc}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<script>
+  function updateCountdown() {
+    const targetDate = new Date('2027-02-18T00:00:00Z').getTime();
+    const now = new Date().getTime();
+    const diff = targetDate - now;
+
+    if (diff <= 0) return;
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+    const dEl = document.getElementById('days');
+    const hEl = document.getElementById('hours');
+    const mEl = document.getElementById('mins');
+    const sEl = document.getElementById('secs');
+
+    if (dEl) dEl.textContent = String(days).padStart(3, '0');
+    if (hEl) hEl.textContent = String(hours).padStart(2, '0');
+    if (mEl) mEl.textContent = String(mins).padStart(2, '0');
+    if (sEl) sEl.textContent = String(secs).padStart(2, '0');
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
