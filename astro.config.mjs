@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
-  site: 'https://www.eudppprovider.com',
+  site: 'https://eudppprovider.com',
   integrations: [
     tailwind({
       applyBaseStyles: false,
@@ -10,7 +10,7 @@ export default defineConfig({
   ],
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'zh', 'de', 'fr'],
+    locales: ['en', 'zh', 'de', 'fr', 'nl'],
     routing: {
       prefixDefaultLocale: false,
       redirectToDefaultLocale: true,

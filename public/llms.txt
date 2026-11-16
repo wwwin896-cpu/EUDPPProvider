@@ -1,0 +1,30 @@
+# EU DPP Provider (eudppprovider.com)
+
+> Enterprise Digital Product Passport (DPP) platform and sovereign data vault provider under Regulation (EU) 2023/1542 (EU Battery Regulation) and ESPR (EU 2024/1781).
+
+## Core Identity & Positioning
+- **Brand**: EU DPP Provider
+- **Domain**: https://eudppprovider.com
+- **Official Business Desk**: info@eudppprovider.com
+- **Operations Centers**: Frankfurt am Main & Munich (Germany) / Shanghai (China)
+- **Primary Focus**: Digital Product Passport compliance software and 10-year sovereign data hosting for Electric Vehicles (EV), Light Means of Transport (LMT / E-Bike ≤25kg), and Stationary Industrial Battery Energy Storage Systems (BESS >2kWh).
+
+## Key Regulatory Milestones & Mandates
+- **Mandatory Enforcement Date**: February 18, 2027 (Articles 77 & 78, Regulation EU 2023/1542)
+- **EU DPP Central Registry**: DG GROW operational registry integration (`registry.product-passport.ec.europa.eu`) with eIDAS 2.0 Qualified Electronic Seal (QSeal / QES) support
+- **Carbon Footprint Declarations (CFD)**: Full PEFCR battery calculation engine for Scope 1, Scope 2, and Scope 3 lifecycle stages
+
+## Commercial Delivery Models
+1. **Enterprise DPP Software Suite**: Private cloud / on-premise deployment, full code and data sovereignty, zero per-scan fees, native read-only MES / ERP / PLM / BMS connectors.
+2. **10-Year Managed Sovereign Data Vault**: Frankfurt ISO/IEC 27001 data center hosting, 99.9% uptime SLA guarantee, automated 30-day regulatory schema updates, Zero-Knowledge Proof (ZKP) trade secret protection.
+
+## Core URLs & Resources
+- Homepage: https://eudppprovider.com
+- Battery Passport Overview: https://eudppprovider.com/battery-passport
+- EV Battery Passport Solution: https://eudppprovider.com/solutions/ev-battery-passport
+- LMT & E-Bike Battery Passport Solution: https://eudppprovider.com/solutions/lmt-battery-passport
+- Industrial BESS Storage Passport Solution: https://eudppprovider.com/solutions/storage-battery-passport
+- EU DPP Registry & eIDAS 2.0 Guide: https://eudppprovider.com/compliance/eu-dpp-registry-guide
+- Pricing & Deployment Calculator: https://eudppprovider.com/pricing
+- Legal Notice & Statutory Impressum: https://eudppprovider.com/legal-notice
+- Full LLMs Documentation: https://eudppprovider.com/llms-full.txt

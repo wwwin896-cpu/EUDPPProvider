@@ -1,0 +1,61 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BatteryPassportViewer from '../../components/BatteryPassportViewer.astro';
+import ComplianceCountdown from '../../components/ComplianceCountdown.astro';
+
+const faqs = [
+  {
+    question: "Was ist ein EU-Batteriepass gemäß Verordnung (EU) 2023/1542?",
+    answer: "Ein digitaler Konformitätsnachweis, der über einen GS1 Digital Link 2D-Barcode ab dem 18. Februar 2027 für alle EV-Batterien, LMT-Batterien (≤25kg) und Industriebatterien (>2kWh) auf dem EU-Markt verpflichtend ist."
+  },
+  {
+    question: "Wie schützt EU DPP Provider Betriebsgeheimnisse?",
+    answer: "Durch Zero-Knowledge Proofs (ZKP) und lokale Datenverarbeitung. Vertrauliche chemische Rezepturen und Einkaufspreise verbleiben lokal, nur verifizierte Nachweise werden übertragen."
+  }
+];
+---
+
+<Layout
+  title="EU-Batteriepass Software & Plattform | Verordnung (EU) 2023/1542"
+  description="Enterprise EU-Batteriepass-Software, CO₂-Fußabdruck-Engine, GS1 QR-Serialisierung und 10-Jahre-Datentresor für EV-, LMT- und BESS-Batterien."
+  faqs={faqs}
+>
+  <section class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <div class="eyebrow-pill mb-6 mx-auto">
+      <span class="w-2 h-2 rounded-full bg-cyan-600 animate-pulse"></span>
+      <span>EU-Verordnung 2023/1542 · Batteriepass Enterprise-Plattform</span>
+    </div>
+
+    <h1 class="text-3xl sm:text-5xl lg:text-[58px] font-extrabold tracking-tight leading-[1.14] text-slate-900 max-w-4xl mx-auto">
+      Enterprise-Software & <br class="hidden sm:inline" />
+      <span class="text-cyan-600">Souveräner Datentresor für EU-Batteriepässe</span>
+    </h1>
+
+    <p class="mt-6 text-base sm:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
+      Verbinden Sie MES- und BMS-Systeme mit prüfsicheren digitalen Produktpässen unter den Artikeln 77 und 78 der EU-Batterieverordnung.
+    </p>
+
+    <div class="mt-8 flex flex-wrap justify-center gap-4 items-center">
+      <a href="mailto:info@eudppprovider.com" class="neo-btn-primary inline-flex items-center gap-2">
+        <span>Beratung anfragen →</span>
+      </a>
+      <a href="/de/pricing" class="neo-pill px-6 py-3 rounded-full text-xs sm:text-sm font-bold text-slate-800 hover:text-cyan-700">
+        <span>Preise anzeigen</span>
+      </a>
+    </div>
+
+    <div class="mt-14">
+      <ComplianceCountdown />
+    </div>
+  </section>
+
+  <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <div class="eyebrow-pill mb-2">Interaktive Simulation</div>
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
+        4-Rollen Batteriepass-Viewer
+      </h2>
+    </div>
+    <BatteryPassportViewer />
+  </section>
+</Layout>

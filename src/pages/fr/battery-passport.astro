@@ -1,0 +1,57 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BatteryPassportViewer from '../../components/BatteryPassportViewer.astro';
+import ComplianceCountdown from '../../components/ComplianceCountdown.astro';
+
+const faqs = [
+  {
+    question: "Qu'est-ce qu'un passeport batterie de l'UE selon le règlement 2023/1542 ?",
+    answer: "Un dossier numérique obligatoire accessible via un code QR GS1 Digital Link 2D à partir du 18 février 2027 pour toutes les batteries VE, LMT et industrielles sur le marché de l'UE."
+  }
+];
+---
+
+<Layout
+  title="Logiciel & Plateforme Passeport Batterie UE | Règlement (UE) 2023/1542"
+  description="Suite logicielle de passeport batterie d'entreprise, moteur d'empreinte carbone et coffre-fort de données souverain pour batteries VE, LMT et industrielles."
+  faqs={faqs}
+>
+  <section class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <div class="eyebrow-pill mb-6 mx-auto">
+      <span class="w-2 h-2 rounded-full bg-cyan-600 animate-pulse"></span>
+      <span>Règlement (UE) 2023/1542 · Plateforme Entreprise Passeport Batterie</span>
+    </div>
+
+    <h1 class="text-3xl sm:text-5xl lg:text-[58px] font-extrabold tracking-tight leading-[1.14] text-slate-900 max-w-4xl mx-auto">
+      Logiciel Entreprise & <br class="hidden sm:inline" />
+      <span class="text-cyan-600">Coffre-fort Souverain de Passeports Batterie</span>
+    </h1>
+
+    <p class="mt-6 text-base sm:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
+      Transformez les données de production en chaînes de conformité auditables pour les douanes et recycleurs européens.
+    </p>
+
+    <div class="mt-8 flex flex-wrap justify-center gap-4 items-center">
+      <a href="mailto:info@eudppprovider.com" class="neo-btn-primary inline-flex items-center gap-2">
+        <span>Demander une consultation →</span>
+      </a>
+      <a href="/fr/pricing" class="neo-pill px-6 py-3 rounded-full text-xs sm:text-sm font-bold text-slate-800 hover:text-cyan-700">
+        <span>Voir les tarifs</span>
+      </a>
+    </div>
+
+    <div class="mt-14">
+      <ComplianceCountdown />
+    </div>
+  </section>
+
+  <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <div class="eyebrow-pill mb-2">Démonstration Interactive</div>
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
+        Simulation de Passeport Batterie 4 Rôles
+      </h2>
+    </div>
+    <BatteryPassportViewer />
+  </section>
+</Layout>

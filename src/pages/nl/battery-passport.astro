@@ -1,0 +1,61 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BatteryPassportViewer from '../../components/BatteryPassportViewer.astro';
+import ComplianceCountdown from '../../components/ComplianceCountdown.astro';
+
+const faqs = [
+  {
+    question: "Wat is een EU Batterijpaspoort onder Verordening (EU) 2023/1542?",
+    answer: "Een verplicht digitaal conformiteitsdossier toegankelijk via een GS1 Digital Link 2D QR-code vanaf 18 februari 2027 voor alle EV-, LMT- (≤25kg) en industriële batterijen (>2kWh) op de EU-markt."
+  },
+  {
+    question: "Hoe beschermt EU DPP Provider bedrijfsgeheimen en chemische formules?",
+    answer: "Via Zero-Knowledge Proofs (ZKP) en lokale cleanroom-berekeningen. Ruwe chemische verhoudingen en inkoopprijzen blijven lokaal, alleen geverifieerde conformiteitsbewijzen worden overgedragen."
+  }
+];
+---
+
+<Layout
+  title="EU Batterijpaspoort Software & Soeverein Platform | Verordening (EU) 2023/1542"
+  description="Enterprise EU batterijpaspoort software, koolstofvoetafdruk engine, GS1 QR-serialisatie en 10-jarige datakluis voor EV-, LMT- en BESS-batterijen."
+  faqs={faqs}
+>
+  <section class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <div class="eyebrow-pill mb-6 mx-auto">
+      <span class="w-2 h-2 rounded-full bg-cyan-600 animate-pulse"></span>
+      <span>Verordening (EU) 2023/1542 · Batterijpaspoort Enterprise Platform</span>
+    </div>
+
+    <h1 class="text-3xl sm:text-5xl lg:text-[58px] font-extrabold tracking-tight leading-[1.14] text-slate-900 max-w-4xl mx-auto">
+      Enterprise Software & <br class="hidden sm:inline" />
+      <span class="text-cyan-600">Soevereine Datakluis voor EU Batterijpaspoorten</span>
+    </h1>
+
+    <p class="mt-6 text-base sm:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
+      Verbind fabrieks-MES en BMS-systemen met auditbestendige digitale productpaspoorten onder Artikelen 77 en 78 van de EU Batterijverordening.
+    </p>
+
+    <div class="mt-8 flex flex-wrap justify-center gap-4 items-center">
+      <a href="mailto:info@eudppprovider.com" class="neo-btn-primary inline-flex items-center gap-2">
+        <span>Technische Scoping Aanvragen →</span>
+      </a>
+      <a href="/nl/pricing" class="neo-pill px-6 py-3 rounded-full text-xs sm:text-sm font-bold text-slate-800 hover:text-cyan-700">
+        <span>Tarieven Bekijken</span>
+      </a>
+    </div>
+
+    <div class="mt-14">
+      <ComplianceCountdown />
+    </div>
+  </section>
+
+  <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <div class="eyebrow-pill mb-2">Interactieve Demonstratie</div>
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
+        4-Niveau Rolgebaseerde Paspoortsimulatie
+      </h2>
+    </div>
+    <BatteryPassportViewer />
+  </section>
+</Layout>

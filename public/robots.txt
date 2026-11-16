@@ -1,4 +1,58 @@
+# robots.txt for eudppprovider.com
+# Explicitly allowing all search engines and AI / GEO discovery bots
+
 User-agent: *
 Allow: /
 
-Sitemap: https://www.eudppprovider.com/sitemap-index.xml
+# OpenAI Search & Chat Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic Claude Crawlers
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+# Perplexity AI Crawlers
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Google & Apple AI Extensions
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Other Major AI Retrieval Crawlers
+User-agent: meta-externalfetcher
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
+
+User-agent: Kimi-User
+Allow: /
+
+User-agent: Amzn-User
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+# Sitemap Index Declaration
+Sitemap: https://eudppprovider.com/sitemap-index.xml

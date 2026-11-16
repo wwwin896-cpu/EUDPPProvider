@@ -45,6 +45,14 @@ function switchLanguageUrl(targetLang: string) {
         </button>
 
         <div class="absolute left-1/2 -translate-x-1/2 mt-3 w-84 rounded-2xl bg-[#F0F4F8]/95 backdrop-blur-xl border border-white/80 shadow-[10px_10px_30px_rgba(209,217,230,0.8),-10px_-10px_30px_rgba(255,255,255,0.95)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 p-3 z-50">
+          <a href={`/${lang === 'en' ? '' : lang + '/'}battery-passport`} class="block p-2.5 rounded-xl hover:bg-white/70 transition-all border-b border-slate-200/50 mb-1">
+            <div class="text-xs font-bold text-cyan-800 flex items-center justify-between">
+              <span>Battery Passport Platform Hub</span>
+              <span class="text-[10px] px-1.5 py-0.2 bg-cyan-100 text-cyan-800 rounded font-mono">Overview</span>
+            </div>
+            <div class="text-[11px] text-slate-500 mt-0.5">Core platform, carbon engine & data vault</div>
+          </a>
+
           <a href={`/${lang === 'en' ? '' : lang + '/'}solutions/ev-battery-passport`} class="block p-2.5 rounded-xl hover:bg-white/70 transition-all">
             <div class="text-xs font-bold text-slate-900">{t('nav.evBattery')}</div>
             <div class="text-[11px] text-slate-500 mt-0.5">EV battery pack compliance & OEM linking</div>

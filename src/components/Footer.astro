@@ -35,6 +35,11 @@ const t = useTranslations(lang);
         <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-3.5">{t('nav.solutions')}</h4>
         <ul class="space-y-2.5 text-xs sm:text-sm">
           <li>
+            <a href={`/${lang === 'en' ? '' : lang + '/'}battery-passport`} class="hover:text-cyan-700 transition-colors font-semibold text-slate-800">
+              Battery Passport Hub
+            </a>
+          </li>
+          <li>
             <a href={`/${lang === 'en' ? '' : lang + '/'}solutions/ev-battery-passport`} class="hover:text-cyan-700 transition-colors">
               {t('nav.evBattery')}
             </a>
@@ -81,6 +86,11 @@ const t = useTranslations(lang);
               {t('nav.pricing')}
             </a>
           </li>
+          <li>
+            <a href="/llms.txt" class="hover:text-cyan-700 transition-colors font-mono text-[11px]">
+              GEO / llms.txt (AI Index)
+            </a>
+          </li>
         </ul>
       </div>
 
@@ -104,6 +114,11 @@ const t = useTranslations(lang);
             </a>
           </li>
           <li>
+            <a href={`/${lang === 'en' ? '' : lang + '/'}legal-notice`} class="hover:text-cyan-700 transition-colors">
+              Legal Notice (Impressum)
+            </a>
+          </li>
+          <li>
             <a href={`/${lang === 'en' ? '' : lang + '/'}security`} class="hover:text-cyan-700 transition-colors">
               Security Architecture
             </a>
@@ -118,8 +133,9 @@ const t = useTranslations(lang);
       <div>
         © 2026 EU DPP Provider (eudppprovider.com). All rights reserved.
       </div>
-      <div class="flex items-center space-x-6">
+      <div class="flex flex-wrap items-center gap-4 sm:gap-6">
         <a href={`/${lang === 'en' ? '' : lang + '/'}privacy`} class="hover:text-slate-700 transition-colors">Privacy Policy</a>
+        <a href={`/${lang === 'en' ? '' : lang + '/'}legal-notice`} class="hover:text-slate-700 transition-colors">Legal Notice (Impressum)</a>
         <a href={`/${lang === 'en' ? '' : lang + '/'}security`} class="hover:text-slate-700 transition-colors">Security & Vault</a>
         <a href={`/${lang === 'en' ? '' : lang + '/'}terms`} class="hover:text-slate-700 transition-colors">Terms & SLA</a>
       </div>
