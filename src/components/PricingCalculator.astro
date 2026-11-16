@@ -7,207 +7,239 @@ const t = useTranslations(lang);
 
 <div class="max-w-5xl mx-auto space-y-12">
   
-  <!-- Interactive Calculator Engine Card -->
+  <!-- Interactive Scoping Configurator Card -->
   <div class="neo-surface p-8 sm:p-10 border-2 border-cyan-500/30">
     <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b border-slate-200">
       <div>
         <div class="eyebrow-pill mb-1">Interactive Configuration Engine</div>
-        <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900">
-          EU Battery Passport Cost Estimator
+        <h3 class="text-xl sm:text-2xl font-bold text-slate-900">
+          EU Battery Passport Scoping & Architecture Configurator
         </h3>
       </div>
-      <div class="px-3 py-1 bg-cyan-100 text-cyan-800 rounded-full font-mono text-xs font-bold">
-        Formula Version 2026.4
-      </div>
+      <span class="text-xs font-mono px-3 py-1 bg-slate-100 rounded-full text-slate-600 border border-slate-200">
+        Framework Version 2026.4
+      </span>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8 items-start">
+    <!-- Sliders and Toggles Form -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 pt-8">
       
-      <!-- Input Controls -->
+      <!-- Left Column: Parameters -->
       <div class="space-y-6">
+        
+        <!-- Slider: Annual Volume -->
         <div>
           <div class="flex justify-between items-center mb-2">
-            <label class="text-xs font-bold uppercase tracking-wider text-slate-700">Annual Battery Pack Volume</label>
-            <span id="volume-val-display" class="font-mono text-sm font-extrabold text-cyan-800 bg-cyan-50 px-2 py-0.5 rounded border border-cyan-200">25,000 packs/yr</span>
+            <label class="text-xs sm:text-sm font-bold text-slate-800">
+              Annual Export Battery Pack Volume
+            </label>
+            <span id="volume-val" class="font-mono text-sm font-extrabold text-cyan-800 px-2.5 py-0.5 bg-cyan-100 rounded-md">
+              25,000 packs/yr
+            </span>
           </div>
           <input 
             type="range" 
-            id="calc-volume" 
+            id="volume-slider" 
             min="1000" 
             max="200000" 
             step="1000" 
-            value="25000" 
-            class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-cyan-600" 
+            value="25000"
+            class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-cyan-700"
           />
-          <div class="flex justify-between text-[10px] text-slate-400 font-mono mt-1">
-            <span>1K (Pilot / Low-vol)</span>
-            <span>50K (Medium)</span>
-            <span>200K+ (High-vol OEM)</span>
+          <div class="flex justify-between text-[11px] text-slate-600 mt-1 font-mono">
+            <span>1K (Sample / Pilot)</span>
+            <span>50K (Medium Volume)</span>
+            <span>200K+ (Gigafactory)</span>
           </div>
         </div>
 
+        <!-- Radio: Battery Category -->
         <div>
-          <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Battery Category & Form Factor</label>
-          <div class="grid grid-cols-3 gap-2 text-xs">
-            <button type="button" class="calc-cat-btn py-2 px-2.5 rounded-xl border border-cyan-500 bg-cyan-50 text-cyan-900 font-bold text-center" data-cat="ev">
-              🚗 EV Packs
-            </button>
-            <button type="button" class="calc-cat-btn py-2 px-2.5 rounded-xl border border-slate-200 bg-white text-slate-700 font-medium text-center hover:bg-slate-50" data-cat="lmt">
-              🚲 LMT (≤25kg)
-            </button>
-            <button type="button" class="calc-cat-btn py-2 px-2.5 rounded-xl border border-slate-200 bg-white text-slate-700 font-medium text-center hover:bg-slate-50" data-cat="storage">
-              🏭 BESS (&gt;2kWh)
-            </button>
+          <label class="block text-xs sm:text-sm font-bold text-slate-800 mb-2">
+            Battery Category & Form Factor
+          </label>
+          <div class="grid grid-cols-3 gap-2">
+            <label class="neo-surface p-3 cursor-pointer text-center text-xs font-bold text-slate-800 flex flex-col items-center gap-1 hover:border-cyan-500 transition-all has-[:checked]:border-cyan-600 has-[:checked]:bg-cyan-50/50">
+              <input type="radio" name="calc-category" value="ev" checked class="sr-only" />
+              <span>🚗 EV Packs</span>
+              <span class="text-[10px] text-slate-600 font-normal">Traction</span>
+            </label>
+            <label class="neo-surface p-3 cursor-pointer text-center text-xs font-bold text-slate-800 flex flex-col items-center gap-1 hover:border-cyan-500 transition-all has-[:checked]:border-cyan-600 has-[:checked]:bg-cyan-50/50">
+              <input type="radio" name="calc-category" value="lmt" class="sr-only" />
+              <span>🚲 LMT (≤25kg)</span>
+              <span class="text-[10px] text-slate-600 font-normal">E-Bikes</span>
+            </label>
+            <label class="neo-surface p-3 cursor-pointer text-center text-xs font-bold text-slate-800 flex flex-col items-center gap-1 hover:border-cyan-500 transition-all has-[:checked]:border-cyan-600 has-[:checked]:bg-cyan-50/50">
+              <input type="radio" name="calc-category" value="bess" class="sr-only" />
+              <span>🏭 BESS (>2kWh)</span>
+              <span class="text-[10px] text-slate-600 font-normal">Storage</span>
+            </label>
           </div>
         </div>
 
+        <!-- Radio: Architecture Delivery Preference -->
         <div>
-          <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Delivery & Architecture Preference</label>
+          <label class="block text-xs sm:text-sm font-bold text-slate-800 mb-2">
+            Delivery & Architecture Preference
+          </label>
+          <div class="grid grid-cols-2 gap-3">
+            <label class="neo-surface p-3.5 cursor-pointer text-xs font-bold text-slate-800 flex items-center gap-2 hover:border-cyan-500 transition-all has-[:checked]:border-cyan-600 has-[:checked]:bg-cyan-50/50">
+              <input type="radio" name="calc-mode" value="vault" checked class="sr-only" />
+              <div>
+                <div>☁️ Managed Cloud (10-Yr)</div>
+                <div class="text-[10px] text-slate-600 font-normal mt-0.5">Frankfurt Sovereign Node</div>
+              </div>
+            </label>
+            <label class="neo-surface p-3.5 cursor-pointer text-xs font-bold text-slate-800 flex items-center gap-2 hover:border-cyan-500 transition-all has-[:checked]:border-cyan-600 has-[:checked]:bg-cyan-50/50">
+              <input type="radio" name="calc-mode" value="onprem" class="sr-only" />
+              <div>
+                <div>🏢 Enterprise Software</div>
+                <div class="text-[10px] text-slate-600 font-normal mt-0.5">On-Prem / Private Cloud</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Checkbox: Factory System Integration -->
+        <div>
+          <label class="block text-xs sm:text-sm font-bold text-slate-800 mb-2">
+            Factory Data Source Connectors
+          </label>
           <div class="grid grid-cols-2 gap-2 text-xs">
-            <button type="button" class="calc-mode-btn py-2.5 px-3 rounded-xl border border-cyan-500 bg-cyan-50 text-cyan-900 font-bold text-center" data-mode="vault">
-              ☁️ Managed 10-Yr Vault (Frankfurt)
-            </button>
-            <button type="button" class="calc-mode-btn py-2.5 px-3 rounded-xl border border-slate-200 bg-white text-slate-700 font-medium text-center hover:bg-slate-50" data-mode="software">
-              🏢 Enterprise Software (On-Prem)
-            </button>
+            <label class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 border border-slate-200 cursor-pointer">
+              <input type="checkbox" id="int-mes" checked class="rounded text-cyan-700" />
+              <span class="text-slate-700 font-medium">Plant MES Connector</span>
+            </label>
+            <label class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 border border-slate-200 cursor-pointer">
+              <input type="checkbox" id="int-erp" checked class="rounded text-cyan-700" />
+              <span class="text-slate-700 font-medium">ERP (SAP/Oracle) BOM</span>
+            </label>
+            <label class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 border border-slate-200 cursor-pointer">
+              <input type="checkbox" id="int-bms" checked class="rounded text-cyan-700" />
+              <span class="text-slate-700 font-medium">Cloud BMS Telemetry</span>
+            </label>
+            <label class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 border border-slate-200 cursor-pointer">
+              <input type="checkbox" id="int-lca" checked class="rounded text-cyan-700" />
+              <span class="text-slate-700 font-medium">PEFCR Carbon Engine</span>
+            </label>
           </div>
         </div>
+
       </div>
 
-      <!-- Output Summary Box -->
-      <div class="p-6 sm:p-7 rounded-2xl bg-gradient-to-br from-[#F4F8FA] to-cyan-50/60 border border-cyan-200 space-y-4">
+      <!-- Right Column: Tailored Project Scope Output -->
+      <div class="neo-surface p-6 sm:p-8 flex flex-col justify-between border-l-4 border-cyan-600 bg-white/70">
         <div>
-          <div class="text-[11px] font-mono font-bold text-slate-500 uppercase tracking-wider">Estimated Annual Commitment</div>
-          <div id="calc-price-display" class="text-3xl sm:text-4xl font-extrabold text-navy-900 font-mono mt-1 text-slate-900">
-            €12,500 – €18,000 <span class="text-xs font-normal text-slate-500">/ yr</span>
+          <div class="text-xs font-mono uppercase tracking-wider text-slate-400 mb-1">
+            Tailored Implementation Scope Breakdown
           </div>
-          <div class="text-[11px] text-cyan-800 font-mono mt-0.5">Approx. <span id="calc-per-pack" class="font-bold">€0.50 – €0.72</span> per battery pack</div>
+          
+          <div id="scope-model-title" class="text-lg font-bold text-slate-900 mb-4">
+            Managed Sovereign Cloud Tier · Scale Deployment
+          </div>
+
+          <!-- Feature Matrix Breakdown -->
+          <div class="space-y-3 py-4 border-y border-slate-200 text-xs">
+            <div class="flex justify-between items-center text-slate-700">
+              <span>Delivery Architecture:</span>
+              <span id="scope-arch" class="font-bold text-slate-900">Frankfurt Sovereign Node (10-Yr SLA)</span>
+            </div>
+            <div class="flex justify-between items-center text-slate-700">
+              <span>Mandatory Data Fields:</span>
+              <span class="font-mono font-bold text-cyan-700">90+ Annex XIII Attributes</span>
+            </div>
+            <div class="flex justify-between items-center text-slate-700">
+              <span>ZKP Formula Secrecy:</span>
+              <span class="font-bold text-green-700">Active (Zero-Leak)</span>
+            </div>
+            <div class="flex justify-between items-center text-slate-700">
+              <span>Registry Interoperability:</span>
+              <span class="font-bold text-slate-900">DG GROW & eIDAS 2.0 QSeal</span>
+            </div>
+            <div class="flex justify-between items-center text-slate-700">
+              <span>Estimated Timeline:</span>
+              <span id="scope-timeline" class="font-mono font-bold text-slate-900">4–6 Weeks to Live</span>
+            </div>
+          </div>
+
+          <!-- Deliverables Checklist -->
+          <div class="mt-4 p-3.5 bg-slate-50 rounded-xl border border-slate-200/80 text-[11px] text-slate-600 space-y-1.5">
+            <div class="font-bold text-slate-800">Included Scope & Deliverables:</div>
+            <div>• Factory BOM & Supply Chain Data Clean Room Mapping</div>
+            <div>• 2D Laser Marking Optical Resolution & EN 18220 Verification</div>
+            <div>• EU Registry Economic Operator (EO) Linkage & UPI Generation</div>
+            <div>• Staff Operational Training & Technical Documentation Package</div>
+          </div>
         </div>
 
-        <div class="pt-3 border-t border-slate-200/80 space-y-2 text-xs text-slate-700">
-          <div class="flex justify-between">
-            <span class="text-slate-500">10-Year Archival SLA:</span>
-            <span class="font-bold text-slate-900">Guaranteed 99.9% Uptime</span>
-          </div>
-          <div class="flex justify-between">
-            <span class="text-slate-500">Regulatory Updates:</span>
-            <span class="font-bold text-slate-900">Included (30-day schema patch)</span>
-          </div>
-          <div class="flex justify-between">
-            <span class="text-slate-500">Zero-Knowledge Proofs:</span>
-            <span class="font-bold text-green-700">Active (Full Formulation Shield)</span>
-          </div>
-        </div>
-
-        <div class="pt-3">
-          <a id="calc-cta-btn" href="/contact/" class="w-full neo-btn-primary py-3 text-center block text-xs font-bold">
-            Lock in Estimate & Scoping Call →
+        <div class="mt-6 pt-4">
+          <a 
+            id="scoping-cta-btn"
+            href="/contact/?vol=25000&cat=ev&mode=vault"
+            class="neo-btn-primary block w-full text-center text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-all"
+          >
+            <span>Request Tailored Proposal & Scoping Sheet →</span>
           </a>
-          <p class="text-[10px] text-slate-400 text-center mt-2">
-            Non-binding budgetary estimate. Final quote subject to MES connector complexity.
+          <p class="text-[11px] text-center text-slate-600 mt-2">
+            Formal commercial proposal & technical scope sheet delivered within 24 business hours.
           </p>
         </div>
+
       </div>
 
     </div>
+
   </div>
 
 </div>
 
 <script is:inline>
   document.addEventListener('DOMContentLoaded', () => {
-    const volumeSlider = document.getElementById('calc-volume');
-    const volumeDisplay = document.getElementById('volume-val-display');
-    const priceDisplay = document.getElementById('calc-price-display');
-    const perPackDisplay = document.getElementById('calc-per-pack');
-    const ctaBtn = document.getElementById('calc-cta-btn');
+    const slider = document.getElementById('volume-slider');
+    const volumeVal = document.getElementById('volume-val');
+    const scopeModelTitle = document.getElementById('scope-model-title');
+    const scopeArch = document.getElementById('scope-arch');
+    const scopeTimeline = document.getElementById('scope-timeline');
+    const ctaBtn = document.getElementById('scoping-cta-btn');
 
-    let currentCat = 'ev';
-    let currentMode = 'vault';
+    function updateScope() {
+      if (!slider || !volumeVal) return;
+      const vol = parseInt(slider.value);
+      volumeVal.textContent = vol >= 1000 ? `${vol.toLocaleString()} packs/yr` : `${vol} packs/yr`;
 
-    function recalculate() {
-      const vol = parseInt(volumeSlider?.value || '25000', 10);
-      if (volumeDisplay) volumeDisplay.textContent = `${vol.toLocaleString()} packs/yr`;
+      const category = document.querySelector('input[name="calc-category"]:checked')?.value || 'ev';
+      const mode = document.querySelector('input[name="calc-mode"]:checked')?.value || 'vault';
 
-      let baseLow = 4800;
-      let baseHigh = 7500;
-
-      if (currentMode === 'vault') {
-        if (vol <= 5000) {
-          baseLow = 4800;
-          baseHigh = 6800;
-        } else if (vol <= 25000) {
-          baseLow = 9500;
-          baseHigh = 14500;
+      if (mode === 'vault') {
+        scopeArch.textContent = 'Frankfurt Sovereign Node (10-Yr SLA)';
+        if (vol < 10000) {
+          scopeModelTitle.textContent = 'Managed Sovereign Cloud · Pilot Cohort';
+          scopeTimeline.textContent = '3–4 Weeks to Sandbox';
         } else if (vol <= 100000) {
-          baseLow = 18000;
-          baseHigh = 28000;
+          scopeModelTitle.textContent = 'Managed Sovereign Cloud · Scale Production';
+          scopeTimeline.textContent = '4–6 Weeks to Live';
         } else {
-          baseLow = 36000;
-          baseHigh = 55000;
+          scopeModelTitle.textContent = 'Managed Sovereign Cloud · High-Capacity Gigafactory';
+          scopeTimeline.textContent = '6–8 Weeks Commissioning';
         }
       } else {
-        // Enterprise on-premise
-        baseLow = 25000;
-        baseHigh = 45000;
-      }
-
-      if (currentCat === 'storage') {
-        baseLow = Math.round(baseLow * 1.15);
-        baseHigh = Math.round(baseHigh * 1.15);
-      } else if (currentCat === 'lmt') {
-        baseLow = Math.round(baseLow * 0.85);
-        baseHigh = Math.round(baseHigh * 0.85);
-      }
-
-      const unitLow = (baseLow / vol).toFixed(2);
-      const unitHigh = (baseHigh / vol).toFixed(2);
-
-      if (priceDisplay) {
-        if (currentMode === 'software') {
-          priceDisplay.innerHTML = `€${baseLow.toLocaleString()} – €${baseHigh.toLocaleString()} <span class="text-xs font-normal text-slate-500">/ annual license</span>`;
-        } else {
-          priceDisplay.innerHTML = `€${baseLow.toLocaleString()} – €${baseHigh.toLocaleString()} <span class="text-xs font-normal text-slate-500">/ yr</span>`;
-        }
-      }
-
-      if (perPackDisplay) {
-        perPackDisplay.textContent = `€${unitLow} – €${unitHigh}`;
+        scopeArch.textContent = 'Enterprise On-Premise / Private Datacenter';
+        scopeModelTitle.textContent = 'Enterprise Software Suite · Turnkey Deployment';
+        scopeTimeline.textContent = '6–10 Weeks Full Commissioning';
       }
 
       if (ctaBtn) {
-        ctaBtn.setAttribute('href', `/contact/?vol=${vol}&cat=${currentCat}&mode=${currentMode}`);
+        ctaBtn.href = `/contact/?vol=${vol}&cat=${category}&mode=${mode}`;
       }
     }
 
-    if (volumeSlider) {
-      volumeSlider.addEventListener('input', recalculate);
+    if (slider) {
+      slider.addEventListener('input', updateScope);
     }
-
-    document.querySelectorAll('.calc-cat-btn').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        document.querySelectorAll('.calc-cat-btn').forEach(b => {
-          b.className = 'calc-cat-btn py-2 px-2.5 rounded-xl border border-slate-200 bg-white text-slate-700 font-medium text-center hover:bg-slate-50';
-        });
-        const target = e.currentTarget;
-        target.className = 'calc-cat-btn py-2 px-2.5 rounded-xl border border-cyan-500 bg-cyan-50 text-cyan-900 font-bold text-center';
-        currentCat = target.getAttribute('data-cat') || 'ev';
-        recalculate();
-      });
+    document.querySelectorAll('input[name="calc-category"], input[name="calc-mode"]').forEach(r => {
+      r.addEventListener('change', updateScope);
     });
 
-    document.querySelectorAll('.calc-mode-btn').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        document.querySelectorAll('.calc-mode-btn').forEach(b => {
-          b.className = 'calc-mode-btn py-2.5 px-3 rounded-xl border border-slate-200 bg-white text-slate-700 font-medium text-center hover:bg-slate-50';
-        });
-        const target = e.currentTarget;
-        target.className = 'calc-mode-btn py-2.5 px-3 rounded-xl border border-cyan-500 bg-cyan-50 text-cyan-900 font-bold text-center';
-        currentMode = target.getAttribute('data-mode') || 'vault';
-        recalculate();
-      });
-    });
-
-    recalculate();
+    updateScope();
   });
 </script>

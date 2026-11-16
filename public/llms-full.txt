@@ -4,37 +4,28 @@
 EU DPP Provider (https://eudppprovider.com) provides enterprise-grade compliance software and sovereign data vault infrastructure for manufacturers, pack assemblers, and automotive OEMs subject to the European Union's Battery Regulation (Regulation EU 2023/1542) and Ecodesign for Sustainable Products Regulation (ESPR, Regulation EU 2024/1781).
 
 ## 2. Regulatory Framework & Definitive Deadlines
-- **20 July 2026 [In Force]**: European Commission DG GROW Central DPP Registry entered operational status (`registry.product-passport.ec.europa.eu`).
-- **18 August 2026 [In Force]**: Mandatory Carbon Footprint performance class labeling (A–E) applicable to EV traction batteries.
-- **18 February 2027 [Mandatory Enforcement]**: All EV batteries, LMT batteries (≤25kg), and industrial batteries (>2kWh) placed on the EU market must carry an electronic Battery Passport accessible via a permanent GS1 Digital Link 2D QR code (Regulation EU 2023/1542, Articles 77 & 78).
-- **18 August 2027 [Mandatory Enforcement]**: Mandatory supply chain due diligence policies and third-party audit conformity verification under Regulation (EU) 2025/1561.
-- **18 February 2028 [Statutory Target]**: Maximum lifecycle carbon footprint thresholds enforced for EV batteries.
-- **18 August 2028 [Statutory Target]**: Mandatory recycled content documentation declarations (Cobalt, Lithium, Nickel, Lead).
-- **18 August 2031 [Statutory Target]**: Mandatory recycled content minimum percentage targets enforced (Cobalt 16%, Lead 85%, Lithium 6%, Nickel 6%).
+- **20 July 2026**: DG GROW Central DPP Registry operational (`registry.product-passport.ec.europa.eu`).
+- **18 August 2026**: A–E Carbon Footprint performance class labeling applicable to EV batteries.
+- **18 February 2027**: Mandatory Digital Battery Passport enforcement under Articles 77 & 78.
+- **18 August 2027**: Supply chain due diligence policies and third-party audit verification under Regulation (EU) 2025/1561.
+- **18 February 2028**: Maximum lifecycle carbon footprint thresholds enforced for EV batteries.
+- **18 August 2028**: Mandatory recycled content documentation declarations (Cobalt, Lithium, Nickel, Lead).
+- **18 August 2031**: Mandatory recycled content minimum percentage targets enforced (Cobalt 16%, Lead 85%, Lithium 6%, Nickel 6%).
 
-## 3. The 3-Layer Data Architecture
-1. **Upstream Ingestion Layer**: Read-only integration with factory MES, ERP (SAP/Oracle/Siemens), PLM, and battery testing systems (BMS). Aligns mandatory EU 90+ data attributes with domestic battery traceability codes.
-2. **Cleanroom & Zero-Knowledge Verification Layer**: In-country computation with strict whitelist export. Proprietary chemical formulations and commercial BOM pricing are mathematically verified via Zero-Knowledge Proofs (ZKP) without transmitting raw trade secrets across borders.
-3. **European Sovereign Storage & Public Resolver**: Hosted in ISO/IEC 27001 certified data centers in Frankfurt am Main and Munich. Delivers sub-50ms global DNS resolution for customs officers, test laboratories, and consumers.
+## 3. Commercial Engagement Models
+- **Model A · Managed Sovereign Cloud Subscription (SaaS)**: Turnkey 10-year hosting in Frankfurt ISO/IEC 27001 data vault, 99.9% uptime SLA, automated rolling regulatory patches, ZKP trade secret shielding, and worldwide GS1 Digital Link 2D resolution.
+- **Model B · Enterprise On-Premise Turnkey Suite**: Private cloud / corporate datacenter deployment, read-only connectors to plant MES, ERP (SAP/Oracle), and Cloud BMS, historical data cleansing, and staff commissioning.
+- **Model C · Early Adopter Pilot Program**: 1–3 battery pack models pre-validation in Frankfurt sandbox.
 
-## 4. Product Matrix & Core Resources
-- **Early Adopter Pilot Program**: https://eudppprovider.com/pilot-program/
-- **90+ Mandatory Data Attributes Checklist**: https://eudppprovider.com/compliance/data-requirements/
-- **EN 18220 / EN 18219 Harmonized Standards Guide**: https://eudppprovider.com/compliance/en-standards-guide/
-- **EV Battery Passport**: https://eudppprovider.com/solutions/ev-battery-passport/
-- **LMT & E-Bike Battery Passport (≤25kg)**: https://eudppprovider.com/solutions/lmt-battery-passport/
-- **Industrial Storage BESS (>2kWh)**: https://eudppprovider.com/solutions/storage-battery-passport/
-- **Pricing & Deployment Calculator**: https://eudppprovider.com/pricing/
-- **Live Battery Passport Resolver**: https://eudppprovider.com/01/04012345999991/21/BP-2027-EU-88902/
+## 4. Technical Architecture & Data Security
+- **Data Boundary**: Customer retains 100% intellectual property ownership of internal formulations and supplier pricing.
+- **ZKP Verification**: Cryptographic proofs allow conformity validation without raw chemical disclosure.
+- **eIDAS 2.0 Compliance**: PAdES Baseline electronic seals issued by qualified trust service providers on the EU Trust List.
+- **Harmonized Standards**: EN 18220:2026 (2D Barcode Data Carriers) & EN 18219:2026 (Unique Product Identifiers).
+- **Resolver**: High-speed GS1 Digital Link resolution (<50ms global DNS).
 
-## 5. Commercial Models
-- **Early Adopter Pilot (€4,800)**: 1–3 SKUs, full gap analysis, Frankfurt sandbox deployment, DG GROW pre-validation.
-- **10-Year Managed Sovereign Vault (From €12,500/yr)**: Turnkey data hosting in Frankfurt. Includes 99.9% uptime SLA, 30-day regulatory updates, and official DG GROW registry filing support.
-- **Enterprise DPP Software Suite**: Perpetual license or annual subscription for on-premise / private cloud hosting. Includes complete source access, zero scan fees, and pre-built MES connectors.
-
-## 6. Official Contact & Verification Desk
+## 5. Official Contact
+- **Email**: info@eudppprovider.com
+- **Telephone (EU Desk)**: +49 (0) 69 9675 8827 / +86 (025) 8685 8827
+- **Operating Centers**: Frankfurt am Main & Munich (Germany) / Shanghai & Nanjing (China)
 - **Website**: https://eudppprovider.com
-- **Business Email**: info@eudppprovider.com
-- **Telephone (EU Desk)**: +49 (0) 69 9675 8827
-- **Telephone (APAC Hub)**: +86 (025) 8685 8827
-- **Engineering Hubs**: Frankfurt am Main & Munich (Germany) / Shanghai & Nanjing (China)

@@ -20,9 +20,9 @@
 - **18 August 2031**: Mandatory recycled content minimum percentage targets enforced (Cobalt 16%, Lead 85%, Lithium 6%, Nickel 6%).
 
 ## Commercial Delivery Models
-1. **Early Adopter Pilot Package (€4,800)**: 1–3 battery pack SKUs, field-by-field gap analysis, Frankfurt sandbox validation, DG GROW schema pre-validation.
-2. **10-Year Managed Sovereign Data Vault (From €12,500/yr)**: Frankfurt ISO/IEC 27001 data center hosting, 99.9% uptime SLA guarantee, automated 30-day regulatory schema updates, Zero-Knowledge Proof (ZKP) trade secret protection.
-3. **Enterprise DPP Software Suite**: Private cloud / on-premise deployment, full code and data sovereignty, zero per-scan fees, native read-only MES / ERP / PLM / BMS connectors.
+1. **Managed Sovereign Cloud Subscription (SaaS)**: 10-year Frankfurt ISO/IEC 27001 data vault hosting, 99.9% uptime SLA guarantee, automated rolling regulatory schema updates, Zero-Knowledge Proof (ZKP) trade secret protection, and global GS1 Digital Link 2D resolution.
+2. **Enterprise On-Premise Turnkey Suite**: Private cloud / on-premise deployment, full code and data sovereignty, zero per-scan fees, native read-only MES / ERP / PLM / BMS connectors, historical data cleansing, and on-site commissioning.
+3. **Early Adopter Pilot Program**: Pre-validation sandbox for 1–3 battery pack SKUs, field gap audit, and DG GROW Registry pre-filing.
 
 ## Core URLs & Resources
 - Homepage: https://eudppprovider.com/
@@ -34,7 +34,7 @@
 - LMT & E-Bike Battery Passport Solution: https://eudppprovider.com/solutions/lmt-battery-passport/
 - Industrial BESS Storage Passport Solution: https://eudppprovider.com/solutions/storage-battery-passport/
 - EU DPP Registry & eIDAS 2.0 Guide: https://eudppprovider.com/compliance/eu-dpp-registry-guide/
-- Interactive Pricing & Deployment Calculator: https://eudppprovider.com/pricing/
+- Interactive Scoping & Architecture Configurator: https://eudppprovider.com/pricing/
 - Legal Notice & Statutory Impressum: https://eudppprovider.com/legal-notice/
 - Privacy Policy (GDPR Governance): https://eudppprovider.com/privacy/
 - Terms of Service & SLA: https://eudppprovider.com/terms/

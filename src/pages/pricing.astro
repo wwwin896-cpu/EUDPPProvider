@@ -4,90 +4,216 @@ import PricingCalculator from '../components/PricingCalculator.astro';
 ---
 
 <Layout
-  title="Pricing & Deployment Models | EU DPP Provider"
-  description="Transparent enterprise pricing, pilot packages, and interactive deployment calculator for EU Battery Passport software and 10-year sovereign data vault hosting."
+  title="Enterprise Engagement Models & Pre-Sales Implementation | EU DPP Provider"
+  description="Structured B2B engagement models for EU Battery Passport compliance: Managed Sovereign Cloud Subscription vs Turnkey On-Premise Enterprise Suite. Transparent 4-step onboarding journey."
 >
   <div class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <!-- Hero Header -->
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <div class="eyebrow-pill mb-3 mx-auto">Transparent Commercial Framework</div>
+    <div class="text-center max-w-4xl mx-auto mb-16">
+      <div class="eyebrow-pill mb-3 mx-auto">Commercial & Deployment Architecture</div>
       <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-        Transparent Pricing & <br class="hidden sm:inline" />
-        <span class="text-cyan-600">Deployment Calculator</span>
+        Enterprise Engagement Models <br />
+        <span class="text-cyan-600">& 4-Step Implementation Roadmap</span>
       </h1>
-      <p class="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
-        Predictable cost structures for battery cell manufacturers, pack assemblers, and automotive OEMs. Choose between private cloud software licensing or turnkey Frankfurt sovereign vault hosting.
+      <p class="mt-6 text-base sm:text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
+        Every battery manufacturer has unique production lines, ERP architectures, and export timelines. We provide two flexible delivery models tailored to your data sovereignty and budgetary requirements.
       </p>
     </div>
 
-    <!-- Pricing Calculator & Matrix Component -->
-    <PricingCalculator />
-
-    <!-- 3 Tier Commercial Matrix Summary -->
-    <div class="mt-16 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-xs sm:text-sm">
+    <!-- Dual Commercial Models Comparison Cards -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20 max-w-5xl mx-auto">
       
-      <div class="neo-surface p-7 sm:p-8 flex flex-col justify-between">
+      <!-- Model 1: Managed Sovereign Cloud Subscription -->
+      <div class="neo-surface p-8 sm:p-10 flex flex-col justify-between border-t-4 border-cyan-600 relative">
         <div>
-          <div class="text-xs font-mono font-bold text-cyan-700 uppercase tracking-wider">Pilot Evaluation</div>
-          <h3 class="text-xl font-bold text-slate-900 mt-1 mb-2">Early Adopter Pilot</h3>
-          <div class="text-2xl font-extrabold text-slate-900 font-mono mb-3">€4,800 <span class="text-xs font-normal text-slate-500">/ single project</span></div>
-          <p class="text-slate-600 leading-relaxed">
-            Ideal for battery manufacturers needing fast, low-risk compliance pre-validation before volume production.
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-cyan-100 text-cyan-800 uppercase tracking-wider mb-4">
+            Model A · Turnkey Cloud
+          </div>
+          <h2 class="text-2xl font-bold text-slate-900 mb-2">
+            Managed Sovereign Cloud Subscription
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6 font-normal">
+            Ideal for battery manufacturers and Tier-1 pack suppliers requiring rapid European market entry with zero overseas infrastructure overhead.
           </p>
-          <ul class="mt-4 space-y-2 text-slate-700">
-            <li>✓ 1–3 Battery Pack SKUs</li>
-            <li>✓ 90+ Field Gap Analysis</li>
-            <li>✓ Frankfurt Sandbox Access</li>
-            <li>✓ DG GROW Schema Pre-Validation</li>
-          </ul>
+
+          <div class="p-4 bg-slate-50/80 rounded-2xl border border-slate-200/80 mb-6 space-y-2 text-xs">
+            <div class="font-bold text-slate-900 mb-1">Standard Scope & Deliverables:</div>
+            <div class="flex items-start gap-2 text-slate-700">
+              <span class="text-cyan-600 font-bold">✓</span>
+              <span><strong>10-Year Sovereign Data Vault:</strong> Frankfurt Tier-IV ISO 27001 data center with 99.9% uptime SLA.</span>
+            </div>
+            <div class="flex items-start gap-2 text-slate-700">
+              <span class="text-cyan-600 font-bold">✓</span>
+              <span><strong>Rolling Regulatory Patches:</strong> Continuous automatic schema updates matching EU Delegated Acts.</span>
+            </div>
+            <div class="flex items-start gap-2 text-slate-700">
+              <span class="text-cyan-600 font-bold">✓</span>
+              <span><strong>Zero-Knowledge Privacy:</strong> Shield proprietary chemical BOM and purchasing costs.</span>
+            </div>
+            <div class="flex items-start gap-2 text-slate-700">
+              <span class="text-cyan-600 font-bold">✓</span>
+              <span><strong>GS1 Digital Link 2D Resolution:</strong> High-speed worldwide DNS resolution & eIDAS 2.0 digital seals.</span>
+            </div>
+          </div>
         </div>
-        <div class="mt-6 pt-4 border-t border-slate-200">
-          <a href="/contact/" class="text-cyan-700 font-bold hover:underline">Apply for Pilot →</a>
+
+        <div>
+          <div class="text-xs text-slate-500 mb-4 pb-4 border-t border-slate-200">
+            Commercial Structure: <strong>Annual Cloud Subscription + Model Ingestion</strong>
+          </div>
+          <a
+            href="/contact/?pref=subscription"
+            class="neo-btn-primary block w-full text-center text-xs sm:text-sm font-bold"
+          >
+            <span>Request Subscription Proposal →</span>
+          </a>
         </div>
       </div>
 
-      <div class="neo-surface p-7 sm:p-8 flex flex-col justify-between border-2 border-cyan-500/40 relative">
-        <div class="absolute -top-3 right-6 bg-cyan-600 text-white text-[10px] font-bold px-3 py-0.5 rounded-full uppercase tracking-wider">Most Popular</div>
+      <!-- Model 2: Enterprise On-Premise Turnkey Suite -->
+      <div class="neo-surface p-8 sm:p-10 flex flex-col justify-between border-t-4 border-slate-800 relative">
         <div>
-          <div class="text-xs font-mono font-bold text-cyan-700 uppercase tracking-wider">10-Year Turnkey</div>
-          <h3 class="text-xl font-bold text-slate-900 mt-1 mb-2">Managed Sovereign Vault</h3>
-          <div class="text-2xl font-extrabold text-slate-900 font-mono mb-3">From €12,500 <span class="text-xs font-normal text-slate-500">/ year</span></div>
-          <p class="text-slate-600 leading-relaxed">
-            Full compliance outsourcing to our ISO 27001 certified Frankfurt data center with 10-year data persistence.
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-slate-200 text-slate-800 uppercase tracking-wider mb-4">
+            Model B · Private Deployment
+          </div>
+          <h2 class="text-2xl font-bold text-slate-900 mb-2">
+            Enterprise On-Premise Turnkey Suite
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6 font-normal">
+            Designed for high-volume gigafactories and automotive OEMs requiring complete data residency within their own private cloud or corporate datacenter.
           </p>
-          <ul class="mt-4 space-y-2 text-slate-700">
-            <li>✓ Up to 100,000 Battery Packs/yr</li>
-            <li>✓ 99.9% Uptime SLA Guarantee</li>
-            <li>✓ 30-Day Regulatory Schema Updates</li>
-            <li>✓ Zero-Knowledge Proof Privacy Shield</li>
-          </ul>
+
+          <div class="p-4 bg-slate-50/80 rounded-2xl border border-slate-200/80 mb-6 space-y-2 text-xs">
+            <div class="font-bold text-slate-900 mb-1">Standard Scope & Deliverables:</div>
+            <div class="flex items-start gap-2 text-slate-700">
+              <span class="text-slate-900 font-bold">✓</span>
+              <span><strong>Perpetual / Enterprise Software License:</strong> Full source connector & compliance engine deployment.</span>
+            </div>
+            <div class="flex items-start gap-2 text-slate-700">
+              <span class="text-slate-900 font-bold">✓</span>
+              <span><strong>Deep Factory Integration:</strong> Read-only connectors to plant MES, ERP (SAP/Oracle), and BMS.</span>
+            </div>
+            <div class="flex items-start gap-2 text-slate-700">
+              <span class="text-slate-900 font-bold">✓</span>
+              <span><strong>Data Cleansing & Initialization:</strong> Expert engineers map historical BOM into standard 90+ fields.</span>
+            </div>
+            <div class="flex items-start gap-2 text-slate-700">
+              <span class="text-slate-900 font-bold">✓</span>
+              <span><strong>Staff Training & Commissioning:</strong> On-site operational training, acceptance testing, and audit support.</span>
+            </div>
+          </div>
         </div>
-        <div class="mt-6 pt-4 border-t border-slate-200">
-          <a href="/contact/" class="neo-btn-primary text-xs w-full text-center inline-block">Request Vault Scoping →</a>
+
+        <div>
+          <div class="text-xs text-slate-500 mb-4 pb-4 border-t border-slate-200">
+            Commercial Structure: <strong>Software License + Deployment & Integration Fee</strong>
+          </div>
+          <a
+            href="/contact/?pref=onprem"
+            class="px-6 py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white block w-full text-center text-xs sm:text-sm font-bold shadow-md transition-all hover:scale-[1.01]"
+          >
+            <span>Request Private Cloud Scoping →</span>
+          </a>
         </div>
       </div>
 
-      <div class="neo-surface p-7 sm:p-8 flex flex-col justify-between">
-        <div>
-          <div class="text-xs font-mono font-bold text-slate-500 uppercase tracking-wider">Private Infrastructure</div>
-          <h3 class="text-xl font-bold text-slate-900 mt-1 mb-2">Enterprise Software Suite</h3>
-          <div class="text-2xl font-extrabold text-slate-900 font-mono mb-3">Custom License <span class="text-xs font-normal text-slate-500">/ on-premise</span></div>
-          <p class="text-slate-600 leading-relaxed">
-            Perpetual or multi-year software licensing for Tier-1 cell makers and automotive OEMs requiring on-premise control.
-          </p>
-          <ul class="mt-4 space-y-2 text-slate-700">
-            <li>✓ Unlimited Serialized Packs</li>
-            <li>✓ Native MES / ERP / BMS Connectors</li>
-            <li>✓ Zero Per-Scan or Transaction Fees</li>
-            <li>✓ Full Source & Infrastructure Control</li>
-          </ul>
-        </div>
-        <div class="mt-6 pt-4 border-t border-slate-200">
-          <a href="/contact/" class="text-slate-800 font-bold hover:underline">Contact Solutions Desk →</a>
-        </div>
+    </div>
+
+    <!-- 4-Step Pre-Sales & Onboarding Journey -->
+    <div class="mb-20 max-w-5xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <div class="eyebrow-pill mb-2">Frictionless Pre-Sales Process</div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+          4-Step Onboarding Journey to Regulatory Readiness
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-500 mt-2">
+          From initial data discovery to live EU DG GROW Registry verification, we provide a guided, risk-free onboarding pathway.
+        </p>
       </div>
 
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        
+        <!-- Step 1 -->
+        <div class="neo-surface p-6 flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-cyan-100 text-cyan-800 flex items-center justify-center font-mono font-bold text-sm mb-4">
+              01
+            </div>
+            <h3 class="font-bold text-slate-900 text-sm mb-2">Compliance Gap Audit</h3>
+            <p class="text-xs text-slate-600 leading-relaxed font-normal">
+              Review current BOM, supplier data availability, and LCA carbon records against the 90+ EU Annex XIII mandatory attributes.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-200/80 text-[11px] font-mono text-cyan-800">
+            Timeline: Week 1–2
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="neo-surface p-6 flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-cyan-100 text-cyan-800 flex items-center justify-center font-mono font-bold text-sm mb-4">
+              02
+            </div>
+            <h3 class="font-bold text-slate-900 text-sm mb-2">Architecture Scoping</h3>
+            <p class="text-xs text-slate-600 leading-relaxed font-normal">
+              Determine deployment preference (Managed Cloud vs On-Premise) and define read-only connector boundaries to plant MES/ERP.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-200/80 text-[11px] font-mono text-cyan-800">
+            Timeline: Week 3
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="neo-surface p-6 flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-cyan-100 text-cyan-800 flex items-center justify-center font-mono font-bold text-sm mb-4">
+              03
+            </div>
+            <h3 class="font-bold text-slate-900 text-sm mb-2">Clean Room Mapping</h3>
+            <p class="text-xs text-slate-600 leading-relaxed font-normal">
+              Execute data cleansing in a secure domestic clean room, generate ZKP privacy proofs, and configure Frankfurt sandbox nodes.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-200/80 text-[11px] font-mono text-cyan-800">
+            Timeline: Week 4–6
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="neo-surface p-6 flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-green-100 text-green-800 flex items-center justify-center font-mono font-bold text-sm mb-4">
+              04
+            </div>
+            <h3 class="font-bold text-slate-900 text-sm mb-2">Registry & Laser Test</h3>
+            <p class="text-xs text-slate-600 leading-relaxed font-normal">
+              Pre-validate UPI with EU DG GROW Registry, issue eIDAS 2.0 digital seals, and complete factory 2D laser marking verifications.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-200/80 text-[11px] font-mono text-green-800">
+            Timeline: Production Ready
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Interactive Architecture & Scoping Configurator Section -->
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <div class="eyebrow-pill mb-2">Pre-Sales Self-Service Tool</div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+          Interactive Architecture & Scoping Configurator
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-500 mt-2">
+          Select your factory parameters below to generate a tailored technical scope breakdown and request a formal project proposal.
+        </p>
+      </div>
+
+      <PricingCalculator />
     </div>
 
   </div>
