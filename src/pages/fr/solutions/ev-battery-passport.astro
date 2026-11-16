@@ -1,0 +1,22 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import BatteryPassportViewer from '../../../components/BatteryPassportViewer.astro';
+---
+
+<Layout
+  title="Passeport Batterie Véhicules Électriques (VE) | EU DPP Provider"
+  description="Solutions d'entreprise pour passeport batterie de traction VE sous le règlement (UE) 2023/1542."
+>
+  <div class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="eyebrow-pill mb-3 mx-auto">Secteur Automobile & VE</div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        Passeport Batterie VE
+      </h1>
+      <p class="mt-4 text-base text-slate-600 leading-relaxed">
+        Conformité réglementaire des articles 77 et 78 du règlement de l'UE pour batteries automobiles.
+      </p>
+    </div>
+    <BatteryPassportViewer />
+  </div>
+</Layout>

@@ -1,0 +1,24 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import BatteryPassportViewer from '../../../components/BatteryPassportViewer.astro';
+---
+
+<Layout
+  title="Industrie- & Großspeicher-Batteriepässe (>2kWh) | EU DPP Provider"
+  description="Lösungen für stationäre Batterie-Energiespeichersysteme (BESS >2kWh) und Industriebatterien unter Verordnung (EU) 2023/1542."
+>
+  <div class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="eyebrow-pill mb-3 mx-auto">Industrie & BESS Speicher</div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        Industrie- & BESS-Batteriepass <br class="hidden sm:inline" />
+        <span class="text-amber-700">(&gt;2 kWh)</span>
+      </h1>
+      <p class="mt-4 text-base text-slate-600 leading-relaxed">
+        Modulare Rack-zu-Container-Hierarchie, SOH-Telemetrie und Zweitnutzungs-Audittrails für Großspeicher.
+      </p>
+    </div>
+
+    <BatteryPassportViewer />
+  </div>
+</Layout>

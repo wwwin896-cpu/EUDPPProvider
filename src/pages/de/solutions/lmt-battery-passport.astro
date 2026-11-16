@@ -1,0 +1,24 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import BatteryPassportViewer from '../../../components/BatteryPassportViewer.astro';
+---
+
+<Layout
+  title="LMT & E-Bike Batteriepass (≤25kg) | EU DPP Provider"
+  description="Konformitätslösungen für leichte Verkehrsmittel (LMT ≤25kg), E-Bikes und E-Scooter unter der EU-Batterieverordnung."
+>
+  <div class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="eyebrow-pill mb-3 mx-auto">Leichte Verkehrsmittel (LMT)</div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        LMT- & E-Bike-Batteriepass <br class="hidden sm:inline" />
+        <span class="text-green-700">(≤25 kg)</span>
+      </h1>
+      <p class="mt-4 text-base text-slate-600 leading-relaxed">
+        Laser-QR-Serialisierung und digitale Konformitätsdossiers für kompakte E-Bike- und 2/3-Rad-Batteriepacks.
+      </p>
+    </div>
+
+    <BatteryPassportViewer />
+  </div>
+</Layout>

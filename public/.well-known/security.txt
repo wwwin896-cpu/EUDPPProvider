@@ -1,0 +1,7 @@
+Contact: mailto:security@eudppprovider.com
+Contact: mailto:info@eudppprovider.com
+Expires: 2027-12-31T23:59:59.000Z
+Preferred-Languages: en, de, zh, fr, nl
+Canonical: https://eudppprovider.com/.well-known/security.txt
+Policy: https://eudppprovider.com/security/
+Hiring: https://eudppprovider.com/about/

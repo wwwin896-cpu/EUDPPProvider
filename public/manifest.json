@@ -1,0 +1,17 @@
+{
+  "name": "EU DPP Provider",
+  "short_name": "EUDPP",
+  "description": "Enterprise EU Battery Passport Platform & Sovereign Data Vault",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#EEF2F6",
+  "theme_color": "#0B1E3C",
+  "icons": [
+    {
+      "src": "/eudpp_logo_light.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -35,12 +35,14 @@ const {
   faqs = []
 } = Astro.props;
 
-// Build multi-layered JSON-LD graph
+// Build multi-layered JSON-LD graph (Pure B2B Professional Entity)
 const schemaGraph: any[] = [
   {
     "@type": "Organization",
     "@id": `${siteUrl}/#organization`,
     "name": "EU DPP Provider",
+    "legalName": "Nanjing Ningyi Cultural Media Co., Ltd. / EU DPP Provider",
+    "taxID": "913201025685882797",
     "url": siteUrl,
     "logo": `${siteUrl}/eudpp_logo_light.svg`,
     "description": "Enterprise EU Battery Passport Software and Managed DPP Data Vault Hosting Provider under Regulation (EU) 2023/1542.",
@@ -49,10 +51,7 @@ const schemaGraph: any[] = [
       "email": "info@eudppprovider.com",
       "contactType": "Customer Support and Compliance Desk",
       "availableLanguage": ["English", "Chinese", "German", "French", "Dutch"]
-    },
-    "sameAs": [
-      "https://github.com/wwwin896-cpu/EUDPPProvider"
-    ]
+    }
   },
   {
     "@type": "SoftwareApplication",
@@ -155,6 +154,8 @@ const schemaOrg = {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="manifest" href="/manifest.json" />
     <meta name="generator" content={Astro.generator} />
 
     <!-- SEO Meta Tags -->
@@ -188,10 +189,15 @@ const schemaOrg = {
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(schemaOrg)} />
 
-    <!-- Fonts preconnect -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Zero-Tracking Local / System Font Stack (GDPR Compliant, No External Google Font Calls) -->
+    <style is:global>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      }
+      code, pre, .font-mono {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      }
+    </style>
   </head>
   <body class="bg-[#EEF2F6] text-slate-800 font-sans min-h-screen flex flex-col antialiased selection:bg-cyan-500 selection:text-white">
     <Header />
@@ -199,5 +205,47 @@ const schemaOrg = {
       <slot />
     </main>
     <Footer />
+
+    <!-- GDPR / ePrivacy Compliant Cookie Consent Banner -->
+    <div id="cookie-consent-banner" class="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-md z-50 p-5 rounded-2xl bg-[#F0F4F8]/95 backdrop-blur-xl border border-white/90 shadow-[10px_10px_30px_rgba(209,217,230,0.8),-10px_-10px_30px_rgba(255,255,255,0.95)] transition-all duration-300">
+      <div class="flex items-start gap-3">
+        <span class="text-xl">🍪</span>
+        <div class="space-y-2 text-xs text-slate-700">
+          <div class="font-bold text-slate-900 text-sm">Privacy & Data Governance</div>
+          <p class="leading-relaxed">
+            We use strictly essential technical cookies to ensure high availability, security, and multi-language routing. No third-party behavioral trackers or foreign ad scripts are executed.
+          </p>
+          <div class="flex items-center gap-3 pt-1">
+            <button id="cookie-accept-btn" class="neo-btn-primary px-4 py-1.5 text-xs">
+              Accept Essential
+            </button>
+            <a href="/privacy/" class="text-[11px] font-bold text-cyan-700 hover:underline">
+              Privacy Policy →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', () => {
+        const banner = document.getElementById('cookie-consent-banner');
+        const acceptBtn = document.getElementById('cookie-accept-btn');
+        const isConsentGiven = localStorage.getItem('eudpp_cookie_consent');
+
+        if (isConsentGiven) {
+          if (banner) banner.classList.add('hidden');
+        } else {
+          if (banner) banner.classList.remove('hidden');
+        }
+
+        if (acceptBtn && banner) {
+          acceptBtn.addEventListener('click', () => {
+            localStorage.setItem('eudpp_cookie_consent', 'essential_granted');
+            banner.classList.add('hidden');
+          });
+        }
+      });
+    </script>
   </body>
 </html>
