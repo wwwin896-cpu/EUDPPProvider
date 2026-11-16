@@ -1,0 +1,83 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import BatteryPassportViewer from '../../../components/BatteryPassportViewer.astro';
+---
+
+<Layout
+  title="EV Batterijpaspoort Oplossingen | EU DPP Provider"
+  description="Volledige levenscyclus Digitaal Productpaspoort voor elektrische voertuigen (EV) batterijpacks onder Verordening (EU) 2023/1542."
+>
+  <div class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="eyebrow-pill mb-3 mx-auto">Automotive Tractiebatterijen</div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        EV Batterijpaspoort <br class="hidden sm:inline" />
+        <span class="text-cyan-600">Enterprise Oplossingen</span>
+      </h1>
+      <p class="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+        End-to-end wettelijke naleving voor tractiebatterijsystemen van elektrische personenauto's, bussen en bedrijfsvoertuigen onder Artikel 77 van Verordening (EU) 2023/1542.
+      </p>
+
+      <div class="mt-6 flex justify-center gap-4">
+        <a href="mailto:info@eudppprovider.com" class="neo-btn-primary">
+          EV Batterij Scoping Aanvragen →
+        </a>
+      </div>
+    </div>
+
+    <!-- Live Interactive Viewer -->
+    <div class="mb-16">
+      <BatteryPassportViewer />
+    </div>
+
+    <!-- Core Features Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16">
+      
+      <div class="neo-surface p-7">
+        <div class="w-10 h-10 rounded-2xl bg-cyan-100 text-cyan-700 flex items-center justify-center font-bold text-lg mb-4">
+          🚗
+        </div>
+        <h3 class="text-base font-bold text-slate-900 mb-2">OEM Voertuig VIN Koppeling</h3>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          Dynamische synchronisatie tussen batterijpack-serienummers, voertuig-VIN en OEM digitale tweeling-architecturen via ISO 15118 en Catena-X dataruimten.
+        </p>
+      </div>
+
+      <div class="neo-surface p-7">
+        <div class="w-10 h-10 rounded-2xl bg-green-100 text-green-700 flex items-center justify-center font-bold text-lg mb-4">
+          ⚡
+        </div>
+        <h3 class="text-base font-bold text-slate-900 mb-2">Koolstofvoetafdruk (CFD)</h3>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          Ingebouwde PEFCR-modellering voor ternaire NMC- en LFP-chemie, die gecertificeerde Carbon Footprint Declarations genereert voor Europese typegoedkeuring.
+        </p>
+      </div>
+
+      <div class="neo-surface p-7">
+        <div class="w-10 h-10 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-lg mb-4">
+          🔒
+        </div>
+        <h3 class="text-base font-bold text-slate-900 mb-2">4-Niveau Rolgebaseerde Toegang</h3>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          Gedifferentieerde toegangslagen die commerciële stuklijstdetails afschermen van het publiek en tegelijkertijd volledige ontmantelingsgidsen vrijgeven voor gecertificeerde recyclers.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Direct Action Card -->
+    <div class="neo-surface p-8 sm:p-12 text-center max-w-3xl mx-auto bg-gradient-to-br from-white to-cyan-50/40 border border-cyan-200/80">
+      <h3 class="text-xl font-bold text-slate-900">Start uw EV Batterijpaspoort Project</h3>
+      <p class="text-xs sm:text-sm text-slate-600 mt-2 max-w-lg mx-auto">
+        Krijg toegang tot onze PEFCR carbon engine, GS1 QR-laserspecificaties en Europese registerindieningsdiensten.
+      </p>
+      <div class="mt-5 flex justify-center gap-4">
+        <a href="mailto:info@eudppprovider.com" class="neo-btn-primary">
+          Contact: info@eudppprovider.com
+        </a>
+      </div>
+    </div>
+
+  </div>
+</Layout>

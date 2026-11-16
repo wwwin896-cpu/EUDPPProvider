@@ -1,0 +1,331 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ComplianceCountdown from '../../components/ComplianceCountdown.astro';
+import BatteryPassportViewer from '../../components/BatteryPassportViewer.astro';
+import PricingCalculator from '../../components/PricingCalculator.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout
+  title="EU DPP Provider | Enterprise EU Batterijpaspoort Platform & Soevereine Datakluis"
+  description="Zet toeleveringsketenrecords om in een auditbestendige conformiteitsketen. Kant-en-klare bedrijfssoftware, 10-jarige soevereine datakluis, ZKP-formulebescherming en officiële EU-registercertificering (Verordening EU 2023/1542)."
+>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    
+    <!-- Top Pill Badge -->
+    <div class="eyebrow-pill mb-6 mx-auto">
+      <span class="w-2 h-2 rounded-full bg-cyan-600 animate-pulse"></span>
+      <span>Verordening (EU) 2023/1542 · Batterijpaspoort Gereed</span>
+    </div>
+
+    <!-- Punchy Marketing Headline -->
+    <h1 class="text-4xl sm:text-5xl lg:text-[58px] font-extrabold tracking-tight leading-[1.12] text-slate-900 max-w-4xl mx-auto">
+      Enterprise EU Batterijpaspoort Platform <br class="hidden sm:inline" />
+      <span class="text-cyan-600">& Soevereine Datakluis</span>
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="mt-6 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+      QR-codes zijn slechts het toegangspunt — wat door de douane komt, is de verifieerbare dataketen erachter. Wij verbinden stroomopwaartse supply chain records met een auditbestendige conformiteitsketen onder Verordening (EU) 2023/1542.
+    </p>
+
+    <!-- Tactile CTA Row -->
+    <div class="mt-8 flex flex-wrap justify-center gap-4 items-center">
+      <a
+        href="/nl/contact"
+        class="neo-btn-primary inline-flex items-center gap-2"
+      >
+        <span>Technische Scoping Aanvragen →</span>
+      </a>
+
+      <a
+        href="mailto:info@eudppprovider.com"
+        class="neo-pill px-6 py-3 rounded-full text-xs sm:text-sm font-bold text-slate-800 hover:text-cyan-700 flex items-center gap-2"
+      >
+        <svg class="w-4 h-4 text-cyan-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+        <span>info@eudppprovider.com</span>
+      </a>
+    </div>
+
+    <!-- Soft UI Countdown Capsule -->
+    <div class="mt-14">
+      <ComplianceCountdown />
+    </div>
+
+  </section>
+
+  <!-- ==================== BANNER SECTION 1: INDUSTRIAL FACTORY VERIFICATION ==================== -->
+  <section class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-white/60 min-h-[460px] flex items-center">
+      
+      <!-- Background Image -->
+      <img 
+        src="/images/banner_factory_scan.jpg" 
+        alt="Industriële Batterijpack Lasergravure en Scanverificatie" 
+        class="absolute inset-0 w-full h-full object-cover object-center"
+      />
+
+      <!-- High-End Dark Gradient Overlay -->
+      <div class="absolute inset-0 bg-gradient-to-r from-navy-900/95 via-navy-900/80 to-navy-900/30 backdrop-blur-[2px]"></div>
+
+      <!-- Foreground Text -->
+      <div class="relative z-10 p-8 sm:p-12 lg:p-16 max-w-2xl text-white">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold uppercase tracking-wider bg-cyan-500/20 text-cyan-300 border border-cyan-400/30 mb-5">
+          <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+          <span>Industriële Traceerbaarheid in Actie</span>
+        </div>
+
+        <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight leading-[1.15] text-white">
+          Van Fabrieks-Lasergravure tot <br />
+          <span class="text-cyan-400">EU Douane-Inklaring</span>
+        </h2>
+
+        <p class="mt-4 text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
+          Permanente GS1 Digital Link 2D-barcodes met laser rechtstreeks op de batterijbehuizing gegraveerd. Direct scanbaar en verifieerbaar door douanediensten, testlaboratoria en gecertificeerde recyclers wereldwijd.
+        </p>
+
+        <div class="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 border-t border-white/15 text-xs">
+          <div>
+            <div class="font-mono text-cyan-400 font-bold text-base sm:text-lg">&lt; 50ms</div>
+            <div class="text-slate-400 mt-0.5">Wereldwijde DNS-resolutie</div>
+          </div>
+          <div>
+            <div class="font-mono text-green-400 font-bold text-base sm:text-lg">eIDAS 2.0</div>
+            <div class="text-slate-400 mt-0.5">PAdES Verzegeld</div>
+          </div>
+          <div class="hidden sm:block">
+            <div class="font-mono text-cyan-400 font-bold text-base sm:text-lg">ISO/IEC 15459</div>
+            <div class="text-slate-400 mt-0.5">Wereldwijde Unieke Barcode</div>
+          </div>
+        </div>
+
+        <div class="mt-8">
+          <a href="/nl/platform/gs1-qr-serialization" class="btn-primary-cyan inline-flex items-center gap-2 text-xs sm:text-sm font-bold">
+            <span>Fabrieksserialisatie Bekijken →</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 3 CORE PILLARS ==================== -->
+  <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <div class="eyebrow-pill mb-2">Onze Mogelijkheden</div>
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
+        Volledige Grensoverschrijdende Conformiteit
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      <!-- Card 1 -->
+      <div class="neo-surface p-7 sm:p-8 flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-2xl bg-cyan-100 text-cyan-700 flex items-center justify-center font-bold text-xl mb-4">
+            💻
+          </div>
+          <h3 class="text-lg lg:text-xl font-bold text-slate-900 mb-2">Enterprise Software</h3>
+          <p class="text-xs sm:text-sm text-slate-500 leading-relaxed">
+            Implementeer onafhankelijke DPP-software op uw eigen private cloud. Volledige datasoevereiniteit, nul scanvergoedingen en directe MES/ERP-connectoren.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-slate-200/80">
+          <a href="/nl/solutions/software-license" class="text-xs sm:text-sm font-bold text-cyan-600 hover:text-cyan-700">Software Bekijken →</a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="neo-surface p-7 sm:p-8 flex flex-col justify-between border-green-500/20">
+        <div>
+          <div class="w-12 h-12 rounded-2xl bg-green-100 text-green-700 flex items-center justify-center font-bold text-xl mb-4">
+            🛡️
+          </div>
+          <h3 class="text-lg lg:text-xl font-bold text-slate-900 mb-2">10-Jaar Datakluis</h3>
+          <p class="text-xs sm:text-sm text-slate-500 leading-relaxed">
+            Delegeer hosting naar onze soevereine EU-kluis in Frankfurt. Gegarandeerde 99,9% uptime, 30-dagen wettelijke updates en ZKP-formulebescherming.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-slate-200/80">
+          <a href="/nl/solutions/managed-data-hosting" class="text-xs sm:text-sm font-bold text-green-700 hover:text-green-800">Hosting Bekijken →</a>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="neo-surface p-7 sm:p-8 flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-xl mb-4">
+            🏛️
+          </div>
+          <h3 class="text-lg lg:text-xl font-bold text-slate-900 mb-2">EU Register & eIDAS</h3>
+          <p class="text-xs sm:text-sm text-slate-500 leading-relaxed">
+            Turnkey agency voor EU Login, QSeal/QES digitale zegelaanmaak, DigiCert QTSP-certificering en uitgifte van EU-commissieregisterbewijzen.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-slate-200/80">
+          <a href="/nl/compliance/eu-dpp-registry-guide" class="text-xs sm:text-sm font-bold text-amber-700 hover:text-amber-800">EU Register Gids →</a>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ==================== INTERACTIVE PASSPORT DEMO ==================== -->
+  <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <div class="eyebrow-pill mb-2">Interactieve Ervaring</div>
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
+        4-Niveau Rolgebaseerde Paspoortsimulatie
+      </h2>
+      <p class="text-xs sm:text-sm text-slate-500 mt-2">
+        Ervaar hoe consumenten, douanediensten, recyclers en OEM's gedifferentieerde gegevensrechten zien.
+      </p>
+    </div>
+
+    <BatteryPassportViewer />
+  </section>
+
+  <!-- ==================== BANNER SECTION 2: EU SOVEREIGN COMMAND VAULT ==================== -->
+  <section class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-white/60 min-h-[460px] flex items-center">
+      
+      <!-- Background Image -->
+      <img 
+        src="/images/banner_sovereign_vault.jpg" 
+        alt="Soeverein EU Cloud Command Center in Frankfurt" 
+        class="absolute inset-0 w-full h-full object-cover object-center"
+      />
+
+      <!-- Dark Vignette Overlay -->
+      <div class="absolute inset-0 bg-gradient-to-r from-navy-950/95 via-navy-900/80 to-navy-900/40 backdrop-blur-[2px]"></div>
+
+      <!-- Foreground Content -->
+      <div class="relative z-10 p-8 sm:p-12 lg:p-16 max-w-2xl text-white">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold uppercase tracking-wider bg-green-500/20 text-green-300 border border-green-400/30 mb-5">
+          <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+          <span>Frankfurt & München Knooppunten · ISO 27001</span>
+        </div>
+
+        <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight leading-[1.15] text-white">
+          Soevereine EU Datakluis & <br />
+          <span class="text-green-400">24/7 Nalevingscontrole</span>
+        </h2>
+
+        <p class="mt-4 text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
+          Implementeer uw batterijpaspoort in Europa's veiligste ISO 27001 datacenters. Volledig conform GDPR en de EU Data Act, nul bedrijfsgeheimenlekken en gegarandeerde 10-jarige SLA.
+        </p>
+
+        <div class="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 border-t border-white/15 text-xs">
+          <div>
+            <div class="font-mono text-green-400 font-bold text-base sm:text-lg">99,9%</div>
+            <div class="text-slate-400 mt-0.5">Uptime SLA Garantie</div>
+          </div>
+          <div>
+            <div class="font-mono text-cyan-400 font-bold text-base sm:text-lg">30 Dagen</div>
+            <div class="text-slate-400 mt-0.5">EU Wetgevingsschema Patch</div>
+          </div>
+          <div class="hidden sm:block">
+            <div class="font-mono text-green-400 font-bold text-base sm:text-lg">10 Jaar</div>
+            <div class="text-slate-400 mt-0.5">Levenscyclus Opslag SLA</div>
+          </div>
+        </div>
+
+        <div class="mt-8 flex flex-wrap gap-4 items-center">
+          <a href="/nl/solutions/managed-data-hosting" class="btn-primary-cyan inline-flex items-center gap-2 text-xs sm:text-sm font-bold">
+            <span>Datakluis Hosting Bekijken →</span>
+          </a>
+          <a href="mailto:info@eudppprovider.com" class="btn-ghost-hero inline-flex items-center gap-2 text-xs sm:text-sm">
+            <span>info@eudppprovider.com</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== PHASED IMPLEMENTATION STEPPER ==================== -->
+  <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <div class="eyebrow-pill mb-2">Gestructureerde Oplevering</div>
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
+        Gefaseerd Implementatiekader
+      </h2>
+      <p class="text-xs sm:text-sm text-slate-500 mt-2">
+        Een voorspelbaar, mijlpaalgestuurd opleveringsproces dat garandeert dat uw batterijpaspoort alle Notified Body- en EU-registercontroles doorstaat.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-5 gap-3.5">
+      <div class="neo-surface p-4 text-center">
+        <div class="text-[11px] font-mono font-bold text-cyan-600">Fase 01</div>
+        <div class="text-xs sm:text-sm font-bold text-slate-900 mt-1">Veldkloof Audit</div>
+        <div class="text-[10px] sm:text-xs text-slate-500 mt-0.5">Wijs data-eigenaren toe</div>
+      </div>
+      <div class="neo-surface p-4 text-center">
+        <div class="text-[11px] font-mono font-bold text-cyan-600">Fase 02</div>
+        <div class="text-xs sm:text-sm font-bold text-slate-900 mt-1">Datamodellering</div>
+        <div class="text-[10px] sm:text-xs text-slate-500 mt-0.5">7 domeinen mapping</div>
+      </div>
+      <div class="neo-surface p-4 text-center">
+        <div class="text-[11px] font-mono font-bold text-cyan-600">Fase 03</div>
+        <div class="text-xs sm:text-sm font-bold text-slate-900 mt-1">Connector Opname</div>
+        <div class="text-[10px] sm:text-xs text-slate-500 mt-0.5">Alleen-lezen MES sync</div>
+      </div>
+      <div class="neo-surface p-4 text-center">
+        <div class="text-[11px] font-mono font-bold text-amber-600">Fase 04</div>
+        <div class="text-xs sm:text-sm font-bold text-slate-900 mt-1">Afstemming</div>
+        <div class="text-[10px] sm:text-xs text-slate-500 mt-0.5">≥95% volledigheid</div>
+      </div>
+      <div class="neo-surface p-4 text-center border-green-500/30">
+        <div class="text-[11px] font-mono font-bold text-green-700">Fase 05</div>
+        <div class="text-xs sm:text-sm font-bold text-slate-900 mt-1">Register Deponering</div>
+        <div class="text-[10px] sm:text-xs text-green-800 font-bold mt-0.5">Officieel bewijs afgegeven</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== DUAL COMMERCIAL MODELS ==================== -->
+  <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <div class="eyebrow-pill mb-2">Implementatiekeuzes</div>
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
+        Afgestemd op uw Enterprise IT-Strategie
+      </h2>
+    </div>
+
+    <PricingCalculator />
+  </section>
+
+  <!-- ==================== FINAL ACTION CARD ==================== -->
+  <section class="py-16 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="neo-surface p-8 sm:p-12 text-center bg-gradient-to-br from-[#F0F4F8] to-cyan-50/40 border border-cyan-200/60">
+      <div class="eyebrow-pill mb-3 mx-auto">Vandaag Beginnen</div>
+      <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+        Klaar om uw Batterijpaspoort-implementatie te Starten?
+      </h2>
+      <p class="mt-3 text-xs sm:text-sm text-slate-600 max-w-xl mx-auto">
+        Spreek rechtstreeks met onze batterijnalevingsingenieurs om uw batterijspecificaties te beoordelen.
+      </p>
+
+      <div class="mt-6 flex flex-wrap justify-center gap-4">
+        <a href="mailto:info@eudppprovider.com" class="neo-btn-primary">
+          Contact: info@eudppprovider.com
+        </a>
+        <a href="/nl/about" class="neo-pill px-6 py-3 rounded-full text-xs sm:text-sm font-bold text-slate-800 hover:text-cyan-700">
+          Over Ons Team & Infrastructuur →
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>

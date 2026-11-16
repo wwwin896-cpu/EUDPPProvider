@@ -1,0 +1,78 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import BatteryPassportViewer from '../../../components/BatteryPassportViewer.astro';
+---
+
+<Layout
+  title="Industriële & Opslagbatterij Paspoorten (>2kWh) | EU DPP Provider"
+  description="Volledige nalevingsoplossingen voor industriële en stationaire batterij-energieopslagsystemen (BESS >2kWh) onder Verordening (EU) 2023/1542."
+>
+  <div class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="eyebrow-pill mb-3 mx-auto">Stationaire & Industriële Opslag (>2kWh)</div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        Industriële & BESS Batterijpaspoorten <br class="hidden sm:inline" />
+        <span class="text-cyan-600">Enterprise Naleving</span>
+      </h1>
+      <p class="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+        Conformiteitsarchitectuur voor industriële batterijen en grootschalige BESS-containers met modulaire cel- en rackhiërarchieën onder Artikel 77.
+      </p>
+
+      <div class="mt-6 flex justify-center gap-4">
+        <a href="mailto:info@eudppprovider.com" class="neo-btn-primary">
+          BESS Paspoort Scoping Aanvragen →
+        </a>
+      </div>
+    </div>
+
+    <div class="mb-16">
+      <BatteryPassportViewer />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16">
+      <div class="neo-surface p-7">
+        <div class="w-10 h-10 rounded-2xl bg-cyan-100 text-cyan-700 flex items-center justify-center font-bold text-lg mb-4">
+          🏭
+        </div>
+        <h3 class="text-base font-bold text-slate-900 mb-2">Modulaire Rackhiërarchie</h3>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          Ondersteunt complexe relaties tussen individuele cellen, modules, racks en complete BESS-containerinstallaties.
+        </p>
+      </div>
+
+      <div class="neo-surface p-7">
+        <div class="w-10 h-10 rounded-2xl bg-green-100 text-green-700 flex items-center justify-center font-bold text-lg mb-4">
+          📈
+        </div>
+        <h3 class="text-base font-bold text-slate-900 mb-2">Realtime SOH & Prestaties</h3>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          Veilige BMS-telemetrie-aggregatie voor State of Health (SOH), laadcycli en capaciteitsverval conform EU Annex VII.
+        </p>
+      </div>
+
+      <div class="neo-surface p-7">
+        <div class="w-10 h-10 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-lg mb-4">
+          ⚡
+        </div>
+        <h3 class="text-base font-bold text-slate-900 mb-2">Second-Life & Hergebruik</h3>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          Kant-en-klaar paspoortoverdrachtsbeheer voor herbestemming van afgedankte EV-batterijen naar stationaire opslagtoepassingen.
+        </p>
+      </div>
+    </div>
+
+    <div class="neo-surface p-8 sm:p-12 text-center max-w-3xl mx-auto bg-gradient-to-br from-white to-cyan-50/40 border border-cyan-200/80">
+      <h3 class="text-xl font-bold text-slate-900">Bespreek uw BESS-project</h3>
+      <p class="text-xs sm:text-sm text-slate-600 mt-2 max-w-lg mx-auto">
+        Krijg direct advies over industriële BESS-paspoorten en eIDAS 2.0-registratie.
+      </p>
+      <div class="mt-5 flex justify-center gap-4">
+        <a href="mailto:info@eudppprovider.com" class="neo-btn-primary">
+          Contact: info@eudppprovider.com
+        </a>
+      </div>
+    </div>
+
+  </div>
+</Layout>

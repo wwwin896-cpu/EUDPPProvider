@@ -1,87 +1,57 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 120" fill="none" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 300" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
   <defs>
-    <!-- Core Brand Gradient: Data Cyan #0E9BC4 to Circular Emerald #27A56F -->
-    <linearGradient id="eudppGradLight" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0E9BC4" />
-      <stop offset="60%" stop-color="#0B7FA3" />
-      <stop offset="100%" stop-color="#27A56F" />
-    </linearGradient>
-
-    <linearGradient id="dataStreamGradLight" x1="0%" y1="50%" x2="100%" y2="50%">
-      <stop offset="0%" stop-color="#0E9BC4" />
-      <stop offset="100%" stop-color="#27A56F" />
-    </linearGradient>
+    <style>
+      .logo-navy { fill: #0B1E3C; }
+      .logo-cyan { fill: #02E3FD; }
+      .logo-green { fill: #15BF85; }
+      .logo-tech-blue { fill: #02E3FD; }
+      .logo-gray { fill: #64748B; }
+      .logo-title {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Montserrat", sans-serif;
+        font-size: 54px;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+      }
+      .logo-slogan {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Montserrat", sans-serif;
+        font-size: 19.5px;
+        font-weight: 600;
+        fill: #64748B;
+        letter-spacing: 2.2px;
+      }
+      @media (prefers-color-scheme: dark) {
+        .logo-navy-dark { fill: #F8FAFC; }
+        .logo-gray-dark { fill: #94A3B8; }
+      }
+    </style>
   </defs>
 
-  <style>
-    .brand-title-light {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      font-weight: 800;
-      fill: #061A2B;
-      font-size: 34px;
-      letter-spacing: 0.5px;
-    }
-    .brand-accent-light {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      font-weight: 500;
-      fill: #0B7FA3;
-      font-size: 34px;
-      letter-spacing: 1.5px;
-    }
-    .brand-sub-light {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      font-weight: 600;
-      fill: #6B7A89;
-      font-size: 10.5px;
-      letter-spacing: 3.2px;
-    }
-  </style>
+  <!-- Logo Icon / Mark: Exact Geometric Circle & Arc Construction -->
+  <g id="logo-icon" transform="translate(20, 10)">
+    <!-- Stem: Dark Navy Blue -->
+    <path class="logo-navy logo-navy-dark" d="M 87,98 L 147,132.5 L 147,280 L 87,280 Z" />
 
-  <!-- ==================== LOGO ICON ==================== -->
-  <g transform="translate(10, 10)">
-    <!-- Base Infinite Recycling Loop -->
-    <path d="M 52,52 
-             C 34,22 10,24 10,52 
-             C 10,80 34,82 52,52 
-             C 70,22 94,24 94,52 
-             C 94,80 70,82 52,52 Z" 
-          fill="none" 
-          stroke="url(#eudppGradLight)" 
-          stroke-width="7.5" 
-          stroke-linecap="round" 
-          stroke-linejoin="round"/>
+    <!-- Center Dot: Exact Mathematical Circle R=28 -->
+    <circle class="logo-navy logo-navy-dark" cx="206" cy="132.5" r="28" />
 
-    <!-- Inner Traceability Flow -->
-    <path d="M 22,52 C 22,40 32,36 42,46" fill="none" stroke="#0E9BC4" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 4"/>
-    <path d="M 82,52 C 82,64 72,68 62,58" fill="none" stroke="#27A56F" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 4"/>
+    <!-- Top Cyan Arrow: Exact Mathematical Circular Arcs (R_out=123, R_in=71) -->
+    <path class="logo-cyan" d="M 94.5,80.5 A 123 123 0 0 1 184.6,11.4 L 192,4 L 225,42 L 194,76 L 193.7,62.6 A 71 71 0 0 0 140.2,105.9 Z" />
 
-    <!-- Network Nodes -->
-    <circle cx="10" cy="52" r="3.5" fill="#0E9BC4"/>
-    <circle cx="10" cy="52" r="1.5" fill="#FFFFFF"/>
+    <!-- Right Green Arrow: Exact Mathematical Circular Arcs (R_in=71, R_out=123) -->
+    <path class="logo-green" d="M 223.1,10.7 L 243,43 L 218.3,62.6 A 71 71 0 0 1 275,115.9 L 262,122 L 299,149 L 337,122 L 328.1,117.5 A 123 123 0 0 0 223.1,10.7 Z" />
 
-    <rect x="48" y="48" width="8" height="8" rx="2" fill="#0B7FA3" transform="rotate(45 52 52)"/>
-    <circle cx="52" cy="52" r="2" fill="#FFFFFF"/>
-
-    <circle cx="94" cy="52" r="3.5" fill="#27A56F"/>
-    <circle cx="94" cy="52" r="1.5" fill="#FFFFFF"/>
-
-    <rect x="29" y="27" width="4" height="4" rx="1" fill="#0E9BC4"/>
-    <rect x="71" y="73" width="4" height="4" rx="1" fill="#27A56F"/>
+    <!-- Bottom Green Loop Return: Exact Mathematical Circular Arcs -->
+    <path class="logo-green" d="M 328.1,147.5 L 300,164 L 275,149.1 A 71 71 0 0 1 177,197.3 L 177,278 L 192,254.7 A 123 123 0 0 0 328.1,147.5 Z" />
   </g>
 
-  <!-- ==================== TYPOGRAPHY LOCKUP ==================== -->
-  <g transform="translate(135, 24)">
-    <text x="0" y="44">
-      <tspan class="brand-title-light">EU DPP</tspan>
-      <tspan dx="12" class="brand-accent-light">PROVIDER</tspan>
+  <!-- Typography: EU DPP (Navy) + PROVIDER (Tech Blue) & Slogan (Gray) -->
+  <g id="logo-text" transform="translate(390, 20)">
+    <!-- Main Title with split brand colors -->
+    <text x="0" y="132" class="logo-title">
+      <tspan class="logo-navy logo-navy-dark">EU DPP </tspan>
+      <tspan class="logo-tech-blue">PROVIDER</tspan>
     </text>
-
-    <text x="2" y="72" class="brand-sub-light">DIGITAL PRODUCT PASSPORT SYSTEM</text>
-
-    <g transform="translate(2, 84)">
-      <line x1="0" y1="0" x2="380" y2="0" stroke="#DCE3EA" stroke-width="1.5"/>
-      <line x1="0" y1="0" x2="160" y2="0" stroke="url(#dataStreamGradLight)" stroke-width="2.5" stroke-linecap="round"/>
-      <circle cx="160" cy="0" r="3" fill="#27A56F"/>
-    </g>
+    <!-- Slogan in Tech Gray (Flush Aligned) -->
+    <text x="0" y="182" class="logo-slogan logo-gray-dark" textLength="498" lengthAdjust="spacingAndGlyphs">DIGITAL PRODUCT PASSPORT SYSTEM</text>
   </g>
 </svg>

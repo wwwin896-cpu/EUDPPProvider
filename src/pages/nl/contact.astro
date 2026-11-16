@@ -1,0 +1,145 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Vraag een Demo Aan & Contact Bedrijfsdesk | EU DPP Provider"
+  description="Neem contact op met EU DPP Provider voor technische scoping, softwarelicenties of beheerde batterijpaspoort datahostingdiensten. E-mail: info@eudppprovider.com."
+>
+  <div class="py-20 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
+        
+        <!-- Left Column: Info & Trust Badges -->
+        <div class="space-y-8">
+          <div>
+            <div class="eyebrow mb-2">Directe Bedrijfsdesk</div>
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+              Start uw Batterijpaspoort Pilot
+            </h1>
+            <p class="mt-4 text-base text-slate-600 leading-relaxed">
+              Neem direct contact op met ons oplossingsteam om een technische architectuurbriefing in te plannen, de gereedheid van uw batterijgegevens te evalueren of enterprise licenties en datakluishosting te verkennen.
+            </p>
+          </div>
+
+          <!-- Official Email Box -->
+          <div class="panel-card p-6 bg-gradient-to-br from-white to-cyan-50/40 border-cyan-200/80">
+            <div class="flex items-center gap-3 mb-2">
+              <div class="w-9 h-9 rounded-xl bg-cyan-100 text-cyan-700 flex items-center justify-center font-bold text-base">✉️</div>
+              <div>
+                <div class="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">Officiële Uitvoerende & Bedrijfsdesk</div>
+                <div class="text-lg font-bold font-mono text-navy-900">info@eudppprovider.com</div>
+              </div>
+            </div>
+            <p class="text-xs text-slate-500 mt-2">
+              Gegarandeerd antwoord binnen 1 werkdag. Voor dringende tenderevaluaties graag [Tender Priority] in het onderwerp vermelden.
+            </p>
+          </div>
+
+          <!-- Global Offices -->
+          <div class="panel-card p-6 space-y-4">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400">Wereldwijde Engineering Hubs</h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+              <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+                <div class="font-bold text-slate-900 mb-0.5">🇩🇪 EU Operations Center</div>
+                <div class="text-slate-500">Frankfurt am Main · Duitsland</div>
+                <div class="text-[11px] text-cyan-600 mt-1 font-mono">eIDAS & EU Register Ops</div>
+              </div>
+              <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+                <div class="font-bold text-slate-900 mb-0.5">🇨🇳 Supply Chain Hub</div>
+                <div class="text-slate-500">Shanghai · China</div>
+                <div class="text-[11px] text-green-700 mt-1 font-mono">MES & Fabrieksintegratie</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Trust Badges -->
+          <div class="panel-card p-6">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Enterprise Beveiligingsgaranties</h4>
+            <div class="grid grid-cols-2 gap-3 text-xs text-slate-600">
+              <div class="flex items-center gap-2">
+                <span class="text-green-600 font-bold">✓</span>
+                <span>ISO/IEC 27001 Gecertificeerd</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-green-600 font-bold">✓</span>
+                <span>eIDAS 2.0 Digitale Zegels</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-green-600 font-bold">✓</span>
+                <span>Nul Formule Geheimenlekken</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-green-600 font-bold">✓</span>
+                <span>10-Jaar Actieve Data SLA</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive Request Form -->
+        <div class="panel-card p-8 bg-white shadow-xl border-slate-200">
+          <div class="mb-6">
+            <h3 class="text-xl font-bold text-slate-900">Vraag Technische Scoping Aan</h3>
+            <p class="text-xs text-slate-500 mt-1">Vul onderstaande gegevens in of mail direct naar info@eudppprovider.com</p>
+          </div>
+
+          <form class="space-y-4" onsubmit="event.preventDefault(); alert('Bedankt voor uw aanvraag. Ons engineering team neemt binnen 1 werkdag contact met u op via e-mail!');">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Volledige Naam *</label>
+                <input type="text" required placeholder="bijv. Jan de Vries" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500" />
+              </div>
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Zakelijke E-mail *</label>
+                <input type="email" required placeholder="jan@uwbedrijf.com" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500" />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Bedrijfsnaam *</label>
+                <input type="text" required placeholder="bijv. Battery Tech BV" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500" />
+              </div>
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Batterijcategorie *</label>
+                <select class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                  <option>Elektrisch Voertuig (EV) Tractiepack</option>
+                  <option>Lichte Transportmiddelen (LMT / E-Bike)</option>
+                  <option>Industriële & BESS Opslag (>2kWh)</option>
+                  <option>Batterijcellen / Moduleproductie</option>
+                  <option>Andere Toepassing</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Gewenste Implementatiemodus</label>
+              <select class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                <option>Enterprise Software Suite (On-Premise / Private Cloud)</option>
+                <option>Beheerde DPP Datakluis (10-Jaar Soevereine Hosting)</option>
+                <option>Turnkey Pilot Scoping & eIDAS 2.0 Register Aanmelding</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Projectnotities / Planning</label>
+              <textarea rows="3" placeholder="Beschrijf uw geplande exportvolume naar de EU of specifieke OEM-vereisten..." class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500"></textarea>
+            </div>
+
+            <button type="submit" class="w-full btn-primary py-3 rounded-xl font-bold text-sm shadow-md">
+              Verzend Technische Aanvraag →
+            </button>
+
+            <div class="text-[11px] text-slate-400 text-center pt-2">
+              U kunt ook rechtstreeks contact opnemen via <a href="mailto:info@eudppprovider.com" class="text-cyan-600 font-mono font-bold">info@eudppprovider.com</a>
+            </div>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</Layout>

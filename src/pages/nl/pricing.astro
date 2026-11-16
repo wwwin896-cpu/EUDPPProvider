@@ -1,0 +1,44 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PricingCalculator from '../../components/PricingCalculator.astro';
+---
+
+<Layout
+  title="Tarieven & Implementatiemodellen | EU DPP Provider"
+  description="Transparante enterprise licenties en 10-jarige datakluis hostingprijzen voor EU Batterijpaspoort naleving (Verordening EU 2023/1542)."
+>
+  <div class="py-20 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="eyebrow mb-2">Commerciële Modellen</div>
+        <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
+          Enterprise Licenties & Beheerde Datakluis
+        </h1>
+        <p class="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
+          Kies tussen volledige on-premise software-eigendom of zorgeloze 10-jarige soevereine datakluishosting met gegarandeerde wettelijke updates.
+        </p>
+      </div>
+
+      <PricingCalculator />
+
+      <div class="mt-16 text-center">
+        <div class="panel-card p-8 max-w-3xl mx-auto bg-gradient-to-br from-white to-cyan-50/40 border-cyan-200">
+          <h3 class="text-xl font-bold text-slate-900">Aangepast Offerte- of Tenderpakket Nodig?</h3>
+          <p class="text-xs sm:text-sm text-slate-600 mt-2 max-w-xl mx-auto">
+            Ons team bereidt binnen 24 uur aangepaste technische specificaties, compliance-gap-analyses en SLA-contracten voor.
+          </p>
+          <div class="mt-5 flex justify-center gap-4">
+            <a href="mailto:info@eudppprovider.com" class="btn-primary">
+              Contact: info@eudppprovider.com
+            </a>
+            <a href="/nl/contact" class="btn-secondary">
+              Scoping Aanvragen →
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</Layout>

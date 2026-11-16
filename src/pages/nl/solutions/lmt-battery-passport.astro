@@ -1,0 +1,83 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import BatteryPassportViewer from '../../../components/BatteryPassportViewer.astro';
+---
+
+<Layout
+  title="LMT & E-Bike Batterijpaspoort (≤25kg) | EU DPP Provider"
+  description="Digitale Productpaspoort naleving voor lichte transportmiddelen (LMT ≤25kg), e-bikes, e-scooters en 2/3-wieler batterijpacks onder Verordening EU 2023/1542."
+>
+  <div class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="eyebrow-pill mb-3 mx-auto">Lichte Vervoermiddelen (LMT ≤25kg)</div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        LMT & E-Bike Batterijpaspoort <br class="hidden sm:inline" />
+        <span class="text-cyan-600">Conformiteitsplatform</span>
+      </h1>
+      <p class="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+        Gespecialiseerde DPP-nalevingsoplossingen voor elektrische fietsen, e-scooters en lichte 2/3-wielers (≤25kg) conform Artikel 77 van Verordening (EU) 2023/1542.
+      </p>
+
+      <div class="mt-6 flex justify-center gap-4">
+        <a href="mailto:info@eudppprovider.com" class="neo-btn-primary">
+          LMT Batterij Scoping Aanvragen →
+        </a>
+      </div>
+    </div>
+
+    <!-- Live Interactive Viewer -->
+    <div class="mb-16">
+      <BatteryPassportViewer />
+    </div>
+
+    <!-- Core Features Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16">
+      
+      <div class="neo-surface p-7">
+        <div class="w-10 h-10 rounded-2xl bg-cyan-100 text-cyan-700 flex items-center justify-center font-bold text-lg mb-4">
+          🚲
+        </div>
+        <h3 class="text-base font-bold text-slate-900 mb-2">Compacte Behuizings-QR</h3>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          Geoptimaliseerde GS1 QR-laserpatronen met hoge dichtheid, speciaal ontworpen voor compacte LMT-batterijbehuizingen en verwisselbare accu's.
+        </p>
+      </div>
+
+      <div class="neo-surface p-7">
+        <div class="w-10 h-10 rounded-2xl bg-green-100 text-green-700 flex items-center justify-center font-bold text-lg mb-4">
+          🔋
+        </div>
+        <h3 class="text-base font-bold text-slate-900 mb-2">Gerecycled Gehalte Verificatie</h3>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          Wettelijke documentatie voor verplichte herstelpercentages van kobalt, lood, lithium en nikkel met auditbestendige upstream-certificaten.
+        </p>
+      </div>
+
+      <div class="neo-surface p-7">
+        <div class="w-10 h-10 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-lg mb-4">
+          🏛️
+        </div>
+        <h3 class="text-base font-bold text-slate-900 mb-2">EU Register Integratie</h3>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          Directe registratie bij de centrale EU DPP-databank met officiële eIDAS 2.0 elektronische zegels voor vlotte douane-inklaring.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Direct Action Card -->
+    <div class="neo-surface p-8 sm:p-12 text-center max-w-3xl mx-auto bg-gradient-to-br from-white to-cyan-50/40 border border-cyan-200/80">
+      <h3 class="text-xl font-bold text-slate-900">Start uw LMT Batterijpaspoort</h3>
+      <p class="text-xs sm:text-sm text-slate-600 mt-2 max-w-lg mx-auto">
+        Krijg direct inzicht in LMT-specifieke gegevensvereisten en veilige export naar de Europese markt.
+      </p>
+      <div class="mt-5 flex justify-center gap-4">
+        <a href="mailto:info@eudppprovider.com" class="neo-btn-primary">
+          Contact: info@eudppprovider.com
+        </a>
+      </div>
+    </div>
+
+  </div>
+</Layout>
