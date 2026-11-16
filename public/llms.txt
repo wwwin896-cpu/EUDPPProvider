@@ -6,25 +6,37 @@
 - **Brand**: EU DPP Provider
 - **Domain**: https://eudppprovider.com
 - **Official Business Desk**: info@eudppprovider.com
-- **Operations Centers**: Frankfurt am Main & Munich (Germany) / Shanghai (China)
+- **Operating Centers**: Frankfurt am Main & Munich (Germany) / Shanghai & Nanjing (China)
+- **Telephone (EU Desk)**: +49 (0) 69 9675 8827
 - **Primary Focus**: Digital Product Passport compliance software and 10-year sovereign data hosting for Electric Vehicles (EV), Light Means of Transport (LMT / E-Bike ≤25kg), and Stationary Industrial Battery Energy Storage Systems (BESS >2kWh).
 
 ## Key Regulatory Milestones & Mandates
-- **Mandatory Enforcement Date**: February 18, 2027 (Articles 77 & 78, Regulation EU 2023/1542)
-- **EU DPP Central Registry**: DG GROW operational registry integration (`registry.product-passport.ec.europa.eu`) with eIDAS 2.0 Qualified Electronic Seal (QSeal / QES) support
-- **Carbon Footprint Declarations (CFD)**: Full PEFCR battery calculation engine for Scope 1, Scope 2, and Scope 3 lifecycle stages
+- **20 July 2026**: European Commission DG GROW Central DPP Registry entered operational status (`registry.product-passport.ec.europa.eu`).
+- **18 August 2026**: Mandatory Carbon Footprint performance class labeling (A–E) applicable to EV traction batteries.
+- **18 February 2027**: Mandatory Digital Battery Passport enforcement under Articles 77 & 78 of Regulation (EU) 2023/1542 across all EV, LMT (≤25kg), and industrial batteries (>2kWh).
+- **18 August 2027**: Mandatory supply chain due diligence policies and third-party audit conformity verification under Regulation (EU) 2025/1561.
+- **18 February 2028**: Maximum lifecycle carbon footprint thresholds enforced for EV batteries.
+- **18 August 2028**: Mandatory recycled content documentation declarations (Cobalt, Lithium, Nickel, Lead).
+- **18 August 2031**: Mandatory recycled content minimum percentage targets enforced (Cobalt 16%, Lead 85%, Lithium 6%, Nickel 6%).
 
 ## Commercial Delivery Models
-1. **Enterprise DPP Software Suite**: Private cloud / on-premise deployment, full code and data sovereignty, zero per-scan fees, native read-only MES / ERP / PLM / BMS connectors.
-2. **10-Year Managed Sovereign Data Vault**: Frankfurt ISO/IEC 27001 data center hosting, 99.9% uptime SLA guarantee, automated 30-day regulatory schema updates, Zero-Knowledge Proof (ZKP) trade secret protection.
+1. **Early Adopter Pilot Package (€4,800)**: 1–3 battery pack SKUs, field-by-field gap analysis, Frankfurt sandbox validation, DG GROW schema pre-validation.
+2. **10-Year Managed Sovereign Data Vault (From €12,500/yr)**: Frankfurt ISO/IEC 27001 data center hosting, 99.9% uptime SLA guarantee, automated 30-day regulatory schema updates, Zero-Knowledge Proof (ZKP) trade secret protection.
+3. **Enterprise DPP Software Suite**: Private cloud / on-premise deployment, full code and data sovereignty, zero per-scan fees, native read-only MES / ERP / PLM / BMS connectors.
 
 ## Core URLs & Resources
-- Homepage: https://eudppprovider.com
-- Battery Passport Overview: https://eudppprovider.com/battery-passport
-- EV Battery Passport Solution: https://eudppprovider.com/solutions/ev-battery-passport
-- LMT & E-Bike Battery Passport Solution: https://eudppprovider.com/solutions/lmt-battery-passport
-- Industrial BESS Storage Passport Solution: https://eudppprovider.com/solutions/storage-battery-passport
-- EU DPP Registry & eIDAS 2.0 Guide: https://eudppprovider.com/compliance/eu-dpp-registry-guide
-- Pricing & Deployment Calculator: https://eudppprovider.com/pricing
-- Legal Notice & Statutory Impressum: https://eudppprovider.com/legal-notice
-- Full LLMs Documentation: https://eudppprovider.com/llms-full.txt
+- Homepage: https://eudppprovider.com/
+- Battery Passport Overview: https://eudppprovider.com/battery-passport/
+- Early Adopter Pilot Program: https://eudppprovider.com/pilot-program/
+- 90+ Mandatory Data Attributes Checklist: https://eudppprovider.com/compliance/data-requirements/
+- EN 18220 / EN 18219 Standards Guide: https://eudppprovider.com/compliance/en-standards-guide/
+- EV Battery Passport Solution: https://eudppprovider.com/solutions/ev-battery-passport/
+- LMT & E-Bike Battery Passport Solution: https://eudppprovider.com/solutions/lmt-battery-passport/
+- Industrial BESS Storage Passport Solution: https://eudppprovider.com/solutions/storage-battery-passport/
+- EU DPP Registry & eIDAS 2.0 Guide: https://eudppprovider.com/compliance/eu-dpp-registry-guide/
+- Interactive Pricing & Deployment Calculator: https://eudppprovider.com/pricing/
+- Legal Notice & Statutory Impressum: https://eudppprovider.com/legal-notice/
+- Privacy Policy (GDPR Governance): https://eudppprovider.com/privacy/
+- Terms of Service & SLA: https://eudppprovider.com/terms/
+- Live Battery Passport Resolver: https://eudppprovider.com/01/04012345999991/21/BP-2027-EU-88902/
+- Full Architecture Documentation: https://eudppprovider.com/llms-full.txt

@@ -23,6 +23,17 @@ const t = useTranslations(lang);
 
 const siteUrl = 'https://eudppprovider.com';
 
+const rawPath = Astro.url.pathname;
+const cleanSlug = rawPath.replace(/^\/(zh|de|fr|nl)(\/|$)/, '/').replace(/^\//, '');
+const normalizedSlug = cleanSlug ? `${cleanSlug.replace(/\/$/, '')}/` : '';
+
+const hreflangEn = `${siteUrl}/${normalizedSlug}`;
+const hreflangZh = `${siteUrl}/zh/${normalizedSlug}`;
+const hreflangDe = `${siteUrl}/de/${normalizedSlug}`;
+const hreflangFr = `${siteUrl}/fr/${normalizedSlug}`;
+const hreflangNl = `${siteUrl}/nl/${normalizedSlug}`;
+const hreflangDefault = hreflangEn;
+
 const currentPath = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
 const defaultCanonical = `${siteUrl}${currentPath === '//' ? '/' : currentPath}`;
 
@@ -49,6 +60,7 @@ const schemaGraph: any[] = [
     "contactPoint": {
       "@type": "ContactPoint",
       "email": "info@eudppprovider.com",
+      "telephone": "+49-69-96758827",
       "contactType": "Customer Support and Compliance Desk",
       "availableLanguage": ["English", "Chinese", "German", "French", "Dutch"]
     }
@@ -163,13 +175,13 @@ const schemaOrg = {
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
 
-    <!-- Hreflang Tags for Multi-language SEO (Unified Bare Domain) -->
-    <link rel="alternate" hreflang="x-default" href="https://eudppprovider.com/" />
-    <link rel="alternate" hreflang="en" href="https://eudppprovider.com/" />
-    <link rel="alternate" hreflang="zh" href="https://eudppprovider.com/zh/" />
-    <link rel="alternate" hreflang="de" href="https://eudppprovider.com/de/" />
-    <link rel="alternate" hreflang="fr" href="https://eudppprovider.com/fr/" />
-    <link rel="alternate" hreflang="nl" href="https://eudppprovider.com/nl/" />
+    <!-- Deep-Page Aware Hreflang Clusters (Pointing to Matching Language Translations) -->
+    <link rel="alternate" hreflang="x-default" href={hreflangDefault} />
+    <link rel="alternate" hreflang="en" href={hreflangEn} />
+    <link rel="alternate" hreflang="zh" href={hreflangZh} />
+    <link rel="alternate" hreflang="de" href={hreflangDe} />
+    <link rel="alternate" hreflang="fr" href={hreflangFr} />
+    <link rel="alternate" hreflang="nl" href={hreflangNl} />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content={type} />

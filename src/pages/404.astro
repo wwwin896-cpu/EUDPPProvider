@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Record Not Found or Unregistered UPI | EU DPP Provider"
+  description="The requested page or Unique Product Identifier (UPI) was not found in the sovereign registry database."
+>
+  <div class="py-20 sm:py-32 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    
+    <div class="neo-surface p-8 sm:p-12 border-l-4 border-amber-500">
+      <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-2xl mx-auto mb-6">
+        ⚠️
+      </div>
+
+      <div class="eyebrow-pill mb-3 mx-auto">GS1 Digital Link & DPP Registry Status</div>
+      <h1 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        Record Not Found / Unregistered UPI
+      </h1>
+      
+      <p class="mt-4 text-xs sm:text-sm text-slate-600 max-w-xl mx-auto leading-relaxed">
+        The requested URL or scanned battery Unique Product Identifier (UPI) does not exist in our active database, or the electronic passport record has been decommissioned pursuant to EU circularity end-of-life protocols.
+      </p>
+
+      <div class="mt-6 p-4 rounded-xl bg-slate-100/80 border border-slate-200/80 max-w-md mx-auto text-xs font-mono text-slate-600 space-y-1">
+        <div><strong>Status:</strong> HTTP 404 · Unregistered Identifier</div>
+        <div><strong>Regulatory Desk:</strong> <a href="mailto:info@eudppprovider.com" class="text-cyan-700 underline font-bold">info@eudppprovider.com</a></div>
+      </div>
+
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a href="/" class="neo-btn-primary text-xs">
+          Return to Homepage →
+        </a>
+        <a href="/01/04012345999991/21/BP-2027-EU-88902/" class="neo-pill px-5 py-2.5 rounded-full text-xs font-bold text-slate-800 hover:text-cyan-700">
+          View Active Sample Passport
+        </a>
+      </div>
+    </div>
+
+  </div>
+</Layout>

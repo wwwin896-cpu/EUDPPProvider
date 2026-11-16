@@ -3,29 +3,38 @@
 ## 1. Executive Summary
 EU DPP Provider (https://eudppprovider.com) provides enterprise-grade compliance software and sovereign data vault infrastructure for manufacturers, pack assemblers, and automotive OEMs subject to the European Union's Battery Regulation (Regulation EU 2023/1542) and Ecodesign for Sustainable Products Regulation (ESPR, Regulation EU 2024/1781).
 
-## 2. Regulatory Framework & Deadlines
-- **Regulation (EU) 2023/1542 (Articles 77 & 78)**: Mandates that all EV batteries, LMT batteries (≤25kg), and industrial batteries (>2kWh) placed on the EU market must carry an electronic Battery Passport accessible via a permanent GS1 Digital Link 2D QR code.
-- **Enforcement Timeline**: Mandatory from February 18, 2027.
-- **DG GROW Central Registry**: Unique Product Identifiers (UPI) and conformity declarations must be registered with the European Commission's Central DPP Registry with eIDAS 2.0 digital seals (QSeal/PAdES Baseline).
-- **ESPR Article 11**: Digital Product Passport backup provider and data persistence mandates requiring 10-year active lifecycle data availability even if an enterprise ceases operation.
+## 2. Regulatory Framework & Definitive Deadlines
+- **20 July 2026 [In Force]**: European Commission DG GROW Central DPP Registry entered operational status (`registry.product-passport.ec.europa.eu`).
+- **18 August 2026 [In Force]**: Mandatory Carbon Footprint performance class labeling (A–E) applicable to EV traction batteries.
+- **18 February 2027 [Mandatory Enforcement]**: All EV batteries, LMT batteries (≤25kg), and industrial batteries (>2kWh) placed on the EU market must carry an electronic Battery Passport accessible via a permanent GS1 Digital Link 2D QR code (Regulation EU 2023/1542, Articles 77 & 78).
+- **18 August 2027 [Mandatory Enforcement]**: Mandatory supply chain due diligence policies and third-party audit conformity verification under Regulation (EU) 2025/1561.
+- **18 February 2028 [Statutory Target]**: Maximum lifecycle carbon footprint thresholds enforced for EV batteries.
+- **18 August 2028 [Statutory Target]**: Mandatory recycled content documentation declarations (Cobalt, Lithium, Nickel, Lead).
+- **18 August 2031 [Statutory Target]**: Mandatory recycled content minimum percentage targets enforced (Cobalt 16%, Lead 85%, Lithium 6%, Nickel 6%).
 
 ## 3. The 3-Layer Data Architecture
-1. **Upstream Ingestion Layer**: Read-only integration with factory MES, ERP (SAP/Oracle/Siemens), PLM, and battery testing systems (BMS). Aligns mandatory EU 70+ data points with domestic battery traceability codes.
+1. **Upstream Ingestion Layer**: Read-only integration with factory MES, ERP (SAP/Oracle/Siemens), PLM, and battery testing systems (BMS). Aligns mandatory EU 90+ data attributes with domestic battery traceability codes.
 2. **Cleanroom & Zero-Knowledge Verification Layer**: In-country computation with strict whitelist export. Proprietary chemical formulations and commercial BOM pricing are mathematically verified via Zero-Knowledge Proofs (ZKP) without transmitting raw trade secrets across borders.
 3. **European Sovereign Storage & Public Resolver**: Hosted in ISO/IEC 27001 certified data centers in Frankfurt am Main and Munich. Delivers sub-50ms global DNS resolution for customs officers, test laboratories, and consumers.
 
-## 4. Product Matrix & Capabilities
-- **EV Battery Passport**: Vehicle VIN to battery pack dynamic pairing, PEFCR Carbon Footprint Declarations (CFD), supply chain due diligence tracking.
-- **LMT & E-Bike Battery Passport (≤25kg)**: High-density compact laser-marked QR codes for light mobility packs and swappable e-bike battery enclosures.
-- **Industrial & Storage BESS (>2kWh)**: Modular rack-to-container hierarchy, State of Health (SOH) telemetry aggregation, second-life repurposing management.
-- **Carbon Footprint Engine (PCF)**: Scope 1, 2, and 3 lifecycle emissions calculation engine compliant with European Commission PEFCR guidelines.
-- **GS1 Digital Link 2D Serializer**: ISO/IEC 15459 compliant laser-marking specifications and context-aware redirection logic.
+## 4. Product Matrix & Core Resources
+- **Early Adopter Pilot Program**: https://eudppprovider.com/pilot-program/
+- **90+ Mandatory Data Attributes Checklist**: https://eudppprovider.com/compliance/data-requirements/
+- **EN 18220 / EN 18219 Harmonized Standards Guide**: https://eudppprovider.com/compliance/en-standards-guide/
+- **EV Battery Passport**: https://eudppprovider.com/solutions/ev-battery-passport/
+- **LMT & E-Bike Battery Passport (≤25kg)**: https://eudppprovider.com/solutions/lmt-battery-passport/
+- **Industrial Storage BESS (>2kWh)**: https://eudppprovider.com/solutions/storage-battery-passport/
+- **Pricing & Deployment Calculator**: https://eudppprovider.com/pricing/
+- **Live Battery Passport Resolver**: https://eudppprovider.com/01/04012345999991/21/BP-2027-EU-88902/
 
 ## 5. Commercial Models
+- **Early Adopter Pilot (€4,800)**: 1–3 SKUs, full gap analysis, Frankfurt sandbox deployment, DG GROW pre-validation.
+- **10-Year Managed Sovereign Vault (From €12,500/yr)**: Turnkey data hosting in Frankfurt. Includes 99.9% uptime SLA, 30-day regulatory updates, and official DG GROW registry filing support.
 - **Enterprise DPP Software Suite**: Perpetual license or annual subscription for on-premise / private cloud hosting. Includes complete source access, zero scan fees, and pre-built MES connectors.
-- **10-Year Managed Sovereign Data Vault**: Turnkey data hosting in Frankfurt. Includes 99.9% uptime SLA, 30-day regulatory updates, and official DG GROW registry filing support.
 
 ## 6. Official Contact & Verification Desk
 - **Website**: https://eudppprovider.com
 - **Business Email**: info@eudppprovider.com
-- **Engineering Hubs**: Frankfurt am Main & Munich (Germany) / Shanghai (China)
+- **Telephone (EU Desk)**: +49 (0) 69 9675 8827
+- **Telephone (APAC Hub)**: +86 (025) 8685 8827
+- **Engineering Hubs**: Frankfurt am Main & Munich (Germany) / Shanghai & Nanjing (China)

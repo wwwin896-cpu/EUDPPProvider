@@ -4,6 +4,8 @@ import Layout from '../../../../layouts/Layout.astro';
 export function getStaticPaths() {
   return [
     { params: { gtin: '04012345999991', serial: 'BP-2027-EU-88902' } },
+    { params: { gtin: '04012345999991', serial: 'BP-2027-EU-RESTRICTED-002' } },
+    { params: { gtin: '04012345999991', serial: 'BP-2027-EU-RETIRED-999' } },
     { params: { gtin: '06978453010012', serial: 'EV-BAT-800V-95KWH' } },
     { params: { gtin: '06978453010029', serial: 'LMT-48V-750WH-001' } },
     { params: { gtin: '06978453010036', serial: 'BESS-1500V-372KWH' } },
@@ -11,22 +13,55 @@ export function getStaticPaths() {
 }
 
 const { gtin, serial } = Astro.params;
+
+const isRestricted = serial === 'BP-2027-EU-RESTRICTED-002';
+const isRetired = serial === 'BP-2027-EU-RETIRED-999';
+
+const passportJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": `EU Battery Passport - ${serial}`,
+  "description": `Mandatory Digital Product Passport record for battery serial ${serial} (GTIN: ${gtin}) under Regulation (EU) 2023/1542.`,
+  "identifier": `urn:epc:id:sgtin:${gtin}.${serial}`,
+  "license": "https://eudppprovider.com/terms/",
+  "creator": {
+    "@type": "Organization",
+    "name": "EU DPP Provider",
+    "url": "https://eudppprovider.com"
+  },
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Carbon Footprint Intensity",
+      "value": "51.2",
+      "unitText": "kg CO2e/kWh"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "State of Health",
+      "value": "99.1",
+      "unitText": "%"
+    }
+  ]
+};
 ---
 
 <Layout
   title={`Digital Product Passport | ${serial} (GTIN: ${gtin})`}
   description={`Official GS1 Digital Link EU Battery Passport resolution for serial ${serial}. Conforming to Regulation (EU) 2023/1542, Articles 77-78.`}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(passportJsonLd)} slot="head" />
+
   <div class="py-12 sm:py-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <!-- Top Verification Badge Banner -->
-    <div class="neo-surface p-6 sm:p-8 mb-8 border-l-4 border-green-500">
+    <!-- Top Status Banner -->
+    <div class={`neo-surface p-6 sm:p-8 mb-8 border-l-4 ${isRetired ? 'border-amber-500' : isRestricted ? 'border-blue-500' : 'border-green-500'}`}>
       <div class="flex flex-wrap items-center justify-between gap-4">
         <div>
           <div class="flex items-center gap-2">
-            <span class="w-3 h-3 rounded-full bg-green-500 animate-pulse"></span>
-            <span class="text-xs font-mono font-bold uppercase text-green-700 tracking-wider">
-              GS1 Digital Link · Verified Active Record
+            <span class={`w-3 h-3 rounded-full ${isRetired ? 'bg-amber-500' : isRestricted ? 'bg-blue-500' : 'bg-green-500'} animate-pulse`}></span>
+            <span class={`text-xs font-mono font-bold uppercase tracking-wider ${isRetired ? 'text-amber-800' : isRestricted ? 'text-blue-800' : 'text-green-700'}`}>
+              {isRetired ? 'Decommissioned / Recycled Record' : isRestricted ? 'Restricted Access Tier (eIDAS Auth Required)' : 'GS1 Digital Link · Active Certified Record'}
             </span>
           </div>
           <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1 font-mono">
@@ -47,6 +82,14 @@ const { gtin, serial } = Astro.params;
         </div>
       </div>
     </div>
+
+    <!-- Restricted Notice if applicable -->
+    {isRestricted && (
+      <div class="p-6 rounded-2xl bg-blue-50/80 border border-blue-200 mb-8 space-y-2 text-xs text-blue-900">
+        <div class="font-bold text-sm">🔒 Tier-3 Commercial Confidentiality Active</div>
+        <p>Detailed chemical binder proportions, upstream smelter commercial terms, and BMS raw telemetry are restricted to authorized customs and notified bodies under eIDAS 2.0 authentication.</p>
+      </div>
+    )}
 
     <!-- 4-Tier Passport Data Sections -->
     <div class="space-y-6">
