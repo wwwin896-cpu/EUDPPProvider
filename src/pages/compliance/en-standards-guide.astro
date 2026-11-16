@@ -1,0 +1,92 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="EN 18220:2026 & EN 18219:2026 Technical Guide | EU DPP Provider"
+  description="Engineering guide to European harmonized standards under Standardization Decision (EU) 2026/1736: EN 18220 (2D Barcode Data Carrier) and EN 18219 (Unique Product Identifiers)."
+>
+  <div class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Hero Header -->
+    <div class="text-center max-w-4xl mx-auto mb-16">
+      <div class="eyebrow-pill mb-3 mx-auto">Standardization Decision (EU) 2026/1736 · CEN/CENELEC JTC24</div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        European Harmonized Standards Guide: <br class="hidden sm:inline" />
+        <span class="text-cyan-600">EN 18220 & EN 18219</span>
+      </h1>
+      <p class="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
+        Technical requirements for permanent 2D QR code laser marking on battery enclosures, optical scanning readability, and Unique Product Identifier (UPI) syntax.
+      </p>
+    </div>
+
+    <!-- Standards Comparison Grid -->
+    <div class="max-w-5xl mx-auto space-y-8 text-xs sm:text-sm text-slate-700">
+      
+      <!-- EN 18220:2026 Section -->
+      <div class="neo-surface p-7 sm:p-9">
+        <div class="flex items-center gap-3 pb-4 border-b border-slate-200">
+          <span class="w-9 h-9 rounded-xl bg-cyan-100 text-cyan-700 flex items-center justify-center font-bold text-base">QR</span>
+          <div>
+            <h2 class="text-lg sm:text-xl font-bold text-slate-900">EN 18220:2026 — 2D Barcode & Data Carrier Specifications</h2>
+            <div class="text-xs text-slate-500 font-mono mt-0.5">Physical marking, optical readability & environmental resilience</div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+          <div class="p-4 bg-white/80 rounded-xl border border-slate-200 space-y-1.5">
+            <strong class="text-slate-900 font-bold">Direct Part Marking (DPM) & Laser Etching:</strong>
+            <p class="text-slate-600">Must remain readable across the entire expected service life (minimum 10 years / 1500+ cycles) under high temperatures, oil exposure, and vibration.</p>
+          </div>
+
+          <div class="p-4 bg-white/80 rounded-xl border border-slate-200 space-y-1.5">
+            <strong class="text-slate-900 font-bold">Optical Resolution & Error Correction:</strong>
+            <p class="text-slate-600">Minimum ECC 200 / Level M error correction (15%+ damage recovery), supporting industrial scanners and consumer smartphones under varying angles.</p>
+          </div>
+
+          <div class="p-4 bg-white/80 rounded-xl border border-slate-200 space-y-1.5">
+            <strong class="text-slate-900 font-bold">GS1 Digital Link URI Encoding:</strong>
+            <p class="text-slate-600">Strict web URI syntax: <code>{'https://domain.com/01/{GTIN}/21/{SERIAL}'}</code> with sub-50ms DNS resolution fallback.</p>
+          </div>
+
+          <div class="p-4 bg-white/80 rounded-xl border border-slate-200 space-y-1.5">
+            <strong class="text-slate-900 font-bold">Dual Redundancy & Human-Readable Code:</strong>
+            <p class="text-slate-600">Mandatory human-readable text (GTIN & Serial Number) printed adjacent to the matrix for manual inspection.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- EN 18219:2026 Section -->
+      <div class="neo-surface p-7 sm:p-9">
+        <div class="flex items-center gap-3 pb-4 border-b border-slate-200">
+          <span class="w-9 h-9 rounded-xl bg-green-100 text-green-700 flex items-center justify-center font-bold text-base">UPI</span>
+          <div>
+            <h2 class="text-lg sm:text-xl font-bold text-slate-900">EN 18219:2026 — Unique Identifiers & Data Syntax</h2>
+            <div class="text-xs text-slate-500 font-mono mt-0.5">DG GROW Central Registry interoperability & cryptographic seals</div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+          <div class="p-4 bg-white/80 rounded-xl border border-slate-200 space-y-1.5">
+            <strong class="text-slate-900 font-bold">Unique Product Identifier (UPI) Structure:</strong>
+            <p class="text-slate-600">Globally unique issuance syntax ensuring zero collisions across multi-tier battery cell, module, and pack hierarchies.</p>
+          </div>
+
+          <div class="p-4 bg-white/80 rounded-xl border border-slate-200 space-y-1.5">
+            <strong class="text-slate-900 font-bold">eIDAS 2.0 Digital Signatures (QSeal):</strong>
+            <p class="text-slate-600">PAdES / CAdES Baseline qualified electronic seal applied by trusted European QTSPs, guaranteeing tamper-proof non-repudiation.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-16 text-center">
+      <a href="/contact/" class="neo-btn-primary inline-block">
+        Consult on Laser Marking & UPI Compliance →
+      </a>
+    </div>
+
+  </div>
+</Layout>

@@ -1,0 +1,62 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ComplianceCountdown from '../../components/ComplianceCountdown.astro';
+---
+
+<Layout
+  title="欧盟电池护照早期试点客户计划 (2026–2027 Cohort) | EU DPP Provider"
+  description="面向电池制造商与车企的 2026–2027 早期试点客户计划。提供 1–3 款电池规格字段映射、法兰克福主权沙盒验证与欧盟注册簿预核验。"
+>
+  <div class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-4xl mx-auto mb-16">
+      <div class="eyebrow-pill mb-3 mx-auto">2026–2027 先锋合规队列 · 限量试点准入</div>
+      <h1 class="text-3xl sm:text-5xl lg:text-[58px] font-extrabold text-slate-900 tracking-tight leading-[1.14]">
+        欧盟电池护照 <br class="hidden sm:inline" />
+        <span class="text-cyan-600">早期试点客户计划 (Pilot Program)</span>
+      </h1>
+      <p class="mt-6 text-base sm:text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
+        针对 2027 年 2 月 18 日强制生效节点的工程化实战沙盒，帮助企业低风险、低门槛打通电池护照全生命周期链路。
+      </p>
+
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a href="/zh/contact/" class="neo-btn-primary">
+          申请试点名额评估 →
+        </a>
+        <a href="/zh/pricing/" class="neo-pill px-6 py-3 rounded-full text-xs sm:text-sm font-bold text-slate-800 hover:text-cyan-700">
+          了解试点交付范围
+        </a>
+      </div>
+
+      <div class="mt-12">
+        <ComplianceCountdown />
+      </div>
+    </div>
+
+    <!-- 4阶段实施路径 -->
+    <div class="max-w-5xl mx-auto my-16">
+      <div class="text-center mb-12">
+        <div class="eyebrow-pill mb-2">标准化工程节点</div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">4 阶段试点实施路径</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs sm:text-sm">
+        <div class="neo-surface p-7 sm:p-8">
+          <h3 class="font-bold text-slate-900 text-base mb-2">Phase 1: 现有工厂数据差距审计与字段对齐</h3>
+          <p class="text-slate-600">对照欧盟新电池法 Annex XIII，盘点企业现有 MES/ERP 与 BMS 数据，出具字段缺失差距清单。</p>
+        </div>
+        <div class="neo-surface p-7 sm:p-8">
+          <h3 class="font-bold text-slate-900 text-base mb-2">Phase 2: 境内清洁区计算与碳足迹核算</h3>
+          <p class="text-slate-600">在境内节点完成 PEFCR 碳足迹计算与材料成分脱敏，建立零知识证明 (ZKP) 核心配方机密防火墙。</p>
+        </div>
+        <div class="neo-surface p-7 sm:p-8">
+          <h3 class="font-bold text-slate-900 text-base mb-2">Phase 3: 德国法兰克福主权沙盒测试</h3>
+          <p class="text-slate-600">将试点电池规格部署至 ISO 27001 认证的主权云机房，实测 GS1 二维码毫秒级解析与四级分权视图。</p>
+        </div>
+        <div class="neo-surface p-7 sm:p-8">
+          <h3 class="font-bold text-slate-900 text-base mb-2">Phase 4: 欧盟 DG GROW 注册簿预演申报</h3>
+          <p class="text-slate-600">完成 UPI 编码注册联调与 eIDAS 2.0 数字印章签名演练，交付企业专属合规就绪档案。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

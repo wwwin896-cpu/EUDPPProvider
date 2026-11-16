@@ -5,6 +5,7 @@ const languages = ['', 'zh', 'de', 'fr', 'nl'];
 const subpaths = [
   '',
   'battery-passport',
+  'pilot-program',
   'about',
   'contact',
   'pricing',
@@ -22,6 +23,8 @@ const subpaths = [
   'platform/gs1-qr-serialization',
   'compliance/eu-battery-regulation-2023-1542',
   'compliance/eu-dpp-registry-guide',
+  'compliance/data-requirements',
+  'compliance/en-standards-guide',
 ];
 
 export const GET: APIRoute = () => {
@@ -33,7 +36,7 @@ export const GET: APIRoute = () => {
       const parts = [lang, sub].filter(Boolean);
       const path = parts.length > 0 ? `/${parts.join('/')}/` : '/';
       const loc = `https://eudppprovider.com${path}`;
-      const priority = path === '/' ? '1.0' : sub === 'battery-passport' ? '0.9' : '0.8';
+      const priority = path === '/' ? '1.0' : sub === 'battery-passport' || sub === 'pilot-program' ? '0.9' : '0.8';
 
       urls.push(`  <url>
     <loc>${loc}</loc>

@@ -1,0 +1,28 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ComplianceCountdown from '../../components/ComplianceCountdown.astro';
+---
+
+<Layout
+  title="Programme Pilote Passeport Batterie (2026–2027) | EU DPP Provider"
+  description="Programme pilote pour fabricants de batteries : modélisation de 1 à 3 packs, sandbox souveraine à Francfort et pré-validation DG GROW."
+>
+  <div class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-4xl mx-auto mb-16">
+      <div class="eyebrow-pill mb-3 mx-auto">Cohorte 2026–2027 · Accès Limité</div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        Programme Pilote <br class="hidden sm:inline" />
+        <span class="text-cyan-600">Passeport Batterie UE</span>
+      </h1>
+      <p class="mt-4 text-base text-slate-600 leading-relaxed">
+        Testez vos flux de données et signatures eIDAS dans notre environnement de test avant l'échéance du 18 février 2027.
+      </p>
+      <div class="mt-8 flex justify-center gap-4">
+        <a href="/fr/contact/" class="neo-btn-primary">Postuler au programme pilote →</a>
+      </div>
+      <div class="mt-12">
+        <ComplianceCountdown />
+      </div>
+    </div>
+  </div>
+</Layout>

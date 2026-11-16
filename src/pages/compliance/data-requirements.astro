@@ -1,0 +1,215 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="EU Battery Passport 90+ Mandatory Data Attributes Checklist | EU DPP Provider"
+  description="Comprehensive technical specification of the 7 statutory data domains and 90+ attributes mandated by Regulation (EU) 2023/1542 (Articles 77-78 & Annex XIII)."
+>
+  <div class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Hero Header -->
+    <div class="text-center max-w-4xl mx-auto mb-16">
+      <div class="eyebrow-pill mb-3 mx-auto">Regulation (EU) 2023/1542 · Annex XIII</div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        90+ Mandatory Battery Passport <br class="hidden sm:inline" />
+        <span class="text-cyan-600">Data Requirements & Attributes</span>
+      </h1>
+      <p class="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
+        A definitive engineering breakdown of the 7 core compliance domains, access tiers (Public, Customs, Recycler, OEM), and factory MES/ERP source mappings.
+      </p>
+    </div>
+
+    <!-- Interactive 7-Domain Accordion / Card Matrix -->
+    <div class="space-y-6 max-w-5xl mx-auto">
+      
+      <!-- Domain 1: General & Battery Identification -->
+      <div class="neo-surface p-6 sm:p-8">
+        <div class="flex items-center justify-between pb-4 border-b border-slate-200">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-xl bg-cyan-100 text-cyan-700 flex items-center justify-center font-bold text-sm">1</span>
+            <h3 class="text-lg font-bold text-slate-900">General Battery & Manufacturer Identification</h3>
+          </div>
+          <span class="px-2.5 py-0.5 rounded-full bg-slate-100 text-[11px] font-mono text-slate-600">Public Access Tier</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 text-xs sm:text-sm text-slate-700">
+          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
+            <strong>Unique Identifier (UPI):</strong> GS1 Digital Link / EN 18219 format
+          </div>
+          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
+            <strong>Economic Operator:</strong> Name, registered address, EU contact point
+          </div>
+          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
+            <strong>Manufacturing Location & Date:</strong> Plant code, month & year of manufacture
+          </div>
+          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
+            <strong>Battery Category:</strong> EV, LMT (≤25kg), or Industrial BESS (>2kWh)
+          </div>
+        </div>
+      </div>
+
+      <!-- Domain 2: Material Composition & Chemistry -->
+      <div class="neo-surface p-6 sm:p-8">
+        <div class="flex items-center justify-between pb-4 border-b border-slate-200">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-sm">2</span>
+            <h3 class="text-lg font-bold text-slate-900">Material Composition & Chemical Safety</h3>
+          </div>
+          <span class="px-2.5 py-0.5 rounded-full bg-blue-50 text-[11px] font-mono text-blue-700 border border-blue-200">Public / Recycler</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 text-xs sm:text-sm text-slate-700">
+          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
+            <strong>Cathode / Anode Chemistry:</strong> NMC, LFP, NCA, Sodium-ion classification
+          </div>
+          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
+            <strong>Hazardous Substances:</strong> REACH SVHC & RoHS compliance declarations
+          </div>
+          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
+            <strong>Critical Raw Materials (CRM):</strong> Cobalt, lithium, nickel, natural graphite weights
+          </div>
+          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
+            <strong>ZKP Privacy Shield:</strong> Exact proprietary binder/electrolyte formulas masked
+          </div>
+        </div>
+      </div>
+
+      <!-- Domain 3: Carbon Footprint (PCF) -->
+      <div class="neo-surface p-6 sm:p-8">
+        <div class="flex items-center justify-between pb-4 border-b border-slate-200">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-xl bg-green-100 text-green-700 flex items-center justify-center font-bold text-sm">3</span>
+            <h3 class="text-lg font-bold text-slate-900">Carbon Footprint Declaration (CFD & PEFCR)</h3>
+          </div>
+          <span class="px-2.5 py-0.5 rounded-full bg-green-50 text-[11px] font-mono text-green-700 border border-green-200">Public / Authority</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 text-xs sm:text-sm text-slate-700">
+          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
+            <strong>Lifecycle Carbon Intensity:</strong> kg CO₂e / kWh of rated capacity
+          </div>
+          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
+            <strong>Stage Breakdown:</strong> Raw material extraction, main plant assembly, logistics
+          </div>
+          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
+            <strong>Performance Class:</strong> A–E label classification (effective Aug 2026)
+          </div>
+          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
+            <strong>Conformity Assessment:</strong> Independent third-party verifier statement
+          </div>
+        </div>
+      </div>
+
+      <!-- Domain 4: Supply Chain Due Diligence -->
+      <div class="neo-surface p-6 sm:p-8">
+        <div class="flex items-center justify-between pb-4 border-b border-slate-200">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-sm">4</span>
+            <h3 class="text-lg font-bold text-slate-900">Supply Chain Due Diligence (OECD & CSDDD)</h3>
+          </div>
+          <span class="px-2.5 py-0.5 rounded-full bg-amber-50 text-[11px] font-mono text-amber-700 border border-amber-200">Public / Authority</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 text-xs sm:text-sm text-slate-700">
+          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
+            <strong>Due Diligence Policy:</strong> OECD 5-step framework alignment statement
+          </div>
+          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
+            <strong>Smelter & Refiner List:</strong> Verified upstream processing facility IDs
+          </div>
+          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
+            <strong>Third-Party Audit Reports:</strong> Summary of responsible sourcing audits
+          </div>
+          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
+            <strong>Grievance Mechanism:</strong> Stakeholder reporting channel access
+          </div>
+        </div>
+      </div>
+
+      <!-- Domain 5: Recycled & Renewable Content -->
+      <div class="neo-surface p-6 sm:p-8">
+        <div class="flex items-center justify-between pb-4 border-b border-slate-200">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm">5</span>
+            <h3 class="text-lg font-bold text-slate-900">Recycled Content & Circularity</h3>
+          </div>
+          <span class="px-2.5 py-0.5 rounded-full bg-emerald-50 text-[11px] font-mono text-emerald-700 border border-emerald-200">Public / Recycler</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 text-xs sm:text-sm text-slate-700">
+          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
+            <strong>Pre-consumer & Post-consumer Share:</strong> Cobalt, lithium, nickel, lead percentages
+          </div>
+          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
+            <strong>2031 Targets Preparation:</strong> Cobalt (16%), Lead (85%), Lithium (6%), Nickel (6%)
+          </div>
+          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
+            <strong>Renewable Content:</strong> Bio-based or non-fossil content declarations
+          </div>
+          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
+            <strong>Mass Balance Verification:</strong> Chain-of-custody documentation
+          </div>
+        </div>
+      </div>
+
+      <!-- Domain 6: Performance & Durability -->
+      <div class="neo-surface p-6 sm:p-8">
+        <div class="flex items-center justify-between pb-4 border-b border-slate-200">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center font-bold text-sm">6</span>
+            <h3 class="text-lg font-bold text-slate-900">Performance, Durability & SOH Telemetry</h3>
+          </div>
+          <span class="px-2.5 py-0.5 rounded-full bg-purple-50 text-[11px] font-mono text-purple-700 border border-purple-200">Restricted / OEM</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 text-xs sm:text-sm text-slate-700">
+          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
+            <strong>State of Health (SOH):</strong> Remaining capacity & power capability algorithms
+          </div>
+          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
+            <strong>Cycle Life Expectations:</strong> Expected lifetime under reference test conditions
+          </div>
+          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
+            <strong>Internal Resistance & Thermal:</strong> Resistance evolution & cooling specs
+          </div>
+          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
+            <strong>BMS Dynamic Telemetry:</strong> Secure cloud API update connectors
+          </div>
+        </div>
+      </div>
+
+      <!-- Domain 7: Safety & End-of-Life Dismantling -->
+      <div class="neo-surface p-6 sm:p-8">
+        <div class="flex items-center justify-between pb-4 border-b border-slate-200">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-xl bg-rose-100 text-rose-700 flex items-center justify-center font-bold text-sm">7</span>
+            <h3 class="text-lg font-bold text-slate-900">Safety Measures & Dismantling Manual</h3>
+          </div>
+          <span class="px-2.5 py-0.5 rounded-full bg-rose-50 text-[11px] font-mono text-rose-700 border border-rose-200">Recycler / Professional</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 text-xs sm:text-sm text-slate-700">
+          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
+            <strong>Extinguishing Agents:</strong> Recommended firefighting protocols (e.g. Copious water)
+          </div>
+          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
+            <strong>Disassembly Guide:</strong> Fastener types, torque ratings, module removal sequence
+          </div>
+          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
+            <strong>Coolant Evacuation:</strong> Fluid draining ports and handling procedures
+          </div>
+          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
+            <strong>Second-Life Readiness:</strong> Diagnostics criteria for stationary repurposing
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Call to action -->
+    <div class="mt-16 text-center max-w-3xl mx-auto neo-surface p-8 sm:p-10">
+      <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mb-2">Need Help Mapping Your Factory Data?</h3>
+      <p class="text-xs sm:text-sm text-slate-600 mb-6">
+        Our compliance engineering team provides automated MES/ERP attribute gap mapping for your specific battery models.
+      </p>
+      <a href="/contact/" class="neo-btn-primary inline-block">
+        Request Data Mapping Scoping →
+      </a>
+    </div>
+
+  </div>
+</Layout>

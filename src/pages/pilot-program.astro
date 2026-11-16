@@ -1,0 +1,103 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ComplianceCountdown from '../components/ComplianceCountdown.astro';
+---
+
+<Layout
+  title="Early Adopter Battery Passport Pilot Program (2026–2027) | EU DPP Provider"
+  description="Limited-cohort pilot program for battery manufacturers and OEMs. Secure technical onboarding, 1-3 pack data modeling, Frankfurt sovereign vault sandbox, and DG GROW pre-validation."
+>
+  <div class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Hero Header -->
+    <div class="text-center max-w-4xl mx-auto mb-16">
+      <div class="eyebrow-pill mb-3 mx-auto">2026–2027 Regulatory Cohort · Limited Access</div>
+      <h1 class="text-3xl sm:text-5xl lg:text-[58px] font-extrabold text-slate-900 tracking-tight leading-[1.12]">
+        Early Adopter <br class="hidden sm:inline" />
+        <span class="text-cyan-600">Battery Passport Pilot Program</span>
+      </h1>
+      <p class="mt-6 text-base sm:text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
+        A structured, hands-on engineering sandbox designed for battery manufacturers and OEMs preparing for the February 18, 2027 enforcement deadline.
+      </p>
+
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a href="/contact/" class="neo-btn-primary">
+          Apply for Pilot Cohort →
+        </a>
+        <a href="/pricing/" class="neo-pill px-6 py-3 rounded-full text-xs sm:text-sm font-bold text-slate-800 hover:text-cyan-700">
+          Review Pilot Deliverables
+        </a>
+      </div>
+
+      <div class="mt-12">
+        <ComplianceCountdown />
+      </div>
+    </div>
+
+    <!-- 4-Phase Delivery Framework -->
+    <div class="max-w-5xl mx-auto my-16">
+      <div class="text-center mb-12">
+        <div class="eyebrow-pill mb-2">Milestone-Based Execution</div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Structured Pilot Roadmap (4 Phases)</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <div class="neo-surface p-7 sm:p-8">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="w-8 h-8 rounded-xl bg-cyan-100 text-cyan-700 flex items-center justify-center font-bold text-sm">Phase 1</span>
+            <h3 class="font-bold text-slate-900 text-base">Data Gap Audit & Model Mapping</h3>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Review existing factory MES, ERP (SAP/Siemens), and BMS telemetry against Regulation (EU) 2023/1542 Annex XIII requirements. Generate field-by-field gap analysis.
+          </p>
+        </div>
+
+        <div class="neo-surface p-7 sm:p-8">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="w-8 h-8 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-sm">Phase 2</span>
+            <h3 class="font-bold text-slate-900 text-base">ZKP Cleanroom & PCF Calculation</h3>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Configure local cleanroom computation to calculate cradle-to-gate carbon intensity (PEFCR compliant) and shield proprietary chemical ratios using Zero-Knowledge Proofs.
+          </p>
+        </div>
+
+        <div class="neo-surface p-7 sm:p-8">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="w-8 h-8 rounded-xl bg-green-100 text-green-700 flex items-center justify-center font-bold text-sm">Phase 3</span>
+            <h3 class="font-bold text-slate-900 text-base">Frankfurt Sovereign Vault Sandbox</h3>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Deploy your 1–3 pilot battery pack models to our ISO 27001 certified Frankfurt testbed. Verify sub-50ms GS1 Digital Link resolution and 4-tier role permission views.
+          </p>
+        </div>
+
+        <div class="neo-surface p-7 sm:p-8">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="w-8 h-8 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-sm">Phase 4</span>
+            <h3 class="font-bold text-slate-900 text-base">DG GROW Registry Pre-Validation</h3>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Conduct synthetic UPI registration tests against the EU Central Registry schema, test eIDAS 2.0 digital QSeal signatures, and receive your comprehensive Conformance Readiness Dossier.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="max-w-4xl mx-auto neo-surface p-8 sm:p-12 text-center bg-gradient-to-br from-[#F0F4F8] to-cyan-50/40 border border-cyan-200/60">
+      <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-3">
+        Apply for the 2026–2027 Pilot Cohort
+      </h3>
+      <p class="text-xs sm:text-sm text-slate-600 max-w-xl mx-auto mb-6">
+        Cohort spots are allocated on a rolling basis. Contact our technical desk to discuss scope, timeline, and data prerequisites.
+      </p>
+      <a href="/contact/" class="neo-btn-primary inline-block">
+        Submit Scoping Request (info@eudppprovider.com) →
+      </a>
+    </div>
+
+  </div>
+</Layout>
