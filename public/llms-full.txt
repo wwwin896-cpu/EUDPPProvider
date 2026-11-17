@@ -24,8 +24,9 @@ EU DPP Provider (https://eudppprovider.com) provides enterprise-grade compliance
 - **Harmonized Standards**: EN 18220:2026 (2D Barcode Data Carriers) & EN 18219:2026 (Unique Product Identifiers).
 - **Resolver**: High-speed GS1 Digital Link resolution (<50ms global DNS).
 
-## 5. Official Contact
+## 5. Official Contact & Entity
+- **Operating Entity**: SUZHOU GEEKTION TECHNOLOGY CO.,LTD (USCI: 91320509MAEM4DKR87)
 - **Email**: info@eudppprovider.com
-- **Telephone (EU Desk)**: +49 (0) 69 9675 8827 / +86 (025) 8685 8827
-- **Operating Centers**: Frankfurt am Main & Munich (Germany) / Shanghai & Nanjing (China)
+- **Telephone (EU Desk)**: +49 (0) 69 9675 8827
+- **Operating Centers**: Frankfurt am Main & Munich (Germany) / Shanghai & Suzhou (China)
 - **Website**: https://eudppprovider.com

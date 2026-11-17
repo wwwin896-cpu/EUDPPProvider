@@ -6,7 +6,8 @@
 - **Brand**: EU DPP Provider
 - **Domain**: https://eudppprovider.com
 - **Official Business Desk**: info@eudppprovider.com
-- **Operating Centers**: Frankfurt am Main & Munich (Germany) / Shanghai & Nanjing (China)
+- **Operating Entity**: SUZHOU GEEKTION TECHNOLOGY CO.,LTD (USCI: 91320509MAEM4DKR87)
+- **Operating Centers**: Frankfurt am Main & Munich (Germany) / Shanghai & Suzhou (China)
 - **Telephone (EU Desk)**: +49 (0) 69 9675 8827
 - **Primary Focus**: Digital Product Passport compliance software and 10-year sovereign data hosting for Electric Vehicles (EV), Light Means of Transport (LMT / E-Bike ≤25kg), and Stationary Industrial Battery Energy Storage Systems (BESS >2kWh).
 
