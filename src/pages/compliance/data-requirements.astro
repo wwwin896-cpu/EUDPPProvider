@@ -1,215 +1,273 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+
+const domains = [
+  { id: 'all', name: 'All 71 Attributes' },
+  { id: 'd1', name: '1. Identity & Manufacturer (12)' },
+  { id: 'd2', name: '2. Materials & Recycled (11)' },
+  { id: 'd3', name: '3. Carbon Footprint (9)' },
+  { id: 'd4', name: '4. Performance & Life (10)' },
+  { id: 'd5', name: '5. BMS Telematics (10)' },
+  { id: 'd6', name: '6. Dismantling & Safety (11)' },
+  { id: 'd7', name: '7. eIDAS & Conformity (8)' },
+];
+
+const checklistItems = [
+  // Domain 1: General & Battery Identification (12 items)
+  { no: '01', domain: 'd1', domainName: '1. Identity', name: 'Unique Product Identifier (UPI / SGTIN)', legal: 'Annex XIII, 1(a)', desc: 'GTIN-14 + Unique Serial Number in GS1 Digital Link format (EN 18219/18220)', owner: 'Pack OEM', tier: 'Public', date: '2027-02-18' },
+  { no: '02', domain: 'd1', domainName: '1. Identity', name: 'Manufacturer Legal Entity Name', legal: 'Annex XIII, 1(b)', desc: 'Full registered corporate name and national registration identifier (USCI/EORI)', owner: 'Pack OEM', tier: 'Public', date: '2027-02-18' },
+  { no: '03', domain: 'd1', domainName: '1. Identity', name: 'Registered Seat & EU Contact Point', legal: 'Annex XIII, 1(c)', desc: 'Corporate address, official website, EU economic operator email and telephone', owner: 'Pack OEM', tier: 'Public', date: '2027-02-18' },
+  { no: '04', domain: 'd1', domainName: '1. Identity', name: 'Manufacturing Plant Location', legal: 'Annex XIII, 1(d)', desc: 'Physical factory code, city, and ISO 3166 country of manufacture', owner: 'Pack OEM', tier: 'Public', date: '2027-02-18' },
+  { no: '05', domain: 'd1', domainName: '1. Identity', name: 'Date of Manufacture (Month/Year)', legal: 'Annex XIII, 1(e)', desc: 'Factory production completion timestamp (YYYY-MM)', owner: 'Pack OEM', tier: 'Public', date: '2027-02-18' },
+  { no: '06', domain: 'd1', domainName: '1. Identity', name: 'Date of Placing on the EU Market', legal: 'Annex XIII, 1(f)', desc: 'Customs declaration release or commercial delivery date (YYYY-MM-DD)', owner: 'Importer/OEM', tier: 'Customs/Public', date: '2027-02-18' },
+  { no: '07', domain: 'd1', domainName: '1. Identity', name: 'Battery Category Classification', legal: 'Article 1(1)', desc: 'Electric Vehicle (EV), Light Means of Transport (LMT ≤25kg), or Industrial Storage (BESS >2kWh)', owner: 'Pack OEM', tier: 'Public', date: '2027-02-18' },
+  { no: '08', domain: 'd1', domainName: '1. Identity', name: 'Battery Model & Commercial Trade Name', legal: 'Annex XIII, 1(g)', desc: 'Official model identifier and marketing designation', owner: 'Pack OEM', tier: 'Public', date: '2027-02-18' },
+  { no: '09', domain: 'd1', domainName: '1. Identity', name: 'Total Battery Pack Mass (kg)', legal: 'Annex XIII, 1(h)', desc: 'Net mass in kilograms with 0.1 kg resolution', owner: 'Pack OEM', tier: 'Public', date: '2027-02-18' },
+  { no: '10', domain: 'd1', domainName: '1. Identity', name: 'Physical Dimensions & Form Factor', legal: 'Annex XIII, 1(i)', desc: 'Length x Width x Height (mm) and enclosure configuration', owner: 'Pack OEM', tier: 'Public', date: '2027-02-18' },
+  { no: '11', domain: 'd1', domainName: '1. Identity', name: 'Rated Usable Energy Capacity (kWh)', legal: 'Annex XIII, 1(j)', desc: 'Nominal energy capacity in kWh and Ah under standard test cycles', owner: 'Cell/Pack OEM', tier: 'Public', date: '2027-02-18' },
+  { no: '12', domain: 'd1', domainName: '1. Identity', name: '2D Data Carrier QR Syntax (EN 18220)', legal: 'EN 18220:2026', desc: 'GS1 Digital Link URI standard: /01/{GTIN}/21/{SERIAL}', owner: 'System Gen', tier: 'Public', date: '2027-02-18' },
+
+  // Domain 2: Material Composition & Chemistry (11 items)
+  { no: '13', domain: 'd2', domainName: '2. Materials', name: 'Cathode Active Material Chemistry', legal: 'Annex XIII, 2(a)', desc: 'NMC 811/622, LFP, NCA, Sodium-ion specific stoichiometry', owner: 'Cell Supplier', tier: 'Public', date: '2027-02-18' },
+  { no: '14', domain: 'd2', domainName: '2. Materials', name: 'Anode Material Formulation', legal: 'Annex XIII, 2(b)', desc: 'Natural graphite, synthetic graphite, silicon-carbon composite composition', owner: 'Cell Supplier', tier: 'Recycler/Public', date: '2027-02-18' },
+  { no: '15', domain: 'd2', domainName: '2. Materials', name: 'Electrolyte Solvent & Salt Chemistry', legal: 'Annex XIII, 2(c)', desc: 'LiPF6 salt concentration and organic solvent ratio (Proprietary masked via ZKP)', owner: 'Cell Supplier', tier: 'ZKP Shielded', date: '2027-02-18' },
+  { no: '16', domain: 'd2', domainName: '2. Materials', name: 'Cobalt Critical Raw Material Mass (kg)', legal: 'Article 8 & XIII', desc: 'Absolute weight of pure active Cobalt in kilograms', owner: 'Cell Supplier', tier: 'Audit/Authority', date: '2027-02-18' },
+  { no: '17', domain: 'd2', domainName: '2. Materials', name: 'Lithium Critical Raw Material Mass (kg)', legal: 'Article 8 & XIII', desc: 'Absolute weight of pure active Lithium in kilograms', owner: 'Cell Supplier', tier: 'Audit/Authority', date: '2027-02-18' },
+  { no: '18', domain: 'd2', domainName: '2. Materials', name: 'Nickel Critical Raw Material Mass (kg)', legal: 'Article 8 & XIII', desc: 'Absolute weight of pure active Nickel in kilograms', owner: 'Cell Supplier', tier: 'Audit/Authority', date: '2027-02-18' },
+  { no: '19', domain: 'd2', domainName: '2. Materials', name: 'Recycled Cobalt Content Share (%)', legal: 'Article 8(1)', desc: 'Declared post-consumer/waste recycled cobalt (Mandatory ≥16% by 2031)', owner: 'Cathode Supply', tier: 'Public', date: '2028-08-18' },
+  { no: '20', domain: 'd2', domainName: '2. Materials', name: 'Recycled Lithium Content Share (%)', legal: 'Article 8(1)', desc: 'Declared post-consumer recycled lithium (Mandatory ≥6% by 2031)', owner: 'Cathode Supply', tier: 'Public', date: '2028-08-18' },
+  { no: '21', domain: 'd2', domainName: '2. Materials', name: 'Recycled Nickel Content Share (%)', legal: 'Article 8(1)', desc: 'Declared post-consumer recycled nickel (Mandatory ≥6% by 2031)', owner: 'Cathode Supply', tier: 'Public', date: '2028-08-18' },
+  { no: '22', domain: 'd2', domainName: '2. Materials', name: 'Recycled Lead Content Share (%)', legal: 'Article 8(1)', desc: 'Declared recycled lead share (Mandatory ≥85% by 2031 where applicable)', owner: 'Supplier', tier: 'Public', date: '2028-08-18' },
+  { no: '23', domain: 'd2', domainName: '2. Materials', name: 'REACH / RoHS Hazardous Substance Declaration', legal: 'Annex XIII, 2(d)', desc: 'SVHC candidate list declaration (<0.1% w/w) & heavy metal limit certificates', owner: 'Cell/Pack OEM', tier: 'Public', date: '2027-02-18' },
+
+  // Domain 3: Carbon Footprint (9 items)
+  { no: '24', domain: 'd3', domainName: '3. Carbon (PCF)', name: 'Lifecycle Carbon Footprint Total (kg CO₂e/kWh)', legal: 'Article 7 & II', desc: 'Total cradle-to-grave GHG emissions per kWh rated capacity', owner: 'LCA Team', tier: 'Public', date: '2026-08-18' },
+  { no: '25', domain: 'd3', domainName: '3. Carbon (PCF)', name: 'Raw Material Acquisition Stage PCF', legal: 'Annex II, 2(a)', desc: 'Upstream mining, refining, and precursor synthesis emissions', owner: 'Supply Chain', tier: 'Audit Tier', date: '2026-08-18' },
+  { no: '26', domain: 'd3', domainName: '3. Carbon (PCF)', name: 'Main Plant Manufacturing Stage PCF', legal: 'Annex II, 2(b)', desc: 'Cell manufacturing and battery pack assembly electricity and thermal emissions', owner: 'Factory MES', tier: 'Audit Tier', date: '2026-08-18' },
+  { no: '27', domain: 'd3', domainName: '3. Carbon (PCF)', name: 'Distribution & Transport Logistics Stage PCF', legal: 'Annex II, 2(c)', desc: 'Freight transport emissions from plant to EU port of entry', owner: 'Logistics', tier: 'Audit Tier', date: '2026-08-18' },
+  { no: '28', domain: 'd3', domainName: '3. Carbon (PCF)', name: 'End-of-Life & Recycling Credit PCF', legal: 'Annex II, 2(d)', desc: 'Disassembly and metallurgical material recovery allocation', owner: 'LCA Model', tier: 'Audit Tier', date: '2026-08-18' },
+  { no: '29', domain: 'd3', domainName: '3. Carbon (PCF)', name: 'Carbon Footprint Performance Class Label', legal: 'Article 7(2)', desc: 'Official A, B, C, D, E threshold class label for EV traction batteries', owner: 'Official Match', tier: 'Public', date: '2026-08-18' },
+  { no: '30', domain: 'd3', domainName: '3. Carbon (PCF)', name: 'Maximum Carbon Footprint Threshold Verification', legal: 'Article 7(3)', desc: 'Proof of compliance below maximum statutory lifecycle carbon cap', owner: 'Notified Body', tier: 'Customs/Public', date: '2028-02-18' },
+  { no: '31', domain: 'd3', domainName: '3. Carbon (PCF)', name: 'Independent Third-Party LCA Verification Statement', legal: 'Article 7(1)', desc: 'Accredited verifier statement under ISO 14067 & EU PEFCR rules', owner: 'Auditor', tier: 'Public', date: '2026-08-18' },
+  { no: '32', domain: 'd3', domainName: '3. Carbon (PCF)', name: 'Supply Chain Due Diligence Policy & Audit', legal: 'Articles 48-53', desc: 'OECD framework third-party social responsibility and human rights audit', owner: 'Corporate ESG', tier: 'Public/Customs', date: '2027-08-18' },
+
+  // Domain 4: Performance & Durability (10 items)
+  { no: '33', domain: 'd4', domainName: '4. Performance', name: 'Nominal Rated Capacity (Ah)', legal: 'Annex XIII, 3(a)', desc: 'Standard C-rate capacity in Ampere-hours', owner: 'Cell Spec', tier: 'Public', date: '2027-02-18' },
+  { no: '34', domain: 'd4', domainName: '4. Performance', name: 'Nominal System Working Voltage (V)', legal: 'Annex XIII, 3(b)', desc: 'DC system nominal working voltage (e.g., 400V, 800V, 1500V)', owner: 'Pack Spec', tier: 'Public', date: '2027-02-18' },
+  { no: '35', domain: 'd4', domainName: '4. Performance', name: 'Upper & Lower Voltage Operating Limits', legal: 'Annex XIII, 3(c)', desc: 'Maximum charge cut-off and minimum discharge cut-off voltages', owner: 'BMS Setting', tier: 'Public', date: '2027-02-18' },
+  { no: '36', domain: 'd4', domainName: '4. Performance', name: 'Maximum Continuous & Peak Power (kW)', legal: 'Annex XIII, 3(d)', desc: 'Permissible power ratings at 20s pulse and continuous draw', owner: 'Pack Spec', tier: 'Public', date: '2027-02-18' },
+  { no: '37', domain: 'd4', domainName: '4. Performance', name: 'Initial Internal Resistance (DCR in mΩ)', legal: 'Annex XIII, 3(e)', desc: 'Factory baseline direct-current resistance at 25°C', owner: 'QC Testing', tier: 'Public/Service', date: '2027-02-18' },
+  { no: '38', domain: 'd4', domainName: '4. Performance', name: 'Initial Round-Trip Energy Efficiency (%)', legal: 'Annex XIII, 3(f)', desc: 'Percentage efficiency under standard 1C/1C charge-discharge cycles', owner: 'Test Lab', tier: 'Public', date: '2027-02-18' },
+  { no: '39', domain: 'd4', domainName: '4. Performance', name: 'Expected Design Cycle Life (Cycles to 80% SOH)', legal: 'Annex XIII, 3(g)', desc: 'Reference lifecycle duration before reaching 80% capacity threshold', owner: 'Lab Aging', tier: 'Public', date: '2027-02-18' },
+  { no: '40', domain: 'd4', domainName: '4. Performance', name: 'Calendar Ageing Capacity Fade Rate (%/year)', legal: 'Annex XIII, 3(h)', desc: 'Annual degradation estimate at 20°C storage condition', owner: 'R&D Lab', tier: 'Public', date: '2027-02-18' },
+  { no: '41', domain: 'd4', domainName: '4. Performance', name: 'Permissible Temperature Operating Range (°C)', legal: 'Annex XIII, 3(i)', desc: 'Allowed ambient temperature envelope for charging and discharging', owner: 'Thermal Spec', tier: 'Public', date: '2027-02-18' },
+  { no: '42', domain: 'd4', domainName: '4. Performance', name: 'Applied Harmonized Standards & Test Protocols', legal: 'Annex XIII, 3(j)', desc: 'Referenced EN 62619, ISO 12405, UN GTR 20 technical norms', owner: 'Certification', tier: 'Public', date: '2027-02-18' },
+
+  // Domain 5: Dynamic BMS Telematics & SOH (10 items)
+  { no: '43', domain: 'd5', domainName: '5. BMS Telematics', name: 'Current State of Health (SOH %)', legal: 'Article 78 & VII', desc: 'Real-time remaining usable capacity percentage relative to nominal', owner: 'BMS Live', tier: 'Owner/Service', date: '2027-02-18' },
+  { no: '44', domain: 'd5', domainName: '5. BMS Telematics', name: 'Equivalent Full Cycles (EFC Count)', legal: 'Annex VII, 1(a)', desc: 'Cumulative energy throughput converted into equivalent 100% cycles', owner: 'BMS Counter', tier: 'Owner/Service', date: '2027-02-18' },
+  { no: '45', domain: 'd5', domainName: '5. BMS Telematics', name: 'Internal Resistance Rise Percentage (%)', legal: 'Annex VII, 1(b)', desc: 'Percentage increase in DCR over the initial factory baseline', owner: 'BMS Diagnostic', tier: 'Service/Recycle', date: '2027-02-18' },
+  { no: '46', domain: 'd5', domainName: '5. BMS Telematics', name: 'Cumulative Energy Throughput (MWh)', legal: 'Annex VII, 1(c)', desc: 'Total historical electrical energy charged and discharged', owner: 'BMS Memory', tier: 'Audit Tier', date: '2027-02-18' },
+  { no: '47', domain: 'd5', domainName: '5. BMS Telematics', name: 'Deep Discharge Event Counter', legal: 'Annex VII, 1(d)', desc: 'Number of times cell voltage dropped below critical low threshold', owner: 'BMS Fault Log', tier: 'Second-Life/OEM', date: '2027-02-18' },
+  { no: '48', domain: 'd5', domainName: '5. BMS Telematics', name: 'Cumulative Time in Extreme Temperature Envelope', legal: 'Annex VII, 1(e)', desc: 'Total hours operating outside certified temperature limits', owner: 'BMS Thermal Log', tier: 'Warranty/OEM', date: '2027-02-18' },
+  { no: '49', domain: 'd5', domainName: '5. BMS Telematics', name: 'Maximum Cell Voltage Imbalance (mV)', legal: 'Annex VII, 1(f)', desc: 'Maximum delta voltage among series cells under load', owner: 'BMS Balancing', tier: 'Diagnostic Tier', date: '2027-02-18' },
+  { no: '50', domain: 'd5', domainName: '5. BMS Telematics', name: 'High-Voltage Insulation Resistance (kΩ)', legal: 'Annex VII, 1(g)', desc: 'Real-time isolation measurement between DC bus and chassis ground', owner: 'BMS Safety', tier: 'Safety Inspection', date: '2027-02-18' },
+  { no: '51', domain: 'd5', domainName: '5. BMS Telematics', name: 'Diagnostics Interface Protocol (OBD / UDS)', legal: 'Article 78(2)', desc: 'Standardized ISO 14229 / CAN / REST telematics endpoint definition', owner: 'Gateway OEM', tier: 'Authorized Tech', date: '2027-02-18' },
+  { no: '52', domain: 'd5', domainName: '5. BMS Telematics', name: 'BMS Software & Firmware Version History', legal: 'Annex XIII, 4', desc: 'Current firmware build hash and historical OTA update log', owner: 'OEM Software', tier: 'Authority/OEM', date: '2027-02-18' },
+
+  // Domain 6: Dismantling Safety & Circularity (11 items)
+  { no: '53', domain: 'd6', domainName: '6. Safety & Recycle', name: 'Recommended Extinguishing Agent & Protocols', legal: 'Annex XIII, 5(a)', desc: 'F-500 encapsulator, copious water, or inert gas emergency instructions', owner: 'Safety Team', tier: 'Public/Emergency', date: '2027-02-18' },
+  { no: '54', domain: 'd6', domainName: '6. Safety & Recycle', name: 'Safe Dismantling Manual & Step Guide', legal: 'Annex XIII, 5(b)', desc: 'De-energization steps, enclosure disassembly, and module isolation diagrams', owner: 'Pack R&D', tier: 'Recycler Tier', date: '2027-02-18' },
+  { no: '55', domain: 'd6', domainName: '6. Safety & Recycle', name: 'Required Specialized Disassembly Tools', legal: 'Annex XIII, 5(c)', desc: 'List of insulated tools, Torx bit types, and hoist fixtures needed', owner: 'Tooling Eng', tier: 'Recycler Tier', date: '2027-02-18' },
+  { no: '56', domain: 'd6', domainName: '6. Safety & Recycle', name: 'Enclosure Fastener Types & Opening Torques', legal: 'Annex XIII, 5(d)', desc: 'Bolt specifications (e.g. M8 Torx Plus) and tightening torque limits', owner: 'Structure Eng', tier: 'Recycler Tier', date: '2027-02-18' },
+  { no: '57', domain: 'd6', domainName: '6. Safety & Recycle', name: 'Liquid Cooling Drain & Evacuation Procedure', legal: 'Annex XIII, 5(e)', desc: 'Glycol coolant valve location and recovery procedure before cutting', owner: 'Thermal Eng', tier: 'Recycler Tier', date: '2027-02-18' },
+  { no: '58', domain: 'd6', domainName: '6. Safety & Recycle', name: 'Cell Module Replaceability & Repairability Index', legal: 'Annex XIII, 5(f)', desc: 'Assessment score for non-destructive module replacement', owner: 'Design Team', tier: 'Service/Public', date: '2027-02-18' },
+  { no: '59', domain: 'd6', domainName: '6. Safety & Recycle', name: 'Second-Life & Repurposing Evaluation Guidelines', legal: 'Article 73 & XIII', desc: 'Screening criteria for EV battery conversion to stationary BESS', owner: 'Integration', tier: 'Repurposer Tier', date: '2027-02-18' },
+  { no: '60', domain: 'd6', domainName: '6. Safety & Recycle', name: 'Critical Material Recovery Targets Guide', legal: 'Article 71 & XII', desc: 'Cobalt, lithium, nickel, and copper recycling yield recommendations', owner: 'Circularity', tier: 'Recycler Tier', date: '2027-02-18' },
+  { no: '61', domain: 'd6', domainName: '6. Safety & Recycle', name: 'Separate Collection Scheme & Crossed-out Dustbin', legal: 'Articles 59-60', desc: 'WEEE waste collection point symbols and recycling network identifier', owner: 'Compliance', tier: 'Public', date: '2027-02-18' },
+  { no: '62', domain: 'd6', domainName: '6. Safety & Recycle', name: 'Material Safety Data Sheet (MSDS / SDS PDF)', legal: 'REACH Standard', desc: 'Complete chemical safety datasheet in compliance with GHS standards', owner: 'QA/QC Lab', tier: 'Public/Logistics', date: '2027-02-18' },
+  { no: '63', domain: 'd6', domainName: '6. Safety & Recycle', name: 'UN 38.3 Transport Safety Test Summary', legal: 'UN Manual 38.3', desc: 'T1-T8 altitude, thermal, vibration, and shock compliance certificate', owner: 'Test Lab', tier: 'Customs/Carrier', date: '2027-02-18' },
+
+  // Domain 7: Conformity Dossier & eIDAS QSeal (8 items)
+  { no: '64', domain: 'd7', domainName: '7. eIDAS & Filing', name: 'EU Declaration of Conformity (DoC Document)', legal: 'Article 18 & IX', desc: 'Official signed statement of conformity with all CE requirements', owner: 'Legal Director', tier: 'Public/Customs', date: '2027-02-18' },
+  { no: '65', domain: 'd7', domainName: '7. eIDAS & Filing', name: 'Notified Body Identification (NB 4-Digit Number)', legal: 'Article 22', desc: 'Official identifier of accredited European conformity assessment body', owner: 'Notified Body', tier: 'Public/Customs', date: '2027-02-18' },
+  { no: '66', domain: 'd7', domainName: '7. eIDAS & Filing', name: 'EU-Type Examination Certificate Identifier', legal: 'Module B / D', desc: 'Type testing certificate reference code and validity period', owner: 'Notified Body', tier: 'Customs Tier', date: '2027-02-18' },
+  { no: '67', domain: 'd7', domainName: '7. eIDAS & Filing', name: 'eIDAS 2.0 Qualified Electronic Seal (QSeal)', legal: 'Reg (EU) 910/2014', desc: 'PAdES digital signature from EU-accredited Trust Service Provider (QTSP)', owner: 'DPP Platform', tier: 'Customs/Audit', date: '2027-02-18' },
+  { no: '68', domain: 'd7', domainName: '7. eIDAS & Filing', name: 'DG GROW Central Registry Filing Anchor UPI', legal: 'Articles 77-78', desc: 'Official registration receipt on registry.product-passport.ec.europa.eu', owner: 'EU Registry', tier: 'Public/Customs', date: '2026-07-20' },
+  { no: '69', domain: 'd7', domainName: '7. eIDAS & Filing', name: 'Data Provider 10-Year Sovereign SLA Commitment', legal: 'Article 77(3)', desc: 'Guaranteed 10-year data hosting and GS1 link resolution continuity', owner: 'EU DPP Provider', tier: 'Public/Legal', date: '2027-02-18' },
+  { no: '70', domain: 'd7', domainName: '7. eIDAS & Filing', name: 'Zero-Knowledge Proof Cryptographic Hash Receipt', legal: 'Privacy Standard', desc: 'SHA-256 verifiable hash validating BOM compliance without raw exposure', owner: 'DPP Sandbox', tier: 'Regulatory Tier', date: '2027-02-18' },
+  { no: '71', domain: 'd7', domainName: '7. eIDAS & Filing', name: 'Cryptographic Immutable History Timestamp', legal: 'RFC 3161 / eIDAS', desc: 'Append-only audit ledger recording every lifecycle status modification', owner: 'DPP Platform', tier: 'Customs/Public', date: '2027-02-18' },
+];
 ---
 
 <Layout
-  title="EU Battery Passport 90+ Mandatory Data Attributes Checklist | EU DPP Provider"
-  description="Comprehensive technical specification of the 7 statutory data domains and 90+ attributes mandated by Regulation (EU) 2023/1542 (Articles 77-78 & Annex XIII)."
+  title="EU Battery Passport 71 Mandatory Data Attributes Checklist | EU DPP Provider"
+  description="Official 71-item technical declaration checklist mandated by Regulation (EU) 2023/1542 Annex XIII. Download the complete Excel/CSV template for supply chain self-audit."
 >
   <div class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <!-- Hero Header -->
-    <div class="text-center max-w-4xl mx-auto mb-16">
+    <div class="text-center max-w-4xl mx-auto mb-12">
       <div class="eyebrow-pill mb-3 mx-auto">Regulation (EU) 2023/1542 · Annex XIII</div>
       <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-        90+ Mandatory Battery Passport <br class="hidden sm:inline" />
-        <span class="text-cyan-600">Data Requirements & Attributes</span>
+        EU Battery Passport <br class="hidden sm:inline" />
+        <span class="text-cyan-600">71 Mandatory Data Attributes Checklist</span>
       </h1>
       <p class="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
-        A definitive engineering breakdown of the 7 core compliance domains, access tiers (Public, Customs, Recycler, OEM), and factory MES/ERP source mappings.
+        Complete regulatory specification of all 71 statutory fields across 7 compliance domains. Download the official Excel/CSV checklist for your engineering, procurement, and QA teams.
       </p>
     </div>
 
-    <!-- Interactive 7-Domain Accordion / Card Matrix -->
-    <div class="space-y-6 max-w-5xl mx-auto">
-      
-      <!-- Domain 1: General & Battery Identification -->
-      <div class="neo-surface p-6 sm:p-8">
-        <div class="flex items-center justify-between pb-4 border-b border-slate-200">
-          <div class="flex items-center gap-3">
-            <span class="w-8 h-8 rounded-xl bg-cyan-100 text-cyan-700 flex items-center justify-center font-bold text-sm">1</span>
-            <h3 class="text-lg font-bold text-slate-900">General Battery & Manufacturer Identification</h3>
+    <!-- Download & Export Action Card -->
+    <div class="neo-surface p-6 sm:p-8 bg-gradient-to-br from-white to-cyan-50/40 border border-cyan-200/80 mb-10 shadow-lg rounded-3xl">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div class="space-y-1.5 max-w-2xl">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
+            <span class="text-xs font-mono font-bold text-cyan-800 uppercase tracking-wider">Official Self-Audit Resource</span>
           </div>
-          <span class="px-2.5 py-0.5 rounded-full bg-slate-100 text-[11px] font-mono text-slate-600">Public Access Tier</span>
+          <h3 class="text-lg sm:text-xl font-bold text-slate-900">
+            Download 71-Attribute Compliance Matrix (Excel & CSV)
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Pre-formatted with legal articles, data owner assignments, access tier rules, and 2026–2031 enforcement milestones. Ready for direct internal gap analysis.
+          </p>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 text-xs sm:text-sm text-slate-700">
-          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
-            <strong>Unique Identifier (UPI):</strong> GS1 Digital Link / EN 18219 format
-          </div>
-          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
-            <strong>Economic Operator:</strong> Name, registered address, EU contact point
-          </div>
-          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
-            <strong>Manufacturing Location & Date:</strong> Plant code, month & year of manufacture
-          </div>
-          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
-            <strong>Battery Category:</strong> EV, LMT (≤25kg), or Industrial BESS (>2kWh)
-          </div>
+
+        <div class="flex flex-wrap items-center gap-3">
+          <a
+            href="/downloads/EU_Battery_Passport_71_Data_Requirements_Checklist.xlsx"
+            download="EU_Battery_Passport_71_Data_Requirements_Checklist.xlsx"
+            class="neo-btn-primary py-3 px-5 text-xs sm:text-sm font-bold flex items-center gap-2 shadow-md"
+          >
+            <span>📥 Download Excel (.xlsx)</span>
+          </a>
+          <a
+            href="/downloads/EU_Battery_Passport_71_Data_Requirements_Checklist.csv"
+            download="EU_Battery_Passport_71_Data_Requirements_Checklist.csv"
+            class="px-5 py-3 rounded-full bg-white/90 border border-slate-300 hover:border-cyan-500 font-bold text-xs sm:text-sm text-slate-800 hover:text-cyan-700 flex items-center gap-2 shadow-sm transition-all"
+          >
+            <span>📄 Download CSV</span>
+          </a>
         </div>
       </div>
-
-      <!-- Domain 2: Material Composition & Chemistry -->
-      <div class="neo-surface p-6 sm:p-8">
-        <div class="flex items-center justify-between pb-4 border-b border-slate-200">
-          <div class="flex items-center gap-3">
-            <span class="w-8 h-8 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-sm">2</span>
-            <h3 class="text-lg font-bold text-slate-900">Material Composition & Chemical Safety</h3>
-          </div>
-          <span class="px-2.5 py-0.5 rounded-full bg-blue-50 text-[11px] font-mono text-blue-700 border border-blue-200">Public / Recycler</span>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 text-xs sm:text-sm text-slate-700">
-          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
-            <strong>Cathode / Anode Chemistry:</strong> NMC, LFP, NCA, Sodium-ion classification
-          </div>
-          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
-            <strong>Hazardous Substances:</strong> REACH SVHC & RoHS compliance declarations
-          </div>
-          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
-            <strong>Critical Raw Materials (CRM):</strong> Cobalt, lithium, nickel, natural graphite weights
-          </div>
-          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
-            <strong>ZKP Privacy Shield:</strong> Exact proprietary binder/electrolyte formulas masked
-          </div>
-        </div>
-      </div>
-
-      <!-- Domain 3: Carbon Footprint (PCF) -->
-      <div class="neo-surface p-6 sm:p-8">
-        <div class="flex items-center justify-between pb-4 border-b border-slate-200">
-          <div class="flex items-center gap-3">
-            <span class="w-8 h-8 rounded-xl bg-green-100 text-green-700 flex items-center justify-center font-bold text-sm">3</span>
-            <h3 class="text-lg font-bold text-slate-900">Carbon Footprint Declaration (CFD & PEFCR)</h3>
-          </div>
-          <span class="px-2.5 py-0.5 rounded-full bg-green-50 text-[11px] font-mono text-green-700 border border-green-200">Public / Authority</span>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 text-xs sm:text-sm text-slate-700">
-          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
-            <strong>Lifecycle Carbon Intensity:</strong> kg CO₂e / kWh of rated capacity
-          </div>
-          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
-            <strong>Stage Breakdown:</strong> Raw material extraction, main plant assembly, logistics
-          </div>
-          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
-            <strong>Performance Class:</strong> A–E label classification (effective Aug 2026)
-          </div>
-          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
-            <strong>Conformity Assessment:</strong> Independent third-party verifier statement
-          </div>
-        </div>
-      </div>
-
-      <!-- Domain 4: Supply Chain Due Diligence -->
-      <div class="neo-surface p-6 sm:p-8">
-        <div class="flex items-center justify-between pb-4 border-b border-slate-200">
-          <div class="flex items-center gap-3">
-            <span class="w-8 h-8 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-sm">4</span>
-            <h3 class="text-lg font-bold text-slate-900">Supply Chain Due Diligence (OECD & CSDDD)</h3>
-          </div>
-          <span class="px-2.5 py-0.5 rounded-full bg-amber-50 text-[11px] font-mono text-amber-700 border border-amber-200">Public / Authority</span>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 text-xs sm:text-sm text-slate-700">
-          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
-            <strong>Due Diligence Policy:</strong> OECD 5-step framework alignment statement
-          </div>
-          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
-            <strong>Smelter & Refiner List:</strong> Verified upstream processing facility IDs
-          </div>
-          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
-            <strong>Third-Party Audit Reports:</strong> Summary of responsible sourcing audits
-          </div>
-          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
-            <strong>Grievance Mechanism:</strong> Stakeholder reporting channel access
-          </div>
-        </div>
-      </div>
-
-      <!-- Domain 5: Recycled & Renewable Content -->
-      <div class="neo-surface p-6 sm:p-8">
-        <div class="flex items-center justify-between pb-4 border-b border-slate-200">
-          <div class="flex items-center gap-3">
-            <span class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm">5</span>
-            <h3 class="text-lg font-bold text-slate-900">Recycled Content & Circularity</h3>
-          </div>
-          <span class="px-2.5 py-0.5 rounded-full bg-emerald-50 text-[11px] font-mono text-emerald-700 border border-emerald-200">Public / Recycler</span>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 text-xs sm:text-sm text-slate-700">
-          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
-            <strong>Pre-consumer & Post-consumer Share:</strong> Cobalt, lithium, nickel, lead percentages
-          </div>
-          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
-            <strong>2031 Targets Preparation:</strong> Cobalt (16%), Lead (85%), Lithium (6%), Nickel (6%)
-          </div>
-          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
-            <strong>Renewable Content:</strong> Bio-based or non-fossil content declarations
-          </div>
-          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
-            <strong>Mass Balance Verification:</strong> Chain-of-custody documentation
-          </div>
-        </div>
-      </div>
-
-      <!-- Domain 6: Performance & Durability -->
-      <div class="neo-surface p-6 sm:p-8">
-        <div class="flex items-center justify-between pb-4 border-b border-slate-200">
-          <div class="flex items-center gap-3">
-            <span class="w-8 h-8 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center font-bold text-sm">6</span>
-            <h3 class="text-lg font-bold text-slate-900">Performance, Durability & SOH Telemetry</h3>
-          </div>
-          <span class="px-2.5 py-0.5 rounded-full bg-purple-50 text-[11px] font-mono text-purple-700 border border-purple-200">Restricted / OEM</span>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 text-xs sm:text-sm text-slate-700">
-          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
-            <strong>State of Health (SOH):</strong> Remaining capacity & power capability algorithms
-          </div>
-          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
-            <strong>Cycle Life Expectations:</strong> Expected lifetime under reference test conditions
-          </div>
-          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
-            <strong>Internal Resistance & Thermal:</strong> Resistance evolution & cooling specs
-          </div>
-          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
-            <strong>BMS Dynamic Telemetry:</strong> Secure cloud API update connectors
-          </div>
-        </div>
-      </div>
-
-      <!-- Domain 7: Safety & End-of-Life Dismantling -->
-      <div class="neo-surface p-6 sm:p-8">
-        <div class="flex items-center justify-between pb-4 border-b border-slate-200">
-          <div class="flex items-center gap-3">
-            <span class="w-8 h-8 rounded-xl bg-rose-100 text-rose-700 flex items-center justify-center font-bold text-sm">7</span>
-            <h3 class="text-lg font-bold text-slate-900">Safety Measures & Dismantling Manual</h3>
-          </div>
-          <span class="px-2.5 py-0.5 rounded-full bg-rose-50 text-[11px] font-mono text-rose-700 border border-rose-200">Recycler / Professional</span>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 text-xs sm:text-sm text-slate-700">
-          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
-            <strong>Extinguishing Agents:</strong> Recommended firefighting protocols (e.g. Copious water)
-          </div>
-          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
-            <strong>Disassembly Guide:</strong> Fastener types, torque ratings, module removal sequence
-          </div>
-          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
-            <strong>Coolant Evacuation:</strong> Fluid draining ports and handling procedures
-          </div>
-          <div class="p-3 bg-white/70 rounded-xl border border-slate-200">
-            <strong>Second-Life Readiness:</strong> Diagnostics criteria for stationary repurposing
-          </div>
-        </div>
-      </div>
-
     </div>
 
-    <!-- Call to action -->
-    <div class="mt-16 text-center max-w-3xl mx-auto neo-surface p-8 sm:p-10">
-      <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mb-2">Need Help Mapping Your Factory Data?</h3>
-      <p class="text-xs sm:text-sm text-slate-600 mb-6">
-        Our compliance engineering team provides automated MES/ERP attribute gap mapping for your specific battery models.
+    <!-- Interactive Filter & Search Bar -->
+    <div class="neo-well p-4 sm:p-5 rounded-2xl flex flex-wrap items-center justify-between gap-4 mb-6">
+      <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
+        {domains.map((dom, index) => (
+          <button
+            onclick={`filterDomain('${dom.id}')`}
+            id={`filter-btn-${dom.id}`}
+            class={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${index === 0 ? 'bg-cyan-600 text-white shadow-sm' : 'bg-white/80 text-slate-700 border border-slate-200 hover:bg-slate-100'}`}
+          >
+            {dom.name}
+          </button>
+        ))}
+      </div>
+
+      <div class="w-full sm:w-64">
+        <input
+          id="table-search"
+          type="text"
+          placeholder="Search 71 attributes..."
+          oninput="searchAttributes()"
+          class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs bg-white focus:border-cyan-500 outline-none"
+        />
+      </div>
+    </div>
+
+    <!-- 71 Statutory Attributes Full Table -->
+    <div class="neo-surface p-4 sm:p-6 rounded-3xl overflow-hidden shadow-xl border border-white/80">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs border-collapse">
+          <thead>
+            <tr class="bg-slate-900 text-white font-mono text-[11px] uppercase tracking-wider">
+              <th class="p-3.5 rounded-l-xl">No.</th>
+              <th class="p-3.5">Statutory Attribute Name</th>
+              <th class="p-3.5">Annex XIII Legal Basis</th>
+              <th class="p-3.5">Specification / Content</th>
+              <th class="p-3.5">Data Owner</th>
+              <th class="p-3.5">Access Tier</th>
+              <th class="p-3.5 rounded-r-xl">Mandate</th>
+            </tr>
+          </thead>
+          <tbody id="checklist-tbody" class="divide-y divide-slate-200 text-slate-700">
+            {checklistItems.map((item) => (
+              <tr class="hover:bg-cyan-50/50 transition-colors row-item" data-domain={item.domain} data-text={`${item.name} ${item.legal} ${item.desc} ${item.owner}`}>
+                <td class="p-3 font-mono font-bold text-slate-500">{item.no}</td>
+                <td class="p-3 font-bold text-slate-900">{item.name}</td>
+                <td class="p-3 font-mono text-cyan-800 text-[11px] whitespace-nowrap">{item.legal}</td>
+                <td class="p-3 text-slate-600 text-[11px] max-w-xs">{item.desc}</td>
+                <td class="p-3 whitespace-nowrap">
+                  <span class="px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 font-medium text-[10px]">{item.owner}</span>
+                </td>
+                <td class="p-3 whitespace-nowrap">
+                  <span class={`px-2 py-0.5 rounded-md font-mono text-[10px] font-bold ${item.tier === 'Public' ? 'bg-green-100 text-green-800' : item.tier === 'ZKP Shielded' ? 'bg-purple-100 text-purple-800' : 'bg-blue-100 text-blue-800'}`}>
+                    {item.tier}
+                  </span>
+                </td>
+                <td class="p-3 font-mono text-slate-500 text-[11px] whitespace-nowrap">{item.date}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Bottom Contact Callout -->
+    <div class="mt-12 text-center space-y-4">
+      <p class="text-sm text-slate-600">
+        Need assistance mapping your factory MES/ERP data fields to the Annex XIII schema?
       </p>
-      <a href="/contact/" class="neo-btn-primary inline-block">
-        Request Data Mapping Scoping →
+      <a href="/contact/" class="neo-btn-primary inline-flex items-center gap-2">
+        <span>Request Technical Field Mapping Consultation →</span>
       </a>
     </div>
 
   </div>
 </Layout>
+
+<script is:inline>
+  let activeDomain = 'all';
+
+  function filterDomain(domainId) {
+    activeDomain = domainId;
+    
+    // Update button states
+    const buttons = document.querySelectorAll('[id^="filter-btn-"]');
+    buttons.forEach(btn => {
+      if (btn.id === `filter-btn-${domainId}`) {
+        btn.className = 'px-3 py-1.5 rounded-xl text-xs font-bold transition-all bg-cyan-600 text-white shadow-sm';
+      } else {
+        btn.className = 'px-3 py-1.5 rounded-xl text-xs font-bold transition-all bg-white/80 text-slate-700 border border-slate-200 hover:bg-slate-100';
+      }
+    });
+
+    applyFilters();
+  }
+
+  function searchAttributes() {
+    applyFilters();
+  }
+
+  function applyFilters() {
+    const query = document.getElementById('table-search')?.value.toLowerCase() || '';
+    const rows = document.querySelectorAll('.row-item');
+
+    rows.forEach(row => {
+      const rowDomain = row.getAttribute('data-domain');
+      const rowText = row.getAttribute('data-text')?.toLowerCase() || '';
+
+      const matchDomain = (activeDomain === 'all' || rowDomain === activeDomain);
+      const matchSearch = (!query || rowText.includes(query));
+
+      if (matchDomain && matchSearch) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  }
+</script>

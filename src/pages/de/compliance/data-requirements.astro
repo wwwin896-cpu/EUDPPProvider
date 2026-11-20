@@ -1,20 +1,254 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
+
+const domains = [
+  { id: 'all', name: 'Alle 71 Pflichtattribute' },
+  { id: 'd1', name: '1. Identität & Hersteller (12)' },
+  { id: 'd2', name: '2. Materialien & Rezyklat (11)' },
+  { id: 'd3', name: '3. CO₂-Fußabdruck (9)' },
+  { id: 'd4', name: '4. Leistung & Lebensdauer (10)' },
+  { id: 'd5', name: '5. BMS-Telemetrie (10)' },
+  { id: 'd6', name: '6. Demontage & Sicherheit (11)' },
+  { id: 'd7', name: '7. eIDAS & Konformität (8)' },
+];
+
+const checklistItems = [
+  { no: '01', domain: 'd1', name: 'Eindeutige Produktkennung (UPI / SGTIN)', legal: 'Anhang XIII, 1(a)', desc: 'GTIN-14 + eindeutige Seriennummer nach EN 18219/18220 (GS1 Digital Link)', owner: 'Pack-Hersteller', tier: 'Öffentlich', date: '2027-02-18' },
+  { no: '02', domain: 'd1', name: 'Rechtlicher Name des Wirtschaftsakteurs', legal: 'Anhang XIII, 1(b)', desc: 'Vollständiger eingetragener Unternehmensname und Registriernummer (USCI/EORI)', owner: 'Pack-Hersteller', tier: 'Öffentlich', date: '2027-02-18' },
+  { no: '03', domain: 'd1', name: 'Unternehmenssitz & EU-Kontaktstelle', legal: 'Anhang XIII, 1(c)', desc: 'Postanschrift, offizielle Website, E-Mail und EU-Telefonnummer', owner: 'Pack-Hersteller', tier: 'Öffentlich', date: '2027-02-18' },
+  { no: '04', domain: 'd1', name: 'Standort der Produktionsstätte', legal: 'Anhang XIII, 1(d)', desc: 'Werkscode, Stadt und ISO 3166 Ländercode', owner: 'Pack-Hersteller', tier: 'Öffentlich', date: '2027-02-18' },
+  { no: '05', domain: 'd1', name: 'Herstellungsdatum (Monat/Jahr)', legal: 'Anhang XIII, 1(e)', desc: 'Datum der Fertigstellung des Batteriepacks (YYYY-MM)', owner: 'Pack-Hersteller', tier: 'Öffentlich', date: '2027-02-18' },
+  { no: '06', domain: 'd1', name: 'Datum des Inverkehrbringens in der EU', legal: 'Anhang XIII, 1(f)', desc: 'Zollabfertigung oder Datum der ersten Bereitstellung (YYYY-MM-DD)', owner: 'Importeur/OEM', tier: 'Zoll/Öffentlich', date: '2027-02-18' },
+  { no: '07', domain: 'd1', name: 'Batteriekategorie-Klassifizierung', legal: 'Artikel 1(1)', desc: 'Elektrofahrzeuge (EV), LMT (≤25kg) oder Industriespeicher (BESS >2kWh)', owner: 'Pack-Hersteller', tier: 'Öffentlich', date: '2027-02-18' },
+  { no: '08', domain: 'd1', name: 'Batteriemodell & Handelsbezeichnung', legal: 'Anhang XIII, 1(g)', desc: 'Offizielle Modellkennung und Marketing-Handelsname', owner: 'Pack-Hersteller', tier: 'Öffentlich', date: '2027-02-18' },
+  { no: '09', domain: 'd1', name: 'Gesamtmasse des Batteriepacks (kg)', legal: 'Anhang XIII, 1(h)', desc: 'Nettomasse in Kilogramm (Genauigkeit 0,1 kg)', owner: 'Pack-Hersteller', tier: 'Öffentlich', date: '2027-02-18' },
+  { no: '10', domain: 'd1', name: 'Abmessungen & Bauform', legal: 'Anhang XIII, 1(i)', desc: 'Länge x Breite x Höhe (mm) und Gehäusegeometrie', owner: 'Pack-Hersteller', tier: 'Öffentlich', date: '2027-02-18' },
+  { no: '11', domain: 'd1', name: 'Nutzbare Nennenergiekapazität (kWh)', legal: 'Anhang XIII, 1(j)', desc: 'Nennenergie (kWh) und Nennkapazität (Ah) unter Standardbedingungen', owner: 'Zelle/Pack-Hersteller', tier: 'Öffentlich', date: '2027-02-18' },
+  { no: '12', domain: 'd1', name: '2D-Datenträger Syntax (EN 18220)', legal: 'EN 18220:2026', desc: 'GS1 Digital Link URI-Standard: /01/{GTIN}/21/{SERIAL}', owner: 'Systemgeneriert', tier: 'Öffentlich', date: '2027-02-18' },
+  { no: '13', domain: 'd2', name: 'Kathoden-Aktivmaterial-Chemie', legal: 'Anhang XIII, 2(a)', desc: 'NMC 811/622, LFP, NCA, Natrium-Ionen-Stöchiometrie', owner: 'Zellhersteller', tier: 'Öffentlich', date: '2027-02-18' },
+  { no: '14', domain: 'd2', name: 'Anodenmaterial-Zusammensetzung', legal: 'Anhang XIII, 2(b)', desc: 'Naturgraphit, synthetischer Graphit oder Silizium-Kohlenstoff-Verbund', owner: 'Zellhersteller', tier: 'Recycler/Öffentlich', date: '2027-02-18' },
+  { no: '15', domain: 'd2', name: 'Elektrolyt-Lösungsmittel & Leitsalze', legal: 'Anhang XIII, 2(c)', desc: 'LiPF6-Konzentration und organische Lösungsmittel (ZKP-geschützt)', owner: 'Zellhersteller', tier: 'ZKP-Geschützt', date: '2027-02-18' },
+  { no: '16', domain: 'd2', name: 'Kritischer Rohstoff Kobalt (kg)', legal: 'Artikel 8 & XIII', desc: 'Absolutes Gewicht von reinem aktivem Kobalt (kg)', owner: 'Zellhersteller', tier: 'Behörden/Audit', date: '2027-02-18' },
+  { no: '17', domain: 'd2', name: 'Kritischer Rohstoff Lithium (kg)', legal: 'Artikel 8 & XIII', desc: 'Absolutes Gewicht von reinem aktivem Lithium (kg)', owner: 'Zellhersteller', tier: 'Behörden/Audit', date: '2027-02-18' },
+  { no: '18', domain: 'd2', name: 'Kritischer Rohstoff Nickel (kg)', legal: 'Artikel 8 & XIII', desc: 'Absolutes Gewicht von reinem aktivem Nickel (kg)', owner: 'Zellhersteller', tier: 'Behörden/Audit', date: '2027-02-18' },
+  { no: '19', domain: 'd2', name: 'Rezyklatanteil Kobalt (%)', legal: 'Artikel 8(1)', desc: 'Deklarierter Recyclinganteil Kobalt (Ab 2031 Pflicht: ≥16%)', owner: 'Materiallieferant', tier: 'Öffentlich', date: '2028-08-18' },
+  { no: '20', domain: 'd2', name: 'Rezyklatanteil Lithium (%)', legal: 'Artikel 8(1)', desc: 'Deklarierter Recyclinganteil Lithium (Ab 2031 Pflicht: ≥6%)', owner: 'Materiallieferant', tier: 'Öffentlich', date: '2028-08-18' },
+  { no: '21', domain: 'd2', name: 'Rezyklatanteil Nickel (%)', legal: 'Artikel 8(1)', desc: 'Deklarierter Recyclinganteil Nickel (Ab 2031 Pflicht: ≥6%)', owner: 'Materiallieferant', tier: 'Öffentlich', date: '2028-08-18' },
+  { no: '22', domain: 'd2', name: 'Rezyklatanteil Blei (%)', legal: 'Artikel 8(1)', desc: 'Deklarierter Recyclinganteil Blei (Ab 2031 Pflicht: ≥85%)', owner: 'Materiallieferant', tier: 'Öffentlich', date: '2028-08-18' },
+  { no: '23', domain: 'd2', name: 'REACH / RoHS Konformitätserklärung', legal: 'Anhang XIII, 2(d)', desc: 'SVHC-Kandidatenstofferklärung (<0,1%) & Schwermetallgrenzwerte', owner: 'Hersteller', tier: 'Öffentlich', date: '2027-02-18' },
+  { no: '24', domain: 'd3', name: 'Gesamter CO₂-Fußabdruck (kg CO₂e/kWh)', legal: 'Artikel 7 & II', desc: 'Treibhausgasemissionen von der Wiege bis zur Bahre je kWh Nennenergie', owner: 'LCA-Team', tier: 'Öffentlich', date: '2026-08-18' },
+  { no: '25', domain: 'd3', name: 'CO₂-Emissionen Rohstoffgewinnung', legal: 'Anhang II, 2(a)', desc: 'Vorgelagerte Bergbau-, Veredelungs- und Syntheseprozesse', owner: 'Lieferkette', tier: 'Audit-Ebene', date: '2026-08-18' },
+  { no: '26', domain: 'd3', name: 'CO₂-Emissionen Hauptwerk-Herstellung', legal: 'Anhang II, 2(b)', desc: 'Zellfertigung und Batteriepackmontage (Strom/Wärme)', owner: 'Werk-MES', tier: 'Audit-Ebene', date: '2026-08-18' },
+  { no: '27', domain: 'd3', name: 'CO₂-Emissionen Transport & Logistik', legal: 'Anhang II, 2(c)', desc: 'Transportemissionen bis zum EU-Einfuhrhafen', owner: 'Logistik', tier: 'Audit-Ebene', date: '2026-08-18' },
+  { no: '28', domain: 'd3', name: 'CO₂-Emissionen Recycling & EoL', legal: 'Anhang II, 2(d)', desc: 'Demontage und Gutschriften für metallurgische Rückgewinnung', owner: 'LCA-Modell', tier: 'Audit-Ebene', date: '2026-08-18' },
+  { no: '29', domain: 'd3', name: 'CO₂-Leistungsklassen-Kennzeichnung', legal: 'Artikel 7(2)', desc: 'Offizielle A–E Klassifizierung für Traktionsbatterien', owner: 'Offizieller Abgleich', tier: 'Öffentlich', date: '2026-08-18' },
+  { no: '30', domain: 'd3', name: 'Maximaler CO₂-Schwellenwert-Nachweis', legal: 'Artikel 7(3)', desc: 'Nachweis der Einhaltung unterhalb der gesetzlichen CO₂-Obergrenze', owner: 'Benannte Stelle', tier: 'Zoll/Öffentlich', date: '2028-02-18' },
+  { no: '31', domain: 'd3', name: 'Unabhängige Dritte LCA-Prüferklärung', legal: 'Artikel 7(1)', desc: 'Zertifizierte Bestätigung gemäß ISO 14067 & EU PEFCR Regeln', owner: 'Zertifizierer', tier: 'Öffentlich', date: '2026-08-18' },
+  { no: '32', domain: 'd3', name: 'Sorgfaltspflichten in der Lieferkette', legal: 'Artikel 48-53', desc: 'OECD-konformer Sorgfaltspflichtbericht und externe Auditierung', owner: 'Unternehmens-ESG', tier: 'Öffentlich/Zoll', date: '2027-08-18' },
+  { no: '33', domain: 'd4', name: 'Nennkapazität (Ah)', legal: 'Anhang XIII, 3(a)', desc: 'Kapazität in Amperestunden unter Standardprüfbedingungen', owner: 'Zellspezifikation', tier: 'Öffentlich', date: '2027-02-18' },
+  { no: '34', domain: 'd4', name: 'Nennspannung des Systems (V)', legal: 'Anhang XIII, 3(b)', desc: 'Nominale DC-Betriebsspannung (z.B. 400V, 800V, 1500V)', owner: 'Pack-Spezifikation', tier: 'Öffentlich', date: '2027-02-18' },
+  { no: '35', domain: 'd4', name: 'Betriebsspannungsgrenzwerte', legal: 'Anhang XIII, 3(c)', desc: 'Maximale Ladeschluss- und minimale Entladeschlussspannung', owner: 'BMS-Schutz', tier: 'Öffentlich', date: '2027-02-18' },
+  { no: '36', domain: 'd4', name: 'Maximale Dauer- & Spitzenleistung (kW)', legal: 'Anhang XIII, 3(d)', desc: 'Zulässige Dauerleistung und 20s-Impulsleistung (kW)', owner: 'Pack-Spezifikation', tier: 'Öffentlich', date: '2027-02-18' },
+  { no: '37', domain: 'd4', name: 'Anfänglicher Gleichstrom-Innenwiderstand', legal: 'Anhang XIII, 3(e)', desc: 'Werkseitiger DC-Innenwiderstand DCR (mΩ) bei 25°C', owner: 'QS-Prüfung', tier: 'Öffentlich/Service', date: '2027-02-18' },
+  { no: '38', domain: 'd4', name: 'Anfänglicher Round-Trip-Wirkungsgrad (%)', legal: 'Anhang XIII, 3(f)', desc: 'Energieeffizienz unter Standard 1C/1C Lade-Entlade-Zyklen', owner: 'Typprüflabor', tier: 'Öffentlich', date: '2027-02-18' },
+  { no: '39', domain: 'd4', name: 'Erwartete Zyklenlebensdauer', legal: 'Anhang XIII, 3(g)', desc: 'Referenzzyklen bis zum Erreichen der 80% SOH-Schwelle', owner: 'Alterungslabor', tier: 'Öffentlich', date: '2027-02-18' },
+  { no: '40', domain: 'd4', name: 'Kalendarische Alterungsrate (%/Jahr)', legal: 'Anhang XIII, 3(h)', desc: 'Geschätzter jährlicher Kapazitätsverlust bei 20°C Lagerung', owner: 'F&E-Labor', tier: 'Öffentlich', date: '2027-02-18' },
+  { no: '41', domain: 'd4', name: 'Zulässiger Betriebstemperaturbereich', legal: 'Anhang XIII, 3(i)', desc: 'Erlaubter Umgebungstemperaturbereich beim Laden und Entladen', owner: 'Thermisches Design', tier: 'Öffentlich', date: '2027-02-18' },
+  { no: '42', domain: 'd4', name: 'Angewandte Prüfstandards & Normen', legal: 'Anhang XIII, 3(j)', desc: 'EN 62619, ISO 12405, UN GTR 20 Referenznormen', owner: 'Zertifizierung', tier: 'Öffentlich', date: '2027-02-18' },
+  { no: '43', domain: 'd5', name: 'Aktueller Alterungszustand (SOH %)', legal: 'Artikel 78 & VII', desc: 'Verbleibende nutzbare Kapazität im Vergleich zur Nennkapazität', owner: 'BMS-Echtzeit', tier: 'Besitzer/Service/Zoll', date: '2027-02-18' },
+  { no: '44', domain: 'd5', name: 'Äquivalente Vollzyklen (EFC-Zähler)', legal: 'Anhang VII, 1(a)', desc: 'Kumulierter Energiedurchsatz umgerechnet in 100%-Vollzyklen', owner: 'BMS-Zähler', tier: 'Besitzer/Service/Zoll', date: '2027-02-18' },
+  { no: '45', domain: 'd5', name: 'Anstieg des Innenwiderstands (%)', legal: 'Anhang VII, 1(b)', desc: 'Prozentuale Zunahme des DCR gegenüber der Werksbasis', owner: 'BMS-Diagnose', tier: 'Service/Recycler', date: '2027-02-18' },
+  { no: '46', domain: 'd5', name: 'Kumulierter Energiedurchsatz (MWh)', legal: 'Anhang VII, 1(c)', desc: 'Gesamte geladene und entladene elektrische Energie (MWh)', owner: 'BMS-Speicher', tier: 'Audit-Ebene', date: '2027-02-18' },
+  { no: '47', domain: 'd5', name: 'Tiefentladungs-Ereigniszähler', legal: 'Anhang VII, 1(d)', desc: 'Anzahl der Ereignisse unterhalb der Abschaltspannung', owner: 'BMS-Fehlerlog', tier: 'Second-Life/OEM', date: '2027-02-18' },
+  { no: '48', domain: 'd5', name: 'Betriebszeit in extremen Temperaturen', legal: 'Anhang VII, 1(e)', desc: 'Gesamtlaufzeit außerhalb des empfohlenen Temperaturbereichs', owner: 'BMS-Thermolog', tier: 'Garantie/OEM', date: '2027-02-18' },
+  { no: '49', domain: 'd5', name: 'Maximale Zellspannungsdifferenz (mV)', legal: 'Anhang VII, 1(f)', desc: 'Größte Spannungsabweichung zwischen Einzelzellen unter Last', owner: 'BMS-Balancing', tier: 'Diagnose-Ebene', date: '2027-02-18' },
+  { no: '50', domain: 'd5', name: 'Hochvolt-Isolationswiderstand (kΩ)', legal: 'Anhang VII, 1(g)', desc: 'Echtzeit-Isolationsmessung zwischen DC-Bus und Gehäusemasse', owner: 'BMS-Sicherheit', tier: 'Hauptuntersuchung', date: '2027-02-18' },
+  { no: '51', domain: 'd5', name: 'Diagnoseschnittstellen-Protokoll (OBD)', legal: 'Artikel 78(2)', desc: 'Standardisiertes ISO 14229 / CAN / REST Telemetrieprotokoll', owner: 'Gateway-Hersteller', tier: 'Fachpersonal', date: '2027-02-18' },
+  { no: '52', domain: 'd5', name: 'BMS-Software & Firmware-Versionshistorie', legal: 'Anhang XIII, 4', desc: 'Aktuelle Firmware-Prüfsumme und OTA-Update-Historie', owner: 'OEM Software', tier: 'Behörden/OEM', date: '2027-02-18' },
+  { no: '53', domain: 'd6', name: 'Empfohlenes Löschmittel & Notfallprotokoll', legal: 'Anhang XIII, 5(a)', desc: 'F-500 Kapselungs-Löschmittel oder Wasserflutungsprotokoll', owner: 'Sicherheitsteam', tier: 'Öffentlich/Notfall', date: '2027-02-18' },
+  { no: '54', domain: 'd6', name: 'Demontageanleitung & Arbeitsschritte', legal: 'Anhang XIII, 5(b)', desc: 'Spannungsfreischaltung, Gehäuseöffnung und Moduldemontagepläne', owner: 'Pack-Entwicklung', tier: 'Zertifizierte Recycler', date: '2027-02-18' },
+  { no: '55', domain: 'd6', name: 'Erforderliche Spezialwerkzeuge', legal: 'Anhang XIII, 5(c)', desc: 'Isolierte Werkzeuge, Torx-Bits und Hebevorrichtungen', owner: 'Werkzeugtechnik', tier: 'Zertifizierte Recycler', date: '2027-02-18' },
+  { no: '56', domain: 'd6', name: 'Befestigungselemente & Anzugsmomente', legal: 'Anhang XIII, 5(d)', desc: 'Schraubenspezifikationen (z.B. M8 Torx Plus) und Drehmomentgrenzen', owner: 'Konstruktion', tier: 'Zertifizierte Recycler', date: '2027-02-18' },
+  { no: '57', domain: 'd6', name: 'Kühlmittel-Entleerungsverfahren', legal: 'Anhang XIII, 5(e)', desc: 'Ablassventil-Position und umweltgerechte Glykol-Rückgewinnung', owner: 'Thermomanagement', tier: 'Zertifizierte Recycler', date: '2027-02-18' },
+  { no: '58', domain: 'd6', name: 'Zellmodul-Austauschbarkeit & Reparierbarkeit', legal: 'Anhang XIII, 5(f)', desc: 'Bewertungsskala für zerstörungsfreie Modulreparaturen', owner: 'Konstruktionsteam', tier: 'Service/Öffentlich', date: '2027-02-18' },
+  { no: '59', domain: 'd6', name: 'Leitfaden zur Second-Life-Wiederverwendung', legal: 'Artikel 73 & XIII', desc: 'Prüfkriterien für die Umnutzung von Traktionsakkus als BESS-Speicher', owner: 'Systemintegration', tier: 'Zweitnutzer', date: '2027-02-18' },
+  { no: '60', domain: 'd6', name: 'Materialrückgewinnungs-Richtwerte', legal: 'Artikel 71 & XII', desc: 'Empfehlungen zur effizienten Kobalt-, Lithium-, Nickel- und Kupfer-Rückgewinnung', owner: 'Kreislaufwirtschaft', tier: 'Zertifizierte Recycler', date: '2027-02-18' },
+  { no: '61', domain: 'd6', name: 'Getrennte Sammlung & Durchgestrichene Mülltonne', legal: 'Artikel 59-60', desc: 'WEEE-Recyclingsymbole und Rücknahmestellen-Identifikation', owner: 'Compliance', tier: 'Öffentlich', date: '2027-02-18' },
+  { no: '62', domain: 'd6', name: 'Sicherheitsdatenblatt (MSDS / SDS PDF)', legal: 'REACH-Verordnung', desc: 'Vollständiges chemisches Sicherheitsdatenblatt nach GHS-Standard', owner: 'QS-Labor', tier: 'Öffentlich/Logistik', date: '2027-02-18' },
+  { no: '63', domain: 'd6', name: 'UN 38.3 Transportsicherheitsnachweis', legal: 'UN Manual 38.3', desc: 'T1-T8 Prüfberichtszusammenfassung für gefahrgutkonformen Transport', owner: 'Prüfinstitut', tier: 'Zoll/Spedition', date: '2027-02-18' },
+  { no: '64', domain: 'd7', name: 'EU-Konformitätserklärung (DoC-Dokument)', legal: 'Artikel 18 & IX', desc: 'Offizielle unterzeichnete Erklärung zur Erfüllung aller CE-Vorgaben', owner: 'Rechtsabteilung', tier: 'Öffentlich/Zoll', date: '2027-02-18' },
+  { no: '65', domain: 'd7', name: 'Kennnummer der Benannten Stelle (NB-Nummer)', legal: 'Artikel 22', desc: 'Vierstellige Identifikationsnummer der europäischen Prüfstelle', owner: 'Benannte Stelle', tier: 'Öffentlich/Zoll', date: '2027-02-18' },
+  { no: '66', domain: 'd7', name: 'EU-Baumusterprüfbescheinigung Kennung', legal: 'Modul B / D', desc: 'Nummer des Baumusterprüfzertifikats und Gültigkeitsdauer', owner: 'Benannte Stelle', tier: 'Zollbehörden', date: '2027-02-18' },
+  { no: '67', domain: 'd7', name: 'eIDAS 2.0 Qualifiziertes Elektronisches Siegel', legal: 'VO (EU) 910/2014', desc: 'PAdES-konforme digitale Signatur von akkreditiertem Vertrauensdiensteanbieter', owner: 'DPP-Plattform', tier: 'Zoll/Audit', date: '2027-02-18' },
+  { no: '68', domain: 'd7', name: 'DG GROW EU-Zentralregister Registrierungs-UPI', legal: 'Artikel 77-78', desc: 'Offizieller Bestätigungsbeleg auf registry.product-passport.ec.europa.eu', owner: 'EU-Register', tier: 'Öffentlich/Zoll', date: '2026-07-20' },
+  { no: '69', domain: 'd7', name: '10-Jahre Daten-Hosting SLA Zusage', legal: 'Artikel 77(3)', desc: 'Garantierte 10-jährige Datenverfügbarkeit und Link-Auflösung', owner: 'EU DPP Provider', tier: 'Öffentlich/Recht', date: '2027-02-18' },
+  { no: '70', domain: 'd7', name: 'Zero-Knowledge-Proof Verifikations-Hash', legal: 'Datenschutzstandard', desc: 'Kryptographischer SHA-256 Prüfhash zur Rezeptursicherung', owner: 'DPP-Sandbox', tier: 'Regulierer', date: '2027-02-18' },
+  { no: '71', domain: 'd7', name: 'Kryptographischer Historien-Zeitstempel', legal: 'RFC 3161 / eIDAS', desc: 'Manipulationssicherer Prüfprotokoll-Zeitstempel', owner: 'DPP-Plattform', tier: 'Zoll/Öffentlich', date: '2027-02-18' },
+];
 ---
 
 <Layout
-  title="90+ EU-Batteriepass Pflichtdaten Checkliste | EU DPP Provider"
-  description="Technische Spezifikation der 7 Datenbereiche und 90+ Attribute gemäß Verordnung (EU) 2023/1542 Anhang XIII."
+  title="EU-Batteriepass 71 Pflichtdaten Checkliste | EU DPP Provider"
+  description="Vollständige technische Spezifikation aller 71 Pflichtattribute gemäß Verordnung (EU) 2023/1542 Anhang XIII. Kostenlose Excel/CSV-Matrix zum Download."
 >
   <div class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center max-w-4xl mx-auto mb-16">
+    
+    <div class="text-center max-w-4xl mx-auto mb-12">
       <div class="eyebrow-pill mb-3 mx-auto">Verordnung (EU) 2023/1542 · Anhang XIII</div>
       <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-        90+ Pflichtdatenanforderungen für den Batteriepass
+        EU-Batteriepass <br class="hidden sm:inline" />
+        <span class="text-cyan-600">71 Gesetzliche Pflichtdaten & Checkliste</span>
       </h1>
-      <p class="mt-4 text-base text-slate-600 leading-relaxed">
-        Übersicht der 7 Compliance-Bereiche und Zugriffsebenen für Batteriehersteller.
+      <p class="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
+        Technische Übersicht aller 71 Datenanforderungen in 7 Compliance-Bereichen. Laden Sie die offizielle Excel/CSV-Matrix für Ihre interne Gap-Analyse herunter.
       </p>
     </div>
+
+    <div class="neo-surface p-6 sm:p-8 bg-gradient-to-br from-white to-cyan-50/40 border border-cyan-200/80 mb-10 shadow-lg rounded-3xl">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div class="space-y-1.5 max-w-2xl">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
+            <span class="text-xs font-mono font-bold text-cyan-800 uppercase tracking-wider">Offizielle Selbstprüfungs-Matrix</span>
+          </div>
+          <h3 class="text-lg sm:text-xl font-bold text-slate-900">
+            71-Attribute Compliance-Checkliste herunterladen (Excel & CSV)
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Formatiert mit EU-Rechtsgrundlagen, Datenzuständigkeiten, Zugriffsebenen und Meilensteinen 2026–2031.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3">
+          <a
+            href="/downloads/EU_Battery_Passport_71_Data_Requirements_Checklist.xlsx"
+            download="EU_Battery_Passport_71_Data_Requirements_Checklist.xlsx"
+            class="neo-btn-primary py-3 px-5 text-xs sm:text-sm font-bold flex items-center gap-2 shadow-md"
+          >
+            <span>📥 Excel (.xlsx) herunterladen</span>
+          </a>
+          <a
+            href="/downloads/EU_Battery_Passport_71_Data_Requirements_Checklist.csv"
+            download="EU_Battery_Passport_71_Data_Requirements_Checklist.csv"
+            class="px-5 py-3 rounded-full bg-white/90 border border-slate-300 hover:border-cyan-500 font-bold text-xs sm:text-sm text-slate-800 hover:text-cyan-700 flex items-center gap-2 shadow-sm transition-all"
+          >
+            <span>📄 CSV herunterladen</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter & Search Bar -->
+    <div class="neo-well p-4 sm:p-5 rounded-2xl flex flex-wrap items-center justify-between gap-4 mb-6">
+      <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
+        {domains.map((dom, index) => (
+          <button
+            onclick={`filterDomain('${dom.id}')`}
+            id={`filter-btn-${dom.id}`}
+            class={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${index === 0 ? 'bg-cyan-600 text-white shadow-sm' : 'bg-white/80 text-slate-700 border border-slate-200 hover:bg-slate-100'}`}
+          >
+            {dom.name}
+          </button>
+        ))}
+      </div>
+
+      <div class="w-full sm:w-64">
+        <input
+          id="table-search"
+          type="text"
+          placeholder="Suchen nach Attributen..."
+          oninput="searchAttributes()"
+          class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs bg-white focus:border-cyan-500 outline-none"
+        />
+      </div>
+    </div>
+
+    <!-- 71 Attributes Table -->
+    <div class="neo-surface p-4 sm:p-6 rounded-3xl overflow-hidden shadow-xl border border-white/80">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs border-collapse">
+          <thead>
+            <tr class="bg-slate-900 text-white font-mono text-[11px] uppercase tracking-wider">
+              <th class="p-3.5 rounded-l-xl">Nr.</th>
+              <th class="p-3.5">Gesetzlicher Attributname</th>
+              <th class="p-3.5">EU-Rechtsgrundlage</th>
+              <th class="p-3.5">Spezifikation / Beschreibung</th>
+              <th class="p-3.5">Zuständigkeit</th>
+              <th class="p-3.5">Zugriffsebene</th>
+              <th class="p-3.5 rounded-r-xl">Pflicht ab</th>
+            </tr>
+          </thead>
+          <tbody id="checklist-tbody" class="divide-y divide-slate-200 text-slate-700">
+            {checklistItems.map((item) => (
+              <tr class="hover:bg-cyan-50/50 transition-colors row-item" data-domain={item.domain} data-text={`${item.name} ${item.legal} ${item.desc} ${item.owner}`}>
+                <td class="p-3 font-mono font-bold text-slate-500">{item.no}</td>
+                <td class="p-3 font-bold text-slate-900">{item.name}</td>
+                <td class="p-3 font-mono text-cyan-800 text-[11px] whitespace-nowrap">{item.legal}</td>
+                <td class="p-3 text-slate-600 text-[11px] max-w-xs">{item.desc}</td>
+                <td class="p-3 whitespace-nowrap">
+                  <span class="px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 font-medium text-[10px]">{item.owner}</span>
+                </td>
+                <td class="p-3 whitespace-nowrap">
+                  <span class={`px-2 py-0.5 rounded-md font-mono text-[10px] font-bold ${item.tier.includes('Öffentlich') ? 'bg-green-100 text-green-800' : item.tier.includes('ZKP') ? 'bg-purple-100 text-purple-800' : 'bg-blue-100 text-blue-800'}`}>
+                    {item.tier}
+                  </span>
+                </td>
+                <td class="p-3 font-mono text-slate-500 text-[11px] whitespace-nowrap">{item.date}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="mt-12 text-center space-y-4">
+      <p class="text-sm text-slate-600">
+        Benötigen Sie Unterstützung bei der Zuordnung Ihrer MES/ERP-Datenfelder zu den 71 Attributen?
+      </p>
+      <a href="/de/contact/" class="neo-btn-primary inline-flex items-center gap-2">
+        <span>Fachliche Beratung anfragen →</span>
+      </a>
+    </div>
+
   </div>
 </Layout>
+
+<script is:inline>
+  let activeDomain = 'all';
+
+  function filterDomain(domainId) {
+    activeDomain = domainId;
+    const buttons = document.querySelectorAll('[id^="filter-btn-"]');
+    buttons.forEach(btn => {
+      if (btn.id === `filter-btn-${domainId}`) {
+        btn.className = 'px-3 py-1.5 rounded-xl text-xs font-bold transition-all bg-cyan-600 text-white shadow-sm';
+      } else {
+        btn.className = 'px-3 py-1.5 rounded-xl text-xs font-bold transition-all bg-white/80 text-slate-700 border border-slate-200 hover:bg-slate-100';
+      }
+    });
+    applyFilters();
+  }
+
+  function searchAttributes() {
+    applyFilters();
+  }
+
+  function applyFilters() {
+    const query = document.getElementById('table-search')?.value.toLowerCase() || '';
+    const rows = document.querySelectorAll('.row-item');
+
+    rows.forEach(row => {
+      const rowDomain = row.getAttribute('data-domain');
+      const rowText = row.getAttribute('data-text')?.toLowerCase() || '';
+
+      const matchDomain = (activeDomain === 'all' || rowDomain === activeDomain);
+      const matchSearch = (!query || rowText.includes(query));
+
+      if (matchDomain && matchSearch) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  }
+</script>

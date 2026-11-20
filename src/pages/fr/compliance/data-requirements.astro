@@ -1,20 +1,254 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
+
+const domains = [
+  { id: 'all', name: '71 Attributs Réglementaires' },
+  { id: 'd1', name: '1. Identité & Fabricant (12)' },
+  { id: 'd2', name: '2. Matériaux & Recyclé (11)' },
+  { id: 'd3', name: '3. Empreinte Carbone (9)' },
+  { id: 'd4', name: '4. Performances & Durée (10)' },
+  { id: 'd5', name: '5. Télémétrie BMS (10)' },
+  { id: 'd6', name: '6. Démontage & Sécurité (11)' },
+  { id: 'd7', name: '7. eIDAS & Conformité (8)' },
+];
+
+const checklistItems = [
+  { no: '01', domain: 'd1', name: 'Identifiant Unique du Produit (UPI / SGTIN)', legal: 'Annexe XIII, 1(a)', desc: 'Format GS1 Digital Link : GTIN-14 + numéro de série unique (EN 18219/18220)', owner: 'Fabricant Pack', tier: 'Public', date: '2027-02-18' },
+  { no: '02', domain: 'd1', name: 'Raison Sociale du Fabricant / Opérateur', legal: 'Annexe XIII, 1(b)', desc: 'Nom légal enregistré et numéro d’identification de l’entreprise (USCI/EORI)', owner: 'Fabricant Pack', tier: 'Public', date: '2027-02-18' },
+  { no: '03', domain: 'd1', name: 'Siège Social & Point de Contact UE', legal: 'Annexe XIII, 1(c)', desc: 'Adresse légale, site officiel, e-mail et téléphone du mandataire européen', owner: 'Fabricant Pack', tier: 'Public', date: '2027-02-18' },
+  { no: '04', domain: 'd1', name: 'Localisation de l’Usine de Fabrication', legal: 'Annexe XIII, 1(d)', desc: 'Code d’usine, ville et pays de fabrication (ISO 3166)', owner: 'Fabricant Pack', tier: 'Public', date: '2027-02-18' },
+  { no: '05', domain: 'd1', name: 'Date de Fabrication (Mois/Année)', legal: 'Annexe XIII, 1(e)', desc: 'Horodatage d’achèvement de la production (YYYY-MM)', owner: 'Fabricant Pack', tier: 'Public', date: '2027-02-18' },
+  { no: '06', domain: 'd1', name: 'Date de Mise sur le Marché de l’UE', legal: 'Annexe XIII, 1(f)', desc: 'Dédouanement ou date de première mise à disposition (YYYY-MM-DD)', owner: 'Importateur/OEM', tier: 'Douanes/Public', date: '2027-02-18' },
+  { no: '07', domain: 'd1', name: 'Classification de la Catégorie de Batterie', legal: 'Article 1(1)', desc: 'Véhicules Électriques (VE), LMT (≤25kg) ou Stockage Industriel BESS (>2kWh)', owner: 'Fabricant Pack', tier: 'Public', date: '2027-02-18' },
+  { no: '08', domain: 'd1', name: 'Modèle et Dénomination Commerciale', legal: 'Annexe XIII, 1(g)', desc: 'Identifiant officiel du modèle et nom commercial de vente', owner: 'Fabricant Pack', tier: 'Public', date: '2027-02-18' },
+  { no: '09', domain: 'd1', name: 'Masse Totale du Pack Batterie (kg)', legal: 'Annexe XIII, 1(h)', desc: 'Masse nette en kilogrammes avec une précision de 0,1 kg', owner: 'Fabricant Pack', tier: 'Public', date: '2027-02-18' },
+  { no: '10', domain: 'd1', name: 'Dimensions Physiques et Facteur de Forme', legal: 'Annexe XIII, 1(i)', desc: 'Longueur x Largeur x Hauteur (mm) et géométrie du boîtier', owner: 'Fabricant Pack', tier: 'Public', date: '2027-02-18' },
+  { no: '11', domain: 'd1', name: 'Capacité Énergétique Utile Nominale (kWh)', legal: 'Annexe XIII, 1(j)', desc: 'Énergie nominale (kWh) et capacité en Ah sous cycle standard', owner: 'Cellule/Pack', tier: 'Public', date: '2027-02-18' },
+  { no: '12', domain: 'd1', name: 'Syntaxe du Code 2D (EN 18220:2026)', legal: 'EN 18220:2026', desc: 'Syntaxe standard GS1 Digital Link : /01/{GTIN}/21/{SERIAL}', owner: 'Système', tier: 'Public', date: '2027-02-18' },
+  { no: '13', domain: 'd2', name: 'Chimie Active de la Cathode', legal: 'Annexe XIII, 2(a)', desc: 'Stœchiométrie NMC 811/622, LFP, NCA, Sodium-ion', owner: 'Fournisseur Cellule', tier: 'Public', date: '2027-02-18' },
+  { no: '14', domain: 'd2', name: 'Composition du Matériau d’Anode', legal: 'Annexe XIII, 2(b)', desc: 'Graphite naturel/synthétique ou composite silicium-carbone', owner: 'Fournisseur Cellule', tier: 'Recycleur/Public', date: '2027-02-18' },
+  { no: '15', domain: 'd2', name: 'Électrolyte et Sels Conducteurs', legal: 'Annexe XIII, 2(c)', desc: 'Sels LiPF6 et solvants organiques (Protégé par ZKP)', owner: 'Fournisseur Cellule', tier: 'Protégé ZKP', date: '2027-02-18' },
+  { no: '16', domain: 'd2', name: 'Matière Première Critique Cobalt (kg)', legal: 'Article 8 & XIII', desc: 'Masse absolue de Cobalt actif pur en kg', owner: 'Fournisseur Cellule', tier: 'Audit/Autorités', date: '2027-02-18' },
+  { no: '17', domain: 'd2', name: 'Matière Première Critique Lithium (kg)', legal: 'Article 8 & XIII', desc: 'Masse absolue de Lithium actif pur en kg', owner: 'Fournisseur Cellule', tier: 'Audit/Autorités', date: '2027-02-18' },
+  { no: '18', domain: 'd2', name: 'Matière Première Critique Nickel (kg)', legal: 'Article 8 & XIII', desc: 'Masse absolue de Nickel actif pur en kg', owner: 'Fournisseur Cellule', tier: 'Audit/Autorités', date: '2027-02-18' },
+  { no: '19', domain: 'd2', name: 'Taux de Cobalt Recyclé Déclaré (%)', legal: 'Article 8(1)', desc: 'Part de cobalt recyclé (Obligatoire ≥16% dès 2031)', owner: 'Matériaux Cathode', tier: 'Public', date: '2028-08-18' },
+  { no: '20', domain: 'd2', name: 'Taux de Lithium Recyclé Déclaré (%)', legal: 'Article 8(1)', desc: 'Part de lithium recyclé (Obligatoire ≥6% dès 2031)', owner: 'Matériaux Cathode', tier: 'Public', date: '2028-08-18' },
+  { no: '21', domain: 'd2', name: 'Taux de Nickel Recyclé Déclaré (%)', legal: 'Article 8(1)', desc: 'Part de nickel recyclé (Obligatoire ≥6% dès 2031)', owner: 'Matériaux Cathode', tier: 'Public', date: '2028-08-18' },
+  { no: '22', domain: 'd2', name: 'Taux de Plomb Recyclé Déclaré (%)', legal: 'Article 8(1)', desc: 'Part de plomb recyclé (Obligatoire ≥85% si applicable)', owner: 'Fournisseur', tier: 'Public', date: '2028-08-18' },
+  { no: '23', domain: 'd2', name: 'Déclaration de Conformité REACH / RoHS', legal: 'Annexe XIII, 2(d)', desc: 'Déclaration substances SVHC (<0,1%) et seuils métaux lourds', owner: 'Fabricant Pack', tier: 'Public', date: '2027-02-18' },
+  { no: '24', domain: 'd3', name: 'Empreinte Carbone Totale du Cycle de Vie', legal: 'Article 7 & II', desc: 'Émissions totales en kg CO₂e / kWh de capacité nominale', owner: 'Équipe ACV', tier: 'Public', date: '2026-08-18' },
+  { no: '25', domain: 'd3', name: 'Émissions Étape Extraction Matières Premières', legal: 'Annexe II, 2(a)', desc: 'Extraction minière, raffinage et synthèse amont', owner: 'Chaîne d’approvisionnement', tier: 'Niveau Audit', date: '2026-08-18' },
+  { no: '26', domain: 'd3', name: 'Émissions Étape Fabrication Usine Principale', legal: 'Annexe II, 2(b)', desc: 'Fabrication des cellules et assemblage des packs', owner: 'MES Usine', tier: 'Niveau Audit', date: '2026-08-18' },
+  { no: '27', domain: 'd3', name: 'Émissions Étape Transport & Logistique', legal: 'Annexe II, 2(c)', desc: 'Transport fret vers le port d’entrée de l’UE', owner: 'Logistique', tier: 'Niveau Audit', date: '2026-08-18' },
+  { no: '28', domain: 'd3', name: 'Émissions Fin de Vie & Recyclage (Crédit)', legal: 'Annexe II, 2(d)', desc: 'Crédits alloués pour la récupération des métaux', owner: 'Modèle ACV', tier: 'Niveau Audit', date: '2026-08-18' },
+  { no: '29', domain: 'd3', name: 'Étiquette de Classe de Performance Carbone', legal: 'Article 7(2)', desc: 'Classification officielle A, B, C, D, E pour batteries VE', owner: 'Rapprochement officiel', tier: 'Public', date: '2026-08-18' },
+  { no: '30', domain: 'd3', name: 'Vérification du Seuil Carbone Maximal', legal: 'Article 7(3)', desc: 'Preuve de conformité en dessous du plafond carbone de l’UE', owner: 'Organisme Notifié', tier: 'Douanes/Public', date: '2028-02-18' },
+  { no: '31', domain: 'd3', name: 'Attestation de Vérification ACV Tierce Partie', legal: 'Article 7(1)', desc: 'Déclaration certifiée selon ISO 14067 et règles PEFCR', owner: 'Auditeur tiers', tier: 'Public', date: '2026-08-18' },
+  { no: '32', domain: 'd3', name: 'Politique et Audit de Devoir de Vigilance', legal: 'Articles 48-53', desc: 'Rapport d’audit sociétal et droits humains selon guide OCDE', owner: 'Direction RSE', tier: 'Public/Douanes', date: '2027-08-18' },
+  { no: '33', domain: 'd4', name: 'Capacité Nominale (Ah)', legal: 'Annexe XIII, 3(a)', desc: 'Capacité nominale en Ampères-heures en conditions d’essai', owner: 'Spécification Cellule', tier: 'Public', date: '2027-02-18' },
+  { no: '34', domain: 'd4', name: 'Tension Nominale du Système (V)', legal: 'Annexe XIII, 3(b)', desc: 'Tension de fonctionnement nominale DC (ex: 400V, 800V, 1500V)', owner: 'Spécification Pack', tier: 'Public', date: '2027-02-18' },
+  { no: '35', domain: 'd4', name: 'Limites de Tension de Fonctionnement', legal: 'Annexe XIII, 3(c)', desc: 'Tension de coupure maximale de charge et minimale de décharge', owner: 'Paramètre BMS', tier: 'Public', date: '2027-02-18' },
+  { no: '36', domain: 'd4', name: 'Puissance Maximale Continue et Crête (kW)', legal: 'Annexe XIII, 3(d)', desc: 'Puissance continue admissible et impulsion 20s en kW', owner: 'Spécification Pack', tier: 'Public', date: '2027-02-18' },
+  { no: '37', domain: 'd4', name: 'Résistance Interne Initiale (DCR en mΩ)', legal: 'Annexe XIII, 3(e)', desc: 'Résistance interne continue à l’état neuf à 25°C', owner: 'Contrôle Qualité', tier: 'Public/Service', date: '2027-02-18' },
+  { no: '38', domain: 'd4', name: 'Rendement Énergétique Aller-Retour Initial (%)', legal: 'Annexe XIII, 3(f)', desc: 'Efficacité énergétique en cycle charge-décharge standard 1C', owner: 'Rapport Essai Type', tier: 'Public', date: '2027-02-18' },
+  { no: '39', domain: 'd4', name: 'Durée de Vie en Cyclage Prévue', legal: 'Annexe XIII, 3(g)', desc: 'Nombre de cycles de référence pour atteindre 80% de SOH', owner: 'Labo Vieillissement', tier: 'Public', date: '2027-02-18' },
+  { no: '40', domain: 'd4', name: 'Taux de Dégradation Calendaire (%/an)', legal: 'Annexe XIII, 3(h)', desc: 'Perte de capacité annuelle estimée en stockage à 20°C', owner: 'Labo R&D', tier: 'Public', date: '2027-02-18' },
+  { no: '41', domain: 'd4', name: 'Plage de Température de Fonctionnement (°C)', legal: 'Annexe XIII, 3(i)', desc: 'Plage thermique autorisée en charge et décharge', owner: 'Conception Thermique', tier: 'Public', date: '2027-02-18' },
+  { no: '42', domain: 'd4', name: 'Normes et Protocoles d’Essais Appliqués', legal: 'Annexe XIII, 3(j)', desc: 'Normes EN 62619, ISO 12405, UN GTR 20 appliquées', owner: 'Certification', tier: 'Public', date: '2027-02-18' },
+  { no: '43', domain: 'd5', name: 'État de Santé Actuel (SOH %)', legal: 'Article 78 & VII', desc: 'Pourcentage de capacité restante par rapport au nominal', owner: 'BMS Temps Réel', tier: 'Propriétaire/Service', date: '2027-02-18' },
+  { no: '44', domain: 'd5', name: 'Cycles Complets Équivalents (Compteur EFC)', legal: 'Annexe VII, 1(a)', desc: 'Énergie cumulée convertie en cycles complets 100%', owner: 'Compteur BMS', tier: 'Propriétaire/Service', date: '2027-02-18' },
+  { no: '45', domain: 'd5', name: 'Augmentation de la Résistance Interne (%)', legal: 'Annexe VII, 1(b)', desc: 'Hausse en % du DCR par rapport à la valeur usine initiale', owner: 'Diagnostic BMS', tier: 'Service/Recyclage', date: '2027-02-18' },
+  { no: '46', domain: 'd5', name: 'Énergie Cumulée Traitée (MWh)', legal: 'Annexe VII, 1(c)', desc: 'Énergie électrique totale chargée et déchargée', owner: 'Mémoire BMS', tier: 'Niveau Audit', date: '2027-02-18' },
+  { no: '47', domain: 'd5', name: 'Compteur d’Événements de Décharge Profonde', legal: 'Annexe VII, 1(d)', desc: 'Nombre de dépassements du seuil de coupure basse', owner: 'Journal Défauts BMS', tier: 'Seconde Vie/OEM', date: '2027-02-18' },
+  { no: '48', domain: 'd5', name: 'Temps Passé en Températures Extrêmes', legal: 'Annexe VII, 1(e)', desc: 'Heures de fonctionnement hors plage certifiée', owner: 'Journal Thermique BMS', tier: 'Garantie/OEM', date: '2027-02-18' },
+  { no: '49', domain: 'd5', name: 'Déséquilibre Maximal de Tension des Cellules', legal: 'Annexe VII, 1(f)', desc: 'Écart de tension le plus élevé entre cellules sous charge', owner: 'Équilibrage BMS', tier: 'Niveau Diagnostic', date: '2027-02-18' },
+  { no: '50', domain: 'd5', name: 'Résistance d’Isolement Haute Tension (kΩ)', legal: 'Annexe VII, 1(g)', desc: 'Mesure en direct de l’isolement entre bus DC et châssis', owner: 'Sécurité BMS', tier: 'Contrôle Technique', date: '2027-02-18' },
+  { no: '51', domain: 'd5', name: 'Protocole d’Interface de Diagnostic (OBD)', legal: 'Article 78(2)', desc: 'Point de terminaison ISO 14229 / CAN / API REST', owner: 'Fabricant Passerelle', tier: 'Personnel Qualifié', date: '2027-02-18' },
+  { no: '52', domain: 'd5', name: 'Version Logicielle & Historique Mises à Jour', legal: 'Annexe XIII, 4', desc: 'Empreinte du firmware et journal des mises à jour OTA', owner: 'Logiciel OEM', tier: 'Autorités/OEM', date: '2027-02-18' },
+  { no: '53', domain: 'd6', name: 'Agent Extincteur et Procédure d’Urgence', legal: 'Annexe XIII, 5(a)', desc: 'Agent F-500, noyage à l’eau ou gaz inerte préconisés', owner: 'Équipe Sécurité', tier: 'Public/Secours', date: '2027-02-18' },
+  { no: '54', domain: 'd6', name: 'Manuel et Guide de Démontage Sécurisé', legal: 'Annexe XIII, 5(b)', desc: 'Étapes de consignation électrique et plans d’isolement', owner: 'R&D Pack', tier: 'Recycleurs Certifiés', date: '2027-02-18' },
+  { no: '55', domain: 'd6', name: 'Outils Spécialisés Requis pour le Démontage', legal: 'Annexe XIII, 5(c)', desc: 'Outils isolés 1000V, embouts Torx et palonniers requis', owner: 'Outillage', tier: 'Recycleurs Certifiés', date: '2027-02-18' },
+  { no: '56', domain: 'd6', name: 'Éléments de Fixation et Couples de Serrage', legal: 'Annexe XIII, 5(d)', desc: 'Spécifications visserie (ex: M8 Torx Plus) et couples', owner: 'Bureau d’Études', tier: 'Recycleurs Certifiés', date: '2027-02-18' },
+  { no: '57', domain: 'd6', name: 'Procédure de Vidange du Liquide de Refroidissement', legal: 'Annexe XIII, 5(e)', desc: 'Emplacement des vannes et récupération écologique', owner: 'Thermique', tier: 'Recycleurs Certifiés', date: '2027-02-18' },
+  { no: '58', domain: 'd6', name: 'Indice de Réparabilité des Modules', legal: 'Annexe XIII, 5(f)', desc: 'Score d’évaluation du remplacement non destructif', owner: 'Conception', tier: 'Service/Public', date: '2027-02-18' },
+  { no: '59', domain: 'd6', name: 'Critères d’Évaluation pour Seconde Vie', legal: 'Article 73 & XIII', desc: 'Critères de requalification des packs VE pour stockage BESS', owner: 'Intégration', tier: 'Opérateurs Seconde Vie', date: '2027-02-18' },
+  { no: '60', domain: 'd6', name: 'Objectifs de Rendement de Recyclage Matières', legal: 'Article 71 & XII', desc: 'Directives de rendement métallurgique Cobalt, Lithium, Nickel', owner: 'Économie Circulaire', tier: 'Recycleurs Certifiés', date: '2027-02-18' },
+  { no: '61', domain: 'd6', name: 'Poubelle Barrée et Points de Collecte', legal: 'Articles 59-60', desc: 'Symboles DEEE et réseau de collecte agréé', owner: 'Conformité', tier: 'Public', date: '2027-02-18' },
+  { no: '62', domain: 'd6', name: 'Fiche de Données de Sécurité (FDS / SDS PDF)', legal: 'Règlement REACH', desc: 'FDS chimique complète conforme au format standard GHS', owner: 'Laboratoire QA', tier: 'Public/Transport', date: '2027-02-18' },
+  { no: '63', domain: 'd6', name: 'Certificat d’Essai de Transport UN 38.3', legal: 'Manuel ONU 38.3', desc: 'Résumé des tests T1-T8 altitude, thermique, choc, vibration', owner: 'Laboratoire Essais', tier: 'Douanes/Transport', date: '2027-02-18' },
+  { no: '64', domain: 'd7', name: 'Déclaration UE de Conformité (DoC)', legal: 'Article 18 & IX', desc: 'Document officiel signé attestant de la conformité CE', owner: 'Direction Juridique', tier: 'Public/Douanes', date: '2027-02-18' },
+  { no: '65', domain: 'd7', name: 'Numéro d’Organisme Notifié (Numéro ON)', legal: 'Article 22', desc: 'Numéro à 4 chiffres de l’organisme notifié évaluateur', owner: 'Organisme Notifié', tier: 'Public/Douanes', date: '2027-02-18' },
+  { no: '66', domain: 'd7', name: 'Certificat d’Examen UE de Type', legal: 'Module B / D', desc: 'Référence du certificat d’examen et période de validité', owner: 'Organisme Notifié', tier: 'Douanes', date: '2027-02-18' },
+  { no: '67', domain: 'd7', name: 'Sceau Électronique Qualifié eIDAS 2.0', legal: 'Règlement 910/2014', desc: 'Signature numérique PAdES émise par un prestataire qualifié QTSP', owner: 'Plateforme DPP', tier: 'Douanes/Audit', date: '2027-02-18' },
+  { no: '68', domain: 'd7', name: 'Identifiant d’Enregistrement Registre DG GROW', legal: 'Articles 77-78', desc: 'Récépissé officiel sur registry.product-passport.ec.europa.eu', owner: 'Registre UE', tier: 'Public/Douanes', date: '2026-07-20' },
+  { no: '69', domain: 'd7', name: 'Engagement SLA d’Hébergement Souverain 10 Ans', legal: 'Article 77(3)', desc: 'Garantie de continuité de résolution du lien pendant 10 ans', owner: 'EU DPP Provider', tier: 'Public/Légal', date: '2027-02-18' },
+  { no: '70', domain: 'd7', name: 'Empreinte de Preuve Zéro Connaissance (ZKP)', legal: 'Norme Confidentialité', desc: 'Hash SHA-256 certifiant le respect des règles sans dévoiler le BOM', owner: 'Sandbox DPP', tier: 'Régulateur', date: '2027-02-18' },
+  { no: '71', domain: 'd7', name: 'Horodatage Cryptographique d’Historique Immuable', legal: 'RFC 3161 / eIDAS', desc: 'Journal d’audit infalsifiable consignant les modifications', owner: 'Plateforme DPP', tier: 'Douanes/Public', date: '2027-02-18' },
+];
 ---
 
 <Layout
-  title="90+ Données Obligatoires Passeport Batterie UE | EU DPP Provider"
-  description="Spécification des 7 domaines et 90+ attributs obligatoires sous le règlement (UE) 2023/1542 Annexe XIII."
+  title="Passeport Batterie UE : Liste des 71 Attributs Obligatoires | EU DPP Provider"
+  description="Spécification technique des 71 champs obligatoires fixés par le règlement (UE) 2023/1542 Annexe XIII. Téléchargez la matrice Excel/CSV pour votre auto-audit."
 >
   <div class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center max-w-4xl mx-auto mb-16">
+    
+    <div class="text-center max-w-4xl mx-auto mb-12">
       <div class="eyebrow-pill mb-3 mx-auto">Règlement (UE) 2023/1542 · Annexe XIII</div>
       <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-        90+ Attributs Obligatoires du Passeport Batterie
+        Passeport Batterie UE <br class="hidden sm:inline" />
+        <span class="text-cyan-600">Liste des 71 Attributs Réglementaires</span>
       </h1>
-      <p class="mt-4 text-base text-slate-600 leading-relaxed">
-        Gouvernance des 7 domaines de conformité et des niveaux d'accès pour les fabricants.
+      <p class="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
+        Spécification complète des 71 champs obligatoires répartis sur 7 domaines de conformité. Téléchargez la matrice officielle Excel/CSV pour votre audit interne.
       </p>
     </div>
+
+    <div class="neo-surface p-6 sm:p-8 bg-gradient-to-br from-white to-cyan-50/40 border border-cyan-200/80 mb-10 shadow-lg rounded-3xl">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div class="space-y-1.5 max-w-2xl">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
+            <span class="text-xs font-mono font-bold text-cyan-800 uppercase tracking-wider">Outil Officiel d’Auto-Évaluation</span>
+          </div>
+          <h3 class="text-lg sm:text-xl font-bold text-slate-900">
+            Télécharger la Matrice de Conformité des 71 Attributs (Excel & CSV)
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Formaté avec les articles de loi de l’UE, l’attribution des responsabilités, les niveaux d’accès et les échéances 2026–2031.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3">
+          <a
+            href="/downloads/EU_Battery_Passport_71_Data_Requirements_Checklist.xlsx"
+            download="EU_Battery_Passport_71_Data_Requirements_Checklist.xlsx"
+            class="neo-btn-primary py-3 px-5 text-xs sm:text-sm font-bold flex items-center gap-2 shadow-md"
+          >
+            <span>📥 Télécharger Excel (.xlsx)</span>
+          </a>
+          <a
+            href="/downloads/EU_Battery_Passport_71_Data_Requirements_Checklist.csv"
+            download="EU_Battery_Passport_71_Data_Requirements_Checklist.csv"
+            class="px-5 py-3 rounded-full bg-white/90 border border-slate-300 hover:border-cyan-500 font-bold text-xs sm:text-sm text-slate-800 hover:text-cyan-700 flex items-center gap-2 shadow-sm transition-all"
+          >
+            <span>📄 Télécharger CSV</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter & Search Bar -->
+    <div class="neo-well p-4 sm:p-5 rounded-2xl flex flex-wrap items-center justify-between gap-4 mb-6">
+      <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
+        {domains.map((dom, index) => (
+          <button
+            onclick={`filterDomain('${dom.id}')`}
+            id={`filter-btn-${dom.id}`}
+            class={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${index === 0 ? 'bg-cyan-600 text-white shadow-sm' : 'bg-white/80 text-slate-700 border border-slate-200 hover:bg-slate-100'}`}
+          >
+            {dom.name}
+          </button>
+        ))}
+      </div>
+
+      <div class="w-full sm:w-64">
+        <input
+          id="table-search"
+          type="text"
+          placeholder="Rechercher des attributs..."
+          oninput="searchAttributes()"
+          class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs bg-white focus:border-cyan-500 outline-none"
+        />
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="neo-surface p-4 sm:p-6 rounded-3xl overflow-hidden shadow-xl border border-white/80">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs border-collapse">
+          <thead>
+            <tr class="bg-slate-900 text-white font-mono text-[11px] uppercase tracking-wider">
+              <th class="p-3.5 rounded-l-xl">N°</th>
+              <th class="p-3.5">Nom Réglementaire du Champ</th>
+              <th class="p-3.5">Base Juridique Annexe XIII</th>
+              <th class="p-3.5">Spécification / Description</th>
+              <th class="p-3.5">Responsable</th>
+              <th class="p-3.5">Niveau d’Accès</th>
+              <th class="p-3.5 rounded-r-xl">Échéance</th>
+            </tr>
+          </thead>
+          <tbody id="checklist-tbody" class="divide-y divide-slate-200 text-slate-700">
+            {checklistItems.map((item) => (
+              <tr class="hover:bg-cyan-50/50 transition-colors row-item" data-domain={item.domain} data-text={`${item.name} ${item.legal} ${item.desc} ${item.owner}`}>
+                <td class="p-3 font-mono font-bold text-slate-500">{item.no}</td>
+                <td class="p-3 font-bold text-slate-900">{item.name}</td>
+                <td class="p-3 font-mono text-cyan-800 text-[11px] whitespace-nowrap">{item.legal}</td>
+                <td class="p-3 text-slate-600 text-[11px] max-w-xs">{item.desc}</td>
+                <td class="p-3 whitespace-nowrap">
+                  <span class="px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 font-medium text-[10px]">{item.owner}</span>
+                </td>
+                <td class="p-3 whitespace-nowrap">
+                  <span class={`px-2 py-0.5 rounded-md font-mono text-[10px] font-bold ${item.tier.includes('Public') ? 'bg-green-100 text-green-800' : item.tier.includes('ZKP') ? 'bg-purple-100 text-purple-800' : 'bg-blue-100 text-blue-800'}`}>
+                    {item.tier}
+                  </span>
+                </td>
+                <td class="p-3 font-mono text-slate-500 text-[11px] whitespace-nowrap">{item.date}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="mt-12 text-center space-y-4">
+      <p class="text-sm text-slate-600">
+        Besoin d’aide pour mapper vos données MES/ERP d’usine vers le schéma des 71 attributs ?
+      </p>
+      <a href="/fr/contact/" class="neo-btn-primary inline-flex items-center gap-2">
+        <span>Demander une consultation technique →</span>
+      </a>
+    </div>
+
   </div>
 </Layout>
+
+<script is:inline>
+  let activeDomain = 'all';
+
+  function filterDomain(domainId) {
+    activeDomain = domainId;
+    const buttons = document.querySelectorAll('[id^="filter-btn-"]');
+    buttons.forEach(btn => {
+      if (btn.id === `filter-btn-${domainId}`) {
+        btn.className = 'px-3 py-1.5 rounded-xl text-xs font-bold transition-all bg-cyan-600 text-white shadow-sm';
+      } else {
+        btn.className = 'px-3 py-1.5 rounded-xl text-xs font-bold transition-all bg-white/80 text-slate-700 border border-slate-200 hover:bg-slate-100';
+      }
+    });
+    applyFilters();
+  }
+
+  function searchAttributes() {
+    applyFilters();
+  }
+
+  function applyFilters() {
+    const query = document.getElementById('table-search')?.value.toLowerCase() || '';
+    const rows = document.querySelectorAll('.row-item');
+
+    rows.forEach(row => {
+      const rowDomain = row.getAttribute('data-domain');
+      const rowText = row.getAttribute('data-text')?.toLowerCase() || '';
+
+      const matchDomain = (activeDomain === 'all' || rowDomain === activeDomain);
+      const matchSearch = (!query || rowText.includes(query));
+
+      if (matchDomain && matchSearch) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  }
+</script>

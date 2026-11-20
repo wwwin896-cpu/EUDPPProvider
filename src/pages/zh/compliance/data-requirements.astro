@@ -1,58 +1,273 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
+
+const domains = [
+  { id: 'all', name: '全部 71 项法定字段' },
+  { id: 'd1', name: '1. 基础产品与制造商 (12)' },
+  { id: 'd2', name: '2. 材料配方与再生成分 (11)' },
+  { id: 'd3', name: '3. 碳足迹与尽职调查 (9)' },
+  { id: 'd4', name: '4. 电性能与耐久性 (10)' },
+  { id: 'd5', name: '5. BMS 运行健康度 (10)' },
+  { id: 'd6', name: '6. 拆卸安全与循环 (11)' },
+  { id: 'd7', name: '7. eIDAS 数字印章 (8)' },
+];
+
+const checklistItems = [
+  // 1. 基础产品与制造商标识 (12项)
+  { no: '01', domain: 'd1', domainName: '1. 基础产品与制造商', name: '电池唯一识别码 (Unique Identifier / UPI)', legal: 'Annex XIII, 1(a)', desc: 'GTIN-14 + 序列号 (SGTIN / EN 18219/18220 语法)', owner: 'Pack 制造商', tier: '公众 (Public)', date: '2027-02-18' },
+  { no: '02', domain: 'd1', domainName: '1. 基础产品与制造商', name: '经济运营者/制造商法定名称 (Legal Name)', legal: 'Annex XIII, 1(b)', desc: '企业法定注册名称与统一社会信用代码/EORI', owner: 'Pack 制造商', tier: '公众 (Public)', date: '2027-02-18' },
+  { no: '03', domain: 'd1', domainName: '1. 基础产品与制造商', name: '制造商注册地址与欧盟联络方式', legal: 'Annex XIII, 1(c)', desc: '法定企业住所、欧盟授权代表官方联络邮箱与电话', owner: 'Pack 制造商', tier: '公众 (Public)', date: '2027-02-18' },
+  { no: '04', domain: 'd1', domainName: '1. 基础产品与制造商', name: '制造工厂地理位置代码 (Plant Location)', legal: 'Annex XIII, 1(d)', desc: '生产工厂识别代码、城市与 ISO 3166 国家代码', owner: 'Pack 制造商', tier: '公众 (Public)', date: '2027-02-18' },
+  { no: '05', domain: 'd1', domainName: '1. 基础产品与制造商', name: '制造年月 (Date of Manufacture)', legal: 'Annex XIII, 1(e)', desc: '电池包出厂制造完成年月 (YYYY-MM)', owner: 'Pack 制造商', tier: '公众 (Public)', date: '2027-02-18' },
+  { no: '06', domain: 'd1', domainName: '1. 基础产品与制造商', name: '投放欧盟市场日期 (Date of Placing on Market)', legal: 'Annex XIII, 1(f)', desc: '报关放行或欧盟首次交付日期 (YYYY-MM-DD)', owner: '欧盟进口商/OEM', tier: '监管/公众', date: '2027-02-18' },
+  { no: '07', domain: 'd1', domainName: '1. 基础产品与制造商', name: '电池品类分类 (Battery Category)', legal: 'Article 1(1)', desc: 'EV 动力电池 / LMT 轻型车电池 / 工业储能 BESS (>2kWh)', owner: 'Pack 制造商', tier: '公众 (Public)', date: '2027-02-18' },
+  { no: '08', domain: 'd1', domainName: '1. 基础产品与制造商', name: '电池型号与商业名称 (Model & Trade Name)', legal: 'Annex XIII, 1(g)', desc: '官方备案型号代码与市场商业商品名称', owner: 'Pack 制造商', tier: '公众 (Public)', date: '2027-02-18' },
+  { no: '09', domain: 'd1', domainName: '1. 基础产品与制造商', name: '电池包总重量 (Total Pack Weight in kg)', legal: 'Annex XIII, 1(h)', desc: '以千克为单位的净重 (精确至 0.1kg)', owner: 'Pack 制造商', tier: '公众 (Public)', date: '2027-02-18' },
+  { no: '10', domain: 'd1', domainName: '1. 基础产品与制造商', name: '几何尺寸与物理外形 (Dimensions & Form Factor)', legal: 'Annex XIII, 1(i)', desc: '长 x 宽 x 高 (mm) 及外壳物理构型', owner: 'Pack 制造商', tier: '公众 (Public)', date: '2027-02-18' },
+  { no: '11', domain: 'd1', domainName: '1. 基础产品与制造商', name: '额定可用电量 (Rated Capacity in kWh / Ah)', legal: 'Annex XIII, 1(j)', desc: '标准工况下标称额定能量 (kWh) 与额定容量 (Ah)', owner: '电芯/Pack 厂', tier: '公众 (Public)', date: '2027-02-18' },
+  { no: '12', domain: 'd1', domainName: '1. 基础产品与制造商', name: '2D 数据载体语法 (GS1 Digital Link URI)', legal: 'EN 18220:2026', desc: '标准二维码语法：/01/{GTIN}/21/{SERIAL}', owner: '系统自动生成', tier: '公众 (Public)', date: '2027-02-18' },
+
+  // 2. 材料化学与关键原材料 (11项)
+  { no: '13', domain: 'd2', domainName: '2. 材料配方与再生成分', name: '正极材料化学体系分类 (Cathode Chemistry)', legal: 'Annex XIII, 2(a)', desc: 'NMC 811/622, LFP, NCA, 钠离子等化学计量式', owner: '电芯制造商', tier: '公众 (Public)', date: '2027-02-18' },
+  { no: '14', domain: 'd2', domainName: '2. 材料配方与再生成分', name: '负极材料化学构成 (Anode Formulation)', legal: 'Annex XIII, 2(b)', desc: '天然石墨/人造石墨/硅碳复合材料比例', owner: '电芯制造商', tier: '回收商/公众', date: '2027-02-18' },
+  { no: '15', domain: 'd2', domainName: '2. 材料配方与再生成分', name: '电解液溶剂与锂盐成分 (Electrolyte)', legal: 'Annex XIII, 2(c)', desc: '锂盐类型与有机溶剂构成 (核心配方受 ZKP 零知识证明保护)', owner: '电芯制造商', tier: 'ZKP 隐私保护', date: '2027-02-18' },
+  { no: '16', domain: 'd2', domainName: '2. 材料配方与再生成分', name: '关键原材料钴含量 (Cobalt CRM Mass in kg)', legal: 'Article 8 & XIII', desc: '活性物质中纯金属钴绝对重量 (kg)', owner: '电芯制造商', tier: '监管/核验', date: '2027-02-18' },
+  { no: '17', domain: 'd2', domainName: '2. 材料配方与再生成分', name: '关键原材料锂含量 (Lithium CRM Mass in kg)', legal: 'Article 8 & XIII', desc: '活性物质中纯金属锂绝对重量 (kg)', owner: '电芯制造商', tier: '监管/核验', date: '2027-02-18' },
+  { no: '18', domain: 'd2', domainName: '2. 材料配方与再生成分', name: '关键原材料镍含量 (Nickel CRM Mass in kg)', legal: 'Article 8 & XIII', desc: '活性物质中纯金属镍绝对重量 (kg)', owner: '电芯制造商', tier: '监管/核验', date: '2027-02-18' },
+  { no: '19', domain: 'd2', domainName: '2. 材料配方与再生成分', name: '再生钴利用比例 (Recycled Cobalt Share %)', legal: 'Article 8(1)', desc: '废料回收再利用钴份额 (2028申报 / 2031强制 ≥16%)', owner: '正极材料/电芯', tier: '公众 (Public)', date: '2028-08-18' },
+  { no: '20', domain: 'd2', domainName: '2. 材料配方与再生成分', name: '再生锂利用比例 (Recycled Lithium Share %)', legal: 'Article 8(1)', desc: '废料回收再利用锂份额 (2028申报 / 2031强制 ≥6%)', owner: '正极材料/电芯', tier: '公众 (Public)', date: '2028-08-18' },
+  { no: '21', domain: 'd2', domainName: '2. 材料配方与再生成分', name: '再生镍利用比例 (Recycled Nickel Share %)', legal: 'Article 8(1)', desc: '废料回收再利用镍份额 (2028申报 / 2031强制 ≥6%)', owner: '正极材料/电芯', tier: '公众 (Public)', date: '2028-08-18' },
+  { no: '22', domain: 'd2', domainName: '2. 材料配方与再生成分', name: '再生铅利用比例 (Recycled Lead Share %)', legal: 'Article 8(1)', desc: '废料回收再利用铅份额 (2028申报 / 2031强制 ≥85% 若含铅)', owner: '材料供应商', tier: '公众 (Public)', date: '2028-08-18' },
+  { no: '23', domain: 'd2', domainName: '2. 材料配方与再生成分', name: 'REACH / RoHS 有害物质合规声明', legal: 'Annex XIII, 2(d)', desc: 'SVHC 候选清单物质浓度 <0.1% 及重金属限值合规声明', owner: 'Pack/电芯厂', tier: '公众 (Public)', date: '2027-02-18' },
+
+  // 3. 碳足迹与供应链尽职调查 (9项)
+  { no: '24', domain: 'd3', domainName: '3. 碳足迹与尽职调查', name: '全生命周期碳足迹总量 (Total Carbon Footprint)', legal: 'Article 7 & II', desc: '以 kg CO₂e / kWh 额定可用容量计的总温室气体排放', owner: 'LCA 机构/企业', tier: '公众 (Public)', date: '2026-08-18' },
+  { no: '25', domain: 'd3', domainName: '3. 碳足迹与尽职调查', name: '原材料获取阶段碳排放 (Raw Material PCF)', legal: 'Annex II, 2(a)', desc: '上游矿产开采、冶炼提纯与前驱体合成阶段碳排', owner: '供应链核算', tier: '核验/监管', date: '2026-08-18' },
+  { no: '26', domain: 'd3', domainName: '3. 碳足迹与尽职调查', name: '主工厂制造加工阶段碳排放 (Manufacturing PCF)', legal: 'Annex II, 2(b)', desc: '电芯制造与电池包组装工厂直接工序排放', owner: '制造工厂 MES', tier: '核验/监管', date: '2026-08-18' },
+  { no: '27', domain: 'd3', domainName: '3. 碳足迹与尽职调查', name: '国际分销与跨境运输阶段碳排放 (Distribution)', legal: 'Annex II, 2(c)', desc: '工厂至欧盟清关港口海运/陆运跨境物流碳排', owner: '物流服务商', tier: '核验/监管', date: '2026-08-18' },
+  { no: '28', domain: 'd3', domainName: '3. 碳足迹与尽职调查', name: '回收与寿命终止阶段碳核算 (End-of-Life PCF)', legal: 'Annex II, 2(d)', desc: '拆解破碎与冶金材料回收减排信用抵扣', owner: 'LCA 模型', tier: '核验/监管', date: '2026-08-18' },
+  { no: '29', domain: 'd3', domainName: '3. 碳足迹与尽职调查', name: '碳足迹性能等级标签 (Carbon Class A-E)', legal: 'Article 7(2)', desc: '乘用车动力电池 A、B、C、D、E 五级官方能效等级', owner: '官方分级比对', tier: '公众 (Public)', date: '2026-08-18' },
+  { no: '30', domain: 'd3', domainName: '3. 碳足迹与尽职调查', name: '碳足迹最大阈值合规证明 (Max Carbon Cap)', legal: 'Article 7(3)', desc: '符合欧盟官方设定的动力电池最高碳排限值', owner: '公告机构核验', tier: '海关/公众', date: '2028-02-18' },
+  { no: '31', domain: 'd3', domainName: '3. 碳足迹与尽职调查', name: '独立第三方碳足迹核查声明 (Third-Party LCA)', legal: 'Article 7(1)', desc: '符合 ISO 14067 & EU PEFCR 规则的第三方认证声明', owner: '第三方认证机构', tier: '公众 (Public)', date: '2026-08-18' },
+  { no: '32', domain: 'd3', domainName: '3. 碳足迹与尽职调查', name: '供应链尽职调查政策与审计报告 (Due Diligence)', legal: 'Articles 48-53', desc: 'OECD 五步法社会责任、人权与劳工外部审计报告', owner: '企业合规部', tier: '公众/海关', date: '2027-08-18' },
+
+  // 4. 电性能与耐久性指标 (10项)
+  { no: '33', domain: 'd4', domainName: '4. 电性能与耐久性', name: '额定标称容量 (Nominal Capacity in Ah)', legal: 'Annex XIII, 3(a)', desc: '标准充放电倍率下的额定 Ah 容量', owner: '电芯规格书', tier: '公众 (Public)', date: '2027-02-18' },
+  { no: '34', domain: 'd4', domainName: '4. 电性能与耐久性', name: '系统标称工作电压 (Nominal Working Voltage in V)', legal: 'Annex XIII, 3(b)', desc: '直流标称电压 (如 400V、800V、1500V)', owner: 'Pack 规格书', tier: '公众 (Public)', date: '2027-02-18' },
+  { no: '35', domain: 'd4', domainName: '4. 电性能与耐久性', name: '工作电压上下限范围 (Voltage Operating Limits)', legal: 'Annex XIII, 3(c)', desc: '最高充电截止与最低放电截止保护电压', owner: 'BMS 保护参数', tier: '公众 (Public)', date: '2027-02-18' },
+  { no: '36', domain: 'd4', domainName: '4. 电性能与耐久性', name: '最大持续与峰值功率 (Max Continuous / Peak Power)', legal: 'Annex XIII, 3(d)', desc: '允许的最大持续输出功率与 20s 脉冲功率 (kW)', owner: 'Pack 规格书', tier: '公众 (Public)', date: '2027-02-18' },
+  { no: '37', domain: 'd4', domainName: '4. 电性能与耐久性', name: '出厂初始内阻 (Initial Internal Resistance in mΩ)', legal: 'Annex XIII, 3(e)', desc: '25°C 出厂状态下的直流内阻 DCR (mΩ)', owner: '出厂质检报告', tier: '公众/维修商', date: '2027-02-18' },
+  { no: '38', domain: 'd4', domainName: '4. 电性能与耐久性', name: '初始往返能量效率 (Round-trip Efficiency %)', legal: 'Annex XIII, 3(f)', desc: '标准 1C 循环测试充放电往返能量效率百分比', owner: '型式试验报告', tier: '公众 (Public)', date: '2027-02-18' },
+  { no: '39', domain: 'd4', domainName: '4. 电性能与耐久性', name: '预期设计循环寿命 (Expected Design Cycle Life)', legal: 'Annex XIII, 3(g)', desc: '达到 80% SOH 阈值的参考充放电循环次数', owner: '寿命测试报告', tier: '公众 (Public)', date: '2027-02-18' },
+  { no: '40', domain: 'd4', domainName: '4. 电性能与耐久性', name: '日历寿命年衰减率 (Calendar Ageing Capacity Fade)', legal: 'Annex XIII, 3(h)', desc: '20°C 常温静置储存状态下的年均自衰减率 (%/年)', owner: '研发测试规范', tier: '公众 (Public)', date: '2027-02-18' },
+  { no: '41', domain: 'd4', domainName: '4. 电性能与耐久性', name: '允许工作环境温度区间 (Temperature Range °C)', legal: 'Annex XIII, 3(i)', desc: '允许充电与放电的环境温度上下限范围', owner: '热管理规格', tier: '公众 (Public)', date: '2027-02-18' },
+  { no: '42', domain: 'd4', domainName: '4. 电性能与耐久性', name: '测试验证参考标准 (Applied Standards)', legal: 'Annex XIII, 3(j)', desc: '引用的 EN 62619, ISO 12405, UN GTR 20 等标准', owner: '认证检测机构', tier: '公众 (Public)', date: '2027-02-18' },
+
+  // 5. BMS 动态数据与运行健康度 (10项)
+  { no: '43', domain: 'd5', domainName: '5. BMS 运行健康度', name: '当前健康度状态 (Current State of Health / SOH %)', legal: 'Article 78 & VII', desc: '基于剩余可用容量对比出厂额定值的实时百分比', owner: 'BMS 实时计算', tier: '车主/维修商/监管', date: '2027-02-18' },
+  { no: '44', domain: 'd5', domainName: '5. BMS 运行健康度', name: '累计等效全充放电循环次数 (EFC Count)', legal: 'Annex VII, 1(a)', desc: '生命周期累计吞吐量折算的等效 100% 循环次数', owner: 'BMS 历史计数', tier: '车主/维修商/监管', date: '2027-02-18' },
+  { no: '45', domain: 'd5', domainName: '5. BMS 运行健康度', name: '当前内阻增长率 (Internal Resistance Increase %)', legal: 'Annex VII, 1(b)', desc: '当前 DCR 阻值对比出厂初始基线的增长幅度', owner: 'BMS 诊断数据', tier: '维修商/回收商', date: '2027-02-18' },
+  { no: '46', domain: 'd5', domainName: '5. BMS 运行健康度', name: '累计吞吐总电量 (Cumulative Energy in MWh)', legal: 'Annex VII, 1(c)', desc: '生命周期内累计充入与放出的总电能 (MWh)', owner: 'BMS 积分器', tier: '维修商/评估机构', date: '2027-02-18' },
+  { no: '47', domain: 'd5', domainName: '5. BMS 运行健康度', name: '深度放电事件计数 (Deep Discharge Events Count)', legal: 'Annex VII, 1(d)', desc: '触发过放电保护低压阈值的历史故障次数', owner: 'BMS 故障日志', tier: '梯次利用/保险', date: '2027-02-18' },
+  { no: '48', domain: 'd5', domainName: '5. BMS 运行健康度', name: '极端高低温暴露时长 (Time in Extreme Temps)', legal: 'Annex VII, 1(e)', desc: '超出推荐工作温度范围的累计运行时间', owner: 'BMS 热日志', tier: '梯次利用/质保', date: '2027-02-18' },
+  { no: '49', domain: 'd5', domainName: '5. BMS 运行健康度', name: '单体电芯最大压差 (Max Cell Voltage Imbalance in mV)', legal: 'Annex VII, 1(f)', desc: '负载状态下单体电芯之间的一致性压差最大值', owner: 'BMS 均衡状态', tier: '维修诊断', date: '2027-02-18' },
+  { no: '50', domain: 'd5', domainName: '5. BMS 运行健康度', name: '高压绝缘阻抗监测状态 (Insulation Resistance in kΩ)', legal: 'Annex VII, 1(g)', desc: '正负高压母线对底盘接地外壳的绝缘阻值', owner: 'BMS 安全监控', tier: '维修商/年检', date: '2027-02-18' },
+  { no: '51', domain: 'd5', domainName: '5. BMS 运行健康度', name: '动态诊断读取接口协议 (OBD / UDS Protocol)', legal: 'Article 78(2)', desc: '标准 ISO 14229 / CAN / RESTful API 遥测协议接口', owner: '整车/储能网关', tier: '授权技术人员', date: '2027-02-18' },
+  { no: '52', domain: 'd5', domainName: '5. BMS 运行健康度', name: 'BMS 固件版本号与 OTA 升级履历', legal: 'Annex XIII, 4', desc: '当前控制软件版本号与历史升级日志', owner: 'OEM / BMS 厂', tier: '授权监管/OEM', date: '2027-02-18' },
+
+  // 6. 拆卸安全与报废循环 (11项)
+  { no: '53', domain: 'd6', domainName: '6. 拆卸安全与循环', name: '推荐灭火介质与应急处置指南 (Extinguishing Agents)', legal: 'Annex XIII, 5(a)', desc: '大量持续注水、F-500 灭火剂或惰性气体处置规范', owner: '安全工程团队', tier: '公众/应急部门', date: '2027-02-18' },
+  { no: '54', domain: 'd6', domainName: '6. 拆卸安全与循环', name: '安全拆卸手册与工步图纸 (Dismantling Manual)', legal: 'Annex XIII, 5(b)', desc: '高压断电步骤、外壳拆解与电芯模组无损分离图纸', owner: 'Pack 研发部', tier: '认证拆解商', date: '2027-02-18' },
+  { no: '55', domain: 'd6', domainName: '6. 拆卸安全与循环', name: '拆解所需专用工具清单 (Specialized Tools List)', legal: 'Annex XIII, 5(c)', desc: '绝缘扳手、Torx 批头及高压吊装夹具规格', owner: '工装工艺部', tier: '认证拆解商', date: '2027-02-18' },
+  { no: '56', domain: 'd6', domainName: '6. 拆卸安全与循环', name: '外壳紧固件规格与螺栓拆卸扭矩 (Fastener Torques)', legal: 'Annex XIII, 5(d)', desc: '螺栓型号规格 (如 M8 Torx Plus) 与拆解力矩', owner: '机械结构部', tier: '认证拆解商', date: '2027-02-18' },
+  { no: '57', domain: 'd6', domainName: '6. 拆卸安全与循环', name: '液冷回路与冷却液排空规范 (Coolant Evacuation)', legal: 'Annex XIII, 5(e)', desc: '乙二醇冷却液排放阀门位置与无害化回收流程', owner: '热系统工程师', tier: '认证拆解商', date: '2027-02-18' },
+  { no: '58', domain: 'd6', domainName: '6. 拆卸安全与循环', name: '电芯模组可替换性与维修评级 (Repairability Index)', legal: 'Annex XIII, 5(f)', desc: '模组独立拆换难度与可修复性分值', owner: '结构设计部', tier: '维修商/公众', date: '2027-02-18' },
+  { no: '59', domain: 'd6', domainName: '6. 拆卸安全与循环', name: '梯次利用二次寿命评估准则 (Second-Life Guidelines)', legal: 'Article 73 & XIII', desc: '退役动力电池转工商业储能筛选与重组测试指南', owner: '系统集成部', tier: '二次利用商', date: '2027-02-18' },
+  { no: '60', domain: 'd6', domainName: '6. 拆卸安全与循环', name: '关键材料回收工艺指导 (Material Recovery Targets)', legal: 'Article 71 & XII', desc: '钴、锂、镍、铜目标回收率工艺与冶金指南', owner: '循环经济团队', tier: '认证回收商', date: '2027-02-18' },
+  { no: '61', domain: 'd6', domainName: '6. 拆卸安全与循环', name: '分类收集标志与回收站网点标识 (Collection Schemes)', legal: 'Articles 59-60', desc: '打叉带轮垃圾桶标志与欧盟回收网点识别码', owner: '合规部', tier: '公众 (Public)', date: '2027-02-18' },
+  { no: '62', domain: 'd6', domainName: '6. 拆卸安全与循环', name: '化学品安全技术说明书 (MSDS / SDS Document PDF)', legal: 'REACH 标准', desc: '符合 GHS 规范的完整化学品安全数据表 (PDF 格式)', owner: '化验质检部', tier: '公众/物流', date: '2027-02-18' },
+  { no: '63', domain: 'd6', domainName: '6. 拆卸安全与循环', name: '联合国危险货物运输安全证明 (UN 38.3 Summary)', legal: 'UN Manual 38.3', desc: 'T1-T8 高度/热/振动/冲击/短路等测试合格摘要', owner: '第三方检测所', tier: '海关/承运人', date: '2027-02-18' },
+
+  // 7. 符合性声明与 eIDAS 数字印章 (8项)
+  { no: '64', domain: 'd7', domainName: '7. eIDAS 数字印章', name: '欧盟 CE 符合性声明文件 (EU Declaration of Conformity)', legal: 'Article 18 & IX', desc: '制造商法定代表签署的官方 CE DoC 声明文件', owner: '法人/合规部', tier: '公众/海关', date: '2027-02-18' },
+  { no: '65', domain: 'd7', domainName: '7. eIDAS 数字印章', name: '欧盟公告机构识别编号 (Notified Body ID / NB Number)', legal: 'Article 22', desc: '参与符合性评估的欧盟公告机构 4 位官方代码', owner: '第三方公告机构', tier: '公众/海关', date: '2027-02-18' },
+  { no: '66', domain: 'd7', domainName: '7. eIDAS 数字印章', name: 'CE 型式检验证书编号 (EU-Type Examination Certificate)', legal: 'Module B / D', desc: '第三方型式试验合格证书编号与有效期', owner: '公告机构', tier: '海关监管', date: '2027-02-18' },
+  { no: '67', domain: 'd7', domainName: '7. eIDAS 数字印章', name: 'eIDAS 2.0 合格电子印章 (Qualified Electronic Seal)', legal: 'Reg (EU) 910/2014', desc: '欧盟认可 QTSP 签发并符合 PAdES 标准的数字签章', owner: 'DPP 存证平台', tier: '海关/监管', date: '2027-02-18' },
+  { no: '68', domain: 'd7', domainName: '7. eIDAS 数字印章', name: 'DG GROW 欧盟中央注册簿识别码 (Registry Anchor UPI)', legal: 'Articles 77-78', desc: '欧委会中央注册簿系统登记回执代码', owner: '欧盟中央系统', tier: '公众/海关', date: '2026-07-20' },
+  { no: '69', domain: 'd7', domainName: '7. eIDAS 数字印章', name: '数据服务商 10 年托管 SLA 承诺声明', legal: 'Article 77(3)', desc: '退市后保持 10 年可稳定解析的主权托管 SLA 保证', owner: 'EU DPP Provider', tier: '公众/法务', date: '2027-02-18' },
+  { no: '70', domain: 'd7', domainName: '7. eIDAS 数字印章', name: '零知识证明加密验证回执 (ZKP Proof Hash)', legal: '隐私合规标准', desc: '配方加密存证与哈希指纹校验码 (BOM 机密保护)', owner: 'DPP 隐私沙箱', tier: '监管机构', date: '2027-02-18' },
+  { no: '71', domain: 'd7', domainName: '7. eIDAS 数字印章', name: '数据链不可篡改时间戳 (Cryptographic Timestamp)', legal: 'RFC 3161 / eIDAS', desc: '不可篡改的历史版本存证时间戳', owner: 'DPP 存证平台', tier: '海关/公众', date: '2027-02-18' },
+];
 ---
 
 <Layout
-  title="欧盟新电池法 90+ 强制数据项全景清单与字段规范 | EU DPP Provider"
-  description="欧盟新电池法 (EU 2023/1542) Annex XIII 规定的 7 大合规领域与 90+ 强制数据属性技术解析及工厂 MES/ERP 数据映射指南。"
+  title="欧盟新电池法 71 项法定填报清单与全景对照表 | EU DPP Provider"
+  description="欧盟新电池法 (EU 2023/1542) 附录 XIII 规定的 7 大合规领域、71 项法定填报字段技术规范。支持一键下载 Excel/CSV 格式对照表供企业自查。"
 >
   <div class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center max-w-4xl mx-auto mb-16">
-      <div class="eyebrow-pill mb-3 mx-auto">欧盟新电池法 EU 2023/1542 · 附件 XIII 权威字段解析</div>
+    
+    <!-- Hero Header -->
+    <div class="text-center max-w-4xl mx-auto mb-12">
+      <div class="eyebrow-pill mb-3 mx-auto">欧盟新电池法 Regulation (EU) 2023/1542 · 附录 XIII</div>
       <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-        90+ 项电池护照强制数据要求 <br class="hidden sm:inline" />
-        <span class="text-cyan-600">全景清单与分权治理架构</span>
+        欧盟数字电池护照 (DPP) <br class="hidden sm:inline" />
+        <span class="text-cyan-600">71 项法定填报清单与全景对照表</span>
       </h1>
       <p class="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
-        涵盖 7 大合规维度、4 级角色权限分级（公众、海关、拆解回收商、OEM/车企）与工厂 MES/BMS 采集来源对齐。
+        涵盖 7 大合规领域、法定法条依据、数据责任方、权限分级与 2026–2031 强制时间线。支持一键下载标准 Excel/CSV 对照表供研发、采购及合规团队内部自查。
       </p>
     </div>
 
-    <div class="space-y-6 max-w-5xl mx-auto text-xs sm:text-sm text-slate-700">
-      <div class="neo-surface p-6 sm:p-8">
-        <h3 class="text-lg font-bold text-slate-900 mb-2">1. 基础信息与制造商身份 (General Identification)</h3>
-        <p class="text-slate-500 mb-3">公开访问层级 · 包含唯一标识符 (UPI)、经济运营商信息、制造地与电池大类。</p>
-      </div>
+    <!-- Download & Export Action Card -->
+    <div class="neo-surface p-6 sm:p-8 bg-gradient-to-br from-white to-cyan-50/40 border border-cyan-200/80 mb-10 shadow-lg rounded-3xl">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div class="space-y-1.5 max-w-2xl">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
+            <span class="text-xs font-mono font-bold text-cyan-800 uppercase tracking-wider">官方自查工具包</span>
+          </div>
+          <h3 class="text-lg sm:text-xl font-bold text-slate-900">
+            免费下载 71 项合规填报对照表 (Excel / CSV 格式)
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            内置完整欧盟法条索引、电芯/Pack/OEM 责任分工建议、公开与受限权限划分及 2026–2031 阶段合规节点，可直接用于企业内部差距分析（Gap Analysis）。
+          </p>
+        </div>
 
-      <div class="neo-surface p-6 sm:p-8">
-        <h3 class="text-lg font-bold text-slate-900 mb-2">2. 材料成分与化学安全 (Material & Chemical Safety)</h3>
-        <p class="text-slate-500 mb-3">包含正负极材料、关键原材料重量与零知识证明 (ZKP) 核心配方隐私防护。</p>
-      </div>
-
-      <div class="neo-surface p-6 sm:p-8">
-        <h3 class="text-lg font-bold text-slate-900 mb-2">3. 碳足迹声明 (Carbon Footprint CFD & PEFCR)</h3>
-        <p class="text-slate-500 mb-3">包含单位容量生命周期碳足迹 (kg CO₂e/kWh)、分阶段排放与 A-E 性能等级。</p>
-      </div>
-
-      <div class="neo-surface p-6 sm:p-8">
-        <h3 class="text-lg font-bold text-slate-900 mb-2">4. 供应链尽职调查 (Supply Chain Due Diligence)</h3>
-        <p class="text-slate-500 mb-3">符合 OECD 5 步法框架政策、冶炼厂名单与第三方审计报告摘要。</p>
-      </div>
-
-      <div class="neo-surface p-6 sm:p-8">
-        <h3 class="text-lg font-bold text-slate-900 mb-2">5. 再生含量与循环利用 (Recycled Content & Circularity)</h3>
-        <p class="text-slate-500 mb-3">钴、锂、镍回收成分比例、质量平衡法核查记录与 2031 年指标储备。</p>
-      </div>
-
-      <div class="neo-surface p-6 sm:p-8">
-        <h3 class="text-lg font-bold text-slate-900 mb-2">6. 性能、耐久性与健康状态 (Performance & SOH Telemetry)</h3>
-        <p class="text-slate-500 mb-3">受限/OEM 访问层级 · BMS 动态健康状态 (SOH)、循环寿命与内阻衰减曲线。</p>
-      </div>
-
-      <div class="neo-surface p-6 sm:p-8">
-        <h3 class="text-lg font-bold text-slate-900 mb-2">7. 安全灭火与拆解手册 (Safety & Dismantling)</h3>
-        <p class="text-slate-500 mb-3">专业回收商层级 · 灭火剂类型、螺栓扭矩规格、冷却液排放与梯次利用诊断标准。</p>
+        <div class="flex flex-wrap items-center gap-3">
+          <a
+            href="/downloads/EU_Battery_Passport_71_Data_Requirements_Checklist.xlsx"
+            download="EU_Battery_Passport_71_Data_Requirements_Checklist.xlsx"
+            class="neo-btn-primary py-3 px-5 text-xs sm:text-sm font-bold flex items-center gap-2 shadow-md"
+          >
+            <span>📥 下载 Excel 完整对照表 (.xlsx)</span>
+          </a>
+          <a
+            href="/downloads/EU_Battery_Passport_71_Data_Requirements_Checklist.csv"
+            download="EU_Battery_Passport_71_Data_Requirements_Checklist.csv"
+            class="px-5 py-3 rounded-full bg-white/90 border border-slate-300 hover:border-cyan-500 font-bold text-xs sm:text-sm text-slate-800 hover:text-cyan-700 flex items-center gap-2 shadow-sm transition-all"
+          >
+            <span>📄 下载 CSV 格式</span>
+          </a>
+        </div>
       </div>
     </div>
+
+    <!-- Interactive Filter & Search Bar -->
+    <div class="neo-well p-4 sm:p-5 rounded-2xl flex flex-wrap items-center justify-between gap-4 mb-6">
+      <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
+        {domains.map((dom, index) => (
+          <button
+            onclick={`filterDomain('${dom.id}')`}
+            id={`filter-btn-${dom.id}`}
+            class={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${index === 0 ? 'bg-cyan-600 text-white shadow-sm' : 'bg-white/80 text-slate-700 border border-slate-200 hover:bg-slate-100'}`}
+          >
+            {dom.name}
+          </button>
+        ))}
+      </div>
+
+      <div class="w-full sm:w-64">
+        <input
+          id="table-search"
+          type="text"
+          placeholder="搜索 71 项字段关键词..."
+          oninput="searchAttributes()"
+          class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs bg-white focus:border-cyan-500 outline-none"
+        />
+      </div>
+    </div>
+
+    <!-- 71 Statutory Attributes Full Table -->
+    <div class="neo-surface p-4 sm:p-6 rounded-3xl overflow-hidden shadow-xl border border-white/80">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs border-collapse">
+          <thead>
+            <tr class="bg-slate-900 text-white font-mono text-[11px] uppercase tracking-wider">
+              <th class="p-3.5 rounded-l-xl">序号</th>
+              <th class="p-3.5">法定字段名称</th>
+              <th class="p-3.5">欧盟法条依据</th>
+              <th class="p-3.5">填报内容与规格说明</th>
+              <th class="p-3.5">数据责任方</th>
+              <th class="p-3.5">公开访问权限</th>
+              <th class="p-3.5 rounded-r-xl">强制生效时间</th>
+            </tr>
+          </thead>
+          <tbody id="checklist-tbody" class="divide-y divide-slate-200 text-slate-700">
+            {checklistItems.map((item) => (
+              <tr class="hover:bg-cyan-50/50 transition-colors row-item" data-domain={item.domain} data-text={`${item.name} ${item.legal} ${item.desc} ${item.owner}`}>
+                <td class="p-3 font-mono font-bold text-slate-500">{item.no}</td>
+                <td class="p-3 font-bold text-slate-900">{item.name}</td>
+                <td class="p-3 font-mono text-cyan-800 text-[11px] whitespace-nowrap">{item.legal}</td>
+                <td class="p-3 text-slate-600 text-[11px] max-w-xs">{item.desc}</td>
+                <td class="p-3 whitespace-nowrap">
+                  <span class="px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 font-medium text-[10px]">{item.owner}</span>
+                </td>
+                <td class="p-3 whitespace-nowrap">
+                  <span class={`px-2 py-0.5 rounded-md font-mono text-[10px] font-bold ${item.tier.includes('公众') ? 'bg-green-100 text-green-800' : item.tier.includes('ZKP') ? 'bg-purple-100 text-purple-800' : 'bg-blue-100 text-blue-800'}`}>
+                    {item.tier}
+                  </span>
+                </td>
+                <td class="p-3 font-mono text-slate-500 text-[11px] whitespace-nowrap">{item.date}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Bottom Contact Callout -->
+    <div class="mt-12 text-center space-y-4">
+      <p class="text-sm text-slate-600">
+        需要技术团队协助梳理您工厂 MES / ERP 数据接口与 71 项法规字段的映射关系？
+      </p>
+      <a href="/zh/contact/" class="neo-btn-primary inline-flex items-center gap-2">
+        <span>预约技术专家现场 / 在线字段梳理评估 →</span>
+      </a>
+    </div>
+
   </div>
 </Layout>
+
+<script is:inline>
+  let activeDomain = 'all';
+
+  function filterDomain(domainId) {
+    activeDomain = domainId;
+    
+    // Update button states
+    const buttons = document.querySelectorAll('[id^="filter-btn-"]');
+    buttons.forEach(btn => {
+      if (btn.id === `filter-btn-${domainId}`) {
+        btn.className = 'px-3 py-1.5 rounded-xl text-xs font-bold transition-all bg-cyan-600 text-white shadow-sm';
+      } else {
+        btn.className = 'px-3 py-1.5 rounded-xl text-xs font-bold transition-all bg-white/80 text-slate-700 border border-slate-200 hover:bg-slate-100';
+      }
+    });
+
+    applyFilters();
+  }
+
+  function searchAttributes() {
+    applyFilters();
+  }
+
+  function applyFilters() {
+    const query = document.getElementById('table-search')?.value.toLowerCase() || '';
+    const rows = document.querySelectorAll('.row-item');
+
+    rows.forEach(row => {
+      const rowDomain = row.getAttribute('data-domain');
+      const rowText = row.getAttribute('data-text')?.toLowerCase() || '';
+
+      const matchDomain = (activeDomain === 'all' || rowDomain === activeDomain);
+      const matchSearch = (!query || rowText.includes(query));
+
+      if (matchDomain && matchSearch) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  }
+</script>

@@ -1,20 +1,254 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
+
+const domains = [
+  { id: 'all', name: 'Alle 71 Verplichte Attributen' },
+  { id: 'd1', name: '1. Identiteit & Fabrikant (12)' },
+  { id: 'd2', name: '2. Materialen & Rezyklat (11)' },
+  { id: 'd3', name: '3. Koolstofvoetafdruk (9)' },
+  { id: 'd4', name: '4. Prestaties & Duurzaamheid (10)' },
+  { id: 'd5', name: '5. BMS-Telemetrie (10)' },
+  { id: 'd6', name: '6. Demontage & Veiligheid (11)' },
+  { id: 'd7', name: '7. eIDAS & Conformiteit (8)' },
+];
+
+const checklistItems = [
+  { no: '01', domain: 'd1', name: 'Unieke Productidentificatie (UPI / SGTIN)', legal: 'Bijlage XIII, 1(a)', desc: 'GS1 Digital Link formaat : GTIN-14 + uniek serienummer (EN 18219/18220)', owner: 'Pack-Fabrikant', tier: 'Openbaar', date: '2027-02-18' },
+  { no: '02', domain: 'd1', name: 'Statutaire Naam van de Marktdeelnemer', legal: 'Bijlage XIII, 1(b)', desc: 'Volledige geregistreerde bedrijfsnaam en identificatienummer (USCI/EORI)', owner: 'Pack-Fabrikant', tier: 'Openbaar', date: '2027-02-18' },
+  { no: '03', domain: 'd1', name: 'Statutaire Zetel & EU Contactpunt', legal: 'Bijlage XIII, 1(c)', desc: 'Bedrijfsadres, officiële website, e-mail en EU-telefoonnummer', owner: 'Pack-Fabrikant', tier: 'Openbaar', date: '2027-02-18' },
+  { no: '04', domain: 'd1', name: 'Locatie van de Productiefaciliteit', legal: 'Bijlage XIII, 1(d)', desc: 'Fabriekscode, stad en ISO 3166 landcode', owner: 'Pack-Fabrikant', tier: 'Openbaar', date: '2027-02-18' },
+  { no: '05', domain: 'd1', name: 'Fabricagedatum (Maand/Jaar)', legal: 'Bijlage XIII, 1(e)', desc: 'Tijdstip van voltooiing van het batterijpack (YYYY-MM)', owner: 'Pack-Fabrikant', tier: 'Openbaar', date: '2027-02-18' },
+  { no: '06', domain: 'd1', name: 'Datum van in de Handel Brengen in de EU', legal: 'Bijlage XIII, 1(f)', desc: 'Douanevrijgave of datum van eerste levering (YYYY-MM-DD)', owner: 'Importeur/OEM', tier: 'Douane/Openbaar', date: '2027-02-18' },
+  { no: '07', domain: 'd1', name: 'Indeling van de Batterijcategorie', legal: 'Artikel 1(1)', desc: 'Elektrische Voertuigen (EV), LMT (≤25kg) of Industriële BESS Opslag (>2kWh)', owner: 'Pack-Fabrikant', tier: 'Openbaar', date: '2027-02-18' },
+  { no: '08', domain: 'd1', name: 'Batterijmodel & Handelsbenaming', legal: 'Bijlage XIII, 1(g)', desc: 'Officiële modelcode en commerciële handelsnaam', owner: 'Pack-Fabrikant', tier: 'Openbaar', date: '2027-02-18' },
+  { no: '09', domain: 'd1', name: 'Totale Massa van het Batterijpack (kg)', legal: 'Bijlage XIII, 1(h)', desc: 'Nettomassa in kilogram met een nauwkeurigheid van 0,1 kg', owner: 'Pack-Fabrikant', tier: 'Openbaar', date: '2027-02-18' },
+  { no: '10', domain: 'd1', name: 'Fysieke Afmetingen & Behuizing', legal: 'Bijlage XIII, 1(i)', desc: 'Lengte x Breedte x Hoogte (mm) en vormfactor', owner: 'Pack-Fabrikant', tier: 'Openbaar', date: '2027-02-18' },
+  { no: '11', domain: 'd1', name: 'Nominale Bruikbare Energiecapaciteit (kWh)', legal: 'Bijlage XIII, 1(j)', desc: 'Nominale energie (kWh) en capaciteit in Ah onder standaardcyclus', owner: 'Cel/Pack Fabrikant', tier: 'Openbaar', date: '2027-02-18' },
+  { no: '12', domain: 'd1', name: '2D Gegevensdrager Syntaxis (EN 18220:2026)', legal: 'EN 18220:2026', desc: 'Standaard GS1 Digital Link URI : /01/{GTIN}/21/{SERIAL}', owner: 'Systeem', tier: 'Openbaar', date: '2027-02-18' },
+  { no: '13', domain: 'd2', name: 'Chemie van het Actieve Kathodemateriaal', legal: 'Bijlage XIII, 2(a)', desc: 'NMC 811/622, LFP, NCA, Natrium-ion stoichiometrie', owner: 'Celleverancier', tier: 'Openbaar', date: '2027-02-18' },
+  { no: '14', domain: 'd2', name: 'Samenstelling van het Anodemateriaal', legal: 'Bijlage XIII, 2(b)', desc: 'Natuurlijk/synthetisch grafiet of silicium-koolstof composiet', owner: 'Celleverancier', tier: 'Recycler/Openbaar', date: '2027-02-18' },
+  { no: '15', domain: 'd2', name: 'Elektrolyt Oplosmiddelen & Geleidende Zouten', legal: 'Bijlage XIII, 2(c)', desc: 'LiPF6 zoutconcentratie en organische oplosmiddelen (ZKP-beschermd)', owner: 'Celleverancier', tier: 'ZKP-Beschermd', date: '2027-02-18' },
+  { no: '16', domain: 'd2', name: 'Kritieke Grondstof Kobalt (kg)', legal: 'Artikel 8 & XIII', desc: 'Absolute massa zuiver actief kobalt in kg', owner: 'Celleverancier', tier: 'Audit/Autoriteiten', date: '2027-02-18' },
+  { no: '17', domain: 'd2', name: 'Kritieke Grondstof Lithium (kg)', legal: 'Artikel 8 & XIII', desc: 'Absolute massa zuiver actief lithium in kg', owner: 'Celleverancier', tier: 'Audit/Autoriteiten', date: '2027-02-18' },
+  { no: '18', domain: 'd2', name: 'Kritieke Grondstof Nikkel (kg)', legal: 'Artikel 8 & XIII', desc: 'Absolute massa zuiver actief nikkel in kg', owner: 'Celleverancier', tier: 'Audit/Autoriteiten', date: '2027-02-18' },
+  { no: '19', domain: 'd2', name: 'Gerecycled Aandeel Kobalt (%)', legal: 'Artikel 8(1)', desc: 'Gedeclareerd percentage gerecycled kobalt (Vanaf 2031 verplicht: ≥16%)', owner: 'Kathodematerialen', tier: 'Openbaar', date: '2028-08-18' },
+  { no: '20', domain: 'd2', name: 'Gerecycled Aandeel Lithium (%)', legal: 'Artikel 8(1)', desc: 'Gedeclareerd percentage gerecycled lithium (Vanaf 2031 verplicht: ≥6%)', owner: 'Kathodematerialen', tier: 'Openbaar', date: '2028-08-18' },
+  { no: '21', domain: 'd2', name: 'Gerecycled Aandeel Nikkel (%)', legal: 'Artikel 8(1)', desc: 'Gedeclareerd percentage gerecycled nikkel (Vanaf 2031 verplicht: ≥6%)', owner: 'Kathodematerialen', tier: 'Openbaar', date: '2028-08-18' },
+  { no: '22', domain: 'd2', name: 'Gerecycled Aandeel Lood (%)', legal: 'Artikel 8(1)', desc: 'Gedeclareerd percentage gerecycled lood (Vanaf 2031 verplicht: ≥85%)', owner: 'Leverancier', tier: 'Openbaar', date: '2028-08-18' },
+  { no: '23', domain: 'd2', name: 'REACH / RoHS Conformiteitsverklaring', legal: 'Bijlage XIII, 2(d)', desc: 'SVHC-kandidaatstoffenverklaring (<0,1%) & zware metalen grenswaarden', owner: 'Pack-Fabrikant', tier: 'Openbaar', date: '2027-02-18' },
+  { no: '24', domain: 'd3', name: 'Totale Koolstofvoetafdruk Levenscyclus (PCF)', legal: 'Artikel 7 & II', desc: 'Totale uitstoot in kg CO₂e / kWh nominale capaciteit', owner: 'LCA Team', tier: 'Openbaar', date: '2026-08-18' },
+  { no: '25', domain: 'd3', name: 'Uitstoot Grondstoffase (Raw Materials)', legal: 'Bijlage II, 2(a)', desc: 'Mijnbouw-, raffinage- en precursorsynthese-emissies', owner: 'Toeleveringsketen', tier: 'Audit Niveau', date: '2026-08-18' },
+  { no: '26', domain: 'd3', name: 'Uitstoot Hoofdfabricagefase (Manufacturing)', legal: 'Bijlage II, 2(b)', desc: 'Celproductie en batterijpack-assemblage processen', owner: 'Fabriek MES', tier: 'Audit Niveau', date: '2026-08-18' },
+  { no: '27', domain: 'd3', name: 'Uitstoot Transport & Logistiek', legal: 'Bijlage II, 2(c)', desc: 'Transportemissies naar de EU-invoerhaven', owner: 'Logistiek', tier: 'Audit Niveau', date: '2026-08-18' },
+  { no: '28', domain: 'd3', name: 'Uitstoot Einde Levensduur & Recycling', legal: 'Bijlage II, 2(d)', desc: 'Demontage en metallurgische terugwinningskredieten', owner: 'LCA Model', tier: 'Audit Niveau', date: '2026-08-18' },
+  { no: '29', domain: 'd3', name: 'Koolstofprestatieklasse Label (A–E)', legal: 'Artikel 7(2)', desc: 'Officiële klasse A, B, C, D, E drempelindeling voor EV-batterijen', owner: 'Officiële Vergelijking', tier: 'Openbaar', date: '2026-08-18' },
+  { no: '30', domain: 'd3', name: 'Verificatie Maximale Koolstofdrempel', legal: 'Artikel 7(3)', desc: 'Bewijs van naleving onder het wettelijke maximale CO₂-plafond', owner: 'Aangemelde Instantie', tier: 'Douane/Openbaar', date: '2028-02-18' },
+  { no: '31', domain: 'd3', name: 'Onafhankelijke Derde Partij LCA-Verklaring', legal: 'Artikel 7(1)', desc: 'Gecertificeerde verklaring conform ISO 14067 & EU PEFCR regels', owner: 'Auditor', tier: 'Openbaar', date: '2026-08-18' },
+  { no: '32', domain: 'd3', name: 'Passende Zorgvuldigheid in de Keten (Due Diligence)', legal: 'Artikelen 48-53', desc: 'OESO-kader auditrapport over maatschappelijke verantwoordelijkheid', owner: 'Corporate ESG', tier: 'Openbaar/Douane', date: '2027-08-18' },
+  { no: '33', domain: 'd4', name: 'Nominale Capaciteit (Ah)', legal: 'Bijlage XIII, 3(a)', desc: 'Capaciteit in Ampère-uur onder gestandaardiseerde testcycli', owner: 'Celspecificatie', tier: 'Openbaar', date: '2027-02-18' },
+  { no: '34', domain: 'd4', name: 'Nominale Systeemspanning (V)', legal: 'Bijlage XIII, 3(b)', desc: 'Nominale DC-bedrijfsspanning (bijv. 400V, 800V, 1500V)', owner: 'Pack-Specificatie', tier: 'Openbaar', date: '2027-02-18' },
+  { no: '35', domain: 'd4', name: 'Bedrijfsspanningsgrenzen', legal: 'Bijlage XIII, 3(c)', desc: 'Maximale laadafsluiting en minimale ontlaadafsluiting', owner: 'BMS Parameters', tier: 'Openbaar', date: '2027-02-18' },
+  { no: '36', domain: 'd4', name: 'Maximaal Continu & Piekvermogen (kW)', legal: 'Bijlage XIII, 3(d)', desc: 'Toegestaan continu vermogen en 20s pulsvermogen (kW)', owner: 'Pack-Specificatie', tier: 'Openbaar', date: '2027-02-18' },
+  { no: '37', domain: 'd4', name: 'Initiële Interne Weerstand (DCR in mΩ)', legal: 'Bijlage XIII, 3(e)', desc: 'Fabrieksbasis DC-weerstand bij 25°C', owner: 'Kwaliteitscontrole', tier: 'Openbaar/Service', date: '2027-02-18' },
+  { no: '38', domain: 'd4', name: 'Initiële Round-Trip Energie-efficiëntie (%)', legal: 'Bijlage XIII, 3(f)', desc: 'Efficiëntiepercentage onder standaard 1C laad-ontlaad cycli', owner: 'Typetestrapport', tier: 'Openbaar', date: '2027-02-18' },
+  { no: '39', domain: 'd4', name: 'Verwachte Cycluslevensduur', legal: 'Bijlage XIII, 3(g)', desc: 'Aantal referentiecycli tot het bereiken van 80% SOH', owner: 'Verouderingslab', tier: 'Openbaar', date: '2027-02-18' },
+  { no: '40', domain: 'd4', name: 'Kalenderverouderingspercentage (%/jaar)', legal: 'Bijlage XIII, 3(h)', desc: 'Geschat jaarlijks capaciteitsverlies bij opslag op 20°C', owner: 'R&D Lab', tier: 'Openbaar', date: '2027-02-18' },
+  { no: '41', domain: 'd4', name: 'Toegestaan Bedrijfstemperatuurbereik (°C)', legal: 'Bijlage XIII, 3(i)', desc: 'Toegestaan omgevingstemperatuurbereik voor laden en ontladen', owner: 'Thermisch Ontwerp', tier: 'Openbaar', date: '2027-02-18' },
+  { no: '42', domain: 'd4', name: 'Toegepaste Testnormen & Protocollen', legal: 'Bijlage XIII, 3(j)', desc: 'EN 62619, ISO 12405, UN GTR 20 technische normen', owner: 'Certificering', tier: 'Openbaar', date: '2027-02-18' },
+  { no: '43', domain: 'd5', name: 'Huidige Gezondheidstoestand (SOH %)', legal: 'Artikel 78 & VII', desc: 'Resterende bruikbare capaciteit t.o.v. nominale fabrieksbasis', owner: 'BMS Realtime', tier: 'Eigenaar/Service', date: '2027-02-18' },
+  { no: '44', domain: 'd5', name: 'Equivalente Volledige Cycli (EFC Teller)', legal: 'Bijlage VII, 1(a)', desc: 'Cumulatieve energie-doorvoer omgerekend naar 100% cycli', owner: 'BMS Teller', tier: 'Eigenaar/Service', date: '2027-02-18' },
+  { no: '45', domain: 'd5', name: 'Toename van de Interne Weerstand (%)', legal: 'Bijlage VII, 1(b)', desc: 'Procentuele toename van DCR t.o.v. de initiële fabriekswaarde', owner: 'BMS Diagnose', tier: 'Service/Recycler', date: '2027-02-18' },
+  { no: '46', domain: 'd5', name: 'Cumulatieve Doorgevoerde Energie (MWh)', legal: 'Bijlage VII, 1(c)', desc: 'Totale geladen en ontladen elektrische energie (MWh)', owner: 'BMS Geheugen', tier: 'Audit Niveau', date: '2027-02-18' },
+  { no: '47', domain: 'd5', name: 'Diepontladingsgebeurtenissen Teller', legal: 'Bijlage VII, 1(d)', desc: 'Aantal keren dat de spanning onder de uitschakeldrempel daalde', owner: 'BMS Foutlogboek', tier: 'Second-Life/OEM', date: '2027-02-18' },
+  { no: '48', domain: 'd5', name: 'Bedrijfstijd in Extreme Temperaturen', legal: 'Bijlage VII, 1(e)', desc: 'Totale uren actief buiten het gecertificeerde temperatuurbereik', owner: 'BMS Thermisch Log', tier: 'Garantie/OEM', date: '2027-02-18' },
+  { no: '49', domain: 'd5', name: 'Maximale Celspanningsonbalans (mV)', legal: 'Bijlage VII, 1(f)', desc: 'Grootste spanningsverschil tussen afzonderlijke cellen onder belasting', owner: 'BMS Balancering', tier: 'Diagnoseniveau', date: '2027-02-18' },
+  { no: '50', domain: 'd5', name: 'Hoogspanningsisolatieweerstand (kΩ)', legal: 'Bijlage VII, 1(g)', desc: 'Realtime isolatiemeting tussen DC-bus en chassisaarding', owner: 'BMS Veiligheid', tier: 'Periodieke Keuring', date: '2027-02-18' },
+  { no: '51', domain: 'd5', name: 'Diagnostische Interface Protocol (OBD)', legal: 'Artikel 78(2)', desc: 'Gestandaardiseerd ISO 14229 / CAN / REST telemetrie-eindpunt', owner: 'Gateway Fabrikant', tier: 'Bevoegd Personeel', date: '2027-02-18' },
+  { no: '52', domain: 'd5', name: 'BMS Software & Firmware Versiegeschiedenis', legal: 'Bijlage XIII, 4', desc: 'Huidige firmware-hash en OTA-updatehistorie', owner: 'OEM Software', tier: 'Autoriteiten/OEM', date: '2027-02-18' },
+  { no: '53', domain: 'd6', name: 'Aanbevolen Blusmiddel & Noodprocedures', legal: 'Bijlage XIII, 5(a)', desc: 'F-500 blusmiddel, wateroverstroming of inert gas richtlijnen', owner: 'Veiligheidsteam', tier: 'Openbaar/Hulpdiensten', date: '2027-02-18' },
+  { no: '54', domain: 'd6', name: 'Veilige Demontagehandleiding & Stappenplan', legal: 'Bijlage XIII, 5(b)', desc: 'Spanningsvrijschakeling, behuizingsopening en modulescheiding', owner: 'Pack R&D', tier: 'Gecertificeerde Recyclers', date: '2027-02-18' },
+  { no: '55', domain: 'd6', name: 'Vereiste Gespecialiseerde Demontagegereedschappen', legal: 'Bijlage XIII, 5(c)', desc: 'Geïsoleerd gereedschap, Torx-bits en hijsinrichtingen', owner: 'Gereedschapsbeheer', tier: 'Gecertificeerde Recyclers', date: '2027-02-18' },
+  { no: '56', domain: 'd6', name: 'Bevestigingsmiddelen & Aandraaimomenten', legal: 'Bijlage XIII, 5(d)', desc: 'Boutspecificaties (bijv. M8 Torx Plus) en aanhaalkoppels', owner: 'Constructie', tier: 'Gecertificeerde Recyclers', date: '2027-02-18' },
+  { no: '57', domain: 'd6', name: 'Koelvloeistof Aftap- & Afvoerprocedure', legal: 'Bijlage XIII, 5(e)', desc: 'Positie van aftapkleppen en milieuvriendelijke glycolterugwinning', owner: 'Thermisch Ingenieur', tier: 'Gecertificeerde Recyclers', date: '2027-02-18' },
+  { no: '58', domain: 'd6', name: 'Celmodule Vervangbaarheid & Reparatie-index', legal: 'Bijlage XIII, 5(f)', desc: 'Beoordelingsscore voor niet-destructieve modulereparaties', owner: 'Ontwerpteam', tier: 'Service/Openbaar', date: '2027-02-18' },
+  { no: '59', domain: 'd6', name: 'Richtlijnen voor Second-Life Hergebruik', legal: 'Artikel 73 & XIII', desc: 'Keuringscriteria voor de ombouw van EV-accu’s naar BESS opslag', owner: 'Systeemintegratie', tier: 'Second-Life Bedrijven', date: '2027-02-18' },
+  { no: '60', domain: 'd6', name: 'Richtwaarden voor Materiaalrecycling', legal: 'Artikel 71 & XII', desc: 'Aanbevelingen voor effectieve kobalt-, lithium- en nikkelterugwinning', owner: 'Circulaire Economie', tier: 'Gecertificeerde Recyclers', date: '2027-02-18' },
+  { no: '61', domain: 'd6', name: 'Gescheiden Inzameling & Doorgestreepte Vuilnisbak', legal: 'Artikelen 59-60', desc: 'WEEE-symbolen en netwerk van inzamelpunten', owner: 'Compliance', tier: 'Openbaar', date: '2027-02-18' },
+  { no: '62', domain: 'd6', name: 'Veiligheidsinformatieblad (MSDS / SDS PDF)', legal: 'REACH Verordening', desc: 'Volledig chemisch veiligheidsinformatieblad volgens GHS-normen', owner: 'QA/QC Lab', tier: 'Openbaar/Transport', date: '2027-02-18' },
+  { no: '63', domain: 'd6', name: 'UN 38.3 Transportveiligheidscertificaat', legal: 'UN Manual 38.3', desc: 'Samenvatting T1-T8 hoogte-, thermische, schok- en trillingstesten', owner: 'Testinstituut', tier: 'Douane/Vervoerder', date: '2027-02-18' },
+  { no: '64', domain: 'd7', name: 'EU-Conformiteitsverklaring (DoC Document)', legal: 'Artikel 18 & IX', desc: 'Ondertekende officiële verklaring van CE-conformiteit', owner: 'Juridische Zaken', tier: 'Openbaar/Douane', date: '2027-02-18' },
+  { no: '65', domain: 'd7', name: 'Nummer van de Aangemelde Instantie (NB-Nummer)', legal: 'Artikel 22', desc: 'Viercijferig Europees identificatienummer van de keuringsinstantie', owner: 'Aangemelde Instantie', tier: 'Openbaar/Douane', date: '2027-02-18' },
+  { no: '66', domain: 'd7', name: 'EU-Typeonderzoekscertificaat Code', legal: 'Module B / D', desc: 'Referentienummer van het typetestcertificaat en geldigheid', owner: 'Aangemelde Instantie', tier: 'Douane', date: '2027-02-18' },
+  { no: '67', domain: 'd7', name: 'eIDAS 2.0 Gekwalificeerd Elektronisch Zegel', legal: 'Verordening 910/2014', desc: 'PAdES digitale handtekening van een erkende trust service provider (QTSP)', owner: 'DPP Platform', tier: 'Douane/Audit', date: '2027-02-18' },
+  { no: '68', domain: 'd7', name: 'DG GROW EU-Centraal Register Inschrijving UPI', legal: 'Artikelen 77-78', desc: 'Officieel ontvangstbewijs op registry.product-passport.ec.europa.eu', owner: 'EU Register', tier: 'Openbaar/Douane', date: '2026-07-20' },
+  { no: '69', domain: 'd7', name: '10-Jaar Soevereine Data-Hosting SLA Garantie', legal: 'Artikel 77(3)', desc: 'Gegarandeerde 10-jarige beschikbaarheid en link-resolutie', owner: 'EU DPP Provider', tier: 'Openbaar/Juridisch', date: '2027-02-18' },
+  { no: '70', domain: 'd7', name: 'Zero-Knowledge Proof Verificatiehash', legal: 'Privacynorm', desc: 'SHA-256 hash die naleving valideert zonder de BOM bloot te leggen', owner: 'DPP Sandbox', tier: 'Toezichthouder', date: '2027-02-18' },
+  { no: '71', domain: 'd7', name: 'Cryptografisch Onveranderlijk Historietijdstempel', legal: 'RFC 3161 / eIDAS', desc: 'Manipulatiebestendig auditlogboek van alle wijzigingen', owner: 'DPP Platform', tier: 'Douane/Openbaar', date: '2027-02-18' },
+];
 ---
 
 <Layout
-  title="90+ EU Batterijpaspoort Verplichte Gegevens Checklist | EU DPP Provider"
-  description="Specificatie van de 7 gegevensdomeinen en 90+ verplichte attributen onder Verordening (EU) 2023/1542 Bijlage XIII."
+  title="EU Batterijpaspoort: 71 Verplichte Attributen Checklijst | EU DPP Provider"
+  description="Volledige specificatie van alle 71 verplichte velden onder Verordening (EU) 2023/1542 Bijlage XIII. Download het gratis Excel/CSV overzicht."
 >
   <div class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center max-w-4xl mx-auto mb-16">
+    
+    <div class="text-center max-w-4xl mx-auto mb-12">
       <div class="eyebrow-pill mb-3 mx-auto">Verordening (EU) 2023/1542 · Bijlage XIII</div>
       <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-        90+ Verplichte Batterijpaspoort Gegevensvereisten
+        EU Batterijpaspoort <br class="hidden sm:inline" />
+        <span class="text-cyan-600">71 Wettelijk Verplichte Attributen & Checklijst</span>
       </h1>
-      <p class="mt-4 text-base text-slate-600 leading-relaxed">
-        Overzicht van de 7 nalevingsdomeinen en rolgebaseerde toegangsniveaus voor batterijfabrikanten.
+      <p class="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
+        Compleet overzicht van alle 71 verplichte datavelden verdeeld over 7 compliance-domeinen. Download de officiële Excel/CSV-matrix voor uw interne gap-analyse.
       </p>
     </div>
+
+    <div class="neo-surface p-6 sm:p-8 bg-gradient-to-br from-white to-cyan-50/40 border border-cyan-200/80 mb-10 shadow-lg rounded-3xl">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div class="space-y-1.5 max-w-2xl">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
+            <span class="text-xs font-mono font-bold text-cyan-800 uppercase tracking-wider">Officieel Zelfevaluatie-Overzicht</span>
+          </div>
+          <h3 class="text-lg sm:text-xl font-bold text-slate-900">
+            Download 71-Attributen Compliance Matrix (Excel & CSV)
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Geformatteerd met EU-wetsartikelen, verantwoordelijke partijen, toegangsniveaus en handhavingsdata 2026–2031.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3">
+          <a
+            href="/downloads/EU_Battery_Passport_71_Data_Requirements_Checklist.xlsx"
+            download="EU_Battery_Passport_71_Data_Requirements_Checklist.xlsx"
+            class="neo-btn-primary py-3 px-5 text-xs sm:text-sm font-bold flex items-center gap-2 shadow-md"
+          >
+            <span>📥 Download Excel (.xlsx)</span>
+          </a>
+          <a
+            href="/downloads/EU_Battery_Passport_71_Data_Requirements_Checklist.csv"
+            download="EU_Battery_Passport_71_Data_Requirements_Checklist.csv"
+            class="px-5 py-3 rounded-full bg-white/90 border border-slate-300 hover:border-cyan-500 font-bold text-xs sm:text-sm text-slate-800 hover:text-cyan-700 flex items-center gap-2 shadow-sm transition-all"
+          >
+            <span>📄 Download CSV</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter & Search Bar -->
+    <div class="neo-well p-4 sm:p-5 rounded-2xl flex flex-wrap items-center justify-between gap-4 mb-6">
+      <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
+        {domains.map((dom, index) => (
+          <button
+            onclick={`filterDomain('${dom.id}')`}
+            id={`filter-btn-${dom.id}`}
+            class={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${index === 0 ? 'bg-cyan-600 text-white shadow-sm' : 'bg-white/80 text-slate-700 border border-slate-200 hover:bg-slate-100'}`}
+          >
+            {dom.name}
+          </button>
+        ))}
+      </div>
+
+      <div class="w-full sm:w-64">
+        <input
+          id="table-search"
+          type="text"
+          placeholder="Zoek attributen..."
+          oninput="searchAttributes()"
+          class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs bg-white focus:border-cyan-500 outline-none"
+        />
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="neo-surface p-4 sm:p-6 rounded-3xl overflow-hidden shadow-xl border border-white/80">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs border-collapse">
+          <thead>
+            <tr class="bg-slate-900 text-white font-mono text-[11px] uppercase tracking-wider">
+              <th class="p-3.5 rounded-l-xl">Nr.</th>
+              <th class="p-3.5">Wettelijke Veldnaam</th>
+              <th class="p-3.5">EU Bijlage XIII Rechtsgrondslag</th>
+              <th class="p-3.5">Specificatie / Omschrijving</th>
+              <th class="p-3.5">Verantwoordelijke</th>
+              <th class="p-3.5">Toegangsniveau</th>
+              <th class="p-3.5 rounded-r-xl">Verplicht vanaf</th>
+            </tr>
+          </thead>
+          <tbody id="checklist-tbody" class="divide-y divide-slate-200 text-slate-700">
+            {checklistItems.map((item) => (
+              <tr class="hover:bg-cyan-50/50 transition-colors row-item" data-domain={item.domain} data-text={`${item.name} ${item.legal} ${item.desc} ${item.owner}`}>
+                <td class="p-3 font-mono font-bold text-slate-500">{item.no}</td>
+                <td class="p-3 font-bold text-slate-900">{item.name}</td>
+                <td class="p-3 font-mono text-cyan-800 text-[11px] whitespace-nowrap">{item.legal}</td>
+                <td class="p-3 text-slate-600 text-[11px] max-w-xs">{item.desc}</td>
+                <td class="p-3 whitespace-nowrap">
+                  <span class="px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 font-medium text-[10px]">{item.owner}</span>
+                </td>
+                <td class="p-3 whitespace-nowrap">
+                  <span class={`px-2 py-0.5 rounded-md font-mono text-[10px] font-bold ${item.tier.includes('Openbaar') ? 'bg-green-100 text-green-800' : item.tier.includes('ZKP') ? 'bg-purple-100 text-purple-800' : 'bg-blue-100 text-blue-800'}`}>
+                    {item.tier}
+                  </span>
+                </td>
+                <td class="p-3 font-mono text-slate-500 text-[11px] whitespace-nowrap">{item.date}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="mt-12 text-center space-y-4">
+      <p class="text-sm text-slate-600">
+        Hulp nodig bij het koppelen van uw MES/ERP fabrieksgegevens aan de 71 verplichte velden?
+      </p>
+      <a href="/nl/contact/" class="neo-btn-primary inline-flex items-center gap-2">
+        <span>Vraag technisch advies aan →</span>
+      </a>
+    </div>
+
   </div>
 </Layout>
+
+<script is:inline>
+  let activeDomain = 'all';
+
+  function filterDomain(domainId) {
+    activeDomain = domainId;
+    const buttons = document.querySelectorAll('[id^="filter-btn-"]');
+    buttons.forEach(btn => {
+      if (btn.id === `filter-btn-${domainId}`) {
+        btn.className = 'px-3 py-1.5 rounded-xl text-xs font-bold transition-all bg-cyan-600 text-white shadow-sm';
+      } else {
+        btn.className = 'px-3 py-1.5 rounded-xl text-xs font-bold transition-all bg-white/80 text-slate-700 border border-slate-200 hover:bg-slate-100';
+      }
+    });
+    applyFilters();
+  }
+
+  function searchAttributes() {
+    applyFilters();
+  }
+
+  function applyFilters() {
+    const query = document.getElementById('table-search')?.value.toLowerCase() || '';
+    const rows = document.querySelectorAll('.row-item');
+
+    rows.forEach(row => {
+      const rowDomain = row.getAttribute('data-domain');
+      const rowText = row.getAttribute('data-text')?.toLowerCase() || '';
+
+      const matchDomain = (activeDomain === 'all' || rowDomain === activeDomain);
+      const matchSearch = (!query || rowText.includes(query));
+
+      if (matchDomain && matchSearch) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  }
+</script>
