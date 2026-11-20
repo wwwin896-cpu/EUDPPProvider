@@ -1,0 +1,65 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PortalSimulator from '../../components/PortalSimulator.astro';
+---
+
+<Layout
+  title="电池护照企业填报与管理后台模拟器 | EU DPP Provider"
+  description="在线体验符合欧盟新电池法 (EU 2023/1542) 附录 XIII 要求的 7 大合规领域、完整字段填报逻辑与数据流转过程。"
+>
+  <div class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Top Hero Header -->
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <div class="eyebrow-pill mb-3 mx-auto">
+        <span class="w-2 h-2 rounded-full bg-cyan-600 animate-pulse"></span>
+        <span>企业级沙箱模拟环境</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        电池护照企业填报与 <br class="hidden sm:inline" />
+        <span class="text-cyan-600">管理后台模拟器</span>
+      </h1>
+      <p class="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
+        在正式部署与数据对接前，直观了解企业端需要填报的 70+ 法规字段、检测证明附件与 BMS 接口数据流转规范。
+      </p>
+    </div>
+
+    <!-- Simulator Component -->
+    <PortalSimulator />
+
+    <!-- Bottom Guidance & Next Steps -->
+    <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="neo-surface p-6 sm:p-7 space-y-2">
+        <div class="text-xs font-mono font-bold text-cyan-700 uppercase">第 01 步</div>
+        <h4 class="text-base font-bold text-slate-900">预置 7 大合规领域模板</h4>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          针对 EV 乘用车、LMT 轻型车及 >2kWh 储能电柜，严格内置符合欧盟 Annex XIII 规范的标准化字段结构。
+        </p>
+      </div>
+
+      <div class="neo-surface p-6 sm:p-7 space-y-2">
+        <div class="text-xs font-mono font-bold text-green-700 uppercase">第 02 步</div>
+        <h4 class="text-base font-bold text-slate-900">零知识证明配方隐私保护</h4>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          供应商单价、电解液添加剂与材料采购底价等工业机密全部通过 ZKP 证明核验，原始数据永不出境。
+        </p>
+      </div>
+
+      <div class="neo-surface p-6 sm:p-7 space-y-2">
+        <div class="text-xs font-mono font-bold text-blue-700 uppercase">第 03 步</div>
+        <h4 class="text-base font-bold text-slate-900">eIDAS 数字印章与欧盟存证</h4>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          自动附加欧盟合格信任服务机构（QTSP）数字签章，符合欧盟 DG GROW 注册簿数据交换与海关查验标准。
+        </p>
+      </div>
+    </div>
+
+    <!-- Contact CTA -->
+    <div class="mt-12 text-center">
+      <a href="/zh/contact/" class="neo-btn-primary inline-flex items-center gap-2">
+        <span>申请专属企业沙箱与合规差距清单 →</span>
+      </a>
+    </div>
+
+  </div>
+</Layout>

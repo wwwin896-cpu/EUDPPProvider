@@ -1,0 +1,61 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PortalSimulator from '../../components/PortalSimulator.astro';
+---
+
+<Layout
+  title="Simulateur de Portail Entreprise & Déclaration DPP | EU DPP Provider"
+  description="Testez l'interface de déclaration des passeports batterie selon le règlement (UE) 2023/1542 Annexe XIII en environnement sandbox."
+>
+  <div class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <div class="eyebrow-pill mb-3 mx-auto">
+        <span class="w-2 h-2 rounded-full bg-cyan-600 animate-pulse"></span>
+        <span>Environnement Bac à Sable Interactif</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        Simulateur de Portail Entreprise & <br class="hidden sm:inline" />
+        <span class="text-cyan-600">Déclaration DPP</span>
+      </h1>
+      <p class="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
+        Découvrez les 70+ champs réglementaires, certificats requis et flux de données BMS avant votre déploiement industriel.
+      </p>
+    </div>
+
+    <PortalSimulator />
+
+    <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="neo-surface p-6 sm:p-7 space-y-2">
+        <div class="text-xs font-mono font-bold text-cyan-700 uppercase">Étape 01</div>
+        <h4 class="text-base font-bold text-slate-900">Modèles de Données Préconfigurés</h4>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          Structures conformes à l'Annexe XIII pour VE, batteries légères LMT et stockage BESS (>2kWh).
+        </p>
+      </div>
+
+      <div class="neo-surface p-6 sm:p-7 space-y-2">
+        <div class="text-xs font-mono font-bold text-green-700 uppercase">Étape 02</div>
+        <h4 class="text-base font-bold text-slate-900">Bouclier Cryptographique ZKP</h4>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          Protection absolue du secret des formules chimiques et des prix d'achat fournisseurs via Zero-Knowledge Proofs.
+        </p>
+      </div>
+
+      <div class="neo-surface p-6 sm:p-7 space-y-2">
+        <div class="text-xs font-mono font-bold text-blue-700 uppercase">Étape 03</div>
+        <h4 class="text-base font-bold text-slate-900">Sceau eIDAS 2.0 & Registre DG GROW</h4>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          Génération de sceaux électroniques qualifiés PAdES et compatibilité directe avec le registre central européen.
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-12 text-center">
+      <a href="/fr/contact/" class="neo-btn-primary inline-flex items-center gap-2">
+        <span>Demander un accès bac à sable privé →</span>
+      </a>
+    </div>
+
+  </div>
+</Layout>

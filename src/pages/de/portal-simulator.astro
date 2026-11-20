@@ -1,0 +1,61 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PortalSimulator from '../../components/PortalSimulator.astro';
+---
+
+<Layout
+  title="Enterprise DPP-Erfassungs- & Management-Portal-Simulator | EU DPP Provider"
+  description="Erleben Sie die Datenerfassungsoberfläche und regulatorische Felder gemäß Anhang XIII der Verordnung (EU) 2023/1542 online in der Sandbox."
+>
+  <div class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <div class="eyebrow-pill mb-3 mx-auto">
+        <span class="w-2 h-2 rounded-full bg-cyan-600 animate-pulse"></span>
+        <span>Interaktive Enterprise Sandbox</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        Enterprise DPP-Erfassungs- & <br class="hidden sm:inline" />
+        <span class="text-cyan-600">Portal-Simulator</span>
+      </h1>
+      <p class="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
+        Erfahren Sie vor dem Produktivbetrieb genau, welche Datenfelder, Zertifikate und BMS-Schnittstellen für die EU-Konformität erforderlich sind.
+      </p>
+    </div>
+
+    <PortalSimulator />
+
+    <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="neo-surface p-6 sm:p-7 space-y-2">
+        <div class="text-xs font-mono font-bold text-cyan-700 uppercase">Schritt 01</div>
+        <h4 class="text-base font-bold text-slate-900">Vorkonfigurierte Feldvorlagen</h4>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          Standardisierte Datenmodelle für Traktionsbatterien, LMT-Akkus und stationäre Speicher (>2kWh).
+        </p>
+      </div>
+
+      <div class="neo-surface p-6 sm:p-7 space-y-2">
+        <div class="text-xs font-mono font-bold text-green-700 uppercase">Schritt 02</div>
+        <h4 class="text-base font-bold text-slate-900">Zero-Knowledge-Rezepturschutz</h4>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          Lieferantenpreise und sensible chemische Rezepturen werden durch ZKP kryptographisch vor Abfluss geschützt.
+        </p>
+      </div>
+
+      <div class="neo-surface p-6 sm:p-7 space-y-2">
+        <div class="text-xs font-mono font-bold text-blue-700 uppercase">Schritt 03</div>
+        <h4 class="text-base font-bold text-slate-900">eIDAS 2.0 & EU-Register Anbindung</h4>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          Automatisierte PAdES-Zertifikatsiegelung und Abgleich mit dem zentralen DG GROW Register der EU-Kommission.
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-12 text-center">
+      <a href="/de/contact/" class="neo-btn-primary inline-flex items-center gap-2">
+        <span>Individuellen Sandbox-Zugang anfordern →</span>
+      </a>
+    </div>
+
+  </div>
+</Layout>

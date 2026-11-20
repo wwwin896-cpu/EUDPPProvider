@@ -25,6 +25,7 @@ const subpaths = [
   'compliance/eu-dpp-registry-guide',
   'compliance/data-requirements',
   'compliance/en-standards-guide',
+  'portal-simulator',
 ];
 
 export const GET: APIRoute = () => {

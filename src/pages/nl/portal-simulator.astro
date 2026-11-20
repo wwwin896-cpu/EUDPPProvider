@@ -1,0 +1,61 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PortalSimulator from '../../components/PortalSimulator.astro';
+---
+
+<Layout
+  title="Enterprise DPP Portaal & Gegevensinvoer Simulator | EU DPP Provider"
+  description="Ervaar de gegevensinvoer en compliance workflows onder Verordening (EU) 2023/1542 Bijlage XIII in onze interactieve sandbox."
+>
+  <div class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <div class="eyebrow-pill mb-3 mx-auto">
+        <span class="w-2 h-2 rounded-full bg-cyan-600 animate-pulse"></span>
+        <span>Interactieve Sandbox Omgeving</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        Enterprise DPP Invoer- & <br class="hidden sm:inline" />
+        <span class="text-cyan-600">Portaal-Simulator</span>
+      </h1>
+      <p class="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
+        Ontdek exact welke 70+ regelgevingsvelden, testrapporten en BMS-koppelingen vereist zijn voor EU-conformiteit.
+      </p>
+    </div>
+
+    <PortalSimulator />
+
+    <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="neo-surface p-6 sm:p-7 space-y-2">
+        <div class="text-xs font-mono font-bold text-cyan-700 uppercase">Stap 01</div>
+        <h4 class="text-base font-bold text-slate-900">Voorgeconfigureerde Sjablonen</h4>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          Standaard gegevensmodellen voor EV-tractiebatterijen, LMT-accu's en stationaire BESS-systemen (>2kWh).
+        </p>
+      </div>
+
+      <div class="neo-surface p-6 sm:p-7 space-y-2">
+        <div class="text-xs font-mono font-bold text-green-700 uppercase">Stap 02</div>
+        <h4 class="text-base font-bold text-slate-900">Zero-Knowledge Formulebescherming</h4>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          Leveranciersprijzen en chemische formules cryptografisch beschermd via Zero-Knowledge Proofs (ZKP).
+        </p>
+      </div>
+
+      <div class="neo-surface p-6 sm:p-7 space-y-2">
+        <div class="text-xs font-mono font-bold text-blue-700 uppercase">Stap 03</div>
+        <h4 class="text-base font-bold text-slate-900">eIDAS 2.0 & EU Register Koppeling</h4>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          Geautomatiseerde uitgifte van PAdES-zegels en registratie bij het centrale DG GROW register.
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-12 text-center">
+      <a href="/nl/contact/" class="neo-btn-primary inline-flex items-center gap-2">
+        <span>Vraag Sandbox Toegang & Gap-Checklist Aan →</span>
+      </a>
+    </div>
+
+  </div>
+</Layout>

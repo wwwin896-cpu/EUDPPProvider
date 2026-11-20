@@ -1,0 +1,65 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PortalSimulator from '../components/PortalSimulator.astro';
+---
+
+<Layout
+  title="Enterprise DPP Declaration & Management Portal Simulator | EU DPP Provider"
+  description="Experience the enterprise battery passport data declaration interface under Regulation (EU) 2023/1542 Annex XIII. Test all 7 statutory compliance domains in our sandbox."
+>
+  <div class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Top Hero Header -->
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <div class="eyebrow-pill mb-3 mx-auto">
+        <span class="w-2 h-2 rounded-full bg-cyan-600 animate-pulse"></span>
+        <span>Interactive Enterprise Sandbox</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        Enterprise DPP Declaration & <br class="hidden sm:inline" />
+        <span class="text-cyan-600">Portal Simulator</span>
+      </h1>
+      <p class="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
+        Understand exactly what data fields, certificates, and BMS connectors are required before onboarding. Experience our 7-domain Annex XIII compliance workflow directly.
+      </p>
+    </div>
+
+    <!-- Simulator Component -->
+    <PortalSimulator />
+
+    <!-- Bottom Guidance & Next Steps -->
+    <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="neo-surface p-6 sm:p-7 space-y-2">
+        <div class="text-xs font-mono font-bold text-cyan-700 uppercase">Step 01</div>
+        <h4 class="text-base font-bold text-slate-900">Pre-Configured Field Templates</h4>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          Pre-built data models for EV traction batteries, LMT packs, and industrial BESS containers under Regulation (EU) 2023/1542.
+        </p>
+      </div>
+
+      <div class="neo-surface p-6 sm:p-7 space-y-2">
+        <div class="text-xs font-mono font-bold text-green-700 uppercase">Step 02</div>
+        <h4 class="text-base font-bold text-slate-900">Zero-Knowledge Proof Shield</h4>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          Supplier pricing, electrolyte formulas, and proprietary BOM proportions are protected via cryptographic zero-knowledge proofs.
+        </p>
+      </div>
+
+      <div class="neo-surface p-6 sm:p-7 space-y-2">
+        <div class="text-xs font-mono font-bold text-blue-700 uppercase">Step 03</div>
+        <h4 class="text-base font-bold text-slate-900">eIDAS 2.0 & Registry Anchor</h4>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          Automated issuance of PAdES digital seals and verified registration against DG GROW Central DPP Registry.
+        </p>
+      </div>
+    </div>
+
+    <!-- Contact CTA -->
+    <div class="mt-12 text-center">
+      <a href="/contact/" class="neo-btn-primary inline-flex items-center gap-2">
+        <span>Request Private Sandbox Access & Scoping Checklist →</span>
+      </a>
+    </div>
+
+  </div>
+</Layout>

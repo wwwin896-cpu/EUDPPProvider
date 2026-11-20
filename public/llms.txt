@@ -29,6 +29,7 @@
 - Homepage: https://eudppprovider.com/
 - Battery Passport Overview: https://eudppprovider.com/battery-passport/
 - Early Adopter Pilot Program: https://eudppprovider.com/pilot-program/
+- Enterprise Portal & Sandbox Simulator: https://eudppprovider.com/portal-simulator/
 - 90+ Mandatory Data Attributes Checklist: https://eudppprovider.com/compliance/data-requirements/
 - EN 18220 / EN 18219 Standards Guide: https://eudppprovider.com/compliance/en-standards-guide/
 - EV Battery Passport Solution: https://eudppprovider.com/solutions/ev-battery-passport/

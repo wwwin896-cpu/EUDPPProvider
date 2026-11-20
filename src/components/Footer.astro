@@ -45,6 +45,11 @@ const t = useTranslations(lang);
             </a>
           </li>
           <li>
+            <a href={`/${lang === 'en' ? '' : lang + '/'}portal-simulator/`} class="hover:text-purple-700 transition-colors font-bold text-purple-800">
+              Portal Simulator (Sandbox)
+            </a>
+          </li>
+          <li>
             <a href={`/${lang === 'en' ? '' : lang + '/'}solutions/ev-battery-passport`} class="hover:text-cyan-700 transition-colors">
               {t('nav.evBattery')}
             </a>
