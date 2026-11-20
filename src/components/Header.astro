@@ -173,8 +173,18 @@ function switchLanguageUrl(targetLang: string) {
     </nav>
 
     <!-- Right: Language Switcher & Contact Button -->
-    <div class="flex items-center gap-2 sm:gap-3">
+    <div class="flex items-center gap-1.5 sm:gap-3">
       
+      <!-- Direct DOWNLOAD Button (Visible on Both Mobile & Desktop Header) -->
+      <a
+        href={`/${lang === 'en' ? '' : lang + '/'}downloads/`}
+        class="inline-flex items-center gap-1 px-2.5 sm:px-3.5 py-1.5 rounded-full bg-cyan-50 hover:bg-cyan-100 text-cyan-800 border border-cyan-300 font-bold text-[11px] sm:text-xs transition-all shadow-sm"
+      >
+        <span>📥</span>
+        <span>{t('nav.downloads')}</span>
+        <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse hidden sm:inline-block"></span>
+      </a>
+
       <!-- Language Dropdown -->
       <div class="relative group">
         <button class="px-3 py-1.5 rounded-full text-xs font-medium text-slate-700 bg-white/70 hover:bg-white border border-slate-200/90 shadow-sm flex items-center gap-1.5 transition-all">

@@ -110,7 +110,7 @@ const t = useTranslations(lang);
           </li>
           <li>
             <a href={`/${lang === 'en' ? '' : lang + '/'}compliance/data-requirements`} class="hover:text-cyan-700 transition-colors font-medium text-slate-800">
-              90+ Mandatory Data Checklist
+              71 Mandatory Data Checklist
             </a>
           </li>
           <li>
@@ -123,9 +123,10 @@ const t = useTranslations(lang);
               {t('nav.registry')}
             </a>
           </li>
-          <li>
-            <a href={`/${lang === 'en' ? '' : lang + '/'}downloads`} class="hover:text-cyan-700 transition-colors font-bold text-cyan-800">
-              {t('nav.downloads')} (Checklists & Guides)
+          <li class="pt-1">
+            <a href={`/${lang === 'en' ? '' : lang + '/'}downloads`} class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-cyan-100/80 text-cyan-900 hover:bg-cyan-200 transition-colors font-bold text-xs">
+              <span>📥</span>
+              <span>{t('nav.downloads')} (Excel / CSV)</span>
             </a>
           </li>
           <li>

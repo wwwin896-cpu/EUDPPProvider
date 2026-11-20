@@ -43,6 +43,14 @@ const t = useTranslations(lang);
       </a>
 
       <a
+        href={`/${lang === 'en' ? '' : lang + '/'}downloads/`}
+        class="neo-pill px-6 py-3 rounded-full text-xs sm:text-sm font-bold text-cyan-900 bg-cyan-50/80 hover:bg-cyan-100 flex items-center gap-2 border border-cyan-200/90 shadow-sm transition-all"
+      >
+        <span>📥</span>
+        <span>免费下载 71 项合规自查表 (.xlsx)</span>
+      </a>
+
+      <a
         href="mailto:info@eudppprovider.com"
         class="neo-pill px-6 py-3 rounded-full text-xs sm:text-sm font-bold text-slate-800 hover:text-cyan-700 flex items-center gap-2"
       >
