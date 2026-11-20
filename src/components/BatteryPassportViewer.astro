@@ -15,9 +15,14 @@ const t = useTranslations(lang);
         https://eudppprovider.com/01/04012345999991/21/BP-2027-EU-88902/
       </a>
     </div>
-    <a href="/01/04012345999991/21/BP-2027-EU-88902/" class="text-[11px] font-mono font-bold text-green-700 bg-green-100/80 px-2.5 py-0.5 rounded-full hover:bg-green-200 transition-colors">
-      eIDAS QSeal Verified (Click to Resolve) →
-    </a>
+    <div class="flex items-center gap-2">
+      <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-cyan-100 text-cyan-800 font-bold">
+        Item-Level SGTIN
+      </span>
+      <a href="/01/04012345999991/21/BP-2027-EU-88902/" class="text-[11px] font-mono font-bold text-green-700 bg-green-100/80 px-2.5 py-0.5 rounded-full hover:bg-green-200 transition-colors">
+        eIDAS QSeal Verified →
+      </a>
+    </div>
   </div>
 
   <!-- Role Selector Pills (Tactile Neomorphic Tabs) -->
@@ -43,7 +48,7 @@ const t = useTranslations(lang);
       class="neo-pill px-4 py-2 rounded-full text-xs font-bold text-slate-700 transition-all"
       onclick="switchPassportRole('recycler')"
     >
-      ♻️ Dismantler / Recycler
+      ♻️ Dismantler & Materials
     </button>
 
     <button 
@@ -51,17 +56,20 @@ const t = useTranslations(lang);
       class="neo-pill px-4 py-2 rounded-full text-xs font-bold text-slate-700 transition-all"
       onclick="switchPassportRole('oem')"
     >
-      ⚙️ OEM / Cloud BMS
+      ⚙️ OEM & Cloud BMS
     </button>
   </div>
 
   <!-- Main Content Card -->
-  <div class="p-6 rounded-2xl bg-white/70 border border-white/90 shadow-sm min-h-[320px]">
+  <div class="p-6 rounded-2xl bg-white/70 border border-white/90 shadow-sm min-h-[340px]">
     
-    <!-- Header -->
+    <!-- Header with Trust Badges -->
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200/80">
       <div>
-        <div class="text-[11px] font-mono text-slate-400 uppercase tracking-wider">Model: APEX-EV-Pack-82kWh · Traction Battery</div>
+        <div class="flex items-center gap-2">
+          <span class="text-[11px] font-mono text-slate-400 uppercase tracking-wider">Model: APEX-EV-Pack-82kWh · Traction Battery</span>
+          <span class="px-2 py-0.2 rounded bg-green-100 text-green-800 text-[10px] font-mono font-bold">Third-Party Verified</span>
+        </div>
         <h4 class="text-lg sm:text-xl font-bold text-slate-900 mt-0.5">High-Energy NMC 811 Traction Battery System</h4>
       </div>
       <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-100 text-green-800 text-xs font-bold self-start sm:self-auto">
@@ -73,24 +81,32 @@ const t = useTranslations(lang);
     <div id="view-public" class="role-view pt-5">
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
         
-        <div class="neo-well p-4">
+        <div class="neo-well p-4 relative">
+          <span class="absolute top-3 right-3 text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-green-100 text-green-800">ISO 14067 Verified</span>
           <div class="text-[11px] font-mono font-bold text-slate-500 uppercase">Carbon Footprint (PCF)</div>
           <div class="text-2xl font-extrabold text-green-700 mt-1">68.4 <span class="text-xs font-normal text-slate-500">kg CO₂e/kWh</span></div>
           <div class="text-[11px] text-slate-600 mt-1">EU Rating: <strong class="text-green-700">Class A (Top 10%)</strong></div>
         </div>
 
-        <div class="neo-well p-4">
+        <div class="neo-well p-4 relative">
+          <span class="absolute top-3 right-3 text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-blue-100 text-blue-800">Lab Documented</span>
           <div class="text-[11px] font-mono font-bold text-slate-500 uppercase">Capacity & Voltage</div>
           <div class="text-2xl font-extrabold text-navy-900 mt-1">82.0 <span class="text-xs font-normal text-slate-500">kWh</span></div>
           <div class="text-[11px] text-slate-600 mt-1">Architecture: <strong class="text-slate-900 font-mono">800V System</strong></div>
         </div>
 
-        <div class="neo-well p-4">
+        <div class="neo-well p-4 relative">
+          <span class="absolute top-3 right-3 text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-purple-100 text-purple-800">ZKP Shielded</span>
           <div class="text-[11px] font-mono font-bold text-slate-500 uppercase">Circularity Share</div>
           <div class="text-2xl font-extrabold text-cyan-700 mt-1">94.2% <span class="text-xs font-normal text-slate-500">Recyclability</span></div>
           <div class="text-[11px] text-slate-600 mt-1">Recycled Cobalt: <strong class="text-green-700 font-mono">18.5%</strong></div>
         </div>
 
+      </div>
+
+      <div class="mt-4 p-3.5 rounded-xl bg-slate-50/80 border border-slate-200/80 flex flex-wrap items-center justify-between text-xs text-slate-600 gap-2">
+        <span><strong>Public Traceability:</strong> Scanned via QR code on battery cover without authentication.</span>
+        <span class="font-mono text-cyan-700 font-bold">DG GROW Registry ID: #UPI-EU-2026-88902</span>
       </div>
     </div>
 
@@ -98,7 +114,10 @@ const t = useTranslations(lang);
     <div id="view-customs" class="role-view hidden pt-5">
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div class="neo-well p-4 space-y-2 text-xs">
-          <div class="font-bold text-slate-900 mb-1">Declaration of Conformity (DoC)</div>
+          <div class="flex items-center justify-between mb-1">
+            <span class="font-bold text-slate-900">Declaration of Conformity (DoC)</span>
+            <span class="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-green-100 text-green-800">Third-Party Verified</span>
+          </div>
           <div class="flex justify-between py-1 border-b border-slate-200/60">
             <span class="text-slate-500">EU DoC File:</span>
             <span class="font-mono font-bold text-cyan-700">DOC-2023-1542-APEX.pdf (Signed)</span>
@@ -114,7 +133,10 @@ const t = useTranslations(lang);
         </div>
 
         <div class="neo-well p-4 space-y-2 text-xs">
-          <div class="font-bold text-slate-900 mb-1">OECD Supply Chain Due Diligence</div>
+          <div class="flex items-center justify-between mb-1">
+            <span class="font-bold text-slate-900">OECD Supply Chain Due Diligence</span>
+            <span class="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-purple-100 text-purple-800">ZKP Shielded</span>
+          </div>
           <div class="flex justify-between py-1 border-b border-slate-200/60">
             <span class="text-slate-500">Cobalt Sourcing:</span>
             <span class="font-mono font-bold text-green-700">RMI Audited / Conflict-Free</span>
@@ -132,28 +154,56 @@ const t = useTranslations(lang);
     </div>
 
     <!-- VIEW 3: RECYCLERS VIEW -->
-    <div id="view-recycler" class="role-view hidden pt-5">
+    <div id="view-recycler" class="role-view hidden pt-5 space-y-4">
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div class="neo-well p-4 text-xs space-y-1.5">
-          <div class="font-bold text-slate-900 mb-1">Precious & Critical Raw Materials</div>
-          <div class="flex justify-between py-1 border-b border-slate-200/60">
-            <span class="text-slate-500">Cobalt (Co):</span>
-            <span class="font-mono font-bold text-slate-800">11.45 kg</span>
+        <div class="neo-well p-4 text-xs space-y-2">
+          <div class="flex items-center justify-between mb-1">
+            <span class="font-bold text-slate-900">Critical Raw Materials Formulation</span>
+            <span class="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-blue-100 text-blue-800">Lab Documented</span>
           </div>
-          <div class="flex justify-between py-1 border-b border-slate-200/60">
-            <span class="text-slate-500">Lithium (Li):</span>
-            <span class="font-mono font-bold text-slate-800">7.20 kg</span>
-          </div>
-          <div class="flex justify-between py-1">
-            <span class="text-slate-500">Nickel (Ni):</span>
-            <span class="font-mono font-bold text-slate-800">48.60 kg</span>
+          
+          <!-- Recipe Bars -->
+          <div class="space-y-1.5 pt-1">
+            <div>
+              <div class="flex justify-between text-[11px] mb-0.5">
+                <span class="text-slate-600">Nickel (Ni) - 48.60 kg</span>
+                <span class="font-mono font-bold text-slate-800">59.3%</span>
+              </div>
+              <div class="w-full h-1.5 bg-slate-200 rounded-full overflow-hidden">
+                <div class="h-full bg-cyan-600 rounded-full" style="width: 59.3%"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-[11px] mb-0.5">
+                <span class="text-slate-600">Cobalt (Co) - 11.45 kg</span>
+                <span class="font-mono font-bold text-slate-800">14.0%</span>
+              </div>
+              <div class="w-full h-1.5 bg-slate-200 rounded-full overflow-hidden">
+                <div class="h-full bg-blue-600 rounded-full" style="width: 14.0%"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-[11px] mb-0.5">
+                <span class="text-slate-600">Lithium (Li) - 7.20 kg</span>
+                <span class="font-mono font-bold text-slate-800">8.8%</span>
+              </div>
+              <div class="w-full h-1.5 bg-slate-200 rounded-full overflow-hidden">
+                <div class="h-full bg-green-600 rounded-full" style="width: 8.8%"></div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="neo-well p-4 text-xs space-y-1.5">
-          <div class="font-bold text-slate-900 mb-1">Disassembly & Safety Guidance</div>
+        <div class="neo-well p-4 text-xs space-y-2">
+          <div class="flex items-center justify-between mb-1">
+            <span class="font-bold text-slate-900">Disassembly & Safety Guidance</span>
+            <span class="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-slate-200 text-slate-700">Self-Declared</span>
+          </div>
           <p class="text-slate-600"><strong>Enclosure:</strong> 24x Torx Plus M8 bolts (Torque: 28 Nm). Non-destructive removal.</p>
           <p class="text-slate-600"><strong>Coolant:</strong> 8.5L Water-Glycol. Drain via Port B before dismantling.</p>
+          <p class="text-slate-600"><strong>Hazardous Substances:</strong> Zero cadmium/mercury/lead added beyond statutory limits.</p>
         </div>
       </div>
     </div>
@@ -161,22 +211,25 @@ const t = useTranslations(lang);
     <!-- VIEW 4: OEM / BMS VIEW -->
     <div id="view-oem" class="role-view hidden pt-5">
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div class="neo-well p-4">
+        <div class="neo-well p-4 relative">
+          <span class="absolute top-3 right-3 text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-blue-100 text-blue-800">Live BMS Feed</span>
           <div class="text-[11px] font-mono font-bold text-slate-500 uppercase">State of Health (SOH)</div>
           <div class="text-2xl font-extrabold text-navy-900 mt-1">98.6%</div>
-          <div class="text-[11px] text-slate-600 mt-1">Cycles: <strong class="font-mono text-slate-900">142</strong></div>
+          <div class="text-[11px] text-slate-600 mt-1">Cycles: <strong class="font-mono text-slate-900">142</strong> · R_int: +0.4%</div>
         </div>
 
-        <div class="neo-well p-4">
+        <div class="neo-well p-4 relative">
+          <span class="absolute top-3 right-3 text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-green-100 text-green-800">eIDAS Signed</span>
           <div class="text-[11px] font-mono font-bold text-slate-500 uppercase">Vehicle Pairing</div>
           <div class="font-mono text-sm font-bold text-navy-900 mt-1">VIN: WBA11209384...</div>
           <div class="text-[11px] text-slate-600 mt-1">Digital Twin: <strong class="text-green-700">Active</strong></div>
         </div>
 
-        <div class="neo-well p-4">
-          <div class="text-[11px] font-mono font-bold text-slate-500 uppercase">ZKP Privacy Status</div>
-          <div class="text-base font-bold text-green-700 mt-1">Shield Active</div>
-          <div class="text-[11px] text-slate-600 mt-1">BOM Secrets: <strong class="text-slate-500">Zero-Leak</strong></div>
+        <div class="neo-well p-4 relative">
+          <span class="absolute top-3 right-3 text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-purple-100 text-purple-800">ZKP Active</span>
+          <div class="text-[11px] font-mono font-bold text-slate-500 uppercase">Privacy Sandbox</div>
+          <div class="text-base font-bold text-purple-700 mt-1">Zero-Leak Shield</div>
+          <div class="text-[11px] text-slate-600 mt-1">Formulations & Costs Protected</div>
         </div>
       </div>
     </div>

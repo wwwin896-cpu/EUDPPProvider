@@ -17,6 +17,9 @@ const { gtin, serial } = Astro.params;
 const isRestricted = serial === 'BP-2027-EU-RESTRICTED-002';
 const isRetired = serial === 'BP-2027-EU-RETIRED-999';
 
+const isLMT = serial?.includes('LMT');
+const isBESS = serial?.includes('BESS');
+
 const passportJsonLd = {
   "@context": "https://schema.org",
   "@type": "Dataset",
@@ -33,7 +36,7 @@ const passportJsonLd = {
     {
       "@type": "PropertyValue",
       "name": "Carbon Footprint Intensity",
-      "value": "51.2",
+      "value": isLMT ? "48.6" : isBESS ? "42.1" : "51.2",
       "unitText": "kg CO2e/kWh"
     },
     {
@@ -68,7 +71,7 @@ const passportJsonLd = {
             {serial}
           </h1>
           <p class="text-xs text-slate-500 mt-0.5 font-mono">
-            GTIN: {gtin} · Regulation (EU) 2023/1542 Compliant
+            GTIN: {gtin} · Regulation (EU) 2023/1542 Compliant · Data Granularity: {isLMT ? 'Type/Batch' : 'Item-Level SGTIN'}
           </p>
         </div>
 
@@ -77,7 +80,7 @@ const passportJsonLd = {
             <span>🛡️ eIDAS 2.0 QSeal Verified</span>
           </div>
           <div class="text-[11px] text-slate-500 mt-1 font-mono">
-            DG GROW UPI: UPI-EU-2026-88902-BAT
+            DG GROW Registry UPI: UPI-EU-2026-88902-BAT
           </div>
         </div>
       </div>
@@ -91,95 +94,231 @@ const passportJsonLd = {
       </div>
     )}
 
+    <!-- Data Trust Legend Bar -->
+    <div class="neo-surface p-4 mb-6 flex flex-wrap items-center justify-between gap-3 text-xs">
+      <span class="font-bold text-slate-700">Data Trust Tiers:</span>
+      <div class="flex flex-wrap items-center gap-3 text-[11px] font-mono">
+        <span class="inline-flex items-center gap-1 text-green-800 bg-green-100 px-2 py-0.5 rounded-full font-bold">● Third-Party Verified</span>
+        <span class="inline-flex items-center gap-1 text-cyan-800 bg-cyan-100 px-2 py-0.5 rounded-full font-bold">● Lab Documented</span>
+        <span class="inline-flex items-center gap-1 text-purple-800 bg-purple-100 px-2 py-0.5 rounded-full font-bold">● ZKP Shielded</span>
+        <span class="inline-flex items-center gap-1 text-slate-700 bg-slate-200 px-2 py-0.5 rounded-full font-bold">● Self-Declared</span>
+      </div>
+    </div>
+
     <!-- 4-Tier Passport Data Sections -->
     <div class="space-y-6">
       
-      <!-- General & Manufacturer Identity -->
+      <!-- Section 1: General & Manufacturer Identity -->
       <div class="neo-surface p-6 sm:p-8">
-        <h2 class="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
-          <span class="w-6 h-6 rounded-lg bg-cyan-100 text-cyan-700 flex items-center justify-center text-xs font-bold">1</span>
-          <span>Battery Identity & Manufacturer Information</span>
-        </h2>
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-lg bg-cyan-100 text-cyan-700 flex items-center justify-center text-xs font-bold">1</span>
+            <span>Battery Identity & Manufacturer Information</span>
+          </h2>
+          <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-green-100 text-green-800">Third-Party Verified</span>
+        </div>
         
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs sm:text-sm">
           <div class="p-3.5 bg-white/70 rounded-xl border border-slate-200">
             <div class="text-slate-400 font-mono text-xs">Battery Category</div>
-            <div class="font-bold text-slate-900 mt-0.5">EV Traction Battery (Automotive)</div>
+            <div class="font-bold text-slate-900 mt-0.5">
+              {isLMT ? 'Light Means of Transport (LMT ≤25kg)' : isBESS ? 'Stationary Storage BESS (>2kWh)' : 'EV Traction Battery (Automotive)'}
+            </div>
           </div>
           <div class="p-3.5 bg-white/70 rounded-xl border border-slate-200">
-            <div class="text-slate-400 font-mono text-xs">Rated Capacity</div>
-            <div class="font-bold text-slate-900 mt-0.5">94.8 kWh (800V Architecture)</div>
+            <div class="text-slate-400 font-mono text-xs">Rated Capacity & Voltage</div>
+            <div class="font-bold text-slate-900 mt-0.5">
+              {isLMT ? '750 Wh · 48V Nominal' : isBESS ? '372 kWh · 1500V Container' : '94.8 kWh (800V Architecture)'}
+            </div>
           </div>
           <div class="p-3.5 bg-white/70 rounded-xl border border-slate-200">
             <div class="text-slate-400 font-mono text-xs">Chemistry / Formulation</div>
-            <div class="font-bold text-slate-900 mt-0.5">NMC 811 High-Nickel Ternary</div>
+            <div class="font-bold text-slate-900 mt-0.5">
+              {isBESS ? 'LFP (Lithium Iron Phosphate)' : 'NMC 811 High-Nickel Ternary'}
+            </div>
           </div>
           <div class="p-3.5 bg-white/70 rounded-xl border border-slate-200">
-            <div class="text-slate-400 font-mono text-xs">Manufacturing Location</div>
-            <div class="font-bold text-slate-900 mt-0.5">Clean Factory Node #02 (Jiangsu)</div>
+            <div class="text-slate-400 font-mono text-xs">Manufacturing Facility</div>
+            <div class="font-bold text-slate-900 mt-0.5">ISO 14001 Certified Factory Node #02</div>
           </div>
           <div class="p-3.5 bg-white/70 rounded-xl border border-slate-200">
             <div class="text-slate-400 font-mono text-xs">Production Date</div>
             <div class="font-bold text-slate-900 mt-0.5">15 October 2026</div>
           </div>
           <div class="p-3.5 bg-white/70 rounded-xl border border-slate-200">
-            <div class="text-slate-400 font-mono text-xs">Warranty Period</div>
+            <div class="text-slate-400 font-mono text-xs">Commercial Warranty</div>
             <div class="font-bold text-slate-900 mt-0.5">8 Years / 160,000 km (SOH &gt; 75%)</div>
           </div>
         </div>
       </div>
 
-      <!-- Carbon Footprint & Recycled Content -->
+      <!-- Section 2: Material Formulation & Recycled Content (With Recipe Progress Bars) -->
       <div class="neo-surface p-6 sm:p-8">
-        <h2 class="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
-          <span class="w-6 h-6 rounded-lg bg-green-100 text-green-700 flex items-center justify-center text-xs font-bold">2</span>
-          <span>Carbon Footprint (PCF) & Circularity Content</span>
-        </h2>
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center text-xs font-bold">2</span>
+            <span>Material Composition & Critical Raw Materials</span>
+          </h2>
+          <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-blue-100 text-blue-800">Lab Documented</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <!-- Left: Material Share Visual Bars -->
+          <div class="p-4 bg-white/80 rounded-xl border border-slate-200 space-y-3">
+            <div class="font-bold text-slate-900 text-xs">Active Material & Element Share (BOM)</div>
+            
+            <div class="space-y-2 text-xs">
+              <div>
+                <div class="flex justify-between text-[11px] mb-0.5">
+                  <span class="text-slate-600">Active Material (Cathode {isBESS ? 'LFP' : 'NMC 811'})</span>
+                  <span class="font-mono font-bold text-slate-800">38.4%</span>
+                </div>
+                <div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
+                  <div class="h-full bg-cyan-600 rounded-full" style="width: 38.4%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-[11px] mb-0.5">
+                  <span class="text-slate-600">Anode (Synthetic & Natural Graphite)</span>
+                  <span class="font-mono font-bold text-slate-800">22.6%</span>
+                </div>
+                <div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
+                  <div class="h-full bg-slate-700 rounded-full" style="width: 22.6%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-[11px] mb-0.5">
+                  <span class="text-slate-600">Current Collectors (Copper Cu & Aluminium Al)</span>
+                  <span class="font-mono font-bold text-slate-800">14.8%</span>
+                </div>
+                <div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
+                  <div class="h-full bg-amber-600 rounded-full" style="width: 14.8%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-[11px] mb-0.5">
+                  <span class="text-slate-600">Electrolyte (LiPF6 Organic Solvents)</span>
+                  <span class="font-mono font-bold text-slate-800">11.2%</span>
+                </div>
+                <div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
+                  <div class="h-full bg-blue-600 rounded-full" style="width: 11.2%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-[11px] mb-0.5">
+                  <span class="text-slate-600">Enclosure & Thermal Insulation</span>
+                  <span class="font-mono font-bold text-slate-800">13.0%</span>
+                </div>
+                <div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
+                  <div class="h-full bg-slate-400 rounded-full" style="width: 13.0%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Recycled Content Mandates -->
+          <div class="grid grid-cols-2 gap-3">
+            <div class="p-3.5 rounded-xl bg-gradient-to-br from-white to-cyan-50/50 border border-cyan-200 flex flex-col justify-between">
+              <div class="text-[11px] text-slate-500 font-mono">Recycled Cobalt</div>
+              <div class="text-2xl font-extrabold text-cyan-800 mt-1 font-mono">18.4%</div>
+              <div class="text-[10px] text-cyan-700 mt-1 font-bold">2031 Target: 16% (Passed)</div>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-gradient-to-br from-white to-blue-50/50 border border-blue-200 flex flex-col justify-between">
+              <div class="text-[11px] text-slate-500 font-mono">Recycled Lithium</div>
+              <div class="text-2xl font-extrabold text-blue-800 mt-1 font-mono">8.2%</div>
+              <div class="text-[10px] text-blue-700 mt-1 font-bold">2031 Target: 6% (Passed)</div>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-gradient-to-br from-white to-green-50/50 border border-green-200 flex flex-col justify-between">
+              <div class="text-[11px] text-slate-500 font-mono">Recycled Nickel</div>
+              <div class="text-2xl font-extrabold text-green-800 mt-1 font-mono">12.5%</div>
+              <div class="text-[10px] text-green-700 mt-1 font-bold">2031 Target: 6% (Passed)</div>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-gradient-to-br from-white to-amber-50/50 border border-amber-200 flex flex-col justify-between">
+              <div class="text-[11px] text-slate-500 font-mono">Recycled Lead</div>
+              <div class="text-2xl font-extrabold text-amber-800 mt-1 font-mono">92.0%</div>
+              <div class="text-[10px] text-amber-700 mt-1 font-bold">2031 Target: 85% (Passed)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3: Carbon Footprint (PCF) & Due Diligence -->
+      <div class="neo-surface p-6 sm:p-8">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-lg bg-green-100 text-green-700 flex items-center justify-center text-xs font-bold">3</span>
+            <span>Carbon Footprint (PCF) & OECD Supply Chain Due Diligence</span>
+          </h2>
+          <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-purple-100 text-purple-800">ZKP Shielded</span>
+        </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div class="p-4 rounded-xl bg-gradient-to-br from-white to-green-50/50 border border-green-200">
             <div class="text-xs text-slate-500 font-mono uppercase">Total Carbon Intensity</div>
             <div class="text-3xl font-extrabold text-green-800 mt-1 font-mono">51.2</div>
-            <div class="text-xs text-green-700 mt-1">kg CO₂e / kWh (PEFCR Scope 1-3)</div>
-            <div class="mt-2 inline-block px-2 py-0.5 rounded bg-green-200/80 text-green-900 text-[10px] font-bold">Class A Performance</div>
+            <div class="text-xs text-green-700 mt-1">kg CO₂e / kWh (Scope 1-3)</div>
+            <div class="mt-2 inline-block px-2 py-0.5 rounded bg-green-200/80 text-green-900 text-[10px] font-bold">Class A Performance (Label Ready)</div>
           </div>
 
-          <div class="p-4 rounded-xl bg-gradient-to-br from-white to-cyan-50/50 border border-cyan-200">
-            <div class="text-xs text-slate-500 font-mono uppercase">Recycled Cobalt Content</div>
-            <div class="text-3xl font-extrabold text-cyan-800 mt-1 font-mono">18.4%</div>
-            <div class="text-xs text-slate-600 mt-1">Mandatory threshold (2031): 16%</div>
-            <div class="mt-2 inline-block px-2 py-0.5 rounded bg-cyan-200/80 text-cyan-900 text-[10px] font-bold">Compliant</div>
+          <div class="p-4 rounded-xl bg-white/80 border border-slate-200 space-y-1 text-xs">
+            <div class="font-bold text-slate-900">Life Cycle Assessment (LCA)</div>
+            <p class="text-slate-600">Standard: ISO 14067 & PEFCR</p>
+            <p class="text-slate-600">Raw Material Acq: <span class="font-mono font-bold text-slate-800">32.4 kg</span></p>
+            <p class="text-slate-600">Cell Manufacturing: <span class="font-mono font-bold text-slate-800">14.6 kg</span></p>
+            <p class="text-slate-600">Distribution & Pack: <span class="font-mono font-bold text-slate-800">4.2 kg</span></p>
           </div>
 
-          <div class="p-4 rounded-xl bg-gradient-to-br from-white to-blue-50/50 border border-blue-200">
-            <div class="text-xs text-slate-500 font-mono uppercase">Recycled Lithium Content</div>
-            <div class="text-3xl font-extrabold text-blue-800 mt-1 font-mono">8.2%</div>
-            <div class="text-xs text-slate-600 mt-1">Mandatory threshold (2031): 6%</div>
-            <div class="mt-2 inline-block px-2 py-0.5 rounded bg-blue-200/80 text-blue-900 text-[10px] font-bold">Compliant</div>
+          <div class="p-4 rounded-xl bg-white/80 border border-slate-200 space-y-1 text-xs">
+            <div class="font-bold text-slate-900">OECD Sourcing Verification</div>
+            <p class="text-slate-600">Cobalt / Nickel: <span class="font-mono font-bold text-green-700">RMI Audited (Conflict-Free)</span></p>
+            <p class="text-slate-600">Lithium Sourcing: <span class="font-mono font-bold text-slate-800">IRMA Responsible Mine</span></p>
+            <p class="text-slate-600">CSDDD Due Diligence: <span class="font-mono font-bold text-cyan-700">Audit Proof Linked</span></p>
           </div>
         </div>
       </div>
 
-      <!-- Live Health & Safety -->
+      <!-- Section 4: Live Health, Safety & CE Technical Documents -->
       <div class="neo-surface p-6 sm:p-8">
-        <h2 class="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
-          <span class="w-6 h-6 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center text-xs font-bold">3</span>
-          <span>State of Health (SOH) & Dismantling Safety</span>
-        </h2>
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center text-xs font-bold">4</span>
+            <span>State of Health (SOH), Safety & CE Compliance Files</span>
+          </h2>
+          <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-cyan-100 text-cyan-800">Lab Documented</span>
+        </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
           <div class="p-4 bg-white/70 rounded-xl border border-slate-200 space-y-2">
             <div class="font-bold text-slate-900 text-sm">State of Health Telemetry</div>
             <p class="text-slate-600">Current SOH: <strong class="text-slate-900 font-mono">99.1%</strong> (Verified BMS Telemetry)</p>
             <p class="text-slate-600">Equivalent Full Cycles: <strong class="text-slate-900 font-mono">68 cycles</strong></p>
-            <p class="text-slate-600">Internal Resistance Increase: <strong class="text-slate-900 font-mono">&lt; 1.2%</strong></p>
+            <p class="text-slate-600">Extinguishing Agent: <strong class="text-slate-900">Copious Water / F-500 Encapsulator</strong></p>
+            <p class="text-slate-600">Coolant Evacuation: <strong class="text-slate-900">Port B Drainage before pack split</strong></p>
           </div>
 
           <div class="p-4 bg-white/70 rounded-xl border border-slate-200 space-y-2">
-            <div class="font-bold text-slate-900 text-sm">Dismantling & Extinguishing Data</div>
-            <p class="text-slate-600">Extinguishing Agent: <strong class="text-slate-900">Copious Water / F-500 EA</strong></p>
-            <p class="text-slate-600">Disassembly Fasteners: <strong class="text-slate-900">24x M8 Torx Plus (Non-destructive)</strong></p>
-            <p class="text-slate-600">Coolant Extraction: <strong class="text-slate-900">Port B Drainage before casing release</strong></p>
+            <div class="font-bold text-slate-900 text-sm">Official Conformity Files (DoC)</div>
+            <div class="p-2 rounded-lg bg-slate-100/80 border border-slate-200 flex items-center justify-between">
+              <div>
+                <div class="font-bold text-slate-800">EU DoC Declaration of Conformity.pdf</div>
+                <div class="text-[10px] text-slate-500 font-mono">Signed via QES · eIDAS 2.0 PAdES</div>
+              </div>
+              <span class="text-cyan-700 font-bold">✓ Attached</span>
+            </div>
+            <div class="p-2 rounded-lg bg-slate-100/80 border border-slate-200 flex items-center justify-between">
+              <div>
+                <div class="font-bold text-slate-800">UN 38.3 & IEC 62619 Safety Dossier.pdf</div>
+                <div class="text-[10px] text-slate-500 font-mono">Accredited Lab Test Certificate</div>
+              </div>
+              <span class="text-green-700 font-bold">✓ Passed</span>
+            </div>
           </div>
         </div>
       </div>
@@ -192,7 +331,8 @@ const passportJsonLd = {
         </p>
         <p class="font-mono text-[11px] text-slate-500">
           Digital Link URI: https://eudppprovider.com/01/{gtin}/21/{serial}/<br />
-          ZKP Hash Anchor: 0x9f83b28174aa910c2837bc901ef8362d8190cbb37a
+          ZKP Hash Anchor: 0x9f83b28174aa910c2837bc901ef8362d8190cbb37a<br />
+          eIDAS QSeal Certificate: Issued by D-Trust GmbH / DigiCert EU Trust Service Provider
         </p>
       </div>
 

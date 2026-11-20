@@ -1,0 +1,393 @@
+---
+import { getLangFromUrl } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+
+const translations = {
+  en: {
+    badge: 'ESPR Cross-Industry Extensibility',
+    title: 'Multi-Category DPP Architecture',
+    subtitle: 'Built on unified ESPR (EU 2024/1781) and Battery Regulation (EU 2023/1542) standards. One core infrastructure powering serialized passports across multiple industrial sectors.',
+    granularityTitle: 'Dual-Granularity Traceability Architecture',
+    granularitySubtitle: 'Choose the optimal data depth for your product economics and regulatory timeline:',
+    batchTitle: 'Type & Batch Level (GTIN + Batch)',
+    batchDesc: 'Ideal for standard cell lots, LMT components, and accessories. Fast deployment with shared compliance files and batch-level QR codes.',
+    itemTitle: 'Item-Level Serialization (SGTIN + Serial)',
+    itemDesc: 'Mandatory for EV traction packs and stationary BESS (>2kWh). Unique UPI linking live BMS telemetry, cycle counts, and individual warranty records.',
+    trustTitle: 'Verifiable Data Trust Boundaries',
+    trustSubtitle: 'Every data attribute explicitly identifies provenance, owner, and verification tier:',
+    t1: 'Third-Party Verified',
+    t1Desc: 'Notified Body test reports & certified ISO 14067 LCA carbon declarations.',
+    t2: 'Lab Documented',
+    t2Desc: 'UN 38.3, IEC 62619, and CE DoC technical files attached to passport.',
+    t3: 'ZKP Shielded',
+    t3Desc: 'Formula secrecy & supplier cost verified via Zero-Knowledge Proofs without data leakage.',
+    t4: 'Self-Declared',
+    t4Desc: 'Manufacturer commercial warranty and operational safety guidance.',
+    cat1Title: 'Battery Systems',
+    cat1Reg: 'Regulation (EU) 2023/1542 · Mandated Feb 2027',
+    cat1Desc: 'EV traction, LMT (≤25kg), and industrial storage (>2kWh). Material chemistry, carbon class A-E, recycled content, and live BMS SOH.',
+    cat2Title: 'Textiles & Apparel',
+    cat2Reg: 'ESPR Delegated Act · 2027 Planned',
+    cat2Desc: 'Fiber composition, microplastic shedding, REACH chemical compliance, repairability score, and circular recycling guidance.',
+    cat3Title: 'Consumer Electronics',
+    cat3Reg: 'ESPR & Eco-design · 2027/2028 Framework',
+    cat3Desc: 'Component modularity, WEEE take-back, software support guarantee, and user-replaceable battery compliance.',
+    cat4Title: 'Industrial Energy Storage',
+    cat4Reg: 'BESS >2kWh Standard · Mandated Feb 2027',
+    cat4Desc: 'Grid-scale container systems, EMS interface, safety protocols, and 10-year sovereign cloud historical logs.',
+    cat5Title: 'Construction & Materials',
+    cat5Reg: 'CPR & ESPR Framework · 2028 Outlook',
+    cat5Desc: 'Declaration of Performance (DoP), embodied carbon, secondary raw material quotas, and building deconstruction data.'
+  },
+  zh: {
+    badge: 'ESPR 多品类护照扩展能力',
+    title: '跨行业数字产品护照底层架构',
+    subtitle: '基于欧盟《可持续产品生态设计法规》(ESPR 2024/1781) 与《新电池法》(2023/1542) 统一数字底座。一套基础设施，全面支持多行业合规护照平滑扩展。',
+    granularityTitle: '双轨数据粒度适配体系',
+    granularitySubtitle: '根据您的产品形态与法规要求，灵活选用最契合商业成本的数据粒度：',
+    batchTitle: '型号 / 批次级赋码 (GTIN + 批次号)',
+    batchDesc: '适用于轻型 LMT 电池、标准电芯与配件。共享统一的合规技术文件与批次码，大幅降低企业赋码与数据录入成本。',
+    itemTitle: '单体一物一码序列化 (SGTIN + 独立序列号)',
+    itemDesc: '适用于动力电池包与 >2kWh 储能柜。每个产品拥有唯一 UPI 与 GS1 Digital Link，动态绑定 BMS 健康度（SOH）与循环履历。',
+    trustTitle: '数据可信度与核验分级机制',
+    trustSubtitle: '每个护照字段均明确标注数据源、责任主体与可信度等级，杜绝模糊造假：',
+    t1: '第三方独立核验',
+    t1Desc: '由公告机构（Notified Body）出具的认证证书与符合性评价（DoC）。',
+    t2: '试验与文件支持',
+    t2Desc: '附带真实 UN 38.3、IEC 62619 检测报告及化学品安全技术说明书（MSDS）。',
+    t3: 'ZKP 隐私保护证明',
+    t3Desc: '上游化学配比与采购成本通过零知识证明核验合规，底层商业机密零泄露。',
+    t4: '企业自声明',
+    t4Desc: '企业自主填报的使用说明、维保服务与商业质保承诺。',
+    cat1Title: '电池系统（动力 / LMT / 储能）',
+    cat1Reg: 'Regulation (EU) 2023/1542 · 2027年2月强制生效',
+    cat1Desc: '涵盖电动汽车、LMT轻型车及 >2kWh 工业储能。材料组成、A-E级碳足迹标签、再生料比例及 BMS 动态健康指标。',
+    cat2Title: '纺织品与服装',
+    cat2Reg: 'ESPR 授权法案 · 预计2027年采纳',
+    cat2Desc: '纤维成分、微塑料脱落率、REACH化学品合规、耐用性与维修评分以及废纺循环指南。',
+    cat3Title: '消费电子与 ICT 产品',
+    cat3Reg: 'ESPR 生态设计与维修权法案 · 2027/2028',
+    cat3Desc: '模块化零部件、WEEE 废弃电子回收、固件更新支持周期与内置电池可更换性标识。',
+    cat4Title: '工业储能系统 (BESS)',
+    cat4Reg: '工商业及大型储能 · 2027年2月强制生效',
+    cat4Desc: '集装箱式储能电柜、EMS 接口、灭火与应急处置指南、欧洲主权机房10年历史数据存证。',
+    cat5Title: '建筑材料与五金装备',
+    cat5Reg: 'CPR 建筑法规与 ESPR · 2028年展望',
+    cat5Desc: '性能声明（DoP）、隐含碳排放、循环再生料含量与建筑物拆除分类回收信息。'
+  },
+  de: {
+    badge: 'ESPR Branchenübergreifende Architektur',
+    title: 'Multi-Kategorie DPP-Plattformarchitektur',
+    subtitle: 'Entwickelt auf Basis der ESPR (EU 2024/1781) und der EU-Batterieverordnung (EU 2023/1542). Eine einheitliche Dateninfrastruktur für lückenlose Rückverfolgbarkeit.',
+    granularityTitle: 'Duale Daten-Granularität',
+    granularitySubtitle: 'Wählen Sie die passende Tiefe für Ihre regulatorischen und wirtschaftlichen Anforderungen:',
+    batchTitle: 'Typen- & Chargenebene (GTIN + Charge)',
+    batchDesc: 'Ideal für Standard-Zellchargen, LMT-Komponenten und Zubehör. Schnelle Implementierung mit gemeinsamen Konformitätsunterlagen.',
+    itemTitle: 'Serialisierte Einzelebene (SGTIN + Seriennummer)',
+    itemDesc: 'Verpflichtend für Traktionsbatterien und BESS (>2kWh). Eindeutige UPI verknüpft mit BMS-Telemetrie und Lebenszyklusdaten.',
+    trustTitle: 'Verifizierbare Daten-Vertrauensgrenzen',
+    trustSubtitle: 'Jedes Attribut kennzeichnet Herkunft, Verantwortlichen und Verifizierungsstufe:',
+    t1: 'Drittpartei Verifiziert',
+    t1Desc: 'Prüfberichte Benannter Stellen & zertifizierte ISO 14067 LCA-Deklarationen.',
+    t2: 'Durch Dokumente Belegt',
+    t2Desc: 'UN 38.3, IEC 62619 und CE DoC-Prüfberichte im Pass hinterlegt.',
+    t3: 'ZKP-Kryptographisch Geschützt',
+    t3Desc: 'Rezeptur- und Preisnachweis via Zero-Knowledge-Proofs ohne Datenabfluss.',
+    t4: 'Hersteller-Eigenerklärung',
+    t4Desc: 'Kommerzielle Garantien und Demontage-Sicherheitsanweisungen.',
+    cat1Title: 'Batteriesysteme (EV / LMT / BESS)',
+    cat1Reg: 'Verordnung (EU) 2023/1542 · Ab Feb. 2027 verpflichtend',
+    cat1Desc: 'Traktion, LMT und BESS (>2kWh). Materialzusammensetzung, CO₂-Klassen A-E, Rezyklatanteile und BMS-Echtzeit-SOH.',
+    cat2Title: 'Textilien & Bekleidung',
+    cat2Reg: 'ESPR Delegierte Rechtsakte · Geplant 2027',
+    cat2Desc: 'Faserzusammensetzung, REACH-Konformität, Reparierbarkeits-Score und Recyclingangaben.',
+    cat3Title: 'Verbraucherelektronik & ICT',
+    cat3Reg: 'ESPR & Ökodesign · 2027/2028',
+    cat3Desc: 'Modulare Komponenten, WEEE-Entsorgung, Software-Support und austauschbare Batterien.',
+    cat4Title: 'Industrielle Speicher (BESS)',
+    cat4Reg: 'Stationäre Speicher >2kWh · Pflicht ab Feb. 2027',
+    cat4Desc: 'Grossspeicher, EMS-Schnittstellen, Notfallprotokolle und 10 Jahre souveräne Datenspeicherung in Frankfurt.',
+    cat5Title: 'Baustoffe & Bauprodukte',
+    cat5Reg: 'Bauprodukteverordnung (CPR) & ESPR · 2028',
+    cat5Desc: 'Leistungserklärung (DoP), graue Energie, Rezyklatquoten und Rückbauinformationen.'
+  },
+  fr: {
+    badge: 'Évolutivité Multi-Secteurs ESPR',
+    title: 'Architecture Passeport Numérique Multi-Catégories',
+    subtitle: 'Conçue selon les règlements ESPR (UE 2024/1781) et Batteries (UE 2023/1542). Une infrastructure logicielle unique pour une conformité industrielle transversale.',
+    granularityTitle: 'Architecture à Double Granularité',
+    granularitySubtitle: 'Sélectionnez la profondeur de données adaptée à votre modèle économique :',
+    batchTitle: 'Niveau Modèle & Lot (GTIN + Lot)',
+    batchDesc: 'Idéal pour les cellules standard, batteries légères LMT et accessoires. Déploiement rapide avec documents techniques partagés.',
+    itemTitle: 'Sérialisation Unitaire (SGTIN + Numéro de Série)',
+    itemDesc: 'Obligatoire pour batteries de traction et stockage BESS (>2kWh). UPI unique relié à la télémétrie BMS et à l’état de santé (SOH).',
+    trustTitle: 'Niveaux de Confiance et Traçabilité des Données',
+    trustSubtitle: 'Chaque donnée indique son origine, l’entité responsable et son niveau de preuve :',
+    t1: 'Vérifié par un Tiers Indépendant',
+    t1Desc: 'Rapports d’Organismes Notifiés et déclarations d’empreinte carbone ISO 14067 certifiées.',
+    t2: 'Justifié par Documents Techniques',
+    t2Desc: 'Rapports d’essais réels UN 38.3, IEC 62619 et Déclarations de Conformité CE (DoC).',
+    t3: 'Protégé par Preuves à Divulgation Nulle (ZKP)',
+    t3Desc: 'Secret des formules chimiques et coûts d’achat vérifiés sans transmission des données brutes.',
+    t4: 'Déclaration sur l’Honneur',
+    t4Desc: 'Instructions d’utilisation, garanties commerciales et guides de démontage.',
+    cat1Title: 'Systèmes de Batteries (VE / LMT / BESS)',
+    cat1Reg: 'Règlement (UE) 2023/1542 · Obligatoire dès février 2027',
+    cat1Desc: 'Traction VE, LMT et stockage industriel. Matériaux, classes carbone A-E, contenu recyclé et télémétrie BMS.',
+    cat2Title: 'Textiles & Habillement',
+    cat2Reg: 'Actes Délégués ESPR · Prévu pour 2027',
+    cat2Desc: 'Composition des fibres, microplastiques, conformité REACH, réparabilité et directives de recyclage.',
+    cat3Title: 'Électronique Grand Public & TIC',
+    cat3Reg: 'ESPR & Écoconception · Cadre 2027/2028',
+    cat3Desc: 'Modularité des pièces, filière DEEE, durée du support logiciel et batteries remplaçables.',
+    cat4Title: 'Stockage Stationnaire BESS',
+    cat4Reg: 'Systèmes BESS >2kWh · Obligatoire dès février 2027',
+    cat4Desc: 'Systèmes conteneurisés, interface EMS, protocoles de sécurité et hébergement souverain pendant 10 ans.',
+    cat5Title: 'Matériaux de Construction',
+    cat5Reg: 'RPC & Cadre ESPR · Horizon 2028',
+    cat5Desc: 'Déclaration des Performances (DoP), carbone incorporé, matières recyclées et plans de déconstruction.'
+  },
+  nl: {
+    badge: 'ESPR Sectoroverstijgende Architectuur',
+    title: 'Multi-Categorie DPP-Platformarchitectuur',
+    subtitle: 'Gebouwd op de geharmoniseerde kaders van de ESPR (EU 2024/1781) en de Batterijverordening (EU 2023/1542).',
+    granularityTitle: 'Dubbele Gegevensgranulariteit',
+    granularitySubtitle: 'Kies de optimale gegevensdiepte voor uw compliance- en kostendoelstellingen:',
+    batchTitle: 'Model- & Batchniveau (GTIN + Batch)',
+    batchDesc: 'Geschikt voor standaardcellen, LMT-accu’s en onderdelen. Snelle implementatie met gedeelde documentatie.',
+    itemTitle: 'Serieniveau per Stuk (SGTIN + Serienummer)',
+    itemDesc: 'Verplicht voor EV-tractiebatterijen en stationaire BESS (>2kWh). Unieke UPI gekoppeld aan live BMS SOH-telemetrie.',
+    trustTitle: 'Verifieerbare Gegevensbetrouwbaarheid',
+    trustSubtitle: 'Elk gegeven toont herkomst, verantwoordelijke entiteit en bewijsniveau:',
+    t1: 'Onafhankelijk Geverifieerd',
+    t1Desc: 'Rapporten van Aangemelde Instanties & gecertificeerde ISO 14067 LCA-declaraties.',
+    t2: 'Onderbouwd met Documenten',
+    t2Desc: 'UN 38.3, IEC 62619 en CE DoC-certificaten gekoppeld aan het paspoort.',
+    t3: 'ZKP Cryptografisch Beveiligd',
+    t3Desc: 'Chemische formules en inkoopprijzen geverifieerd via Zero-Knowledge Proofs zonder datalekken.',
+    t4: 'Fabrieksverklaring',
+    t4Desc: 'Commerciële garanties en demontage-instructies van de fabrikant.',
+    cat1Title: 'Batterijsystemen (EV / LMT / BESS)',
+    cat1Reg: 'Verordening (EU) 2023/1542 · Verplicht vanaf feb. 2027',
+    cat1Desc: 'Tractie, LMT en industriële opslag (>2kWh). Materialen, koolstofklassen A-E, gerecycled gehalte en BMS-SOH.',
+    cat2Title: 'Textiel & Kleding',
+    cat2Reg: 'ESPR Gedelegeerde Handeling · Verwacht 2027',
+    cat2Desc: 'Vezelsamenstelling, microplastics, REACH-conformiteit, herstelbaarheid en recyclingrichtlijnen.',
+    cat3Title: 'Consumentenelektronica',
+    cat3Reg: 'ESPR & Ecodesign · 2027/2028',
+    cat3Desc: 'Modulariteit, WEEE-terugname, software-ondersteuning en vervangbare batterijen.',
+    cat4Title: 'Industriële Opslag (BESS)',
+    cat4Reg: 'Stationaire BESS >2kWh · Verplicht vanaf feb. 2027',
+    cat4Desc: 'Containersystemen, EMS-koppeling, veiligheidsprotocollen en 10 jaar soevereine opslag in Frankfurt.',
+    cat5Title: 'Bouwmaterialen & Constructie',
+    cat5Reg: 'CPR & ESPR-Kader · Vooruitzicht 2028',
+    cat5Desc: 'Prestatieverklaring (DoP), ingebedde koolstof, gerecycled materiaal en demontageplannen.'
+  }
+};
+
+const tLocal = translations[lang as keyof typeof translations] || translations.en;
+---
+
+<section class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  
+  <!-- Section Title -->
+  <div class="text-center max-w-3xl mx-auto mb-16">
+    <div class="eyebrow-pill mb-3 mx-auto">
+      <span class="w-2 h-2 rounded-full bg-cyan-600 animate-pulse"></span>
+      <span>{tLocal.badge}</span>
+    </div>
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+      {tLocal.title}
+    </h2>
+    <p class="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
+      {tLocal.subtitle}
+    </p>
+  </div>
+
+  <!-- Multi-Category Cards Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+    
+    <!-- 01 Batteries (Core Priority) -->
+    <div class="neo-surface p-7 sm:p-8 flex flex-col justify-between border-2 border-cyan-500/30 relative overflow-hidden group hover:border-cyan-500/60 transition-all">
+      <div class="absolute top-0 right-0 bg-cyan-600 text-white font-mono text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider">
+        Mandatory 2027
+      </div>
+      <div>
+        <div class="w-12 h-12 rounded-2xl bg-cyan-100 text-cyan-800 flex items-center justify-center font-bold text-xl mb-4">
+          🔋
+        </div>
+        <div class="text-[11px] font-mono font-bold text-cyan-700 uppercase tracking-wider">{tLocal.cat1Reg}</div>
+        <h3 class="text-xl font-bold text-slate-900 mt-1 mb-2">{tLocal.cat1Title}</h3>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          {tLocal.cat1Desc}
+        </p>
+      </div>
+      <div class="mt-6 pt-4 border-t border-slate-200/80 flex items-center justify-between text-xs font-bold">
+        <span class="text-slate-500">Annex XIII Ready</span>
+        <a href={`/${lang === 'en' ? '' : lang + '/'}battery-passport`} class="text-cyan-700 hover:text-cyan-800 flex items-center gap-1">
+          <span>Explore Battery Hub</span> →
+        </a>
+      </div>
+    </div>
+
+    <!-- 02 Industrial BESS -->
+    <div class="neo-surface p-7 sm:p-8 flex flex-col justify-between group hover:border-green-500/50 transition-all">
+      <div>
+        <div class="w-12 h-12 rounded-2xl bg-green-100 text-green-800 flex items-center justify-center font-bold text-xl mb-4">
+          ⚡
+        </div>
+        <div class="text-[11px] font-mono font-bold text-green-700 uppercase tracking-wider">{tLocal.cat4Reg}</div>
+        <h3 class="text-xl font-bold text-slate-900 mt-1 mb-2">{tLocal.cat4Title}</h3>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          {tLocal.cat4Desc}
+        </p>
+      </div>
+      <div class="mt-6 pt-4 border-t border-slate-200/80 flex items-center justify-between text-xs font-bold">
+        <span class="text-slate-500">Telematics & SOH</span>
+        <a href={`/${lang === 'en' ? '' : lang + '/'}solutions/storage-battery-passport`} class="text-green-700 hover:text-green-800 flex items-center gap-1">
+          <span>Explore BESS</span> →
+        </a>
+      </div>
+    </div>
+
+    <!-- 03 Textiles -->
+    <div class="neo-surface p-7 sm:p-8 flex flex-col justify-between group hover:border-purple-500/50 transition-all">
+      <div>
+        <div class="w-12 h-12 rounded-2xl bg-purple-100 text-purple-800 flex items-center justify-center font-bold text-xl mb-4">
+          👕
+        </div>
+        <div class="text-[11px] font-mono font-bold text-purple-700 uppercase tracking-wider">{tLocal.cat2Reg}</div>
+        <h3 class="text-xl font-bold text-slate-900 mt-1 mb-2">{tLocal.cat2Title}</h3>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          {tLocal.cat2Desc}
+        </p>
+      </div>
+      <div class="mt-6 pt-4 border-t border-slate-200/80 flex items-center justify-between text-xs font-bold">
+        <span class="text-slate-500">Fiber Traceability</span>
+        <span class="text-purple-700">ESPR Roadmap</span>
+      </div>
+    </div>
+
+    <!-- 04 Consumer Electronics -->
+    <div class="neo-surface p-7 sm:p-8 flex flex-col justify-between group hover:border-blue-500/50 transition-all">
+      <div>
+        <div class="w-12 h-12 rounded-2xl bg-blue-100 text-blue-800 flex items-center justify-center font-bold text-xl mb-4">
+          📱
+        </div>
+        <div class="text-[11px] font-mono font-bold text-blue-700 uppercase tracking-wider">{tLocal.cat3Reg}</div>
+        <h3 class="text-xl font-bold text-slate-900 mt-1 mb-2">{tLocal.cat3Title}</h3>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          {tLocal.cat3Desc}
+        </p>
+      </div>
+      <div class="mt-6 pt-4 border-t border-slate-200/80 flex items-center justify-between text-xs font-bold">
+        <span class="text-slate-500">WEEE & Eco-design</span>
+        <span class="text-blue-700">ESPR Standard</span>
+      </div>
+    </div>
+
+    <!-- 05 Construction & Furniture -->
+    <div class="neo-surface p-7 sm:p-8 flex flex-col justify-between group hover:border-amber-500/50 transition-all md:col-span-2 lg:col-span-2">
+      <div>
+        <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-xl mb-4">
+          🪵
+        </div>
+        <div class="text-[11px] font-mono font-bold text-amber-700 uppercase tracking-wider">{tLocal.cat5Reg}</div>
+        <h3 class="text-xl font-bold text-slate-900 mt-1 mb-2">{tLocal.cat5Title}</h3>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          {tLocal.cat5Desc}
+        </p>
+      </div>
+      <div class="mt-6 pt-4 border-t border-slate-200/80 flex items-center justify-between text-xs font-bold">
+        <span class="text-slate-500">Declaration of Performance (DoP)</span>
+        <span class="text-amber-700">Circular Building</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Dual Granularity & Trust Boundaries Section -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    
+    <!-- Left: Dual Granularity (Batch vs Item) -->
+    <div class="neo-surface p-8 sm:p-10 space-y-6">
+      <div>
+        <div class="eyebrow-pill mb-2">Granularity Flexibility</div>
+        <h3 class="text-2xl font-bold text-slate-900">{tLocal.granularityTitle}</h3>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1">{tLocal.granularitySubtitle}</p>
+      </div>
+
+      <div class="space-y-4">
+        <!-- Option A: Batch -->
+        <div class="p-4 rounded-2xl bg-white/80 border border-slate-200/80 shadow-sm hover:border-cyan-400/50 transition-all">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="px-2 py-0.5 rounded bg-slate-200 text-slate-800 font-mono text-[10px] font-bold">GTIN + Batch</span>
+            <span class="font-bold text-slate-900 text-sm">{tLocal.batchTitle}</span>
+          </div>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            {tLocal.batchDesc}
+          </p>
+        </div>
+
+        <!-- Option B: Serialized Item -->
+        <div class="p-4 rounded-2xl bg-gradient-to-br from-white to-cyan-50/50 border border-cyan-200/80 shadow-sm hover:border-cyan-400 transition-all">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="px-2 py-0.5 rounded bg-cyan-600 text-white font-mono text-[10px] font-bold">SGTIN + Serial</span>
+            <span class="font-bold text-slate-900 text-sm">{tLocal.itemTitle}</span>
+          </div>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            {tLocal.itemDesc}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Verifiable Data Trust Boundaries -->
+    <div class="neo-surface p-8 sm:p-10 space-y-6">
+      <div>
+        <div class="eyebrow-pill mb-2">Data Governance</div>
+        <h3 class="text-2xl font-bold text-slate-900">{tLocal.trustTitle}</h3>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1">{tLocal.trustSubtitle}</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-xs">
+        
+        <div class="p-3.5 rounded-xl bg-white/80 border border-slate-200 space-y-1">
+          <div class="flex items-center gap-1.5 font-bold text-green-800">
+            <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+            <span>{tLocal.t1}</span>
+          </div>
+          <p class="text-[11px] text-slate-500 leading-normal">{tLocal.t1Desc}</p>
+        </div>
+
+        <div class="p-3.5 rounded-xl bg-white/80 border border-slate-200 space-y-1">
+          <div class="flex items-center gap-1.5 font-bold text-cyan-800">
+            <span class="w-2.5 h-2.5 rounded-full bg-cyan-500"></span>
+            <span>{tLocal.t2}</span>
+          </div>
+          <p class="text-[11px] text-slate-500 leading-normal">{tLocal.t2Desc}</p>
+        </div>
+
+        <div class="p-3.5 rounded-xl bg-white/80 border border-slate-200 space-y-1">
+          <div class="flex items-center gap-1.5 font-bold text-purple-800">
+            <span class="w-2.5 h-2.5 rounded-full bg-purple-500"></span>
+            <span>{tLocal.t3}</span>
+          </div>
+          <p class="text-[11px] text-slate-500 leading-normal">{tLocal.t3Desc}</p>
+        </div>
+
+        <div class="p-3.5 rounded-xl bg-white/80 border border-slate-200 space-y-1">
+          <div class="flex items-center gap-1.5 font-bold text-slate-700">
+            <span class="w-2.5 h-2.5 rounded-full bg-slate-400"></span>
+            <span>{tLocal.t4}</span>
+          </div>
+          <p class="text-[11px] text-slate-500 leading-normal">{tLocal.t4Desc}</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</section>

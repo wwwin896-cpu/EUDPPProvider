@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import ComplianceCountdown from '../../components/ComplianceCountdown.astro';
 import BatteryPassportViewer from '../../components/BatteryPassportViewer.astro';
+import CrossIndustryDPP from '../../components/CrossIndustryDPP.astro';
 import PricingCalculator from '../../components/PricingCalculator.astro';
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 
@@ -194,6 +195,9 @@ const t = useTranslations(lang);
 
     <BatteryPassportViewer />
   </section>
+
+  <!-- ==================== ESPR MULTI-CATEGORIE ARCHITECTUUR ==================== -->
+  <CrossIndustryDPP />
 
   <!-- ==================== BANNER SECTION 2: EU SOVEREIGN COMMAND VAULT ==================== -->
   <section class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
