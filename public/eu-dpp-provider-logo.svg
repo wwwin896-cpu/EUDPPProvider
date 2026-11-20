@@ -1,21 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 300" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 300" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
   <defs>
     <style>
       .logo-navy { fill: #0B1E3C; }
       .logo-cyan { fill: #02E3FD; }
       .logo-green { fill: #15BF85; }
-      .logo-tech-blue { fill: #02E3FD; }
-      .logo-gray { fill: #64748B; }
       .logo-title {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Montserrat", sans-serif;
-        font-size: 54px;
-        font-weight: 800;
+        font-size: 72px;
+        font-weight: 850;
+        fill: #0B1E3C;
         letter-spacing: -0.5px;
       }
       .logo-slogan {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Montserrat", sans-serif;
-        font-size: 19.5px;
-        font-weight: 600;
+        font-size: 21.5px;
+        font-weight: 700;
         fill: #64748B;
         letter-spacing: 2.2px;
       }
@@ -26,32 +25,16 @@
     </style>
   </defs>
 
-  <!-- Logo Icon / Mark: Exact Geometric Circle & Arc Construction -->
   <g id="logo-icon" transform="translate(20, 10)">
-    <!-- Stem: Dark Navy Blue -->
     <path class="logo-navy logo-navy-dark" d="M 87,98 L 147,132.5 L 147,280 L 87,280 Z" />
-
-    <!-- Center Dot: Exact Mathematical Circle R=28 -->
     <circle class="logo-navy logo-navy-dark" cx="206" cy="132.5" r="28" />
-
-    <!-- Top Cyan Arrow: Exact Mathematical Circular Arcs (R_out=123, R_in=71) -->
     <path class="logo-cyan" d="M 94.5,80.5 A 123 123 0 0 1 184.6,11.4 L 192,4 L 225,42 L 194,76 L 193.7,62.6 A 71 71 0 0 0 140.2,105.9 Z" />
-
-    <!-- Right Green Arrow: Exact Mathematical Circular Arcs (R_in=71, R_out=123) -->
     <path class="logo-green" d="M 223.1,10.7 L 243,43 L 218.3,62.6 A 71 71 0 0 1 275,115.9 L 262,122 L 299,149 L 337,122 L 328.1,117.5 A 123 123 0 0 0 223.1,10.7 Z" />
-
-    <!-- Bottom Green Loop Return: Exact Mathematical Circular Arcs -->
     <path class="logo-green" d="M 328.1,147.5 L 300,164 L 275,149.1 A 71 71 0 0 1 177,197.3 L 177,278 L 192,254.7 A 123 123 0 0 0 328.1,147.5 Z" />
   </g>
 
-  <!-- Typography: EU DPP (Navy) + PROVIDER (Tech Blue) & Slogan (Gray) -->
-  <g id="logo-text" transform="translate(390, 20)">
-    <!-- Main Title with split brand colors -->
-    <text x="0" y="132" class="logo-title">
-      <tspan class="logo-navy logo-navy-dark">EU DPP </tspan>
-      <tspan class="logo-tech-blue">PROVIDER</tspan>
-    </text>
-    <!-- Slogan in Tech Gray (Flush Aligned) -->
-    <text x="0" y="182" class="logo-slogan logo-gray-dark" textLength="498" lengthAdjust="spacingAndGlyphs">DIGITAL PRODUCT PASSPORT SYSTEM</text>
+  <g id="logo-text" transform="translate(370, 10)">
+    <text x="0" y="142" class="logo-title logo-navy-dark" textLength="630" lengthAdjust="spacingAndGlyphs">EU DPP PROVIDER</text>
+    <text x="0" y="196" class="logo-slogan logo-gray-dark" textLength="630" lengthAdjust="spacingAndGlyphs">DIGITAL PRODUCT PASSPORT SYSTEM</text>
   </g>
 </svg>
