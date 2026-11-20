@@ -5,114 +5,99 @@ const lang = getLangFromUrl(Astro.url);
 
 const translations = {
   en: {
-    badge: 'Interactive Sandbox Environment',
-    title: 'Enterprise DPP Declaration & Portal Simulator',
-    subtitle: 'Explore the exact enterprise dashboard, field schema, and data workflow required under Regulation (EU) 2023/1542 Annex XIII before production onboarding.',
-    presetLabel: 'Load Industry Presets:',
-    presetEV: '🚗 EV Traction Battery (NMC 811 · 82kWh)',
-    presetBESS: '⚡ Industrial Storage (LFP · 372kWh)',
-    presetLMT: '🚲 E-Bike LMT Pack (48V · 750Wh)',
-    tab1: '1. Identity & UPI',
-    tab2: '2. Materials & Recycled',
-    tab3: '3. Carbon Footprint (PCF)',
-    tab4: '4. Performance & Life',
-    tab5: '5. BMS Telematics (SOH)',
-    tab6: '6. Safety & Dismantling',
-    tab7: '7. eIDAS QSeal & Filing',
-    publishBtn: 'Run Compliance Audit & Generate GS1 Passport →',
-    resetBtn: 'Reset Form',
-    complianceCheck: 'Annex XIII Pre-Flight: 100% Rules Passed',
-    zkpStatus: 'ZKP Privacy Sandbox: Formula Protection Active',
-    qrTitle: 'Simulated GS1 Digital Link Output',
-    registryReady: 'DG GROW Central Registry Ready'
+    badge: 'Live Interactive Workbench',
+    title: 'Visual DPP Generator & Live Passport Terminal',
+    subtitle: 'Edit parameters on the left and watch the official EU Battery Passport, GS1 Digital Link, and eIDAS compliance seal generate in real time on the right.',
+    presetLabel: 'Quick Scenario Presets:',
+    presetEV: '🚗 EV Battery (NMC 811 · 82kWh)',
+    presetBESS: '⚡ Energy Storage (LFP · 372kWh)',
+    presetLMT: '🚲 E-Bike Battery (48V · 750Wh)',
+    leftHeader: 'Enterprise Declaration Terminal (Input)',
+    rightHeader: 'Live Mobile Battery Passport (Output)',
+    groupGeneral: '1. Identity & GS1 Serial Number',
+    groupChem: '2. Chemistry & Recycled Share',
+    groupPcf: '3. Carbon Footprint (PCF) & Rating',
+    groupBms: '4. BMS Telematics & Durability',
+    openFullBtn: 'Open Full Regulatory Passport Page →',
+    syncNotice: 'Live Data Bound: Changes reflect immediately in the passport.',
+    zkpProtected: 'ZKP Cryptographic Shield: Proprietary formulas protected',
+    eidasValid: 'eIDAS 2.0 Qualified Timestamp: Active'
   },
   zh: {
-    badge: '企业级沙箱模拟环境',
-    title: '电池护照企业填报与管理后台模拟器',
-    subtitle: '无需正式入驻，在线体验符合欧盟新电池法 (EU 2023/1542) 附录 XIII 要求的 7 大合规领域、完整字段填报逻辑与数据流转过程。',
-    presetLabel: '载入典型产品示例数据：',
-    presetEV: '🚗 乘用车动力电池包 (NMC 811 · 82kWh)',
-    presetBESS: '⚡ 工商业集装箱储能 (LFP · 372kWh)',
-    presetLMT: '🚲 电助力自行车 LMT 电池 (48V · 750Wh)',
-    tab1: '1. 产品身份与唯一赋码',
-    tab2: '2. 材料配方与再生成分',
-    tab3: '3. 碳足迹 (PCF) 与核算',
-    tab4: '4. 电性能与耐久性指标',
-    tab5: '5. BMS 运行健康度 (SOH)',
-    tab6: '6. 拆卸安全与应急指南',
-    tab7: '7. eIDAS 数字印章与存证',
-    publishBtn: '执行全字段合规预审并生成 GS1 护照 →',
-    resetBtn: '重置表单',
-    complianceCheck: '附录 XIII 法规校验：100% 通过',
-    zkpStatus: '零知识证明沙箱：核心配方机密已保护',
-    qrTitle: '生成的 GS1 Digital Link 解析预览',
-    registryReady: '符合欧盟 DG GROW 注册簿接入规范'
+    badge: '实时可视化工作台',
+    title: '电池护照可视化生成台与实时输出端',
+    subtitle: '在左侧修改产品与合规参数，右侧实时直观看到生成的欧盟官方电池护照手机端界面、GS1 Digital Link 二维码及 eIDAS 数字印章。',
+    presetLabel: '快速载入典型场景预设：',
+    presetEV: '🚗 乘用车动力电池 (NMC 811 · 82kWh)',
+    presetBESS: '⚡ 工商业储能系统 (LFP · 372kWh)',
+    presetLMT: '🚲 电助力自行车 (48V · 750Wh)',
+    leftHeader: '企业数据填报端 (输入与配置)',
+    rightHeader: '手机端护照生成结果 (实时渲染输出)',
+    groupGeneral: '1. 产品身份与 GS1 序列号',
+    groupChem: '2. 材料配方与再生成分占比',
+    groupPcf: '3. 碳足迹 (PCF) 与等级标签',
+    groupBms: '4. BMS 运行健康度 (SOH) 与耐久性',
+    openFullBtn: '在新窗口打开完整法规护照页面 →',
+    syncNotice: '实时数据联动：左侧修改任意字段，右侧护照即时动态更新。',
+    zkpProtected: '零知识证明保护：底层商业机密与配方安全隔离',
+    eidasValid: 'eIDAS 2.0 欧盟合格时间戳：有效'
   },
   de: {
-    badge: 'Interaktive Sandbox-Umgebung',
-    title: 'Enterprise DPP-Erfassungs- & Portal-Simulator',
-    subtitle: 'Erleben Sie die Benutzeroberfläche und die Pflichtfelder gemäß Anhang XIII der Verordnung (EU) 2023/1542 vor dem Produktivstart.',
-    presetLabel: 'Branchen-Beispieldaten laden:',
-    presetEV: '🚗 EV-Traktionsbatterie (NMC 811 · 82kWh)',
-    presetBESS: '⚡ BESS-Gewerbespeicher (LFP · 372kWh)',
-    presetLMT: '🚲 E-Bike LMT-Akku (48V · 750Wh)',
-    tab1: '1. Identität & UPI',
-    tab2: '2. Materialien & Rezyklat',
-    tab3: '3. CO₂-Fußabdruck (PCF)',
-    tab4: '4. Leistung & Lebensdauer',
-    tab5: '5. BMS-Telemetrie (SOH)',
-    tab6: '6. Demontage & Sicherheit',
-    tab7: '7. eIDAS-Zertifikat & Filing',
-    publishBtn: 'Konformitätsprüfung durchführen & GS1-Pass generieren →',
-    resetBtn: 'Formular zurücksetzen',
-    complianceCheck: 'Anhang XIII Prüfung: 100% Bestanden',
-    zkpStatus: 'Zero-Knowledge-Schutz: Rezepturgeheimnis aktiv',
-    qrTitle: 'Simulierte GS1 Digital Link Ausgabe',
-    registryReady: 'Bereit für EU DG GROW Register'
+    badge: 'Interaktive Live-Workbench',
+    title: 'Visueller DPP-Generator & Live-Pass-Terminal',
+    subtitle: 'Bearbeiten Sie links die Parameter und sehen Sie rechts in Echtzeit den generierten EU-Batteriepass mit GS1 Digital Link.',
+    presetLabel: 'Schnell-Szenarien:',
+    presetEV: '🚗 EV-Batterie (NMC 811 · 82kWh)',
+    presetBESS: '⚡ BESS-Speicher (LFP · 372kWh)',
+    presetLMT: '🚲 E-Bike-Akku (48V · 750Wh)',
+    leftHeader: 'Unternehmens-Datenerfassung (Eingabe)',
+    rightHeader: 'Mobiler Live-Batteriepass (Ausgabe)',
+    groupGeneral: '1. Identität & GS1-Seriennummer',
+    groupChem: '2. Chemie & Rezyklatanteil',
+    groupPcf: '3. CO₂-Fußabdruck (PCF) & Klasse',
+    groupBms: '4. BMS-Telemetrie & Haltbarkeit',
+    openFullBtn: 'Vollständige Pass-Seite öffnen →',
+    syncNotice: 'Live-Bindung: Änderungen aktualisieren den Pass sofort.',
+    zkpProtected: 'ZKP-Kryptoschutz: Rezepturgeheimnis aktiv',
+    eidasValid: 'eIDAS 2.0 qualifizierter Zeitstempel: Gültig'
   },
   fr: {
-    badge: 'Environnement Bac à Sable Interactif',
-    title: 'Simulateur de Portail Entreprise & Déclaration DPP',
-    subtitle: 'Découvrez les champs réglementaires et l’interface de gestion du passeport batterie sous le règlement (UE) 2023/1542 Annexe XIII.',
-    presetLabel: 'Charger un jeu de données type :',
-    presetEV: '🚗 Batterie de Traction VE (NMC 811 · 82kWh)',
-    presetBESS: '⚡ Stockage BESS Industriel (LFP · 372kWh)',
-    presetLMT: '🚲 Batterie VAE LMT (48V · 750Wh)',
-    tab1: '1. Identité & UPI',
-    tab2: '2. Matériaux & Recyclé',
-    tab3: '3. Empreinte Carbone (PCF)',
-    tab4: '4. Performances & Durée',
-    tab5: '5. Télémétrie BMS (SOH)',
-    tab6: '6. Sécurité & Démontage',
-    tab7: '7. Sceau eIDAS & Dépôt',
-    publishBtn: 'Lancer l’Audit de Conformité & Générer le Passeport GS1 →',
-    resetBtn: 'Réinitialiser',
-    complianceCheck: 'Contrôle Annexe XIII : 100% Validé',
-    zkpStatus: 'Protection ZKP : Secret des Formules Actif',
-    qrTitle: 'Aperçu du GS1 Digital Link Généré',
-    registryReady: 'Prêt pour le Registre DG GROW'
+    badge: 'Atelier Interactif en Direct',
+    title: 'Générateur Visuel DPP & Terminal de Passeport en Direct',
+    subtitle: 'Modifiez les données à gauche et visualisez en temps réel le passeport batterie officiel et le lien GS1 Digital Link à droite.',
+    presetLabel: 'Scénarios Rapides :',
+    presetEV: '🚗 Batterie VE (NMC 811 · 82kWh)',
+    presetBESS: '⚡ Stockage BESS (LFP · 372kWh)',
+    presetLMT: '🚲 Batterie VAE (48V · 750Wh)',
+    leftHeader: 'Terminal de Déclaration Entreprise (Saisie)',
+    rightHeader: 'Passeport Batterie Mobile en Direct (Rendu)',
+    groupGeneral: '1. Identité & Numéro de Série GS1',
+    groupChem: '2. Chimie & Taux de Recyclé',
+    groupPcf: '3. Empreinte Carbone (PCF) & Classe',
+    groupBms: '4. Télémétrie BMS & Durabilité',
+    openFullBtn: 'Ouvrir la page complète du passeport →',
+    syncNotice: 'Liaison directe : toute modification est répercutée instantanément.',
+    zkpProtected: 'Protection ZKP : Secret des formules préservé',
+    eidasValid: 'Horodatage qualifié eIDAS 2.0 : Valide'
   },
   nl: {
-    badge: 'Interactieve Sandbox Omgeving',
-    title: 'Enterprise DPP Invoer- & Portaal-Simulator',
-    subtitle: 'Verken de invoervelden en het gegevensbeheer conform Verordening (EU) 2023/1542 Bijlage XIII.',
-    presetLabel: 'Laad voorbeeldgegevens:',
-    presetEV: '🚗 EV-Tractiebatterij (NMC 811 · 82kWh)',
-    presetBESS: '⚡ Industrieel Opslagsysteem (LFP · 372kWh)',
-    presetLMT: '🚲 E-Bike LMT Batterij (48V · 750Wh)',
-    tab1: '1. Identiteit & UPI',
-    tab2: '2. Materialen & Rezyklat',
-    tab3: '3. Koolstofvoetafdruk (PCF)',
-    tab4: '4. Prestaties & Levensduur',
-    tab5: '5. BMS-Telemetrie (SOH)',
-    tab6: '6. Demontage & Veiligheid',
-    tab7: '7. eIDAS Zegel & Deponering',
-    publishBtn: 'Conformiteitsaudit Uitvoeren & GS1-Paspoort Genereren →',
-    resetBtn: 'Formulier Wissen',
-    complianceCheck: 'Bijlage XIII Controle: 100% Geslaagd',
-    zkpStatus: 'ZKP Privacy: Formulebescherming Actief',
-    qrTitle: 'Gegenereerde GS1 Digital Link Resolutie',
-    registryReady: 'Gereed voor EU DG GROW Register'
+    badge: 'Interactieve Live Workbench',
+    title: 'Visuele DPP-Generator & Live Paspoort Terminal',
+    subtitle: 'Pas links de parameters aan en bekijk rechts direct het gegenereerde EU-batterijpaspoort en de GS1 Digital Link.',
+    presetLabel: 'Snelle Scenario’s:',
+    presetEV: '🚗 EV-Batterij (NMC 811 · 82kWh)',
+    presetBESS: '⚡ BESS Opslag (LFP · 372kWh)',
+    presetLMT: '🚲 E-Bike Batterij (48V · 750Wh)',
+    leftHeader: 'Invoerterminal Bedrijfsgegevens (Invoer)',
+    rightHeader: 'Mobiel Live Batterijpaspoort (Uitvoer)',
+    groupGeneral: '1. Identiteit & GS1 Serienummer',
+    groupChem: '2. Chemie & Rezyklataandeel',
+    groupPcf: '3. Koolstofvoetafdruk (PCF) & Klasse',
+    groupBms: '4. BMS-Telemetrie & Levensduur',
+    openFullBtn: 'Volledige paspoortpagina openen →',
+    syncNotice: 'Live gekoppeld: wijzigingen direct zichtbaar in het paspoort.',
+    zkpProtected: 'ZKP Cryptobescherming: Formulegeheimen beveiligd',
+    eidasValid: 'eIDAS 2.0 Gekwalificeerd Tijdstempel: Geldig'
   }
 };
 
@@ -121,7 +106,7 @@ const tLocal = translations[lang as keyof typeof translations] || translations.e
 
 <div class="neo-surface p-6 sm:p-10 border border-white/80 shadow-2xl rounded-3xl">
   
-  <!-- Simulator Top Bar (Enterprise Console Look) -->
+  <!-- Top Scenario Presets Switcher -->
   <div class="neo-well p-4 sm:p-5 flex flex-wrap items-center justify-between gap-4 mb-8">
     <div class="flex items-center gap-3">
       <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-cyan-600 to-blue-700 text-white flex items-center justify-center font-bold text-lg shadow-md">
@@ -129,401 +114,382 @@ const tLocal = translations[lang as keyof typeof translations] || translations.e
       </div>
       <div>
         <div class="flex items-center gap-2">
-          <span class="text-sm font-bold text-slate-900">EU DPP Enterprise Management Console</span>
-          <span class="px-2 py-0.5 rounded-full bg-cyan-100 text-cyan-800 text-[10px] font-mono font-bold">Sandbox Mode</span>
+          <span class="text-sm font-bold text-slate-900">EU DPP Enterprise Generator Console</span>
+          <span class="px-2 py-0.5 rounded-full bg-cyan-100 text-cyan-800 text-[10px] font-mono font-bold">Live Synced</span>
         </div>
         <div class="text-[11px] text-slate-500 font-mono mt-0.5">
-          Tenant: <span class="text-slate-800 font-medium">SUZHOU GEEKTION TECH / OEM-NODE-01</span> · Session ID: <span class="text-cyan-700 font-bold">#SBX-2026-DPP</span>
+          {tLocal.syncNotice}
         </div>
       </div>
     </div>
 
-    <!-- Preset Selector Buttons -->
+    <!-- Quick Buttons -->
     <div class="flex flex-wrap items-center gap-2 text-xs">
       <span class="text-slate-500 text-[11px] font-bold mr-1 hidden sm:inline">{tLocal.presetLabel}</span>
-      <button onclick="loadPreset('ev')" class="px-3 py-1.5 rounded-xl bg-white/90 border border-slate-200 text-slate-800 font-medium hover:border-cyan-500 hover:text-cyan-700 transition-all shadow-sm">
+      <button onclick="applyPreset('ev')" class="preset-btn px-3 py-1.5 rounded-xl bg-white/90 border border-slate-300 text-slate-800 font-bold hover:border-cyan-500 hover:text-cyan-700 transition-all shadow-sm">
         {tLocal.presetEV}
       </button>
-      <button onclick="loadPreset('bess')" class="px-3 py-1.5 rounded-xl bg-white/90 border border-slate-200 text-slate-800 font-medium hover:border-green-500 hover:text-green-700 transition-all shadow-sm">
+      <button onclick="applyPreset('bess')" class="preset-btn px-3 py-1.5 rounded-xl bg-white/90 border border-slate-300 text-slate-800 font-bold hover:border-green-500 hover:text-green-700 transition-all shadow-sm">
         {tLocal.presetBESS}
       </button>
-      <button onclick="loadPreset('lmt')" class="px-3 py-1.5 rounded-xl bg-white/90 border border-slate-200 text-slate-800 font-medium hover:border-purple-500 hover:text-purple-700 transition-all shadow-sm">
+      <button onclick="applyPreset('lmt')" class="preset-btn px-3 py-1.5 rounded-xl bg-white/90 border border-slate-300 text-slate-800 font-bold hover:border-purple-500 hover:text-purple-700 transition-all shadow-sm">
         {tLocal.presetLMT}
       </button>
     </div>
   </div>
 
-  <!-- Step Navigation Tabs (7 Statutory Domains) -->
-  <div class="flex overflow-x-auto gap-2 pb-2 mb-6 scrollbar-thin">
-    <button id="sim-tab-1" onclick="switchSimTab(1)" class="sim-tab-btn neo-pill-active px-4 py-2.5 rounded-2xl text-xs font-bold whitespace-nowrap">
-      {tLocal.tab1}
-    </button>
-    <button id="sim-tab-2" onclick="switchSimTab(2)" class="sim-tab-btn neo-pill px-4 py-2.5 rounded-2xl text-xs font-bold text-slate-700 whitespace-nowrap">
-      {tLocal.tab2}
-    </button>
-    <button id="sim-tab-3" onclick="switchSimTab(3)" class="sim-tab-btn neo-pill px-4 py-2.5 rounded-2xl text-xs font-bold text-slate-700 whitespace-nowrap">
-      {tLocal.tab3}
-    </button>
-    <button id="sim-tab-4" onclick="switchSimTab(4)" class="sim-tab-btn neo-pill px-4 py-2.5 rounded-2xl text-xs font-bold text-slate-700 whitespace-nowrap">
-      {tLocal.tab4}
-    </button>
-    <button id="sim-tab-5" onclick="switchSimTab(5)" class="sim-tab-btn neo-pill px-4 py-2.5 rounded-2xl text-xs font-bold text-slate-700 whitespace-nowrap">
-      {tLocal.tab5}
-    </button>
-    <button id="sim-tab-6" onclick="switchSimTab(6)" class="sim-tab-btn neo-pill px-4 py-2.5 rounded-2xl text-xs font-bold text-slate-700 whitespace-nowrap">
-      {tLocal.tab6}
-    </button>
-    <button id="sim-tab-7" onclick="switchSimTab(7)" class="sim-tab-btn neo-pill px-4 py-2.5 rounded-2xl text-xs font-bold text-slate-700 whitespace-nowrap">
-      {tLocal.tab7}
-    </button>
-  </div>
-
-  <!-- Form Content Area -->
-  <div class="p-6 sm:p-8 rounded-2xl bg-white/80 border border-slate-200/90 shadow-sm min-h-[380px]">
+  <!-- Main Split-Screen Layout: Left Input, Right Mobile Passport Output -->
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
     
-    <!-- Tab 1: Identity & UPI -->
-    <div id="sim-view-1" class="sim-view space-y-6">
+    <!-- Left Column: Simple & Clear Enterprise Input Terminal (7 cols) -->
+    <div class="lg:col-span-7 space-y-6">
+      
       <div class="flex items-center justify-between pb-3 border-b border-slate-200">
-        <div>
-          <h4 class="text-base font-bold text-slate-900">Domain 1: Battery Product Identification & GS1 Serialization</h4>
-          <p class="text-xs text-slate-500">Mandatory attributes under Annex XIII, Section 1 (EN 18220 / EN 18219 UPI standards).</p>
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full bg-cyan-500"></span>
+          <h3 class="text-base font-bold text-slate-900">{tLocal.leftHeader}</h3>
         </div>
-        <span class="px-2.5 py-1 rounded-full bg-green-100 text-green-800 text-[10px] font-mono font-bold">Rule: Mandatory (Public)</span>
+        <span class="text-[11px] font-mono text-cyan-700 font-bold bg-cyan-50 px-2.5 py-1 rounded-lg border border-cyan-200">
+          Annex XIII Ready
+        </span>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
-        <div>
-          <label class="block font-bold text-slate-700 mb-1">Global Trade Item Number (GTIN-14)</label>
-          <input id="field-gtin" type="text" value="04012345999991" class="w-full px-3 py-2 rounded-xl border border-slate-300 font-mono text-slate-900 bg-white" />
-        </div>
-        <div>
-          <label class="block font-bold text-slate-700 mb-1">Unique Serial Identifier (SGTIN / SN)</label>
-          <input id="field-serial" type="text" value="BP-2027-EU-88902" class="w-full px-3 py-2 rounded-xl border border-slate-300 font-mono text-slate-900 bg-white" />
-        </div>
-        <div>
-          <label class="block font-bold text-slate-700 mb-1">Battery Category</label>
-          <select id="field-category" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-slate-900 bg-white font-medium">
-            <option value="EV">Electric Vehicle (EV) Traction Battery</option>
-            <option value="BESS">Stationary Energy Storage System (BESS >2kWh)</option>
-            <option value="LMT">Light Means of Transport (LMT ≤25kg)</option>
-            <option value="Industrial">Other Industrial Battery (>2kWh)</option>
-          </select>
-        </div>
-        <div>
-          <label class="block font-bold text-slate-700 mb-1">Model & Trade Name</label>
-          <input id="field-model" type="text" value="High-Energy NMC 811 Traction Battery System" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-slate-900 bg-white" />
-        </div>
-        <div>
-          <label class="block font-bold text-slate-700 mb-1">Manufacturing Location</label>
-          <input id="field-factory" type="text" value="Jiangsu Giga-Factory #02 · China" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-slate-900 bg-white" />
-        </div>
-        <div>
-          <label class="block font-bold text-slate-700 mb-1">Manufacturing Date</label>
-          <input id="field-mfg-date" type="text" value="2026-10-15" class="w-full px-3 py-2 rounded-xl border border-slate-300 font-mono text-slate-900 bg-white" />
-        </div>
-      </div>
-    </div>
-
-    <!-- Tab 2: Materials & Chemistry -->
-    <div id="sim-view-2" class="sim-view hidden space-y-6">
-      <div class="flex items-center justify-between pb-3 border-b border-slate-200">
-        <div>
-          <h4 class="text-base font-bold text-slate-900">Domain 2: Material Chemistry, Critical Raw Materials & Recycled Share</h4>
-          <p class="text-xs text-slate-500">Recycled content targets (Article 8) & Critical Raw Materials declaration.</p>
-        </div>
-        <span class="px-2.5 py-1 rounded-full bg-purple-100 text-purple-800 text-[10px] font-mono font-bold">ZKP Formula Protection</span>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
-        <div>
-          <label class="block font-bold text-slate-700 mb-1">Cathode Chemistry</label>
-          <input id="field-chemistry" type="text" value="NMC 811 (LiNi0.8Mn0.1Co0.1O2)" class="w-full px-3 py-2 rounded-xl border border-slate-300 font-mono text-slate-900 bg-white" />
-        </div>
-        <div>
-          <label class="block font-bold text-slate-700 mb-1">Recycled Cobalt (Co) %</label>
-          <input id="field-recycled-co" type="text" value="18.4%" class="w-full px-3 py-2 rounded-xl border border-slate-300 font-mono text-cyan-700 font-bold bg-white" />
-          <span class="text-[10px] text-slate-400">2031 Mandatory: ≥16%</span>
-        </div>
-        <div>
-          <label class="block font-bold text-slate-700 mb-1">Recycled Lithium (Li) %</label>
-          <input id="field-recycled-li" type="text" value="8.2%" class="w-full px-3 py-2 rounded-xl border border-slate-300 font-mono text-blue-700 font-bold bg-white" />
-          <span class="text-[10px] text-slate-400">2031 Mandatory: ≥6%</span>
-        </div>
-        <div>
-          <label class="block font-bold text-slate-700 mb-1">Recycled Nickel (Ni) %</label>
-          <input id="field-recycled-ni" type="text" value="12.5%" class="w-full px-3 py-2 rounded-xl border border-slate-300 font-mono text-green-700 font-bold bg-white" />
-          <span class="text-[10px] text-slate-400">2031 Mandatory: ≥6%</span>
-        </div>
-      </div>
-
-      <div class="p-3.5 rounded-xl bg-purple-50/70 border border-purple-200 text-xs text-purple-900 flex items-center justify-between">
-        <span>🛡️ <strong>Zero-Knowledge Cryptographic Shield:</strong> Raw supplier pricing and binder additives remain private; only proof of compliance is published.</span>
-        <span class="font-mono text-purple-700 font-bold">ZKP-Active</span>
-      </div>
-    </div>
-
-    <!-- Tab 3: Carbon Footprint (PCF) -->
-    <div id="sim-view-3" class="sim-view hidden space-y-6">
-      <div class="flex items-center justify-between pb-3 border-b border-slate-200">
-        <div>
-          <h4 class="text-base font-bold text-slate-900">Domain 3: Product Carbon Footprint (PCF) & Due Diligence</h4>
-          <p class="text-xs text-slate-500">ISO 14067 / PEFCR Scope 1-3 lifecycle carbon intensity & performance class.</p>
-        </div>
-        <span class="px-2.5 py-1 rounded-full bg-green-100 text-green-800 text-[10px] font-mono font-bold">Class A-E Label</span>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
-        <div>
-          <label class="block font-bold text-slate-700 mb-1">Total Carbon Footprint (kg CO₂e/kWh)</label>
-          <input id="field-pcf" type="text" value="51.2" class="w-full px-3 py-2 rounded-xl border border-slate-300 font-mono text-green-700 font-extrabold text-base bg-white" />
-        </div>
-        <div>
-          <label class="block font-bold text-slate-700 mb-1">Carbon Performance Class</label>
-          <select id="field-pcf-class" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-slate-900 bg-white font-bold">
-            <option value="A" selected>Class A (Top 15% Carbon Efficiency)</option>
-            <option value="B">Class B</option>
-            <option value="C">Class C</option>
-            <option value="D">Class D</option>
-            <option value="E">Class E</option>
-          </select>
-        </div>
-        <div>
-          <label class="block font-bold text-slate-700 mb-1">LCA Verification Standard</label>
-          <input type="text" readonly value="ISO 14067 & EU PEFCR Baseline" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-slate-500 bg-slate-50" />
-        </div>
-      </div>
-    </div>
-
-    <!-- Tab 4: Performance & Durability -->
-    <div id="sim-view-4" class="sim-view hidden space-y-6">
-      <div class="flex items-center justify-between pb-3 border-b border-slate-200">
-        <div>
-          <h4 class="text-base font-bold text-slate-900">Domain 4: Performance, Durability & Electrical Characteristics</h4>
-          <p class="text-xs text-slate-500">Rated energy, round-trip efficiency, and calendar/cycle life benchmarks.</p>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
-        <div>
-          <label class="block font-bold text-slate-700 mb-1">Rated Usable Energy (kWh)</label>
-          <input id="field-energy" type="text" value="82.0" class="w-full px-3 py-2 rounded-xl border border-slate-300 font-mono text-slate-900 bg-white" />
-        </div>
-        <div>
-          <label class="block font-bold text-slate-700 mb-1">Nominal Voltage (V)</label>
-          <input id="field-voltage" type="text" value="800" class="w-full px-3 py-2 rounded-xl border border-slate-300 font-mono text-slate-900 bg-white" />
-        </div>
-        <div>
-          <label class="block font-bold text-slate-700 mb-1">Expected Cycle Life (80% SOH)</label>
-          <input id="field-cycles" type="text" value="3,500 Cycles" class="w-full px-3 py-2 rounded-xl border border-slate-300 font-mono text-slate-900 bg-white" />
-        </div>
-        <div>
-          <label class="block font-bold text-slate-700 mb-1">Round-trip Energy Efficiency</label>
-          <input id="field-efficiency" type="text" value="95.4%" class="w-full px-3 py-2 rounded-xl border border-slate-300 font-mono text-slate-900 bg-white" />
-        </div>
-      </div>
-    </div>
-
-    <!-- Tab 5: BMS Telematics -->
-    <div id="sim-view-5" class="sim-view hidden space-y-6">
-      <div class="flex items-center justify-between pb-3 border-b border-slate-200">
-        <div>
-          <h4 class="text-base font-bold text-slate-900">Domain 5: Dynamic BMS Telematics & State of Health (SOH)</h4>
-          <p class="text-xs text-slate-500">Live API ingestion for in-use parameters under Article 78.</p>
-        </div>
-        <span class="px-2.5 py-1 rounded-full bg-blue-100 text-blue-800 text-[10px] font-mono font-bold">API Ingestion Ready</span>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
-        <div>
-          <label class="block font-bold text-slate-700 mb-1">Current State of Health (SOH %)</label>
-          <input id="field-soh" type="text" value="99.1%" class="w-full px-3 py-2 rounded-xl border border-slate-300 font-mono text-cyan-800 font-bold bg-white" />
-        </div>
-        <div>
-          <label class="block font-bold text-slate-700 mb-1">Equivalent Full Cycles (EFC)</label>
-          <input id="field-efc" type="text" value="68 cycles" class="w-full px-3 py-2 rounded-xl border border-slate-300 font-mono text-slate-900 bg-white" />
-        </div>
-        <div>
-          <label class="block font-bold text-slate-700 mb-1">Internal Resistance Rise (%)</label>
-          <input id="field-resistance" type="text" value="+0.4%" class="w-full px-3 py-2 rounded-xl border border-slate-300 font-mono text-slate-900 bg-white" />
-        </div>
-      </div>
-    </div>
-
-    <!-- Tab 6: Safety & Dismantling -->
-    <div id="sim-view-6" class="sim-view hidden space-y-6">
-      <div class="flex items-center justify-between pb-3 border-b border-slate-200">
-        <div>
-          <h4 class="text-base font-bold text-slate-900">Domain 6: Dismantling Safety, Extinguishing Agents & Waste Guidance</h4>
-          <p class="text-xs text-slate-500">Role-based access view for certified dismantling and recycling operators.</p>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-        <div>
-          <label class="block font-bold text-slate-700 mb-1">Recommended Extinguishing Agent</label>
-          <input id="field-extinguish" type="text" value="Copious Water / F-500 Encapsulator" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-slate-900 bg-white" />
-        </div>
-        <div>
-          <label class="block font-bold text-slate-700 mb-1">Enclosure Dismantling Fasteners</label>
-          <input id="field-fasteners" type="text" value="24x M8 Torx Plus (Torque: 28 Nm)" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-slate-900 bg-white" />
-        </div>
-      </div>
-    </div>
-
-    <!-- Tab 7: eIDAS QSeal & Filing -->
-    <div id="sim-view-7" class="sim-view hidden space-y-6">
-      <div class="flex items-center justify-between pb-3 border-b border-slate-200">
-        <div>
-          <h4 class="text-base font-bold text-slate-900">Domain 7: Conformity Dossier (DoC) & eIDAS 2.0 Qualified Seal</h4>
-          <p class="text-xs text-slate-500">Attach EU Declaration of Conformity and trigger PAdES digital seal.</p>
-        </div>
-        <span class="px-2.5 py-1 rounded-full bg-green-100 text-green-800 text-[10px] font-mono font-bold">eIDAS 2.0 QSeal</span>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-        <div>
-          <label class="block font-bold text-slate-700 mb-1">EU Declaration of Conformity (DoC File)</label>
-          <div class="p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between font-mono">
-            <span>DOC-2023-1542-APEX-SIGNED.pdf</span>
-            <span class="text-green-700 font-bold">✓ Attached</span>
+      <!-- Section 1: Identity -->
+      <div class="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-sm space-y-3">
+        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 flex items-center justify-between">
+          <span>{tLocal.groupGeneral}</span>
+          <span class="text-[10px] text-green-700 font-mono">Public Verified</span>
+        </h4>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Product / Model Name</label>
+            <input id="in-model" type="text" value="Apex HyperDrive Traction Battery" oninput="updateLivePassport()" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-slate-900 bg-slate-50 focus:bg-white focus:border-cyan-500 outline-none" />
           </div>
-        </div>
-        <div>
-          <label class="block font-bold text-slate-700 mb-1">Qualified Trust Service Provider (QTSP)</label>
-          <div class="p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between font-mono">
-            <span>D-Trust / DigiCert EU Trust List</span>
-            <span class="text-cyan-700 font-bold">QES Active</span>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Unique Serial (SGTIN / SN)</label>
+            <input id="in-serial" type="text" value="BP-2027-EU-88902" oninput="updateLivePassport()" class="w-full px-3 py-2 rounded-xl border border-slate-300 font-mono text-slate-900 bg-slate-50 focus:bg-white focus:border-cyan-500 outline-none" />
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Global Trade Item Number (GTIN-14)</label>
+            <input id="in-gtin" type="text" value="04012345999991" oninput="updateLivePassport()" class="w-full px-3 py-2 rounded-xl border border-slate-300 font-mono text-slate-900 bg-slate-50 focus:bg-white focus:border-cyan-500 outline-none" />
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Battery Category</label>
+            <select id="in-category" onchange="updateLivePassport()" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-slate-900 bg-slate-50 focus:bg-white focus:border-cyan-500 outline-none font-medium">
+              <option value="Electric Vehicle (EV) · Category M1/N1">Electric Vehicle (EV) Traction</option>
+              <option value="Industrial Energy Storage (BESS >2kWh)">Stationary Storage (BESS >2kWh)</option>
+              <option value="Light Means of Transport (LMT ≤25kg)">LMT / E-Bike Pack (≤25kg)</option>
+            </select>
           </div>
         </div>
       </div>
-    </div>
 
-  </div>
-
-  <!-- Bottom Interactive Execution Row -->
-  <div class="mt-6 flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-200">
-    <div class="flex items-center gap-3 text-xs">
-      <span class="flex items-center gap-1.5 text-green-700 font-bold">
-        <span class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
-        <span>{tLocal.complianceCheck}</span>
-      </span>
-      <span class="text-slate-300">|</span>
-      <span class="text-slate-500 font-mono text-[11px]">{tLocal.zkpStatus}</span>
-    </div>
-
-    <div class="flex items-center gap-3">
-      <button onclick="publishSimPassport()" class="neo-btn-primary text-xs sm:text-sm font-bold flex items-center gap-2">
-        <span>{tLocal.publishBtn}</span>
-      </button>
-    </div>
-  </div>
-
-  <!-- Simulated Output Card (Appears after clicking Publish) -->
-  <div id="sim-output-card" class="mt-8 p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-navy-900 to-slate-900 text-white shadow-2xl border border-cyan-500/40 hidden space-y-4">
-    <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-white/10">
-      <div class="flex items-center gap-2">
-        <span class="w-3 h-3 rounded-full bg-green-400 animate-pulse"></span>
-        <h4 class="text-base font-bold text-cyan-400 font-mono">{tLocal.qrTitle}</h4>
-      </div>
-      <span class="px-2.5 py-0.5 rounded-full bg-green-500/20 text-green-300 text-[10px] font-mono border border-green-500/30">
-        {tLocal.registryReady}
-      </span>
-    </div>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center text-xs">
-      <div class="space-y-2">
-        <div class="text-slate-400 font-mono text-[11px]">Resolver URI (GS1 Digital Link Syntax):</div>
-        <div id="out-resolver-uri" class="p-3 rounded-xl bg-black/40 font-mono text-cyan-300 font-bold break-all border border-cyan-500/30">
-          https://eudppprovider.com/01/04012345999991/21/BP-2027-EU-88902/
-        </div>
-        <div class="text-slate-400 font-mono text-[11px] pt-1">
-          DG GROW Central Registry Anchor: <span class="text-green-400 font-bold">UPI-EU-2026-88902-BAT</span>
+      <!-- Section 2: Chemistry & Recycled -->
+      <div class="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-sm space-y-3">
+        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 flex items-center justify-between">
+          <span>{tLocal.groupChem}</span>
+          <span class="text-[10px] text-purple-700 font-mono">ZKP Shielded</span>
+        </h4>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Cathode Chemistry</label>
+            <select id="in-chemistry" onchange="updateLivePassport()" class="w-full px-3 py-2 rounded-xl border border-slate-300 font-mono text-slate-900 bg-slate-50 focus:bg-white focus:border-cyan-500 outline-none font-medium">
+              <option value="NMC 811 (LiNi0.8Mn0.1Co0.1O2)">NMC 811</option>
+              <option value="LFP (Lithium Iron Phosphate)">LFP (Iron Phosphate)</option>
+              <option value="Sodium-ion (Na-ion)">Sodium-ion</option>
+              <option value="NMC 622">NMC 622</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Recycled Cobalt (Co) %</label>
+            <input id="in-co" type="text" value="18.4%" oninput="updateLivePassport()" class="w-full px-3 py-2 rounded-xl border border-slate-300 font-mono text-cyan-700 font-bold bg-slate-50 focus:bg-white focus:border-cyan-500 outline-none" />
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Recycled Lithium (Li) %</label>
+            <input id="in-li" type="text" value="8.2%" oninput="updateLivePassport()" class="w-full px-3 py-2 rounded-xl border border-slate-300 font-mono text-blue-700 font-bold bg-slate-50 focus:bg-white focus:border-cyan-500 outline-none" />
+          </div>
         </div>
       </div>
 
-      <div class="p-4 rounded-xl bg-white/10 border border-white/10 text-center space-y-2">
-        <div class="text-[11px] text-slate-300 font-mono">2D Barcode Data Carrier Ready (EN 18220:2026)</div>
-        <a id="out-link-btn" href="/01/04012345999991/21/BP-2027-EU-88902/" class="inline-block px-5 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs transition-all shadow-md">
-          Open Live GS1 Resolver Preview →
+      <!-- Section 3: Carbon Footprint (PCF) & Durability -->
+      <div class="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-sm space-y-3">
+        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 flex items-center justify-between">
+          <span>{tLocal.groupPcf}</span>
+          <span class="text-[10px] text-green-700 font-mono">ISO 14067 LCA</span>
+        </h4>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Carbon Intensity (kg CO₂e/kWh)</label>
+            <input id="in-pcf" type="text" value="51.2" oninput="updateLivePassport()" class="w-full px-3 py-2 rounded-xl border border-slate-300 font-mono text-green-700 font-extrabold text-sm bg-slate-50 focus:bg-white focus:border-cyan-500 outline-none" />
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Carbon Class Label</label>
+            <select id="in-pcf-class" onchange="updateLivePassport()" class="w-full px-3 py-2 rounded-xl border border-slate-300 font-bold text-slate-900 bg-slate-50 focus:bg-white focus:border-cyan-500 outline-none">
+              <option value="A" selected>Class A (Top 15%)</option>
+              <option value="B">Class B</option>
+              <option value="C">Class C</option>
+              <option value="D">Class D</option>
+              <option value="E">Class E</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">State of Health (SOH %)</label>
+            <input id="in-soh" type="text" value="99.2%" oninput="updateLivePassport()" class="w-full px-3 py-2 rounded-xl border border-slate-300 font-mono text-cyan-800 font-bold bg-slate-50 focus:bg-white focus:border-cyan-500 outline-none" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Footer -->
+      <div class="p-4 rounded-2xl bg-cyan-50/70 border border-cyan-200 flex flex-wrap items-center justify-between gap-3 text-xs">
+        <div class="space-y-0.5">
+          <div class="font-bold text-slate-900 flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-green-500"></span>
+            <span>{tLocal.eidasValid}</span>
+          </div>
+          <div class="text-[11px] text-slate-500 font-mono">{tLocal.zkpProtected}</div>
+        </div>
+        <a id="btn-open-full" href="/01/04012345999991/21/BP-2027-EU-88902/" target="_blank" class="neo-btn-primary text-xs py-2 px-4 flex items-center gap-1.5">
+          <span>{tLocal.openFullBtn}</span>
         </a>
       </div>
+
     </div>
+
+    <!-- Right Column: Live Mobile Battery Passport Visual Terminal (5 cols) -->
+    <div class="lg:col-span-5">
+      
+      <div class="flex items-center justify-between pb-3 border-b border-slate-200 mb-4">
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full bg-green-500 animate-pulse"></span>
+          <h3 class="text-base font-bold text-slate-900">{tLocal.rightHeader}</h3>
+        </div>
+        <span class="text-[10px] font-mono text-slate-500 bg-slate-100 px-2 py-0.5 rounded">
+          GS1 2D Data Matrix
+        </span>
+      </div>
+
+      <!-- Realistic Smartphone Mockup -->
+      <div class="max-w-[360px] mx-auto rounded-[36px] bg-slate-900 p-3.5 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.3)] border-4 border-slate-800 relative">
+        
+        <!-- Phone Camera Notch / Speaker -->
+        <div class="w-24 h-4 bg-slate-800 rounded-full mx-auto mb-2 flex items-center justify-center">
+          <div class="w-2 h-2 rounded-full bg-slate-900 mr-2"></div>
+          <div class="w-8 h-1 bg-slate-900 rounded-full"></div>
+        </div>
+
+        <!-- Phone Screen Content (Light Theme Battery Passport) -->
+        <div class="rounded-[26px] bg-[#F8FAFC] p-4 text-slate-800 space-y-3.5 max-h-[580px] overflow-y-auto scrollbar-thin">
+          
+          <!-- Screen Header -->
+          <div class="flex items-center justify-between pb-2 border-b border-slate-200">
+            <div class="flex items-center gap-1.5">
+              <span class="text-base">🇪🇺</span>
+              <span class="text-[10px] font-extrabold uppercase tracking-tight text-slate-900">EU Digital Battery Passport</span>
+            </div>
+            <span class="px-1.5 py-0.2 rounded bg-green-100 text-green-800 text-[9px] font-mono font-bold">REG-2023/1542</span>
+          </div>
+
+          <!-- Product Title & Serial Pill -->
+          <div class="bg-white p-3 rounded-2xl border border-slate-200 shadow-sm space-y-1.5">
+            <div class="text-[10px] font-mono text-cyan-700 font-bold flex items-center justify-between">
+              <span id="disp-category">Electric Vehicle (EV) · Category M1</span>
+              <span class="text-slate-400 font-mono text-[9px]">SGTIN</span>
+            </div>
+            <div id="disp-model" class="text-xs font-bold text-slate-900 leading-snug">
+              Apex HyperDrive Traction Battery
+            </div>
+            <div class="flex items-center gap-1 text-[10px] font-mono text-slate-500 bg-slate-50 p-1.5 rounded-lg border border-slate-100 break-all">
+              <span class="text-slate-400">SN:</span>
+              <span id="disp-serial" class="text-slate-800 font-bold">BP-2027-EU-88902</span>
+            </div>
+          </div>
+
+          <!-- Dynamic 2D QR Code & GS1 URI Box -->
+          <div class="bg-white p-3 rounded-2xl border border-slate-200 shadow-sm text-center space-y-2">
+            <div class="w-24 h-24 mx-auto bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-center p-2 relative group">
+              <!-- Visual Mock QR Matrix -->
+              <svg viewBox="0 0 100 100" class="w-full h-full text-slate-900" fill="currentColor">
+                <rect x="0" y="0" width="30" height="30" />
+                <rect x="5" y="5" width="20" height="20" fill="white" />
+                <rect x="10" y="10" width="10" height="10" />
+                <rect x="70" y="0" width="30" height="30" />
+                <rect x="75" y="5" width="20" height="20" fill="white" />
+                <rect x="80" y="10" width="10" height="10" />
+                <rect x="0" y="70" width="30" height="30" />
+                <rect x="5" y="75" width="20" height="20" fill="white" />
+                <rect x="10" y="80" width="10" height="10" />
+                <rect x="35" y="10" width="10" height="10" />
+                <rect x="50" y="20" width="10" height="15" />
+                <rect x="35" y="45" width="30" height="10" />
+                <rect x="45" y="65" width="15" height="15" />
+                <rect x="70" y="40" width="20" height="10" />
+                <rect x="75" y="70" width="15" height="20" />
+              </svg>
+            </div>
+            <div class="text-[9px] font-mono text-cyan-800 break-all bg-slate-50 p-1.5 rounded-lg border border-slate-200">
+              <span id="disp-uri">https://eudppprovider.com/01/04012345999991/21/BP-2027-EU-88902/</span>
+            </div>
+          </div>
+
+          <!-- Live Compliance KPI Badges -->
+          <div class="grid grid-cols-2 gap-2 text-center text-xs">
+            <div class="bg-white p-2.5 rounded-xl border border-slate-200 shadow-sm">
+              <div class="text-[9px] text-slate-400 font-mono uppercase">Carbon Rating</div>
+              <div class="flex items-center justify-center gap-1 mt-0.5">
+                <span id="disp-pcf-badge" class="px-2 py-0.2 rounded-full bg-green-100 text-green-800 font-extrabold text-xs">Class A</span>
+              </div>
+              <div id="disp-pcf" class="text-[10px] font-mono text-slate-600 mt-0.5">51.2 kg CO₂e/kWh</div>
+            </div>
+
+            <div class="bg-white p-2.5 rounded-xl border border-slate-200 shadow-sm">
+              <div class="text-[9px] text-slate-400 font-mono uppercase">State of Health</div>
+              <div id="disp-soh" class="text-xs font-bold text-cyan-800 mt-0.5">99.2% SOH</div>
+              <div class="text-[9px] text-green-700 font-mono">BMS Nominal</div>
+            </div>
+          </div>
+
+          <!-- Chemistry & Recycled Content Share -->
+          <div class="bg-white p-3 rounded-2xl border border-slate-200 shadow-sm space-y-1.5 text-xs">
+            <div class="text-[9px] font-mono text-slate-400 uppercase flex items-center justify-between">
+              <span>Chemistry & Recycled Share</span>
+              <span class="text-purple-700 font-bold">ZKP Valid</span>
+            </div>
+            <div id="disp-chemistry" class="font-bold text-[11px] text-slate-800 font-mono">
+              NMC 811 (LiNi0.8Mn0.1Co0.1O2)
+            </div>
+            <div class="grid grid-cols-2 gap-1.5 text-[10px] pt-1">
+              <div class="bg-slate-50 p-1.5 rounded border border-slate-100">
+                <span class="text-slate-400">Recycled Co:</span>
+                <span id="disp-co" class="font-bold text-cyan-800 ml-1">18.4%</span>
+              </div>
+              <div class="bg-slate-50 p-1.5 rounded border border-slate-100">
+                <span class="text-slate-400">Recycled Li:</span>
+                <span id="disp-li" class="font-bold text-blue-800 ml-1">8.2%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- eIDAS Seal Badge -->
+          <div class="p-2 rounded-xl bg-green-50 border border-green-200 text-center">
+            <div class="text-[9px] text-green-900 font-mono font-bold flex items-center justify-center gap-1">
+              <span>🔒 eIDAS 2.0 Qualified Seal Verified</span>
+            </div>
+            <div class="text-[8px] text-green-700 font-mono mt-0.5">D-Trust QTSP · DG GROW Central Registry Anchored</div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
 
 </div>
 
 <script is:inline>
-  function switchSimTab(tabNumber) {
-    for (let i = 1; i <= 7; i++) {
-      const view = document.getElementById(`sim-view-${i}`);
-      const btn = document.getElementById(`sim-tab-${i}`);
-      if (view && btn) {
-        if (i === tabNumber) {
-          view.classList.remove('hidden');
-          btn.className = 'sim-tab-btn neo-pill-active px-4 py-2.5 rounded-2xl text-xs font-bold whitespace-nowrap';
-        } else {
-          view.classList.add('hidden');
-          btn.className = 'sim-tab-btn neo-pill px-4 py-2.5 rounded-2xl text-xs font-bold text-slate-700 whitespace-nowrap';
-        }
-      }
-    }
-  }
+  function updateLivePassport() {
+    const model = document.getElementById('in-model')?.value || 'Battery System';
+    const serial = document.getElementById('in-serial')?.value || 'SN-DEMO-001';
+    const gtin = document.getElementById('in-gtin')?.value || '04012345999991';
+    const category = document.getElementById('in-category')?.value || 'Electric Vehicle (EV)';
+    const chemistry = document.getElementById('in-chemistry')?.value || 'NMC 811';
+    const co = document.getElementById('in-co')?.value || '18.4%';
+    const li = document.getElementById('in-li')?.value || '8.2%';
+    const pcf = document.getElementById('in-pcf')?.value || '51.2';
+    const pcfClass = document.getElementById('in-pcf-class')?.value || 'A';
+    const soh = document.getElementById('in-soh')?.value || '99.2%';
 
-  function loadPreset(type) {
-    const gtin = document.getElementById('field-gtin');
-    const serial = document.getElementById('field-serial');
-    const category = document.getElementById('field-category');
-    const model = document.getElementById('field-model');
-    const chemistry = document.getElementById('field-chemistry');
-    const pcf = document.getElementById('field-pcf');
-    const energy = document.getElementById('field-energy');
-    const voltage = document.getElementById('field-voltage');
-
-    if (type === 'ev') {
-      if (gtin) gtin.value = '04012345999991';
-      if (serial) serial.value = 'BP-2027-EU-88902';
-      if (category) category.value = 'EV';
-      if (model) model.value = 'High-Energy NMC 811 Traction Battery System';
-      if (chemistry) chemistry.value = 'NMC 811 (LiNi0.8Mn0.1Co0.1O2)';
-      if (pcf) pcf.value = '51.2';
-      if (energy) energy.value = '82.0';
-      if (voltage) voltage.value = '800';
-    } else if (type === 'bess') {
-      if (gtin) gtin.value = '06978453010036';
-      if (serial) serial.value = 'BESS-1500V-372KWH';
-      if (category) category.value = 'BESS';
-      if (model) model.value = 'Industrial Storage Container BESS 372kWh';
-      if (chemistry) chemistry.value = 'LFP (Lithium Iron Phosphate)';
-      if (pcf) pcf.value = '42.1';
-      if (energy) energy.value = '372.0';
-      if (voltage) voltage.value = '1500';
-    } else if (type === 'lmt') {
-      if (gtin) gtin.value = '06978453010029';
-      if (serial) serial.value = 'LMT-48V-750WH-001';
-      if (category) category.value = 'LMT';
-      if (model) model.value = 'City Commuter E-Bike Battery Module';
-      if (chemistry) chemistry.value = 'NMC 21700 Cylindrical Cells';
-      if (pcf) pcf.value = '48.6';
-      if (energy) energy.value = '0.75';
-      if (voltage) voltage.value = '48';
-    }
-  }
-
-  function publishSimPassport() {
-    const gtin = document.getElementById('field-gtin')?.value || '04012345999991';
-    const serial = document.getElementById('field-serial')?.value || 'BP-2027-EU-88902';
-    
-    const outputCard = document.getElementById('sim-output-card');
-    const resolverUri = document.getElementById('out-resolver-uri');
-    const linkBtn = document.getElementById('out-link-btn');
+    // Update screen elements
+    const dispModel = document.getElementById('disp-model');
+    const dispSerial = document.getElementById('disp-serial');
+    const dispCategory = document.getElementById('disp-category');
+    const dispChemistry = document.getElementById('disp-chemistry');
+    const dispCo = document.getElementById('disp-co');
+    const dispLi = document.getElementById('disp-li');
+    const dispPcf = document.getElementById('disp-pcf');
+    const dispPcfBadge = document.getElementById('disp-pcf-badge');
+    const dispSoh = document.getElementById('disp-soh');
+    const dispUri = document.getElementById('disp-uri');
+    const btnOpenFull = document.getElementById('btn-open-full');
 
     const uri = `https://eudppprovider.com/01/${gtin}/21/${serial}/`;
-    
-    if (resolverUri) resolverUri.innerText = uri;
-    if (linkBtn) linkBtn.href = `/01/${gtin}/21/${serial}/`;
-    if (outputCard) {
-      outputCard.classList.remove('hidden');
-      outputCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    const localUri = `/01/${gtin}/21/${serial}/`;
+
+    if (dispModel) dispModel.innerText = model;
+    if (dispSerial) dispSerial.innerText = serial;
+    if (dispCategory) dispCategory.innerText = category;
+    if (dispChemistry) dispChemistry.innerText = chemistry;
+    if (dispCo) dispCo.innerText = co;
+    if (dispLi) dispLi.innerText = li;
+    if (dispPcf) dispPcf.innerText = `${pcf} kg CO₂e/kWh`;
+    if (dispPcfBadge) {
+      dispPcfBadge.innerText = `Class ${pcfClass}`;
+      if (pcfClass === 'A') {
+        dispPcfBadge.className = 'px-2 py-0.2 rounded-full bg-green-100 text-green-800 font-extrabold text-xs';
+      } else if (pcfClass === 'B') {
+        dispPcfBadge.className = 'px-2 py-0.2 rounded-full bg-blue-100 text-blue-800 font-extrabold text-xs';
+      } else {
+        dispPcfBadge.className = 'px-2 py-0.2 rounded-full bg-amber-100 text-amber-800 font-extrabold text-xs';
+      }
     }
+    if (dispSoh) dispSoh.innerText = `${soh} SOH`;
+    if (dispUri) dispUri.innerText = uri;
+    if (btnOpenFull) btnOpenFull.href = localUri;
   }
+
+  function applyPreset(type) {
+    const inModel = document.getElementById('in-model');
+    const inSerial = document.getElementById('in-serial');
+    const inGtin = document.getElementById('in-gtin');
+    const inCategory = document.getElementById('in-category');
+    const inChemistry = document.getElementById('in-chemistry');
+    const inCo = document.getElementById('in-co');
+    const inLi = document.getElementById('in-li');
+    const inPcf = document.getElementById('in-pcf');
+    const inPcfClass = document.getElementById('in-pcf-class');
+    const inSoh = document.getElementById('in-soh');
+
+    if (type === 'ev') {
+      if (inModel) inModel.value = 'Apex HyperDrive Traction Battery (82kWh)';
+      if (inSerial) inSerial.value = 'BP-2027-EU-88902';
+      if (inGtin) inGtin.value = '04012345999991';
+      if (inCategory) inCategory.value = 'Electric Vehicle (EV) · Category M1/N1';
+      if (inChemistry) inChemistry.value = 'NMC 811 (LiNi0.8Mn0.1Co0.1O2)';
+      if (inCo) inCo.value = '18.4%';
+      if (inLi) inLi.value = '8.2%';
+      if (inPcf) inPcf.value = '51.2';
+      if (inPcfClass) inPcfClass.value = 'A';
+      if (inSoh) inSoh.value = '99.2%';
+    } else if (type === 'bess') {
+      if (inModel) inModel.value = 'GridVault Industrial BESS 372kWh Container';
+      if (inSerial) inSerial.value = 'BESS-1500V-372KWH';
+      if (inGtin) inGtin.value = '06978453010036';
+      if (inCategory) inCategory.value = 'Industrial Energy Storage (BESS >2kWh)';
+      if (inChemistry) inChemistry.value = 'LFP (Lithium Iron Phosphate)';
+      if (inCo) inCo.value = '0.0% (Co-Free)';
+      if (inLi) inLi.value = '11.5%';
+      if (inPcf) inPcf.value = '42.1';
+      if (inPcfClass) inPcfClass.value = 'A';
+      if (inSoh) inSoh.value = '99.8%';
+    } else if (type === 'lmt') {
+      if (inModel) inModel.value = 'UrbanCommute 48V E-Bike Pack (750Wh)';
+      if (inSerial) inSerial.value = 'LMT-48V-750WH-001';
+      if (inGtin) inGtin.value = '06978453010029';
+      if (inCategory) inCategory.value = 'Light Means of Transport (LMT ≤25kg)';
+      if (inChemistry) inChemistry.value = 'NMC 622';
+      if (inCo) inCo.value = '14.2%';
+      if (inLi) inLi.value = '6.5%';
+      if (inPcf) inPcf.value = '48.6';
+      if (inPcfClass) inPcfClass.value = 'B';
+      if (inSoh) inSoh.value = '98.5%';
+    }
+
+    updateLivePassport();
+  }
+
+  // Initialize live bindings on page load
+  document.addEventListener('DOMContentLoaded', () => {
+    updateLivePassport();
+  });
 </script>
