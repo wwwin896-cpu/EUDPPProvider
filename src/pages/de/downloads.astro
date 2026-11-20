@@ -1,0 +1,155 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout
+  title="Download-Center & Compliance-Vorlagen | EU DPP Provider"
+  description="Laden Sie kostenlose EU-Batteriepass-Vorlagen herunter: 71-Attribute Anhang XIII Checkliste (Excel/CSV), Gap-Analyseformulare und regulatorische Leitfäden."
+>
+  <div class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-4xl mx-auto mb-16">
+      <div class="eyebrow-pill mb-3 mx-auto">
+        <span class="w-2 h-2 rounded-full bg-cyan-600 animate-pulse"></span>
+        <span>Ressourcen & Download-Center</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        Compliance-Vorlagen & <br class="hidden sm:inline" />
+        <span class="text-cyan-600">Offizielle EU-DPP-Downloads</span>
+      </h1>
+      <p class="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
+        Kostenlose Excel/CSV-Matrizen, Selbstprüfungs-Fragebögen, Zusammenfassungen harmonisierter EU-Normen und technische Whitepapers für Ihre interne Vorbereitung.
+      </p>
+    </div>
+
+    <div class="space-y-12">
+      
+      <!-- 01: Vorlagen -->
+      <div class="space-y-6">
+        <div class="flex items-center gap-3 pb-3 border-b border-slate-200">
+          <span class="w-8 h-8 rounded-xl bg-cyan-100 text-cyan-800 flex items-center justify-center font-bold text-sm">01</span>
+          <div>
+            <h2 class="text-xl font-bold text-slate-900">Unternehmens-Selbstprüfung & Datenerfassungsvorlagen</h2>
+            <p class="text-xs text-slate-500">Sofort einsetzbare Excel- und CSV-Tabellen für Ihre interne Gap-Analyse.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="neo-surface p-6 flex flex-col justify-between space-y-4 rounded-3xl border border-white/80 shadow-md">
+            <div class="space-y-2">
+              <span class="px-2.5 py-0.5 rounded-full bg-cyan-100 text-cyan-800 font-mono text-[10px] font-bold">XLSX · 15 KB</span>
+              <h3 class="font-bold text-slate-900 text-base">EU-Batteriepass 71 Pflichtattribute Checkliste</h3>
+              <p class="text-xs text-slate-600 leading-relaxed">Vollständige Anhang XIII Matrix mit EU-Rechtsgrundlagen, Zuständigkeiten und Fristen 2026–2031.</p>
+            </div>
+            <a href="/downloads/EU_Battery_Passport_71_Data_Requirements_Checklist.xlsx" download="EU_Battery_Passport_71_Data_Requirements_Checklist.xlsx" class="neo-btn-primary w-full py-2.5 text-xs font-bold text-center block">
+              📥 Excel (.xlsx) herunterladen
+            </a>
+          </div>
+
+          <div class="neo-surface p-6 flex flex-col justify-between space-y-4 rounded-3xl border border-white/80 shadow-md">
+            <div class="space-y-2">
+              <span class="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 font-mono text-[10px] font-bold">CSV · 16 KB</span>
+              <h3 class="font-bold text-slate-900 text-base">71 Datenanforderungen Matrix (CSV-Austauschformat)</h3>
+              <p class="text-xs text-slate-600 leading-relaxed">Universelles CSV-Format für IT-Pipelines und automatischen ERP/MES-Import.</p>
+            </div>
+            <a href="/downloads/EU_Battery_Passport_71_Data_Requirements_Checklist.csv" download="EU_Battery_Passport_71_Data_Requirements_Checklist.csv" class="w-full py-2.5 px-4 rounded-full bg-white border border-slate-300 hover:border-cyan-500 font-bold text-xs text-slate-800 text-center block">
+              📄 CSV herunterladen
+            </a>
+          </div>
+
+          <div class="neo-surface p-6 flex flex-col justify-between space-y-4 rounded-3xl border border-white/80 shadow-md">
+            <div class="space-y-2">
+              <span class="px-2.5 py-0.5 rounded-full bg-green-100 text-green-800 font-mono text-[10px] font-bold">XLSX Fragebogen</span>
+              <h3 class="font-bold text-slate-900 text-base">Batterie-Compliance Gap-Analyse Fragebogen</h3>
+              <p class="text-xs text-slate-600 leading-relaxed">Strukturierte Bestandsaufnahme für Serialisierung, LCA-Modelle, Rezyklat und BMS-Schnittstellen.</p>
+            </div>
+            <a href="/downloads/EU_Battery_Passport_Gap_Assessment_Form.xlsx" download="EU_Battery_Passport_Gap_Assessment_Form.xlsx" class="w-full py-2.5 px-4 rounded-full bg-white border border-slate-300 hover:border-cyan-500 font-bold text-xs text-slate-800 text-center block">
+              📥 Fragebogen herunterladen
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02: Leitfäden -->
+      <div class="space-y-6">
+        <div class="flex items-center gap-3 pb-3 border-b border-slate-200">
+          <span class="w-8 h-8 rounded-xl bg-blue-100 text-blue-800 flex items-center justify-center font-bold text-sm">02</span>
+          <div>
+            <h2 class="text-xl font-bold text-slate-900">Offizielle EU-Regulierungs- & Normenleitfäden</h2>
+            <p class="text-xs text-slate-500">Rechtliche Vorgaben und CEN/CENELEC Normenspezifikationen.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="neo-surface p-6 flex flex-col justify-between space-y-4 rounded-3xl border border-white/80 shadow-md">
+            <div class="space-y-2">
+              <span class="text-[10px] font-mono font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">VO (EU) 2023/1542</span>
+              <h3 class="font-bold text-slate-900 text-sm">EU-Batterieverordnung Fahrplan</h3>
+              <p class="text-xs text-slate-600">Passpflichten nach Art. 77/78 und Stufenplan 2026–2031.</p>
+            </div>
+            <a href="/de/compliance/eu-battery-regulation-2023-1542/" class="text-xs font-bold text-cyan-700 hover:underline">Leitfaden lesen →</a>
+          </div>
+
+          <div class="neo-surface p-6 flex flex-col justify-between space-y-4 rounded-3xl border border-white/80 shadow-md">
+            <div class="space-y-2">
+              <span class="text-[10px] font-mono font-bold text-purple-700 bg-purple-50 px-2 py-0.5 rounded">EN 18220 / EN 18219</span>
+              <h3 class="font-bold text-slate-900 text-sm">CEN/CENELEC Normenleitfaden</h3>
+              <p class="text-xs text-slate-600">GS1 Digital Link 2D-Barcodesyntax und UPI-Registrierung.</p>
+            </div>
+            <a href="/de/compliance/en-standards-guide/" class="text-xs font-bold text-cyan-700 hover:underline">Normenleitfaden lesen →</a>
+          </div>
+
+          <div class="neo-surface p-6 flex flex-col justify-between space-y-4 rounded-3xl border border-white/80 shadow-md">
+            <div class="space-y-2">
+              <span class="text-[10px] font-mono font-bold text-green-700 bg-green-50 px-2 py-0.5 rounded">DG GROW Register</span>
+              <h3 class="font-bold text-slate-900 text-sm">EU-Zentralregister & eIDAS 2.0</h3>
+              <p class="text-xs text-slate-600">Schnittstellenspezifikation und qualifizierte Siegelung.</p>
+            </div>
+            <a href="/de/compliance/eu-dpp-registry-guide/" class="text-xs font-bold text-cyan-700 hover:underline">Registerleitfaden lesen →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03: Interaktive Tools -->
+      <div class="space-y-6">
+        <div class="flex items-center gap-3 pb-3 border-b border-slate-200">
+          <span class="w-8 h-8 rounded-xl bg-green-100 text-green-800 flex items-center justify-center font-bold text-sm">03</span>
+          <div>
+            <h2 class="text-xl font-bold text-slate-900">Interaktive Simulatoren & Architektur-Konfiguratoren</h2>
+            <p class="text-xs text-slate-500">Live-Sandbox und Bereitstellungsrechner.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="neo-surface p-6 sm:p-8 flex flex-col justify-between space-y-4 rounded-3xl border border-white/80 shadow-md">
+            <div class="space-y-2">
+              <span class="text-[10px] font-mono font-bold text-purple-700 uppercase">Live Sandbox</span>
+              <h3 class="font-bold text-slate-900 text-base">Enterprise Portal & Pass-Simulator</h3>
+              <p class="text-xs text-slate-600">Testen Sie die Datenerfassung und sehen Sie den generierten Pass in Echtzeit.</p>
+            </div>
+            <a href="/de/portal-simulator/" class="neo-btn-primary inline-flex items-center justify-center text-xs py-2.5">
+              <span>Simulator starten →</span>
+            </a>
+          </div>
+
+          <div class="neo-surface p-6 sm:p-8 flex flex-col justify-between space-y-4 rounded-3xl border border-white/80 shadow-md">
+            <div class="space-y-2">
+              <span class="text-[10px] font-mono font-bold text-cyan-700 uppercase">Scoping-Rechner</span>
+              <h3 class="font-bold text-slate-900 text-base">Bereitstellungs-Konfigurator</h3>
+              <p class="text-xs text-slate-600">Konfigurieren Sie Ihr Produktionsvolumen und Bereitstellungsmodell.</p>
+            </div>
+            <a href="/de/pricing/" class="w-full py-2.5 px-4 rounded-full bg-white border border-slate-300 hover:border-cyan-500 font-bold text-xs text-slate-800 text-center block">
+              <span>Konfigurator öffnen →</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</Layout>

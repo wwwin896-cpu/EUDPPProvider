@@ -157,12 +157,17 @@ function switchLanguageUrl(targetLang: string) {
       </div>
 
       <!-- Single Links -->
-      <a href={`/${lang === 'en' ? '' : lang + '/'}about/`} class="px-3 py-2 text-xs font-bold uppercase tracking-wider text-slate-700 hover:text-cyan-700 rounded-full hover:bg-white/60 transition-all">
-        {t('nav.about')}
-      </a>
-
       <a href={`/${lang === 'en' ? '' : lang + '/'}pricing/`} class="px-3 py-2 text-xs font-bold uppercase tracking-wider text-slate-700 hover:text-cyan-700 rounded-full hover:bg-white/60 transition-all">
         {t('nav.pricing')}
+      </a>
+
+      <a href={`/${lang === 'en' ? '' : lang + '/'}downloads/`} class="px-3 py-2 text-xs font-bold uppercase tracking-wider text-cyan-800 hover:text-cyan-600 rounded-full hover:bg-white/60 transition-all flex items-center gap-1">
+        <span>{t('nav.downloads')}</span>
+        <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+      </a>
+
+      <a href={`/${lang === 'en' ? '' : lang + '/'}about/`} class="px-3 py-2 text-xs font-bold uppercase tracking-wider text-slate-700 hover:text-cyan-700 rounded-full hover:bg-white/60 transition-all">
+        {t('nav.about')}
       </a>
 
     </nav>
@@ -248,8 +253,12 @@ function switchLanguageUrl(targetLang: string) {
       <a href={`/${lang === 'en' ? '' : lang + '/'}platform/gs1-qr-serialization/`} class="block py-1.5 px-3 rounded-lg hover:bg-white">{t('nav.gs1')}</a>
 
       <div class="text-[10px] uppercase tracking-wider text-slate-400 font-mono pt-2">Company & Commercial</div>
-      <a href={`/${lang === 'en' ? '' : lang + '/'}about/`} class="block py-1.5 px-3 rounded-lg hover:bg-white">{t('nav.about')}</a>
       <a href={`/${lang === 'en' ? '' : lang + '/'}pricing/`} class="block py-1.5 px-3 rounded-lg hover:bg-white">{t('nav.pricing')}</a>
+      <a href={`/${lang === 'en' ? '' : lang + '/'}downloads/`} class="block py-1.5 px-3 rounded-lg hover:bg-white text-cyan-800 font-bold flex items-center justify-between">
+        <span>{t('nav.downloads')}</span>
+        <span class="text-[10px] bg-green-100 text-green-800 px-1.5 py-0.2 rounded font-mono">Excel/CSV</span>
+      </a>
+      <a href={`/${lang === 'en' ? '' : lang + '/'}about/`} class="block py-1.5 px-3 rounded-lg hover:bg-white">{t('nav.about')}</a>
     </div>
 
     <div class="pt-2 border-t border-slate-200">

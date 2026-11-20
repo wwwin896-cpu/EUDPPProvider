@@ -1,0 +1,250 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout
+  title="资料下载中心与合规自查工具包 | EU DPP Provider"
+  description="免费下载欧盟新电池法 71 项法定填报清单 (Excel/CSV)、企业合规自查差距分析表、BOM 化学配比申报模板及欧盟官方法规标准指南。"
+>
+  <div class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Top Hero Header -->
+    <div class="text-center max-w-4xl mx-auto mb-16">
+      <div class="eyebrow-pill mb-3 mx-auto">
+        <span class="w-2 h-2 rounded-full bg-cyan-600 animate-pulse"></span>
+        <span>企业合规资料与下载中心</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        电池护照自查工具包 & <br class="hidden sm:inline" />
+        <span class="text-cyan-600">欧盟官方资料下载中心</span>
+      </h1>
+      <p class="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
+        提供标准 Excel/CSV 自查对照表、工厂差距评估调研表、欧盟官方法规标准全景指南及技术白皮书，助力企业快速开展内部合规准备。
+      </p>
+    </div>
+
+    <!-- 3 Core Download Categories -->
+    <div class="space-y-12">
+      
+      <!-- Category 1: 业务自查与填报模板 -->
+      <div class="space-y-6">
+        <div class="flex items-center gap-3 pb-3 border-b border-slate-200">
+          <span class="w-8 h-8 rounded-xl bg-cyan-100 text-cyan-800 flex items-center justify-center font-bold text-sm">01</span>
+          <div>
+            <h2 class="text-xl font-bold text-slate-900">企业合规自查与填报模板</h2>
+            <p class="text-xs text-slate-500">内置法条依据、数据责任方建议与生效时间线，直接用于工程与供应链自审。</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Card 1: 71 Attributes Excel -->
+          <div class="neo-surface p-6 flex flex-col justify-between space-y-4 rounded-3xl border border-white/80 hover:border-cyan-400 transition-all shadow-md">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded-full bg-cyan-100 text-cyan-800 font-mono text-[10px] font-bold">XLSX 格式 · 15 KB</span>
+                <span class="text-green-700 font-bold text-xs">官方排版</span>
+              </div>
+              <h3 class="font-bold text-slate-900 text-base leading-snug">
+                欧盟新电池法 71 项法定填报清单全景对照表
+              </h3>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                严格对照 Annex XIII 法规要求，涵盖 7 大合规领域、法条索引、电芯/Pack 责任分工与 2026–2031 阶段合规节点。
+              </p>
+            </div>
+            <div class="pt-2">
+              <a
+                href="/downloads/EU_Battery_Passport_71_Data_Requirements_Checklist.xlsx"
+                download="EU_Battery_Passport_71_Data_Requirements_Checklist.xlsx"
+                class="neo-btn-primary w-full py-2.5 text-xs font-bold text-center block shadow-sm"
+              >
+                📥 下载 Excel 表格 (.xlsx)
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 2: 71 Attributes CSV -->
+          <div class="neo-surface p-6 flex flex-col justify-between space-y-4 rounded-3xl border border-white/80 hover:border-cyan-400 transition-all shadow-md">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 font-mono text-[10px] font-bold">CSV 格式 · 16 KB</span>
+                <span class="text-slate-500 text-xs">UTF-8 BOM 无乱码</span>
+              </div>
+              <h3 class="font-bold text-slate-900 text-base leading-snug">
+                71 项数据要求清单 (标准 CSV 数据交换格式)
+              </h3>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                轻量化通用数据格式，方便企业 IT 团队直接导入内部数据库或 MES/ERP 自动化字段映射管道。
+              </p>
+            </div>
+            <div class="pt-2">
+              <a
+                href="/downloads/EU_Battery_Passport_71_Data_Requirements_Checklist.csv"
+                download="EU_Battery_Passport_71_Data_Requirements_Checklist.csv"
+                class="w-full py-2.5 px-4 rounded-full bg-white border border-slate-300 hover:border-cyan-500 font-bold text-xs text-slate-800 hover:text-cyan-700 text-center block shadow-sm transition-all"
+              >
+                📄 下载 CSV 格式
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 3: Gap Assessment Scoping Form -->
+          <div class="neo-surface p-6 flex flex-col justify-between space-y-4 rounded-3xl border border-white/80 hover:border-cyan-400 transition-all shadow-md">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded-full bg-green-100 text-green-800 font-mono text-[10px] font-bold">XLSX 调研表</span>
+                <span class="text-cyan-700 font-bold text-xs">快速自审</span>
+              </div>
+              <h3 class="font-bold text-slate-900 text-base leading-snug">
+                电池合规差距自查调研表 (Gap Assessment Form)
+              </h3>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                包含一物一码赋码状态、碳足迹模型、再生料认证与 BMS 接口等关键维度的轻量化就绪度评估问卷。
+              </p>
+            </div>
+            <div class="pt-2">
+              <a
+                href="/downloads/EU_Battery_Passport_Gap_Assessment_Form.xlsx"
+                download="EU_Battery_Passport_Gap_Assessment_Form.xlsx"
+                class="w-full py-2.5 px-4 rounded-full bg-white border border-slate-300 hover:border-cyan-500 font-bold text-xs text-slate-800 hover:text-cyan-700 text-center block shadow-sm transition-all"
+              >
+                📥 下载差距调研表
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Category 2: 欧盟官方法规与标准指南 -->
+      <div class="space-y-6">
+        <div class="flex items-center gap-3 pb-3 border-b border-slate-200">
+          <span class="w-8 h-8 rounded-xl bg-blue-100 text-blue-800 flex items-center justify-center font-bold text-sm">02</span>
+          <div>
+            <h2 class="text-xl font-bold text-slate-900">欧盟官方法规与协调标准指南</h2>
+            <p class="text-xs text-slate-500">法律条文解读、CEN/CENELEC 协调标准及欧委会中央注册簿接入指南。</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <div class="neo-surface p-6 flex flex-col justify-between space-y-4 rounded-3xl border border-white/80 shadow-md">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-[10px] font-mono font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">EU 2023/1542</span>
+              </div>
+              <h3 class="font-bold text-slate-900 text-sm">
+                欧盟新电池法核心法条解读与时间线
+              </h3>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                第 77/78 条护照义务、碳足迹分级标签生效节点及 2026–2031 强制执法路线图。
+              </p>
+            </div>
+            <a href="/zh/compliance/eu-battery-regulation-2023-1542/" class="text-xs font-bold text-cyan-700 hover:underline flex items-center gap-1">
+              <span>查阅法规指南 →</span>
+            </a>
+          </div>
+
+          <div class="neo-surface p-6 flex flex-col justify-between space-y-4 rounded-3xl border border-white/80 shadow-md">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-[10px] font-mono font-bold text-purple-700 bg-purple-50 px-2 py-0.5 rounded">EN 18220 / EN 18219</span>
+              </div>
+              <h3 class="font-bold text-slate-900 text-sm">
+                CEN/CENELEC 协调标准技术规范
+              </h3>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                GS1 Digital Link 二维码语法规范 (/01/[GTIN]/21/[SERIAL]) 与 UPI 唯一赋码规则。
+              </p>
+            </div>
+            <a href="/zh/compliance/en-standards-guide/" class="text-xs font-bold text-cyan-700 hover:underline flex items-center gap-1">
+              <span>查阅标准指南 →</span>
+            </a>
+          </div>
+
+          <div class="neo-surface p-6 flex flex-col justify-between space-y-4 rounded-3xl border border-white/80 shadow-md">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-[10px] font-mono font-bold text-green-700 bg-green-50 px-2 py-0.5 rounded">DG GROW 注册簿</span>
+              </div>
+              <h3 class="font-bold text-slate-900 text-sm">
+                欧盟中央注册簿与 eIDAS 2.0 接入
+              </h3>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                欧委会注册簿系统交互规范、合格电子印章（QSeal）认证与 PAdES 存证流程。
+              </p>
+            </div>
+            <a href="/zh/compliance/eu-dpp-registry-guide/" class="text-xs font-bold text-cyan-700 hover:underline flex items-center gap-1">
+              <span>查阅注册簿指南 →</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Category 3: 交互工具与方案测算 -->
+      <div class="space-y-6">
+        <div class="flex items-center gap-3 pb-3 border-b border-slate-200">
+          <span class="w-8 h-8 rounded-xl bg-green-100 text-green-800 flex items-center justify-center font-bold text-sm">03</span>
+          <div>
+            <h2 class="text-xl font-bold text-slate-900">在线交互工具与架构方案测算</h2>
+            <p class="text-xs text-slate-500">免安装沙箱体验与企业级私有化架构评估。</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          <div class="neo-surface p-6 sm:p-8 flex flex-col justify-between space-y-4 rounded-3xl border border-white/80 bg-gradient-to-br from-white to-purple-50/30 shadow-md">
+            <div class="space-y-2">
+              <div class="text-[10px] font-mono font-bold text-purple-700 uppercase">在线沙箱体验</div>
+              <h3 class="font-bold text-slate-900 text-base">
+                电池护照企业填报与生成模拟器
+              </h3>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                在线体验 7 大合规领域填报控制台，右侧实时联动生成官方手机端数字电池护照与 2D 二维码。
+              </p>
+            </div>
+            <a href="/zh/portal-simulator/" class="neo-btn-primary inline-flex items-center justify-center text-xs py-2.5">
+              <span>立即体验可视化模拟器 →</span>
+            </a>
+          </div>
+
+          <div class="neo-surface p-6 sm:p-8 flex flex-col justify-between space-y-4 rounded-3xl border border-white/80 bg-gradient-to-br from-white to-cyan-50/30 shadow-md">
+            <div class="space-y-2">
+              <div class="text-[10px] font-mono font-bold text-cyan-700 uppercase">方案测算</div>
+              <h3 class="font-bold text-slate-900 text-base">
+                架构方案与技术范围配置器
+              </h3>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                输入您的出货规模、产线连接器与交付模式（SaaS 云托管 vs 私有化部署），生成专属技术范围建议书。
+              </p>
+            </div>
+            <a href="/zh/pricing/" class="w-full py-2.5 px-4 rounded-full bg-white border border-slate-300 hover:border-cyan-500 font-bold text-xs text-slate-800 hover:text-cyan-700 text-center block shadow-sm transition-all">
+              <span>打开方案配置器 →</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Contact Box -->
+    <div class="mt-16 text-center neo-surface p-8 rounded-3xl border border-white/80 max-w-3xl mx-auto space-y-3">
+      <h3 class="text-lg font-bold text-slate-900">需要针对您工厂的具体电池型号进行字段梳理？</h3>
+      <p class="text-xs text-slate-600">
+        我们的合规工程师团队可为您提供定制化的 BOM 配比映射与欧盟合规差距梳理评估服务。
+      </p>
+      <div class="pt-2">
+        <a href="/zh/contact/" class="neo-btn-primary inline-flex items-center gap-2 text-xs sm:text-sm">
+          <span>联系技术专家预约方案评估 →</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</Layout>

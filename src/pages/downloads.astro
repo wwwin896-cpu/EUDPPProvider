@@ -1,0 +1,250 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout
+  title="Downloads & Compliance Resource Center | EU DPP Provider"
+  description="Download official EU battery passport templates, the 71-attribute Annex XIII checklist (Excel/CSV), self-audit forms, and technical compliance whitepapers."
+>
+  <div class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Top Hero Header -->
+    <div class="text-center max-w-4xl mx-auto mb-16">
+      <div class="eyebrow-pill mb-3 mx-auto">
+        <span class="w-2 h-2 rounded-full bg-cyan-600 animate-pulse"></span>
+        <span>Resource & Download Center</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        Compliance Templates & <br class="hidden sm:inline" />
+        <span class="text-cyan-600">Official EU DPP Downloads</span>
+      </h1>
+      <p class="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
+        Access free Excel checklists, self-audit scoping questionnaires, official EU regulatory standards summaries, and technical architecture whitepapers.
+      </p>
+    </div>
+
+    <!-- 3 Core Download Categories -->
+    <div class="space-y-12">
+      
+      <!-- Category 1: Enterprise Self-Audit & Sourcing Templates -->
+      <div class="space-y-6">
+        <div class="flex items-center gap-3 pb-3 border-b border-slate-200">
+          <span class="w-8 h-8 rounded-xl bg-cyan-100 text-cyan-800 flex items-center justify-center font-bold text-sm">01</span>
+          <div>
+            <h2 class="text-xl font-bold text-slate-900">Enterprise Self-Audit & Data Declaration Templates</h2>
+            <p class="text-xs text-slate-500">Ready-to-use Excel and CSV spreadsheets for internal engineering gap audits.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Card 1: 71 Attributes Excel -->
+          <div class="neo-surface p-6 flex flex-col justify-between space-y-4 rounded-3xl border border-white/80 hover:border-cyan-400 transition-all shadow-md">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded-full bg-cyan-100 text-cyan-800 font-mono text-[10px] font-bold">XLSX · 15 KB</span>
+                <span class="text-green-700 font-bold text-xs">Official Matrix</span>
+              </div>
+              <h3 class="font-bold text-slate-900 text-base leading-snug">
+                EU Battery Passport 71 Mandatory Data Attributes Checklist
+              </h3>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Complete Annex XIII statutory matrix with EU legal articles, data ownership assignments, and 2026–2031 enforcement milestones.
+              </p>
+            </div>
+            <div class="pt-2">
+              <a
+                href="/downloads/EU_Battery_Passport_71_Data_Requirements_Checklist.xlsx"
+                download="EU_Battery_Passport_71_Data_Requirements_Checklist.xlsx"
+                class="neo-btn-primary w-full py-2.5 text-xs font-bold text-center block shadow-sm"
+              >
+                📥 Download Excel (.xlsx)
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 2: 71 Attributes CSV -->
+          <div class="neo-surface p-6 flex flex-col justify-between space-y-4 rounded-3xl border border-white/80 hover:border-cyan-400 transition-all shadow-md">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 font-mono text-[10px] font-bold">CSV · 16 KB</span>
+                <span class="text-slate-500 text-xs">UTF-8 BOM</span>
+              </div>
+              <h3 class="font-bold text-slate-900 text-base leading-snug">
+                71 Data Requirements Matrix (CSV Interchange Format)
+              </h3>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Lightweight CSV interchange format compatible with database pipelines and ERP/MES automated data ingestion.
+              </p>
+            </div>
+            <div class="pt-2">
+              <a
+                href="/downloads/EU_Battery_Passport_71_Data_Requirements_Checklist.csv"
+                download="EU_Battery_Passport_71_Data_Requirements_Checklist.csv"
+                class="w-full py-2.5 px-4 rounded-full bg-white border border-slate-300 hover:border-cyan-500 font-bold text-xs text-slate-800 hover:text-cyan-700 text-center block shadow-sm transition-all"
+              >
+                📄 Download CSV
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 3: Gap Assessment Scoping Form -->
+          <div class="neo-surface p-6 flex flex-col justify-between space-y-4 rounded-3xl border border-white/80 hover:border-cyan-400 transition-all shadow-md">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded-full bg-green-100 text-green-800 font-mono text-[10px] font-bold">XLSX Template</span>
+                <span class="text-cyan-700 font-bold text-xs">Fast Audit</span>
+              </div>
+              <h3 class="font-bold text-slate-900 text-base leading-snug">
+                Battery Compliance Gap Assessment Questionnaire
+              </h3>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Pre-scoping questionnaire covering GTIN serialization, LCA models, recycled material supply certificates, and BMS API endpoints.
+              </p>
+            </div>
+            <div class="pt-2">
+              <a
+                href="/downloads/EU_Battery_Passport_Gap_Assessment_Form.xlsx"
+                download="EU_Battery_Passport_Gap_Assessment_Form.xlsx"
+                class="w-full py-2.5 px-4 rounded-full bg-white border border-slate-300 hover:border-cyan-500 font-bold text-xs text-slate-800 hover:text-cyan-700 text-center block shadow-sm transition-all"
+              >
+                📥 Download Scoping Form
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Category 2: Official EU Regulatory & Standards Guides -->
+      <div class="space-y-6">
+        <div class="flex items-center gap-3 pb-3 border-b border-slate-200">
+          <span class="w-8 h-8 rounded-xl bg-blue-100 text-blue-800 flex items-center justify-center font-bold text-sm">02</span>
+          <div>
+            <h2 class="text-xl font-bold text-slate-900">Official EU Regulatory & Harmonized Standards Guides</h2>
+            <p class="text-xs text-slate-500">Legal references, CEN/CENELEC standard specifications, and central registry filings.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <div class="neo-surface p-6 flex flex-col justify-between space-y-4 rounded-3xl border border-white/80 shadow-md">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-[10px] font-mono font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">Regulation (EU) 2023/1542</span>
+              </div>
+              <h3 class="font-bold text-slate-900 text-sm">
+                EU Battery Regulation Legal Blueprint & Timeline
+              </h3>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Summary of Article 77/78 passport obligations, Carbon Footprint class thresholds, and 2026–2031 enforcement calendar.
+              </p>
+            </div>
+            <a href="/compliance/eu-battery-regulation-2023-1542/" class="text-xs font-bold text-cyan-700 hover:underline flex items-center gap-1">
+              <span>Read Regulation Guide →</span>
+            </a>
+          </div>
+
+          <div class="neo-surface p-6 flex flex-col justify-between space-y-4 rounded-3xl border border-white/80 shadow-md">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-[10px] font-mono font-bold text-purple-700 bg-purple-50 px-2 py-0.5 rounded">CEN/CENELEC JTC24</span>
+              </div>
+              <h3 class="font-bold text-slate-900 text-sm">
+                EN 18220 & EN 18219 Harmonized Standards Guide
+              </h3>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                2D barcode data carrier QR syntax (/01/[GTIN]/21/[SERIAL]) and Unique Product Identifier (UPI) issuance norms.
+              </p>
+            </div>
+            <a href="/compliance/en-standards-guide/" class="text-xs font-bold text-cyan-700 hover:underline flex items-center gap-1">
+              <span>Read Standards Guide →</span>
+            </a>
+          </div>
+
+          <div class="neo-surface p-6 flex flex-col justify-between space-y-4 rounded-3xl border border-white/80 shadow-md">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-[10px] font-mono font-bold text-green-700 bg-green-50 px-2 py-0.5 rounded">DG GROW Registry</span>
+              </div>
+              <h3 class="font-bold text-slate-900 text-sm">
+                EU Central DPP Registry & eIDAS 2.0 Filing
+              </h3>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                European Commission central registry interface specifications, qualified digital seals, and PAdES Baseline compliance.
+              </p>
+            </div>
+            <a href="/compliance/eu-dpp-registry-guide/" class="text-xs font-bold text-cyan-700 hover:underline flex items-center gap-1">
+              <span>Read Registry Guide →</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Category 3: Interactive Tools & Scoping Kits -->
+      <div class="space-y-6">
+        <div class="flex items-center gap-3 pb-3 border-b border-slate-200">
+          <span class="w-8 h-8 rounded-xl bg-green-100 text-green-800 flex items-center justify-center font-bold text-sm">03</span>
+          <div>
+            <h2 class="text-xl font-bold text-slate-900">Interactive Simulators & Architecture Scoping</h2>
+            <p class="text-xs text-slate-500">Live sandbox testing and enterprise implementation calculators.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          <div class="neo-surface p-6 sm:p-8 flex flex-col justify-between space-y-4 rounded-3xl border border-white/80 bg-gradient-to-br from-white to-purple-50/30 shadow-md">
+            <div class="space-y-2">
+              <div class="text-[10px] font-mono font-bold text-purple-700 uppercase">Interactive Sandbox</div>
+              <h3 class="font-bold text-slate-900 text-base">
+                Enterprise Portal Declaration Simulator
+              </h3>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Experience the 7-domain data entry terminal on the left and see the live Digital Battery Passport and GS1 QR code render in real time.
+              </p>
+            </div>
+            <a href="/portal-simulator/" class="neo-btn-primary inline-flex items-center justify-center text-xs py-2.5">
+              <span>Launch Live Simulator →</span>
+            </a>
+          </div>
+
+          <div class="neo-surface p-6 sm:p-8 flex flex-col justify-between space-y-4 rounded-3xl border border-white/80 bg-gradient-to-br from-white to-cyan-50/30 shadow-md">
+            <div class="space-y-2">
+              <div class="text-[10px] font-mono font-bold text-cyan-700 uppercase">Commercial Scoping</div>
+              <h3 class="font-bold text-slate-900 text-base">
+                Architecture & Engagement Scoping Configurator
+              </h3>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Configure your battery volume, factory connectors, and deployment mode (SaaS vs On-Premise) to generate a tailored scoping proposal.
+              </p>
+            </div>
+            <a href="/pricing/" class="w-full py-2.5 px-4 rounded-full bg-white border border-slate-300 hover:border-cyan-500 font-bold text-xs text-slate-800 hover:text-cyan-700 text-center block shadow-sm transition-all">
+              <span>Open Scoping Configurator →</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Contact Box -->
+    <div class="mt-16 text-center neo-surface p-8 rounded-3xl border border-white/80 max-w-3xl mx-auto space-y-3">
+      <h3 class="text-lg font-bold text-slate-900">Need a Customized Assessment Checklist for Your Factory?</h3>
+      <p class="text-xs text-slate-600">
+        Our compliance engineering team can provide tailor-made BOM mappings for your specific EV traction, LMT, or BESS pack designs.
+      </p>
+      <div class="pt-2">
+        <a href="/contact/" class="neo-btn-primary inline-flex items-center gap-2 text-xs sm:text-sm">
+          <span>Contact Technical Desk for Custom Gap Audit →</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</Layout>

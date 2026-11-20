@@ -1,0 +1,155 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout
+  title="Downloadcentrum & Compliance Sjablonen | EU DPP Provider"
+  description="Download gratis EU batterijpaspoortsjablonen: 71-attributen Bijlage XIII matrix (Excel/CSV), gap-analyseformulieren en regelgevingsgidsen."
+>
+  <div class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-4xl mx-auto mb-16">
+      <div class="eyebrow-pill mb-3 mx-auto">
+        <span class="w-2 h-2 rounded-full bg-cyan-600 animate-pulse"></span>
+        <span>Kennisbank & Downloadcentrum</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        Compliance Sjablonen & <br class="hidden sm:inline" />
+        <span class="text-cyan-600">Officiële EU-DPP Downloads</span>
+      </h1>
+      <p class="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
+        Gratis Excel/CSV-matrices, zelfevaluatie-vragenlijsten, samenvattingen van geharmoniseerde EU-normen en technische whitepapers.
+      </p>
+    </div>
+
+    <div class="space-y-12">
+      
+      <!-- 01: Sjablonen -->
+      <div class="space-y-6">
+        <div class="flex items-center gap-3 pb-3 border-b border-slate-200">
+          <span class="w-8 h-8 rounded-xl bg-cyan-100 text-cyan-800 flex items-center justify-center font-bold text-sm">01</span>
+          <div>
+            <h2 class="text-xl font-bold text-slate-900">Bedrijfszelfevaluatie & Gegevensinvoersjablonen</h2>
+            <p class="text-xs text-slate-500">Kant-en-klare Excel- en CSV-tabellen voor uw interne gap-analyse.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="neo-surface p-6 flex flex-col justify-between space-y-4 rounded-3xl border border-white/80 shadow-md">
+            <div class="space-y-2">
+              <span class="px-2.5 py-0.5 rounded-full bg-cyan-100 text-cyan-800 font-mono text-[10px] font-bold">XLSX · 15 KB</span>
+              <h3 class="font-bold text-slate-900 text-base">EU Batterijpaspoort 71 Verplichte Attributen Matrix</h3>
+              <p class="text-xs text-slate-600 leading-relaxed">Volledige Bijlage XIII specificatie met EU-rechtsgrondslagen, verantwoordelijkheden en tijdlijn 2026–2031.</p>
+            </div>
+            <a href="/downloads/EU_Battery_Passport_71_Data_Requirements_Checklist.xlsx" download="EU_Battery_Passport_71_Data_Requirements_Checklist.xlsx" class="neo-btn-primary w-full py-2.5 text-xs font-bold text-center block">
+              📥 Download Excel (.xlsx)
+            </a>
+          </div>
+
+          <div class="neo-surface p-6 flex flex-col justify-between space-y-4 rounded-3xl border border-white/80 shadow-md">
+            <div class="space-y-2">
+              <span class="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 font-mono text-[10px] font-bold">CSV · 16 KB</span>
+              <h3 class="font-bold text-slate-900 text-base">71 Gegevensvereisten Matrix (CSV Uitwisselingsformaat)</h3>
+              <p class="text-xs text-slate-600 leading-relaxed">Universeel CSV-formaat voor IT-pipelines en geautomatiseerde ERP/MES-koppeling.</p>
+            </div>
+            <a href="/downloads/EU_Battery_Passport_71_Data_Requirements_Checklist.csv" download="EU_Battery_Passport_71_Data_Requirements_Checklist.csv" class="w-full py-2.5 px-4 rounded-full bg-white border border-slate-300 hover:border-cyan-500 font-bold text-xs text-slate-800 text-center block">
+              📄 Download CSV
+            </a>
+          </div>
+
+          <div class="neo-surface p-6 flex flex-col justify-between space-y-4 rounded-3xl border border-white/80 shadow-md">
+            <div class="space-y-2">
+              <span class="px-2.5 py-0.5 rounded-full bg-green-100 text-green-800 font-mono text-[10px] font-bold">XLSX Vragenlijst</span>
+              <h3 class="font-bold text-slate-900 text-base">Batterij-Compliance Gap-Analyse Vragenlijst</h3>
+              <p class="text-xs text-slate-600 leading-relaxed">Gestructureerd auditformulier voor GTIN-serialisatie, LCA-modellen, gerecycled materiaal en BMS-data.</p>
+            </div>
+            <a href="/downloads/EU_Battery_Passport_Gap_Assessment_Form.xlsx" download="EU_Battery_Passport_Gap_Assessment_Form.xlsx" class="w-full py-2.5 px-4 rounded-full bg-white border border-slate-300 hover:border-cyan-500 font-bold text-xs text-slate-800 text-center block">
+              📥 Download Vragenlijst
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02: Gidsen -->
+      <div class="space-y-6">
+        <div class="flex items-center gap-3 pb-3 border-b border-slate-200">
+          <span class="w-8 h-8 rounded-xl bg-blue-100 text-blue-800 flex items-center justify-center font-bold text-sm">02</span>
+          <div>
+            <h2 class="text-xl font-bold text-slate-900">Officiële EU Regelgevings- & Normengidsen</h2>
+            <p class="text-xs text-slate-500">Wettelijke bepalingen en CEN/CENELEC specificaties.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="neo-surface p-6 flex flex-col justify-between space-y-4 rounded-3xl border border-white/80 shadow-md">
+            <div class="space-y-2">
+              <span class="text-[10px] font-mono font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">Verordening (EU) 2023/1542</span>
+              <h3 class="font-bold text-slate-900 text-sm">EU Batterijverordening Stappenplan</h3>
+              <p class="text-xs text-slate-600">Paspoortverplichtingen art. 77/78 en tijdlijn 2026–2031.</p>
+            </div>
+            <a href="/nl/compliance/eu-battery-regulation-2023-1542/" class="text-xs font-bold text-cyan-700 hover:underline">Lees regelgevingsgids →</a>
+          </div>
+
+          <div class="neo-surface p-6 flex flex-col justify-between space-y-4 rounded-3xl border border-white/80 shadow-md">
+            <div class="space-y-2">
+              <span class="text-[10px] font-mono font-bold text-purple-700 bg-purple-50 px-2 py-0.5 rounded">EN 18220 / EN 18219</span>
+              <h3 class="font-bold text-slate-900 text-sm">Geharmoniseerde Normengids</h3>
+              <p class="text-xs text-slate-600">GS1 Digital Link 2D-streepjescode syntaxis en UPI-registratie.</p>
+            </div>
+            <a href="/nl/compliance/en-standards-guide/" class="text-xs font-bold text-cyan-700 hover:underline">Lees normengids →</a>
+          </div>
+
+          <div class="neo-surface p-6 flex flex-col justify-between space-y-4 rounded-3xl border border-white/80 shadow-md">
+            <div class="space-y-2">
+              <span class="text-[10px] font-mono font-bold text-green-700 bg-green-50 px-2 py-0.5 rounded">DG GROW Register</span>
+              <h3 class="font-bold text-slate-900 text-sm">EU Centraal Register & eIDAS 2.0</h3>
+              <p class="text-xs text-slate-600">Interfacespecificaties en gekwalificeerde digitale verzegeling.</p>
+            </div>
+            <a href="/nl/compliance/eu-dpp-registry-guide/" class="text-xs font-bold text-cyan-700 hover:underline">Lees registergids →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03: Simulator -->
+      <div class="space-y-6">
+        <div class="flex items-center gap-3 pb-3 border-b border-slate-200">
+          <span class="w-8 h-8 rounded-xl bg-green-100 text-green-800 flex items-center justify-center font-bold text-sm">03</span>
+          <div>
+            <h2 class="text-xl font-bold text-slate-900">Interactieve Simulatoren & Scoping Configuratoren</h2>
+            <p class="text-xs text-slate-500">Live sandbox en implementatiecalculators.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="neo-surface p-6 sm:p-8 flex flex-col justify-between space-y-4 rounded-3xl border border-white/80 shadow-md">
+            <div class="space-y-2">
+              <span class="text-[10px] font-mono font-bold text-purple-700 uppercase">Live Sandbox</span>
+              <h3 class="font-bold text-slate-900 text-base">Enterprise Portaal & Paspoortsimulator</h3>
+              <p class="text-xs text-slate-600">Ervaar de gegevensinvoer en bekijk het live gegenereerde paspoort.</p>
+            </div>
+            <a href="/nl/portal-simulator/" class="neo-btn-primary inline-flex items-center justify-center text-xs py-2.5">
+              <span>Start simulator →</span>
+            </a>
+          </div>
+
+          <div class="neo-surface p-6 sm:p-8 flex flex-col justify-between space-y-4 rounded-3xl border border-white/80 shadow-md">
+            <div class="space-y-2">
+              <span class="text-[10px] font-mono font-bold text-cyan-700 uppercase">Scoping Configurator</span>
+              <h3 class="font-bold text-slate-900 text-base">Architectuur & Bereik Configurator</h3>
+              <p class="text-xs text-slate-600">Configureer uw productievolume en implementatiemodel.</p>
+            </div>
+            <a href="/nl/pricing/" class="w-full py-2.5 px-4 rounded-full bg-white border border-slate-300 hover:border-cyan-500 font-bold text-xs text-slate-800 text-center block">
+              <span>Open configurator →</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</Layout>

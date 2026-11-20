@@ -26,6 +26,7 @@ const subpaths = [
   'compliance/data-requirements',
   'compliance/en-standards-guide',
   'portal-simulator',
+  'downloads',
 ];
 
 export const GET: APIRoute = () => {
