@@ -1,0 +1,88 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const faqs = [
+  {
+    question: "零知识证明 (ZKP) 如何在欧盟电池护照中保护核心配方？",
+    answer: "ZKP 允许电池制造商在不向欧洲公开任何具体化学添加剂配比、原材料供应商名称或采购单价的前提下，向监管方输出经过数学严密验证的合规凭据（如证明再生钴含量已达 16% 或碳足迹处于 A 级）。"
+  },
+  {
+    question: "什么是企业主权数据托管节点 (Sovereign Data Vault)？",
+    answer: "主权数据节点部署于德国法兰克福高等级机房，严格遵循 GDPR / DSGVO 数据主权规范，保障企业核心数据资产不受第三方越权调阅，并满足欧盟法定的 10 年独立存证要求。"
+  }
+];
+---
+
+<Layout
+  title="企业主权数据托管与零知识证明 (ZKP) 隐私保护指南 | EU DPP Provider"
+  description="详解中国动力与储能电池制造企业在满足欧盟新电池法与 ESPR 透明度监管的同时，如何利用零知识证明技术保护核心配方机密与供应链采购成本。"
+  type="article"
+  faqs={faqs}
+>
+  <article class="py-16 sm:py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="mb-8">
+      <nav class="flex items-center gap-2 text-xs font-mono text-slate-400 mb-4">
+        <a href="/zh/" class="hover:text-cyan-700">首页</a>
+        <span>/</span>
+        <a href="/zh/insights/" class="hover:text-cyan-700">合规智库</a>
+        <span>/</span>
+        <span class="text-slate-600">数据主权与隐私</span>
+      </nav>
+      
+      <div class="flex items-center gap-2 mb-3">
+        <span class="px-2.5 py-1 rounded-full text-xs font-bold font-mono bg-cyan-100 text-cyan-800">
+          ESPR · 零知识证明密码学 (ZKP)
+        </span>
+        <span class="text-xs text-slate-400 font-mono">发布时间：2026年11月18日</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+        ESPR 与电池护照：如何在满足欧洲透明度监管的同时，保护核心化学配方与供应链商业机密？
+      </h1>
+
+      <div class="flex items-center gap-3 text-xs text-slate-500 pb-6 border-b border-slate-200">
+        <span class="font-bold text-slate-800">安全与密码学实验室</span>
+        <span>•</span>
+        <span>商业机密与 GDPR 隐私双重合规</span>
+      </div>
+    </div>
+
+    <div class="prose prose-slate max-w-none space-y-6 text-sm text-slate-700 leading-relaxed">
+      
+      <div class="neo-surface p-6 bg-cyan-50/50 border-cyan-200 rounded-2xl">
+        <h3 class="text-base font-bold text-cyan-950 mb-2">行业痛点</h3>
+        <p class="text-xs text-slate-700 leading-relaxed mb-0">
+          欧盟新法规要求公开 71 项数据字段，若直接上传原始物料清单（BOM）、供应商采购合同与正负极添加剂比例，将导致中国电池企业的核心技术机密与议价底牌全盘暴露。本文阐述如何通过零知识证明破解这一两难困局。
+        </p>
+      </div>
+
+      <h2 class="text-xl font-bold text-slate-900 mt-8 mb-3">一、可验证计算原理（零知识证明 zk-SNARKs）</h2>
+      <p>
+        零知识证明允许证明者（电池制造企业）向验证者（欧盟市场监管机构或公告机构）证明某个事实为真，而无需透露任何除该事实真实性以外的额外私密信息：
+      </p>
+      <ul class="list-disc pl-5 space-y-2 text-xs text-slate-600">
+        <li><strong>传统直传模式（极高商业泄密风险）：</strong> 向上游平台上传完整的物料采购单价与精确化学组分。</li>
+        <li><strong>EU DPP 隐私计算模式（安全）：</strong> 在企业境内私有沙箱内完成运算，生成不可逆密码学证明凭据（Proof Hash），仅将该凭据写入护照，底层配方零泄露。</li>
+      </ul>
+
+      <h2 class="text-xl font-bold text-slate-900 mt-8 mb-3">二、10 年法定义务：德国法兰克福主权云托管</h2>
+      <p>
+        欧盟新电池法第 77 条明确要求护照数据在电池投放市场后必须保持 10 年可用。我们为企业提供部署在德国法兰克福 Tier-IV 级机房的主权云节点，满足高可用 SLA 与欧盟数据主权法案。
+      </p>
+
+    </div>
+
+    <div class="mt-12 pt-6 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4">
+      <a href="/zh/insights/" class="font-bold text-cyan-800 text-xs flex items-center gap-1 hover:underline">
+        ← 返回合规智库目录
+      </a>
+      <div class="flex gap-3">
+        <a href="/zh/contact/" class="px-4 py-2 rounded-full bg-slate-900 text-white text-xs font-bold hover:bg-slate-800">
+          申请架构方案评估 →
+        </a>
+      </div>
+    </div>
+
+  </article>
+</Layout>

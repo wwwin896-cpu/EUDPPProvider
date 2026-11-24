@@ -1,0 +1,127 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const faqs = [
+  {
+    question: "欧盟电池碳足迹 (PCF) 申报与分级要求何时强制执行？",
+    answer: "根据欧盟新电池法 (EU 2023/1542) 第 7 条规定，自 2026 年 8 月 18 日起，进入欧盟市场的电动汽车 (EV) 动力电池必须强制附带经第三方核验的碳足迹声明；2027 年 2 月 18 日起强制展示 A-E 碳足迹性能等级标签；2028 年 2 月 18 日起正式执行最高碳足迹限值（超标产品严禁进入欧盟市场）。"
+  },
+  {
+    question: "电池碳足迹核算必须涵盖哪些生命周期阶段？",
+    answer: "核算必须严格基于 ISO 14067 以及欧盟环境足迹分类规则 (PEFCR)，涵盖四大完整阶段：1) 原材料开采与预加工（镍、钴、锂、石墨等）；2) 电池主产品制造（电芯制造、化成、模组及 Pack 组装）；3) 国际物流与分销运输；4) 报废回收阶段的循环抵扣。"
+  },
+  {
+    question: "企业如何避免在申报碳足迹时泄露上游供应链核心采购价与配方？",
+    answer: "EU DPP Provider 提供基于零知识证明 (ZKP) 的主权数据托管方案，在企业本地沙箱内完成碳排计算与特征值加密哈希生成，向欧盟监管注册簿仅提交通过数学验证的证明结果，底层供应商名录、采购单价及专有添加剂配比零泄露。"
+  }
+];
+---
+
+<Layout
+  title="欧盟电池碳足迹 (PCF) A-E 等级标签与 2026 年 8 月申报细则 | EU DPP Provider"
+  description="深度解析欧盟新电池法 (EU 2023/1542) 第 7 条碳足迹强制申报、ISO 14067 核算方法学、A-E 分级阈值及第三方公告机构核验要求。"
+  type="article"
+  faqs={faqs}
+>
+  <article class="py-16 sm:py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- 面包屑与头部 -->
+    <div class="mb-8">
+      <nav class="flex items-center gap-2 text-xs font-mono text-slate-400 mb-4">
+        <a href="/zh/" class="hover:text-cyan-700">首页</a>
+        <span>/</span>
+        <a href="/zh/insights/" class="hover:text-cyan-700">合规智库</a>
+        <span>/</span>
+        <span class="text-slate-600">碳足迹核算</span>
+      </nav>
+      
+      <div class="flex items-center gap-2 mb-3">
+        <span class="px-2.5 py-1 rounded-full text-xs font-bold font-mono bg-cyan-100 text-cyan-800">
+          Regulation (EU) 2023/1542 · 第 7 条
+        </span>
+        <span class="text-xs text-slate-400 font-mono">发布时间：2026年11月24日</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+        欧盟电池碳足迹 (PCF) A-E 等级标签：核算方法学、验证细则与 2026 年 8 月申报节点深度解读
+      </h1>
+
+      <div class="flex items-center gap-3 text-xs text-slate-500 pb-6 border-b border-slate-200">
+        <span class="font-bold text-slate-800">EU DPP 欧洲合规研究组</span>
+        <span>•</span>
+        <span>严格对照 DG ENV 内部市场规则校验</span>
+      </div>
+    </div>
+
+    <!-- 正文内容 -->
+    <div class="prose prose-slate max-w-none space-y-6 text-sm text-slate-700 leading-relaxed">
+      
+      <div class="neo-surface p-6 bg-cyan-50/50 border-cyan-200 rounded-2xl">
+        <h3 class="text-base font-bold text-cyan-950 mb-2">核心结论摘要</h3>
+        <p class="text-xs text-slate-700 leading-relaxed mb-0">
+          自 2026 年 8 月 18 日起，所有进入欧盟市场的动力电池（EV Batteries）必须附带全生命周期碳足迹声明文件，并接受独立第三方公告机构（Notified Body）的符合性评估。本文系统拆解四大生命周期阶段的边界划分、A-E 能效标签评级逻辑与企业数据准备路径。
+        </p>
+      </div>
+
+      <h2 class="text-xl font-bold text-slate-900 mt-8 mb-3">一、法规实施三步走：关键时间轴</h2>
+      <div class="overflow-x-auto my-4">
+        <table class="w-full text-xs text-left border-collapse">
+          <thead>
+            <tr class="bg-slate-100 text-slate-800 font-bold border-b border-slate-200">
+              <th class="p-3">强制生效节点</th>
+              <th class="p-3">法定合规要求</th>
+              <th class="p-3">适用电池品类</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200">
+            <tr>
+              <td class="p-3 font-mono font-bold text-cyan-800">2026 年 8 月 18 日</td>
+              <td class="p-3">强制提交碳足迹声明（kg CO₂e/kWh）及第三方验证报告</td>
+              <td class="p-3">EV 动力电池、轻型车电池 (&le;25kg)、工业电池 (&gt;2kWh)</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-mono font-bold text-cyan-800">2027 年 2 月 18 日</td>
+              <td class="p-3">二维码电池护照强制生效（附录 XIII 数据字段联网）</td>
+              <td class="p-3">所有进入欧盟市场的目标电池</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-mono font-bold text-cyan-800">2028 年 2 月 18 日</td>
+              <td class="p-3">执行最高碳足迹限值标准（超标电池禁止进入欧盟市场）</td>
+              <td class="p-3">全欧盟统一市场准入红线</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="text-xl font-bold text-slate-900 mt-8 mb-3">二、四大生命周期阶段核算边界</h2>
+      <ul class="list-disc pl-5 space-y-2 text-xs text-slate-600">
+        <li><strong>阶段 1（原材料获取与前驱体加工）：</strong> 矿山开采、精炼提纯、正负极材料合成、电解液及集流体制造。</li>
+        <li><strong>阶段 2（电池主产品制造）：</strong> 电芯制造（搅拌、涂布、卷绕/叠片、注液、化成老化）与 Pack 模组集成组装用电能耗。</li>
+        <li><strong>阶段 3（国际物流与分销运输）：</strong> 从中国工厂至欧洲整车厂的海运、空运及欧洲内陆段多式联运碳排。</li>
+        <li><strong>阶段 4（报废与闭环回收抵扣）：</strong> 湿法冶炼回收金属的循环减排信用核算。</li>
+      </ul>
+
+      <h2 class="text-xl font-bold text-slate-900 mt-8 mb-3">三、EU DPP Provider 如何帮助企业平稳过审</h2>
+      <p>
+        我们提供标准化的碳足迹 LCA 核算引擎与企业主权数据托管方案，自动生成符合 EN 18220 语法的二维码数字护照与 eIDAS 2.0 电子签章，助力中国电池制造企业以最低成本合规出海。
+      </p>
+
+    </div>
+
+    <!-- 相关动作 -->
+    <div class="mt-12 pt-6 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4">
+      <a href="/zh/insights/" class="font-bold text-cyan-800 text-xs flex items-center gap-1 hover:underline">
+        ← 返回合规智库目录
+      </a>
+      <div class="flex gap-3">
+        <a href="/zh/downloads/" class="px-4 py-2 rounded-full bg-cyan-50 border border-cyan-300 text-cyan-800 text-xs font-bold hover:bg-cyan-100">
+          📥 下载 71 项填报清单 (.xlsx)
+        </a>
+        <a href="/zh/portal-simulator/" class="px-4 py-2 rounded-full bg-slate-900 text-white text-xs font-bold hover:bg-slate-800">
+          在线体验护照生成模拟器 →
+        </a>
+      </div>
+    </div>
+
+  </article>
+</Layout>

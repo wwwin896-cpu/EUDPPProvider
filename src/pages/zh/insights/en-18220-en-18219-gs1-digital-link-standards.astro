@@ -1,0 +1,93 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const faqs = [
+  {
+    question: "什么是 EN 18220 和 EN 18219 协调标准？",
+    answer: "EN 18220:2026 是欧洲标准化委员会 (CEN/CENELEC) 制定的二维码数据载体与 GS1 Digital Link 统一解析语法标准；EN 18219:2026 规范了唯一产品标识符 (UPI) 注册簿互操作架构。"
+  },
+  {
+    question: "电池护照标准的 GS1 Digital Link URI 语法是什么？",
+    answer: "标准语法结构为：https://{解析域名}/01/{GTIN-14}/21/{单体序列号}，其中 01 代表全球贸易项目代码，21 代表单品序列号。"
+  }
+];
+---
+
+<Layout
+  title="CEN/CENELEC EN 18220 与 EN 18219 标准：GS1 赋码语法与 UPI 架构 | EU DPP Provider"
+  description="详解欧洲协调标准 CEN/CENELEC EN 18220 二维码语法、EN 18219 唯一产品标识符 (UPI) 与 eIDAS 2.0 电子印章验证架构。"
+  type="article"
+  faqs={faqs}
+>
+  <article class="py-16 sm:py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="mb-8">
+      <nav class="flex items-center gap-2 text-xs font-mono text-slate-400 mb-4">
+        <a href="/zh/" class="hover:text-cyan-700">首页</a>
+        <span>/</span>
+        <a href="/zh/insights/" class="hover:text-cyan-700">合规智库</a>
+        <span>/</span>
+        <span class="text-slate-600">技术标准</span>
+      </nav>
+      
+      <div class="flex items-center gap-2 mb-3">
+        <span class="px-2.5 py-1 rounded-full text-xs font-bold font-mono bg-cyan-100 text-cyan-800">
+          CEN/CENELEC JTC24 · EN 18220 / EN 18219
+        </span>
+        <span class="text-xs text-slate-400 font-mono">发布时间：2026年11月20日</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+        CEN/CENELEC EN 18220 与 EN 18219 协调标准：GS1 Digital Link 赋码语法与唯一产品标识符 (UPI) 架构
+      </h1>
+
+      <div class="flex items-center gap-3 text-xs text-slate-500 pb-6 border-b border-slate-200">
+        <span class="font-bold text-slate-800">首席系统架构师</span>
+        <span>•</span>
+        <span>欧盟标准化指令 M/594 权威对接</span>
+      </div>
+    </div>
+
+    <div class="prose prose-slate max-w-none space-y-6 text-sm text-slate-700 leading-relaxed">
+      
+      <div class="neo-surface p-6 bg-cyan-50/50 border-cyan-200 rounded-2xl">
+        <h3 class="text-base font-bold text-cyan-950 mb-2">标准体系概述</h3>
+        <p class="text-xs text-slate-700 leading-relaxed mb-0">
+          欧盟委员会决定 (EU) 2026/1736 正式明确了数字产品护照必须基于 CEN/CENELEC 协调标准构建。本文阐述 2D Data Matrix 赋码规则、基于角色的三层上下文重定向以及 DG GROW 中央注册簿对接规范。
+        </p>
+      </div>
+
+      <h2 class="text-xl font-bold text-slate-900 mt-8 mb-3">一、标准的 GS1 Digital Link URI 规范</h2>
+      <p>
+        每个物理电池包表面必须雕刻或牢固粘贴符合 EN 18220 标准的二维码，指向如下标准格式的解析网址：
+      </p>
+      
+      <div class="p-4 rounded-xl bg-slate-900 text-cyan-400 font-mono text-xs my-4 overflow-x-auto">
+        https://eudppprovider.com/01/04012345999991/21/BP-2027-EU-88902/
+      </div>
+
+      <h2 class="text-xl font-bold text-slate-900 mt-8 mb-3">二、基于角色的三层权限自动重定向机制</h2>
+      <p>
+        合规解析器不仅是静态网页，而是根据访问者身份进行动态分流：
+      </p>
+      <ul class="list-disc pl-5 space-y-2 text-xs text-slate-600">
+        <li><strong>公众与终端车主视图：</strong> 展示基础性能参数、碳足迹 A-E 标签、质保及安全使用指引。</li>
+        <li><strong>海关与欧盟市场监管视图：</strong> 验证 CE 符合性声明 (DoC)、公告机构 NB 报告及 eIDAS 2.0 电子印章。</li>
+        <li><strong>认证报废与回收商视图：</strong> 提供电芯拆解步骤、关键原材料 (CRM) 回收指导及有害物质隔离要求。</li>
+      </ul>
+
+    </div>
+
+    <div class="mt-12 pt-6 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4">
+      <a href="/zh/insights/" class="font-bold text-cyan-800 text-xs flex items-center gap-1 hover:underline">
+        ← 返回合规智库目录
+      </a>
+      <div class="flex gap-3">
+        <a href="/01/04012345999991/21/BP-2027-EU-88902/" class="px-4 py-2 rounded-full bg-cyan-50 border border-cyan-300 text-cyan-800 text-xs font-bold hover:bg-cyan-100">
+          查看真实 GS1 解析页面 →
+        </a>
+      </div>
+    </div>
+
+  </article>
+</Layout>

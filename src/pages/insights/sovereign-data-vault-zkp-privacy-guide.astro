@@ -1,0 +1,89 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  {
+    question: "How does Zero-Knowledge Proof (ZKP) protect battery formulation secrets in EU DPP?",
+    answer: "ZKP allows battery manufacturers to prove mathematical compliance with EU recycled content quotas (e.g. 16% Cobalt) and carbon thresholds without revealing the exact chemical formula, raw material supplier names, or unit purchase prices."
+  },
+  {
+    question: "What is an enterprise sovereign data vault?",
+    answer: "An enterprise sovereign data vault is a physically isolated, GDPR-compliant cloud repository hosted in Frankfurt, Germany, ensuring customer proprietary data remains under full sovereign control with 10-year immutable audit guarantees."
+  }
+];
+---
+
+<Layout
+  title="Sovereign Data Vault & ZKP Privacy in EU Battery Passports | EU DPP Provider"
+  description="How Chinese and global battery manufacturers comply with EU ESPR and Regulation (EU) 2023/1542 transparency rules while safeguarding proprietary cathode formulas and BOM costs."
+  type="article"
+  faqs={faqs}
+>
+  <article class="py-16 sm:py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="mb-8">
+      <nav class="flex items-center gap-2 text-xs font-mono text-slate-400 mb-4">
+        <a href="/" class="hover:text-cyan-700">Home</a>
+        <span>/</span>
+        <a href="/insights/" class="hover:text-cyan-700">Insights</a>
+        <span>/</span>
+        <span class="text-slate-600">Privacy & Architecture</span>
+      </nav>
+      
+      <div class="flex items-center gap-2 mb-3">
+        <span class="px-2.5 py-1 rounded-full text-xs font-bold font-mono bg-cyan-100 text-cyan-800">
+          ESPR & Cybersecurity · ZKP Cryptography
+        </span>
+        <span class="text-xs text-slate-400 font-mono">Published Nov 18, 2026</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+        ESPR & Battery Passports: How to Build an Enterprise Sovereign Data Vault without Leaking Supply Chain Secrets
+      </h1>
+
+      <div class="flex items-center gap-3 text-xs text-slate-500 pb-6 border-b border-slate-200">
+        <span class="font-bold text-slate-800">Security & Cryptography Lab</span>
+        <span>•</span>
+        <span>GDPR & Commercial Trade Secret Protection</span>
+      </div>
+    </div>
+
+    <div class="prose prose-slate max-w-none space-y-6 text-sm text-slate-700 leading-relaxed">
+      
+      <div class="neo-surface p-6 bg-cyan-50/50 border-cyan-200 rounded-2xl">
+        <h3 class="text-base font-bold text-cyan-950 mb-2">Core Challenge</h3>
+        <p class="text-xs text-slate-700 leading-relaxed mb-0">
+          European transparency mandates require unprecedented disclosure across 71+ data attributes. However, exposing granular bills of materials (BOM), supplier pricing, and precise cathode electrolyte blends would destroy commercial competitiveness. This brief explains how cryptographic Zero-Knowledge Proofs (ZKP) resolve this dilemma.
+        </p>
+      </div>
+
+      <h2 class="text-xl font-bold text-slate-900 mt-8 mb-3">1. The Principle of Verifiable Privacy (Zero-Knowledge Proofs)</h2>
+      <p>
+        Zero-Knowledge cryptography allows a party (the battery maker) to mathematically prove to a verifier (the European Commission or Notified Body) that a statement is true, without conveying any information beyond the validity of the statement itself.
+      </p>
+      <ul class="list-disc pl-5 space-y-2 text-xs text-slate-600">
+        <li><strong>Statement:</strong> "This battery pack contains at least 16% recycled cobalt and conforms to the carbon threshold."</li>
+        <li><strong>Traditional Approach (High Risk):</strong> Upload full supply chain purchase orders and raw chemical composition.</li>
+        <li><strong>EU DPP ZKP Approach (Secure):</strong> Generate a zk-SNARK proof verifying the math in a secure domestic enclave; only the cryptographic proof hash is written to the passport.</li>
+      </ul>
+
+      <h2 class="text-xl font-bold text-slate-900 mt-8 mb-3">2. 10-Year Immutable Sovereign Cloud Vault</h2>
+      <p>
+        All raw audit logs and cryptographic proofs are anchored in our dedicated Frankfurt (Germany) Tier-IV sovereign data center, fully compliant with GDPR / DSGVO, ensuring continuous availability for the mandatory 10-year post-placement statutory window.
+      </p>
+
+    </div>
+
+    <div class="mt-12 pt-6 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4">
+      <a href="/insights/" class="font-bold text-cyan-800 text-xs flex items-center gap-1 hover:underline">
+        ← Back to All Insights
+      </a>
+      <div class="flex gap-3">
+        <a href="/contact/" class="px-4 py-2 rounded-full bg-slate-900 text-white text-xs font-bold hover:bg-slate-800">
+          Request Architecture Scoping →
+        </a>
+      </div>
+    </div>
+
+  </article>
+</Layout>

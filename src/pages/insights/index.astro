@@ -1,0 +1,109 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getLangFromUrl } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+
+const articles = [
+  {
+    slug: 'eu-battery-carbon-footprint-classes-a-e',
+    title: 'EU Battery Carbon Footprint (PCF) Classes A-E: Calculation Methodology, Verification Rules, and August 2026 Deadlines',
+    date: '2026-11-24',
+    category: 'Regulatory Analysis',
+    badge: 'Regulation (EU) 2023/1542',
+    readTime: '6 min read',
+    excerpt: 'Detailed technical analysis of the EU Delegated Act on Battery Carbon Footprint calculation, ISO 14067 rules, A-E class thresholds, and mandatory declaration milestones.',
+    author: 'EU DPP Regulatory Research Team'
+  },
+  {
+    slug: 'en-18220-en-18219-gs1-digital-link-standards',
+    title: 'CEN/CENELEC EN 18220 & EN 18219 Standards: GS1 Digital Link Syntax and Unique Product Identifier (UPI) Architecture',
+    date: '2026-11-20',
+    category: 'Technical Standards',
+    badge: 'CEN/CENELEC JTC24',
+    readTime: '7 min read',
+    excerpt: 'A comprehensive engineering guide on implementing 2D data carrier QR syntax (/01/[GTIN]/21/[SERIAL]), eIDAS 2.0 Qualified Electronic Seals, and DG GROW Registry interoperability.',
+    author: 'Chief Systems Architect'
+  },
+  {
+    slug: 'sovereign-data-vault-zkp-privacy-guide',
+    title: 'ESPR & Battery Passports: How to Build an Enterprise Sovereign Data Vault without Leaking Supply Chain Secrets',
+    date: '2026-11-18',
+    category: 'Data Architecture',
+    badge: 'Privacy & Security',
+    readTime: '5 min read',
+    excerpt: 'How Chinese battery and automotive OEMs can satisfy strict European transparency rules while safeguarding proprietary cathode formulas, supplier unit prices, and BOM secrets using Zero-Knowledge Proofs.',
+    author: 'Security & Cryptography Lab'
+  }
+];
+---
+
+<Layout
+  title="EU Battery Passport Compliance Insights & Technical Standards | EU DPP Provider"
+  description="Authoritative regulatory analysis, technical implementation guides, and standards briefs on Regulation (EU) 2023/1542, ESPR (EU 2024/1781), and CEN/CENELEC EN 18220."
+>
+  <div class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Hero Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="eyebrow-pill mb-3 mx-auto">
+        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+        <span>Regulatory Intelligence & Engineering Briefs</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
+        Compliance Insights & Technical Standards
+      </h1>
+      <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
+        In-depth technical guides, harmonized standard analyses, and regulatory updates curated by European compliance engineers and software architects.
+      </p>
+    </div>
+
+    <!-- Article Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {articles.map((art) => (
+        <article class="neo-surface p-6 sm:p-8 flex flex-col justify-between hover:shadow-lg transition-all border border-slate-200/80 group">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="px-2.5 py-1 rounded-full text-[11px] font-bold font-mono bg-cyan-50 text-cyan-800 border border-cyan-200">
+                {art.badge}
+              </span>
+              <span class="text-xs text-slate-400 font-mono">{art.readTime}</span>
+            </div>
+            <h2 class="text-lg font-bold text-slate-900 group-hover:text-cyan-700 transition-colors mb-3 leading-snug">
+              <a href={`/insights/${art.slug}/`}>
+                {art.title}
+              </a>
+            </h2>
+            <p class="text-xs text-slate-600 leading-relaxed mb-6">
+              {art.excerpt}
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-200/60 flex items-center justify-between text-xs">
+            <span class="text-slate-400 font-mono">{art.date}</span>
+            <a href={`/insights/${art.slug}/`} class="font-bold text-cyan-700 hover:text-cyan-800 flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
+              <span>Read Full Brief</span>
+              <span>→</span>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- Bottom CTA Banner -->
+    <div class="mt-16 neo-surface p-8 sm:p-10 bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-3xl text-center">
+      <h3 class="text-2xl font-bold mb-3">Looking for Customized Compliance Gap Analysis?</h3>
+      <p class="text-slate-300 text-sm max-w-2xl mx-auto mb-6">
+        Download the 71-item Annex XIII data requirements matrix or schedule an architecture scoping session with our compliance team.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/downloads/" class="px-6 py-3 rounded-full bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-bold text-xs uppercase tracking-wider transition-all">
+          📥 Download 71-Item Checklist (.xlsx)
+        </a>
+        <a href="/contact/" class="px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/20 font-bold text-xs uppercase tracking-wider transition-all">
+          Request Technical Scoping →
+        </a>
+      </div>
+    </div>
+
+  </div>
+</Layout>

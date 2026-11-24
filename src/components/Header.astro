@@ -166,6 +166,10 @@ function switchLanguageUrl(targetLang: string) {
         <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
       </a>
 
+      <a href={`/${lang === 'en' ? '' : lang + '/'}insights/`} class="px-3 py-2 text-xs font-bold uppercase tracking-wider text-slate-700 hover:text-cyan-700 rounded-full hover:bg-white/60 transition-all">
+        {t('nav.insights')}
+      </a>
+
       <a href={`/${lang === 'en' ? '' : lang + '/'}about/`} class="px-3 py-2 text-xs font-bold uppercase tracking-wider text-slate-700 hover:text-cyan-700 rounded-full hover:bg-white/60 transition-all">
         {t('nav.about')}
       </a>
@@ -266,8 +270,9 @@ function switchLanguageUrl(targetLang: string) {
       <a href={`/${lang === 'en' ? '' : lang + '/'}pricing/`} class="block py-1.5 px-3 rounded-lg hover:bg-white">{t('nav.pricing')}</a>
       <a href={`/${lang === 'en' ? '' : lang + '/'}downloads/`} class="block py-1.5 px-3 rounded-lg hover:bg-white text-cyan-800 font-bold flex items-center justify-between">
         <span>{t('nav.downloads')}</span>
-        <span class="text-[10px] bg-green-100 text-green-800 px-1.5 py-0.2 rounded font-mono">Excel/CSV</span>
+        <span class="text-[10px] px-2 py-0.5 rounded-full bg-cyan-100 text-cyan-800 font-mono">71项清单</span>
       </a>
+      <a href={`/${lang === 'en' ? '' : lang + '/'}insights/`} class="block py-1.5 px-3 rounded-lg hover:bg-white">{t('nav.insights')}</a>
       <a href={`/${lang === 'en' ? '' : lang + '/'}about/`} class="block py-1.5 px-3 rounded-lg hover:bg-white">{t('nav.about')}</a>
     </div>
 

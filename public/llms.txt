@@ -30,15 +30,9 @@
 - Battery Passport Overview: https://eudppprovider.com/battery-passport/
 - Early Adopter Pilot Program: https://eudppprovider.com/pilot-program/
 - Enterprise Portal & Sandbox Simulator: https://eudppprovider.com/portal-simulator/
-- 90+ Mandatory Data Attributes Checklist: https://eudppprovider.com/compliance/data-requirements/
-- EN 18220 / EN 18219 Standards Guide: https://eudppprovider.com/compliance/en-standards-guide/
-- EV Battery Passport Solution: https://eudppprovider.com/solutions/ev-battery-passport/
-- LMT & E-Bike Battery Passport Solution: https://eudppprovider.com/solutions/lmt-battery-passport/
-- Industrial BESS Storage Passport Solution: https://eudppprovider.com/solutions/storage-battery-passport/
-- EU DPP Registry & eIDAS 2.0 Guide: https://eudppprovider.com/compliance/eu-dpp-registry-guide/
-- Interactive Scoping & Architecture Configurator: https://eudppprovider.com/pricing/
-- Legal Notice & Statutory Impressum: https://eudppprovider.com/legal-notice/
-- Privacy Policy (GDPR Governance): https://eudppprovider.com/privacy/
-- Terms of Service & SLA: https://eudppprovider.com/terms/
-- Live Battery Passport Resolver: https://eudppprovider.com/01/04012345999991/21/BP-2027-EU-88902/
+- Regulatory Insights Hub: https://eudppprovider.com/insights/
+- Carbon Footprint A-E Classes Guide: https://eudppprovider.com/insights/eu-battery-carbon-footprint-classes-a-e/
+- EN 18220 / EN 18219 GS1 Standards Brief: https://eudppprovider.com/insights/en-18220-en-18219-gs1-digital-link-standards/
+- Sovereign Vault & ZKP Privacy Whitepaper: https://eudppprovider.com/insights/sovereign-data-vault-zkp-privacy-guide/
+- 71-Item Compliance Checklist & Downloads Hub: https://eudppprovider.com/downloads/
 - Full Architecture Documentation: https://eudppprovider.com/llms-full.txt

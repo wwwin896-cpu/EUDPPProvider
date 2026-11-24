@@ -1,0 +1,134 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  {
+    question: "When do the EU Battery Carbon Footprint (PCF) rules become mandatory?",
+    answer: "Under Regulation (EU) 2023/1542, the carbon footprint declaration and A-E performance classes mandatory enforcement begins on August 18, 2026 for electric vehicle (EV) batteries, followed by rechargeable industrial batteries with a capacity >2kWh."
+  },
+  {
+    question: "What lifecycle stages must be included in the battery carbon footprint calculation?",
+    answer: "The calculation must cover 4 lifecycle stages per ISO 14067 and the EU Joint Research Centre (JRC) PEFCR rules: 1) Raw material acquisition and pre-processing, 2) Main product manufacturing, 3) Distribution and logistics, and 4) End-of-life and recycling credits."
+  },
+  {
+    question: "How are the A-E carbon footprint performance classes determined?",
+    answer: "The European Commission establishes category-specific thresholds based on the statistical distribution of declared carbon intensity values in kg CO2e/kWh. Batteries in the lowest carbon quartile receive Class A, while higher emission profiles fall into Classes B through E."
+  }
+];
+---
+
+<Layout
+  title="EU Battery Carbon Footprint (PCF) Classes A-E: Calculation Rules & Deadlines | EU DPP Provider"
+  description="Comprehensive guide on Regulation (EU) 2023/1542 carbon footprint declaration rules, ISO 14067 LCA methodology, A-E class thresholds, and August 2026 enforcement."
+  type="article"
+  faqs={faqs}
+>
+  <article class="py-16 sm:py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Breadcrumb & Header -->
+    <div class="mb-8">
+      <nav class="flex items-center gap-2 text-xs font-mono text-slate-400 mb-4">
+        <a href="/" class="hover:text-cyan-700">Home</a>
+        <span>/</span>
+        <a href="/insights/" class="hover:text-cyan-700">Insights</a>
+        <span>/</span>
+        <span class="text-slate-600">Carbon Footprint</span>
+      </nav>
+      
+      <div class="flex items-center gap-2 mb-3">
+        <span class="px-2.5 py-1 rounded-full text-xs font-bold font-mono bg-cyan-100 text-cyan-800">
+          Regulation (EU) 2023/1542 · Article 7
+        </span>
+        <span class="text-xs text-slate-400 font-mono">Published Nov 24, 2026</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+        EU Battery Carbon Footprint (PCF) Classes A-E: Mandatory Rules, Calculation Methodology, and August 2026 Deadlines
+      </h1>
+
+      <div class="flex items-center gap-3 text-xs text-slate-500 pb-6 border-b border-slate-200">
+        <span class="font-bold text-slate-800">EU DPP Regulatory Research Team</span>
+        <span>•</span>
+        <span>Verified against DG ENV & JRC Technical Rules</span>
+      </div>
+    </div>
+
+    <!-- Article Body -->
+    <div class="prose prose-slate max-w-none space-y-6 text-sm text-slate-700 leading-relaxed">
+      
+      <div class="neo-surface p-6 bg-cyan-50/50 border-cyan-200 rounded-2xl">
+        <h3 class="text-base font-bold text-cyan-950 mb-2">Executive Summary</h3>
+        <p class="text-xs text-slate-700 leading-relaxed mb-0">
+          Starting August 18, 2026, electric vehicle (EV) batteries placed on the European Union market must be accompanied by an official Carbon Footprint Declaration (Article 7) and display an A-E performance class label. This guide explains the mathematical boundaries, Notified Body verification obligations, and data structure required for passport integration.
+        </p>
+      </div>
+
+      <h2 class="text-xl font-bold text-slate-900 mt-8 mb-3">1. Regulatory Roadmap: 3-Stage Enforcement Schedule</h2>
+      <p>
+        The European Commission establishes a phased approach under Regulation (EU) 2023/1542 to ensure supply chains can systematically adapt their measurement methodologies:
+      </p>
+      
+      <div class="overflow-x-auto my-4">
+        <table class="w-full text-xs text-left border-collapse">
+          <thead>
+            <tr class="bg-slate-100 text-slate-800 font-bold border-b border-slate-200">
+              <th class="p-3">Milestone Date</th>
+              <th class="p-3">Statutory Requirement</th>
+              <th class="p-3">Target Scope</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200">
+            <tr>
+              <td class="p-3 font-mono font-bold text-cyan-800">August 18, 2026</td>
+              <td class="p-3">Mandatory Carbon Footprint Declaration (kg CO₂e/kWh) + Third-Party Verification</td>
+              <td class="p-3">EV Batteries, LMT (&le;25kg), Industrial (&gt;2kWh)</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-mono font-bold text-cyan-800">February 18, 2027</td>
+              <td class="p-3">Mandatory Battery Passport QR Code Linkage (Annex XIII)</td>
+              <td class="p-3">All EV, LMT, and Industrial Batteries</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-mono font-bold text-cyan-800">February 18, 2028</td>
+              <td class="p-3">Maximum Carbon Threshold Caps (Prohibition of non-compliant batteries)</td>
+              <td class="p-3">EU-wide Market Entry Prohibition for Over-Threshold Packs</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="text-xl font-bold text-slate-900 mt-8 mb-3">2. The 4 Mandatory Lifecycle Stages (PEFCR Compliance)</h2>
+      <p>
+        Calculations must not rely on unverified global averages. The Product Environmental Footprint Category Rules (PEFCR) mandate strict attribution across four life cycle stages:
+      </p>
+      <ul class="list-disc pl-5 space-y-2 text-xs text-slate-600">
+        <li><strong>Stage 1: Raw Material Acquisition & Processing:</strong> Mining, refining, and precursor synthesis (including nickel, cobalt, lithium, and synthetic graphite extraction).</li>
+        <li><strong>Stage 2: Main Product Manufacturing:</strong> Cathode/anode slurry mixing, cell assembly, formation, aging, and module/pack housing fabrication.</li>
+        <li><strong>Stage 3: Distribution & Global Transport:</strong> Inter-factory logistics, marine/air freight from Asian manufacturing hubs to European vehicle assembly plants.</li>
+        <li><strong>Stage 4: End-of-Life & Recycling Credits:</strong> Closed-loop hydrometallurgical recycling credits under the circular economy allocation rules.</li>
+      </ul>
+
+      <h2 class="text-xl font-bold text-slate-900 mt-8 mb-3">3. How EU DPP Provider Automates PCF Compliance</h2>
+      <p>
+        Our platform integrates the official LCA calculation rules directly into your manufacturing ERP/MES pipeline, automatically generating verified JSON-LD datasets, eIDAS 2.0 digital signatures, and dynamic QR passports.
+      </p>
+
+    </div>
+
+    <!-- Related Actions -->
+    <div class="mt-12 pt-6 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4">
+      <a href="/insights/" class="font-bold text-cyan-800 text-xs flex items-center gap-1 hover:underline">
+        ← Back to All Insights
+      </a>
+      <div class="flex gap-3">
+        <a href="/downloads/" class="px-4 py-2 rounded-full bg-cyan-50 border border-cyan-300 text-cyan-800 text-xs font-bold hover:bg-cyan-100">
+          📥 Download 71-Item Checklist (.xlsx)
+        </a>
+        <a href="/portal-simulator/" class="px-4 py-2 rounded-full bg-slate-900 text-white text-xs font-bold hover:bg-slate-800">
+          Try Live Simulator →
+        </a>
+      </div>
+    </div>
+
+  </article>
+</Layout>

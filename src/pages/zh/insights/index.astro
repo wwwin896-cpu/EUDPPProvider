@@ -1,0 +1,106 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const articles = [
+  {
+    slug: 'eu-battery-carbon-footprint-classes-a-e',
+    title: '欧盟电池碳足迹 (PCF) A-E 等级标签：核算方法学、验证细则与 2026 年 8 月申报节点深度解读',
+    date: '2026-11-24',
+    category: '法规深度解读',
+    badge: 'Regulation (EU) 2023/1542',
+    readTime: '6 分钟阅读',
+    excerpt: '全面拆解欧盟新电池法授权法案对全生命周期碳足迹核算、ISO 14067 标准适配、A-E 性能分级阈值以及第三方机构核查声明的硬性合规要求。',
+    author: 'EU DPP 欧洲合规研究组'
+  },
+  {
+    slug: 'en-18220-en-18219-gs1-digital-link-standards',
+    title: 'CEN/CENELEC EN 18220 与 EN 18219 协调标准：GS1 Digital Link 赋码语法与唯一产品标识符 (UPI) 架构',
+    date: '2026-11-20',
+    category: '技术与工程标准',
+    badge: 'CEN/CENELEC JTC24',
+    readTime: '7 分钟阅读',
+    excerpt: '深入解析二维数据载体二维码语法规范 (/01/[GTIN]/21/[SERIAL])、eIDAS 2.0 合格电子印章 (QSeal) 签章机制与 DG GROW 中央注册簿互操作规范。',
+    author: '首席系统架构师'
+  },
+  {
+    slug: 'sovereign-data-vault-zkp-privacy-guide',
+    title: 'ESPR 与电池护照：如何在满足欧洲透明度监管的同时，保护核心化学配方与供应链商业机密？',
+    date: '2026-11-18',
+    category: '数据架构与安全',
+    badge: '密码学与商业保密',
+    readTime: '5 分钟阅读',
+    excerpt: '针对中国动力及储能电池出海痛点，详解零知识证明 (ZKP) 与境内计算沙箱如何在不公开上游原材料采购单价与配方细节的前提下，完成欧盟合规证明。',
+    author: '安全与密码学实验室'
+  }
+];
+---
+
+<Layout
+  title="欧盟电池护照合规智库与技术标准研报 | EU DPP Provider"
+  description="汇聚欧盟新电池法 (EU 2023/1542)、ESPR (EU 2024/1781) 以及 CEN/CENELEC 协调标准的权威法规解读、工程实践指南与行业白皮书。"
+>
+  <div class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Hero Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="eyebrow-pill mb-3 mx-auto">
+        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+        <span>合规智库与工程标准研报</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
+        法规前沿解读与技术白皮书
+      </h1>
+      <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
+        由欧洲合规工程专家与数字化架构团队持续沉淀，提供兼具法规严谨性与工业落地性的深度内容。
+      </p>
+    </div>
+
+    <!-- Article Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {articles.map((art) => (
+        <article class="neo-surface p-6 sm:p-8 flex flex-col justify-between hover:shadow-lg transition-all border border-slate-200/80 group">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="px-2.5 py-1 rounded-full text-[11px] font-bold font-mono bg-cyan-50 text-cyan-800 border border-cyan-200">
+                {art.badge}
+              </span>
+              <span class="text-xs text-slate-400 font-mono">{art.readTime}</span>
+            </div>
+            <h2 class="text-lg font-bold text-slate-900 group-hover:text-cyan-700 transition-colors mb-3 leading-snug">
+              <a href={`/zh/insights/${art.slug}/`}>
+                {art.title}
+              </a>
+            </h2>
+            <p class="text-xs text-slate-600 leading-relaxed mb-6">
+              {art.excerpt}
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-200/60 flex items-center justify-between text-xs">
+            <span class="text-slate-400 font-mono">{art.date}</span>
+            <a href={`/zh/insights/${art.slug}/`} class="font-bold text-cyan-700 hover:text-cyan-800 flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
+              <span>阅读全文</span>
+              <span>→</span>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- Bottom CTA Banner -->
+    <div class="mt-16 neo-surface p-8 sm:p-10 bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-3xl text-center">
+      <h3 class="text-2xl font-bold mb-3">需要针对贵司产品的定制合规差距评估？</h3>
+      <p class="text-slate-300 text-sm max-w-2xl mx-auto mb-6">
+        免费下载欧盟附录 XIII 71 项法定填报清单，或预约合规工程师进行一对一架构方案测算。
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/zh/downloads/" class="px-6 py-3 rounded-full bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-bold text-xs uppercase tracking-wider transition-all">
+          📥 下载 71 项法定填报清单 (.xlsx)
+        </a>
+        <a href="/zh/contact/" class="px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/20 font-bold text-xs uppercase tracking-wider transition-all">
+          申请合规技术方案评估 →
+        </a>
+      </div>
+    </div>
+
+  </div>
+</Layout>

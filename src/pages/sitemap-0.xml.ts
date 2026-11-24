@@ -27,6 +27,10 @@ const subpaths = [
   'compliance/en-standards-guide',
   'portal-simulator',
   'downloads',
+  'insights',
+  'insights/eu-battery-carbon-footprint-classes-a-e',
+  'insights/en-18220-en-18219-gs1-digital-link-standards',
+  'insights/sovereign-data-vault-zkp-privacy-guide',
 ];
 
 export const GET: APIRoute = () => {
