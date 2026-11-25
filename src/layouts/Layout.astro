@@ -38,13 +38,24 @@ const currentPath = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${A
 const defaultCanonical = `${siteUrl}${currentPath === '//' ? '/' : currentPath}`;
 
 const {
-  title = 'EU DPP Provider | Enterprise EU Battery Passport Platform & Sovereign Data Vault',
+  title: rawTitle = 'EU DPP Provider | Enterprise EU Battery Passport Platform & Sovereign Data Vault',
   description = 'Turn supply chain records into an audit-proof data chain. Turnkey enterprise software, 10-year sovereign data vault, ZKP formula secrecy, and official EU Registry filing support (Regulation EU 2023/1542).',
   image = `${siteUrl}/og-image.png`,
   canonicalUrl = defaultCanonical,
   type = 'website',
-  faqs = []
+  faqs = [],
+  noHreflang = false,
+  noindex = false,
+  article = null
 } = Astro.props;
+
+// Keep SERP titles within display width: drop the brand suffix only when the
+// full string would be truncated by search engines.
+const brandSuffix = ' | EU DPP Provider';
+const title =
+  rawTitle.length > 60 && rawTitle.endsWith(brandSuffix)
+    ? rawTitle.slice(0, -brandSuffix.length)
+    : rawTitle;
 
 // Build multi-layered JSON-LD graph (Pure B2B Professional Entity)
 const schemaGraph: any[] = [
@@ -139,6 +150,27 @@ const schemaGraph: any[] = [
   }
 ];
 
+if (article) {
+  schemaGraph.push({
+    "@type": ["Article", "TechArticle"],
+    "@id": `${canonicalUrl}#article`,
+    "headline": article.headline || title,
+    "description": description,
+    "datePublished": article.datePublished,
+    "dateModified": article.dateModified || article.datePublished,
+    "inLanguage": lang,
+    "author": {
+      "@type": "Organization",
+      "name": article.author || "EU DPP Regulatory Research Team",
+      "url": `${siteUrl}/about/`
+    },
+    "publisher": { "@id": `${siteUrl}/#organization` },
+    "mainEntityOfPage": { "@id": canonicalUrl },
+    "about": (article.about || []).map((name: string) => ({ "@type": "Thing", "name": name })),
+    "isAccessibleForFree": true
+  });
+}
+
 if (faqs && faqs.length > 0) {
   schemaGraph.push({
     "@type": "FAQPage",
@@ -174,14 +206,19 @@ const schemaOrg = {
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
 
     <!-- Deep-Page Aware Hreflang Clusters (Pointing to Matching Language Translations) -->
-    <link rel="alternate" hreflang="x-default" href={hreflangDefault} />
-    <link rel="alternate" hreflang="en" href={hreflangEn} />
-    <link rel="alternate" hreflang="zh" href={hreflangZh} />
-    <link rel="alternate" hreflang="de" href={hreflangDe} />
-    <link rel="alternate" hreflang="fr" href={hreflangFr} />
-    <link rel="alternate" hreflang="nl" href={hreflangNl} />
+    {!noHreflang && (
+      <>
+        <link rel="alternate" hreflang="x-default" href={hreflangDefault} />
+        <link rel="alternate" hreflang="en" href={hreflangEn} />
+        <link rel="alternate" hreflang="zh" href={hreflangZh} />
+        <link rel="alternate" hreflang="de" href={hreflangDe} />
+        <link rel="alternate" hreflang="fr" href={hreflangFr} />
+        <link rel="alternate" hreflang="nl" href={hreflangNl} />
+      </>
+    )}
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content={type} />

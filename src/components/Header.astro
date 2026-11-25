@@ -6,7 +6,12 @@ const t = useTranslations(lang);
 
 const currentPath = Astro.url.pathname;
 
+// Routes without localized equivalents (serialized passport resolvers, 404):
+// never link to a language prefix that does not exist.
+const hasLocalizedVariants = !currentPath.startsWith('/01/') && !currentPath.includes('404');
+
 function switchLanguageUrl(targetLang: string) {
+  if (!hasLocalizedVariants) return currentPath;
   let path = currentPath;
   if (lang !== 'en') {
     path = path.replace(new RegExp(`^/${lang}(/|$)`), '/') || '/';
@@ -189,33 +194,35 @@ function switchLanguageUrl(targetLang: string) {
         <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse hidden sm:inline-block"></span>
       </a>
 
-      <!-- Language Dropdown -->
-      <div class="relative group">
-        <button class="px-3 py-1.5 rounded-full text-xs font-medium text-slate-700 bg-white/70 hover:bg-white border border-slate-200/90 shadow-sm flex items-center gap-1.5 transition-all">
-          <svg class="w-3.5 h-3.5 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
-          </svg>
-          <span class="font-bold">{languages[lang]}</span>
-          <svg class="w-3 h-3 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
+      <!-- Language Dropdown (omitted where no localized route exists) -->
+      {hasLocalizedVariants && (
+        <div class="relative group">
+          <button class="px-3 py-1.5 rounded-full text-xs font-medium text-slate-700 bg-white/70 hover:bg-white border border-slate-200/90 shadow-sm flex items-center gap-1.5 transition-all">
+            <svg class="w-3.5 h-3.5 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+            </svg>
+            <span class="font-bold">{languages[lang]}</span>
+            <svg class="w-3 h-3 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
 
-        <div class="absolute right-0 mt-2 w-36 rounded-2xl bg-[#F0F4F8]/95 backdrop-blur-xl border border-white/80 shadow-[8px_8px_24px_rgba(209,217,230,0.8),-8px_-8px_24px_rgba(255,255,255,0.95)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 p-2 z-50">
-          {Object.entries(languages).map(([key, label]) => (
-            <a
-              href={switchLanguageUrl(key)}
-              class={`block px-3 py-1.5 rounded-xl text-xs font-medium transition-colors ${
-                lang === key
-                  ? 'bg-cyan-600 text-white font-bold'
-                  : 'text-slate-700 hover:bg-white/80'
-              }`}
-            >
-              {label}
-            </a>
-          ))}
+          <div class="absolute right-0 mt-2 w-36 rounded-2xl bg-[#F0F4F8]/95 backdrop-blur-xl border border-white/80 shadow-[8px_8px_24px_rgba(209,217,230,0.8),-8px_-8px_24px_rgba(255,255,255,0.95)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 p-2 z-50">
+            {Object.entries(languages).map(([key, label]) => (
+              <a
+                href={switchLanguageUrl(key)}
+                class={`block px-3 py-1.5 rounded-xl text-xs font-medium transition-colors ${
+                  lang === key
+                    ? 'bg-cyan-600 text-white font-bold'
+                    : 'text-slate-700 hover:bg-white/80'
+                }`}
+              >
+                {label}
+              </a>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
       <!-- Action Button -->
       <a

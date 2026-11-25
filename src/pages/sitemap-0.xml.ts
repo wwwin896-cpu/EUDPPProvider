@@ -1,5 +1,14 @@
 import type { APIRoute } from 'astro';
 
+/**
+ * Date of the last meaningful content change to the site.
+ * Bump this manually when page copy, structure, or data actually change.
+ * Do NOT derive lastmod from the build timestamp: reporting a fresh lastmod on
+ * every deploy (even when nothing changed) is a known signal-quality problem and
+ * makes crawlers discount the field entirely.
+ */
+const CONTENT_UPDATED = '2026-11-25';
+
 const languages = ['', 'zh', 'de', 'fr', 'nl'];
 
 const subpaths = [
@@ -33,20 +42,39 @@ const subpaths = [
   'insights/sovereign-data-vault-zkp-privacy-guide',
 ];
 
+// Pages that already existed before the latest content release keep an earlier
+// date so the sitemap does not claim that the entire site changed at once.
+const PREVIOUS_RELEASE = '2026-11-20';
+
+const UPDATED_TODAY = new Set([
+  'insights',
+  'insights/eu-battery-carbon-footprint-classes-a-e',
+  'insights/en-18220-en-18219-gs1-digital-link-standards',
+  'insights/sovereign-data-vault-zkp-privacy-guide',
+  'downloads',
+  'impressum',
+  'legal-notice',
+  'solutions/software-license',
+]);
+
 export const GET: APIRoute = () => {
-  const today = new Date().toISOString().split('T')[0];
   const urls: string[] = [];
+  const seen = new Set<string>();
 
   for (const lang of languages) {
     for (const sub of subpaths) {
       const parts = [lang, sub].filter(Boolean);
       const path = parts.length > 0 ? `/${parts.join('/')}/` : '/';
+      if (seen.has(path)) continue;
+      seen.add(path);
+
       const loc = `https://eudppprovider.com${path}`;
       const priority = path === '/' ? '1.0' : sub === 'battery-passport' || sub === 'pilot-program' ? '0.9' : '0.8';
+      const lastmod = UPDATED_TODAY.has(sub) ? CONTENT_UPDATED : PREVIOUS_RELEASE;
 
       urls.push(`  <url>
     <loc>${loc}</loc>
-    <lastmod>${today}</lastmod>
+    <lastmod>${lastmod}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>${priority}</priority>
   </url>`);

@@ -1,0 +1,120 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { insightsLocale } from '../data/insights-locale';
+
+const { locale, slug } = Astro.props as { locale: 'de' | 'fr' | 'nl'; slug: string };
+const pack = insightsLocale[locale];
+const art = pack.articles.find((a) => a.slug === slug);
+
+if (!art) {
+  throw new Error(`Unknown insight article: ${slug}`);
+}
+
+const base = `/${locale}`;
+---
+
+<Layout
+  title={art.metaTitle}
+  description={art.description}
+  type="article"
+  article={{
+    headline: art.headline,
+    datePublished: art.date,
+    author: art.author,
+    about: art.about
+  }}
+>
+  <article class="py-16 sm:py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="mb-8">
+      <nav class="flex items-center gap-2 text-xs font-mono text-slate-400 mb-4">
+        <a href={base + '/'} class="hover:text-cyan-700">{pack.breadcrumbHome}</a>
+        <span>/</span>
+        <a href={base + '/insights/'} class="hover:text-cyan-700">{pack.breadcrumbHub}</a>
+        <span>/</span>
+        <span class="text-slate-600">{art.badge}</span>
+      </nav>
+
+      <div class="flex flex-wrap items-center gap-2 mb-3">
+        <span class="px-2.5 py-1 rounded-full text-xs font-bold font-mono bg-cyan-100 text-cyan-800">
+          {art.badge}
+        </span>
+        <span class="text-xs text-slate-400 font-mono">{art.date}</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+        {art.headline}
+      </h1>
+
+      <div class="flex items-center gap-3 text-xs text-slate-500 pb-6 border-b border-slate-200">
+        <span class="font-bold text-slate-800">{art.author}</span>
+        <span>•</span>
+        <span>{art.readTime}</span>
+      </div>
+    </div>
+
+    <div class="prose prose-slate max-w-none space-y-6 text-sm text-slate-700 leading-relaxed">
+
+      <div class="neo-surface p-6 bg-cyan-50/50 border-cyan-200 rounded-2xl">
+        <p class="text-xs text-slate-700 leading-relaxed mb-0">{art.excerpt}</p>
+      </div>
+
+      {art.sections.map((s) => (
+        <section>
+          <h2 class="text-xl font-bold text-slate-900 mt-8 mb-3">{s.heading}</h2>
+
+          {s.paragraphs && s.paragraphs.map((p) => <p class="mb-3">{p}</p>)}
+
+          {s.bullets && (
+            <ul class="list-disc pl-5 space-y-2 text-xs text-slate-600 my-3">
+              {s.bullets.map((b) => <li>{b}</li>)}
+            </ul>
+          )}
+
+          {s.code && (
+            <div class="p-4 rounded-xl bg-slate-900 text-cyan-400 font-mono text-xs my-4 overflow-x-auto">
+              {s.code}
+            </div>
+          )}
+
+          {s.table && (
+            <div class="overflow-x-auto my-4">
+              <table class="w-full text-xs text-left border-collapse">
+                <thead>
+                  <tr class="bg-slate-100 text-slate-800 font-bold border-b border-slate-200">
+                    {s.table.head.map((h) => <th class="p-3">{h}</th>)}
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-200">
+                  {s.table.rows.map((row) => (
+                    <tr>
+                      {row.map((cell, i) => (
+                        <td class={i === 0 ? 'p-3 font-mono font-bold text-cyan-800' : 'p-3'}>{cell}</td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </section>
+      ))}
+
+    </div>
+
+    <div class="mt-12 pt-6 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4">
+      <a href={base + '/insights/'} class="font-bold text-cyan-800 text-xs flex items-center gap-1 hover:underline">
+        ← {art.backLabel}
+      </a>
+      <div class="flex flex-wrap gap-3">
+        <a href={base + '/downloads/'} class="px-4 py-2 rounded-full bg-cyan-50 border border-cyan-300 text-cyan-800 text-xs font-bold hover:bg-cyan-100">
+          📥 {pack.relatedDownloads}
+        </a>
+        <a href={base + '/portal-simulator/'} class="px-4 py-2 rounded-full bg-slate-900 text-white text-xs font-bold hover:bg-slate-800">
+          {pack.simulatorLabel}
+        </a>
+      </div>
+    </div>
+
+  </article>
+</Layout>

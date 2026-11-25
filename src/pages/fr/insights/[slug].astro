@@ -1,0 +1,12 @@
+---
+import InsightsArticle from '../../../components/InsightsArticle.astro';
+import { insightsLocale } from '../../../data/insights-locale';
+
+export function getStaticPaths() {
+  return insightsLocale.fr.articles.map((a) => ({ params: { slug: a.slug } }));
+}
+
+const { slug } = Astro.params;
+---
+
+<InsightsArticle locale="fr" slug={slug} />

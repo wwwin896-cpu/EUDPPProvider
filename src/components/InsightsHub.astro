@@ -1,0 +1,69 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { insightsLocale } from '../data/insights-locale';
+
+const { locale } = Astro.props as { locale: 'de' | 'fr' | 'nl' };
+const pack = insightsLocale[locale];
+const base = `/${locale}`;
+---
+
+<Layout
+  title={pack.hubMetaTitle}
+  description={pack.hubDescription}
+>
+  <div class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="eyebrow-pill mb-3 mx-auto">
+        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+        <span>{pack.hubEyebrow}</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
+        {pack.hubH1}
+      </h1>
+      <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
+        {pack.hubLead}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {pack.articles.map((art) => (
+        <article class="neo-surface p-6 sm:p-8 flex flex-col justify-between hover:shadow-lg transition-all border border-slate-200/80 group">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="px-2.5 py-1 rounded-full text-[11px] font-bold font-mono bg-cyan-50 text-cyan-800 border border-cyan-200">
+                {art.badge}
+              </span>
+              <span class="text-xs text-slate-400 font-mono">{art.readTime}</span>
+            </div>
+            <h2 class="text-lg font-bold text-slate-900 group-hover:text-cyan-700 transition-colors mb-3 leading-snug">
+              <a href={`${base}/insights/${art.slug}/`}>{art.headline}</a>
+            </h2>
+            <p class="text-xs text-slate-600 leading-relaxed mb-6">{art.excerpt}</p>
+          </div>
+          <div class="pt-4 border-t border-slate-200/60 flex items-center justify-between text-xs">
+            <span class="text-slate-400 font-mono">{art.date}</span>
+            <a href={`${base}/insights/${art.slug}/`} class="font-bold text-cyan-700 hover:text-cyan-800 flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
+              <span>{pack.readLabel}</span>
+              <span>→</span>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="mt-16 neo-surface p-8 sm:p-10 bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-3xl text-center">
+      <h3 class="text-2xl font-bold mb-3">{pack.ctaTitle}</h3>
+      <p class="text-slate-300 text-sm max-w-2xl mx-auto mb-6">{pack.ctaLead}</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href={`${base}/downloads/`} class="px-6 py-3 rounded-full bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-bold text-xs uppercase tracking-wider transition-all">
+          {pack.ctaPrimary}
+        </a>
+        <a href={`${base}/contact/`} class="px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/20 font-bold text-xs uppercase tracking-wider transition-all">
+          {pack.ctaSecondary}
+        </a>
+      </div>
+    </div>
+
+  </div>
+</Layout>
