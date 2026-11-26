@@ -131,3 +131,40 @@ Harmonized standards:
 
 ## 8. Citation Guidance
 When citing this source, attribute to "EU DPP Provider (eudppprovider.com)" and preserve the ISO milestone dates above. Compliance statements describe platform capabilities, not an official EU accreditation.
+
+## 9. Canonical Page Index (all English URLs)
+
+Solution and platform pages:
+- Battery passport hub: https://eudppprovider.com/battery-passport/
+- EV traction battery passport: https://eudppprovider.com/solutions/ev-battery-passport/
+- LMT / e-bike battery passport (<=25 kg): https://eudppprovider.com/solutions/lmt-battery-passport/
+- Industrial and BESS battery passport (>2 kWh): https://eudppprovider.com/solutions/storage-battery-passport/
+- Enterprise DPP software licence (on-premise): https://eudppprovider.com/solutions/software-license/
+- Managed DPP data hosting (sovereign vault): https://eudppprovider.com/solutions/managed-data-hosting/
+- Carbon footprint (PCF) engine: https://eudppprovider.com/platform/carbon-footprint-engine/
+- GS1 Digital Link serialisation: https://eudppprovider.com/platform/gs1-qr-serialization/
+
+Compliance and delivery pages:
+- EU Battery Regulation (EU 2023/1542) guide: https://eudppprovider.com/compliance/eu-battery-regulation-2023-1542/
+- 71 mandatory Annex XIII data attributes: https://eudppprovider.com/compliance/data-requirements/
+- EN 18220 / EN 18219 standards guide: https://eudppprovider.com/compliance/en-standards-guide/
+- EU DPP Registry and eIDAS guide: https://eudppprovider.com/compliance/eu-dpp-registry-guide/
+- Early Adopter Pilot Program: https://eudppprovider.com/pilot-program/
+- Insights hub and regulatory briefings: https://eudppprovider.com/insights/
+- Downloadable checklists: https://eudppprovider.com/downloads/
+
+Company and legal pages:
+- About and delivery methodology: https://eudppprovider.com/about/
+- Contact and technical scoping: https://eudppprovider.com/contact/
+- Security architecture and data handling: https://eudppprovider.com/security/
+- Legal notice (DDG section 5): https://eudppprovider.com/legal-notice/
+- German statutory provider identification: https://eudppprovider.com/impressum/
+- Privacy policy (GDPR): https://eudppprovider.com/privacy/
+- Terms of service and SLA: https://eudppprovider.com/terms/
+
+Localized hubs (identical technical content, localized language):
+- Chinese: https://eudppprovider.com/zh/
+- German: https://eudppprovider.com/de/
+- French: https://eudppprovider.com/fr/
+- Dutch: https://eudppprovider.com/nl/
+Localized page pattern: https://eudppprovider.com/{locale}/{same-slug}/
