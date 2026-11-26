@@ -80,6 +80,12 @@ const t = useTranslations(lang);
         src="/images/banner_factory_scan.webp" 
         alt="工业电池包激光打码与现场扫码核验" 
         class="absolute inset-0 w-full h-full object-cover object-center"
+        srcset="/images/banner_factory_scan-768.webp 768w, /images/banner_factory_scan-1280.webp 1280w, /images/banner_factory_scan.webp 1792w"
+        sizes="100vw"
+        width="1792"
+        height="1024"
+        fetchpriority="high"
+        decoding="async"
       />
 
       <!-- 渐变遮罩保护文字对比度 -->
@@ -214,6 +220,12 @@ const t = useTranslations(lang);
         src="/images/banner_sovereign_vault.webp" 
         alt="欧洲主权云法兰克福数据中心与合规控制中心" 
         class="absolute inset-0 w-full h-full object-cover object-center"
+        srcset="/images/banner_sovereign_vault-768.webp 768w, /images/banner_sovereign_vault-1280.webp 1280w, /images/banner_sovereign_vault.webp 1792w"
+        sizes="100vw"
+        width="1792"
+        height="1024"
+        loading="lazy"
+        decoding="async"
       />
 
       <!-- 渐变遮罩 -->
@@ -314,6 +326,45 @@ const t = useTranslations(lang);
     </div>
 
     <PricingCalculator />
+  </section>
+
+  <!-- ==================== 合规研报 ==================== -->
+  <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <div class="eyebrow-pill mb-2">合规技术研报</div>
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
+        来自合规工程师的一手技术拆解
+      </h2>
+      <p class="mt-3 text-xs sm:text-sm text-slate-600">
+        围绕欧盟新电池法 (EU 2023/1542) 的技术标准、核算规则与执法节点，提供可直接溯源的深度解读。
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <a href="/zh/insights/eu-battery-carbon-footprint-classes-a-e/" class="neo-surface p-6 block hover:shadow-lg transition-all border border-slate-200/80">
+        <div class="text-[11px] font-bold font-mono text-cyan-800 mb-2">第 7 条 · 碳足迹</div>
+        <div class="text-sm font-bold text-slate-900 mb-2">欧盟电池碳足迹 A-E 等级核算细则</div>
+        <div class="text-xs text-slate-600 leading-relaxed">ISO 14067 核算方法、四大生命周期阶段边界与 2026 年 8 月 18 日申报节点。</div>
+      </a>
+
+      <a href="/zh/insights/en-18220-en-18219-gs1-digital-link-standards/" class="neo-surface p-6 block hover:shadow-lg transition-all border border-slate-200/80">
+        <div class="text-[11px] font-bold font-mono text-cyan-800 mb-2">CEN/CENELEC · JTC 24</div>
+        <div class="text-sm font-bold text-slate-900 mb-2">EN 18220 与 EN 18219 赋码标准解读</div>
+        <div class="text-xs text-slate-600 leading-relaxed">二维码背后的二维载体语法、唯一产品标识符签发与分层解析机制。</div>
+      </a>
+
+      <a href="/zh/insights/sovereign-data-vault-zkp-privacy-guide/" class="neo-surface p-6 block hover:shadow-lg transition-all border border-slate-200/80">
+        <div class="text-[11px] font-bold font-mono text-cyan-800 mb-2">数据主权 · 零知识证明</div>
+        <div class="text-sm font-bold text-slate-900 mb-2">如何用零知识证明保护电池配方机密</div>
+        <div class="text-xs text-slate-600 leading-relaxed">在不披露正极化学体系与供应商采购价的前提下，证明再生含量与碳排达标。</div>
+      </a>
+    </div>
+
+    <div class="mt-8 text-center">
+      <a href="/zh/insights/" class="neo-pill px-6 py-3 rounded-full text-xs font-bold text-slate-800 hover:text-cyan-700">
+        查看全部合规研报 →
+      </a>
+    </div>
   </section>
 
   <!-- ==================== 底部 CTA ==================== -->

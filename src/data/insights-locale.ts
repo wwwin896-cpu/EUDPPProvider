@@ -164,7 +164,7 @@ export const insightsLocale: Record<'de' | 'fr' | 'nl', InsightLocalePack> = {
         title: 'Souveräner Datensafe & ZKP für Batteriepässe',
         metaTitle: 'Datensafe & ZKP für Batteriepässe',
         description:
-          'Wie Hersteller die Transparenzpflichten aus ESPR und Verordnung (EU) 2023/1542 erfüllen und dabei Kathodenrezepturen, BOM-Kosten und Lieferanten Konditionen schützen.',
+          'Wie Hersteller die Transparenzpflichten aus ESPR und Verordnung (EU) 2023/1542 erfüllen und dabei Kathodenrezepturen und BOM-Kosten schützen.',
         headline: 'ESPR und Batteriepass: Datensouveränität ohne Preisgabe von Lieferkettengeheimnissen',
         author: 'Security & Cryptography Lab',
         about: ['ESPR (EU) 2024/1781', 'Zero-Knowledge-Proofs', 'DSGVO', 'Geheimnisschutz'],
@@ -197,7 +197,7 @@ export const insightsLocale: Record<'de' | 'fr' | 'nl', InsightLocalePack> = {
     hubTitle: 'Passeport batterie UE : analyses & normes',
     hubMetaTitle: 'Conformité passeport batterie UE | Analyses',
     hubDescription:
-      'Analyses techniques du règlement (UE) 2023/1542, du règlement ESPR (UE 2024/1781), des classes A-E d’empreinte carbone et des normes CEN/CENELEC EN 18220 / EN 18219.',
+      'Analyses du règlement (UE) 2023/1542, d’ESPR (UE 2024/1781), des classes A-E d’empreinte carbone et des normes CEN/CENELEC EN 18220 / 18219.',
     hubEyebrow: 'Veille réglementaire & normes techniques',
     hubH1: 'Analyses de conformité & normes techniques',
     hubLead:
@@ -309,7 +309,7 @@ export const insightsLocale: Record<'de' | 'fr' | 'nl', InsightLocalePack> = {
         title: 'Coffre-fort souverain & ZKP pour passeports',
         metaTitle: 'Coffre-fort & ZKP pour passeports batterie',
         description:
-          'Comment les fabricants respectent les obligations de transparence ESPR et (UE) 2023/1542 tout en protégeant les formulations de cathode, les coûts BOM et les conditions fournisseurs.',
+          'Comment les fabricants respectent les obligations ESPR et (UE) 2023/1542 tout en protégeant les formulations de cathode et les coûts BOM.',
         headline: 'ESPR et passeport batterie : souveraineté des données sans divulguer les secrets industriels',
         author: 'Security & Cryptography Lab',
         about: ['ESPR (UE) 2024/1781', 'Preuves à divulgation nulle', 'RGPD', 'Secret des affaires'],

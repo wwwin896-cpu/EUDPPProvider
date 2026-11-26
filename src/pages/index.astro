@@ -13,7 +13,7 @@ const t = useTranslations(lang);
 
 <Layout
   title="EU DPP Provider | EU Battery Passport Software"
-  description="Turn supply chain records into an audit-proof data chain. Turnkey enterprise software, 10-year sovereign data vault, ZKP formula secrecy, and DG GROW Registry filing support."
+  description="Turn supply chain records into an audit-proof data chain: enterprise software, 10-year sovereign vault, ZKP formula secrecy and DG GROW registry filing support."
 >
 
   <!-- ==================== HERO SECTION (Clean, Punchy, Neomorphic) ==================== -->
@@ -83,6 +83,12 @@ const t = useTranslations(lang);
         src="/images/banner_factory_scan.webp" 
         alt="Industrial Battery Pack Laser Marking and Scan Verification" 
         class="absolute inset-0 w-full h-full object-cover object-center"
+        srcset="/images/banner_factory_scan-768.webp 768w, /images/banner_factory_scan-1280.webp 1280w, /images/banner_factory_scan.webp 1792w"
+        sizes="100vw"
+        width="1792"
+        height="1024"
+        fetchpriority="high"
+        decoding="async"
       />
 
       <!-- High-End Dark Gradient Overlay for Maximum Legibility -->
@@ -181,7 +187,7 @@ const t = useTranslations(lang);
           </div>
           <h3 class="text-lg lg:text-xl font-bold text-slate-900 mb-2">EU Registry & eIDAS</h3>
           <p class="text-xs sm:text-sm text-slate-500 leading-relaxed">
-            Turnkey agency for EU Login, QSeal/QES digital seal creation, DigiCert QTSP certification, and EU Commission Registry receipt issuance.
+            Turnkey support for EU Login, QSeal/QES digital seal creation, QTSP certificate onboarding, and DG GROW Registry filing.
           </p>
         </div>
         <div class="mt-6 pt-4 border-t border-slate-200/80">
@@ -220,6 +226,12 @@ const t = useTranslations(lang);
         src="/images/banner_sovereign_vault.webp" 
         alt="Sovereign EU Cloud Command Center in Frankfurt" 
         class="absolute inset-0 w-full h-full object-cover object-center"
+        srcset="/images/banner_sovereign_vault-768.webp 768w, /images/banner_sovereign_vault-1280.webp 1280w, /images/banner_sovereign_vault.webp 1792w"
+        sizes="100vw"
+        width="1792"
+        height="1024"
+        loading="lazy"
+        decoding="async"
       />
 
       <!-- Dark Vignette Overlay -->
@@ -238,7 +250,7 @@ const t = useTranslations(lang);
         </h2>
 
         <p class="mt-4 text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
-          Deploy your battery passport in Europe's most secure ISO 27001 data centers. Full GDPR and EU Data Act compliance, zero-leak trade secret protection, and guaranteed 10-year active lifecycle SLA.
+          Deploy your battery passport in Europe's most secure ISO 27001 data centers. Full GDPR and EU Data Act compliance, zero-knowledge trade secret protection, and guaranteed 10-year active lifecycle SLA.
         </p>
 
         <div class="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 border-t border-white/15 text-xs">
@@ -320,6 +332,45 @@ const t = useTranslations(lang);
     </div>
 
     <PricingCalculator />
+  </section>
+
+  <!-- ==================== REGULATORY BRIEFS ==================== -->
+  <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <div class="eyebrow-pill mb-2">Regulatory Briefs</div>
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
+        Technical Analysis from Our Compliance Engineers
+      </h2>
+      <p class="mt-3 text-xs sm:text-sm text-slate-600">
+        Primary-source engineering guides on the standards, calculation rules and enforcement dates behind Regulation (EU) 2023/1542.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <a href="/insights/eu-battery-carbon-footprint-classes-a-e/" class="neo-surface p-6 block hover:shadow-lg transition-all border border-slate-200/80">
+        <div class="text-[11px] font-bold font-mono text-cyan-800 mb-2">Article 7 · PCF</div>
+        <div class="text-sm font-bold text-slate-900 mb-2">EU battery carbon footprint classes A-E explained</div>
+        <div class="text-xs text-slate-600 leading-relaxed">ISO 14067 methodology, the four mandatory lifecycle stages and the 18 August 2026 declaration deadline.</div>
+      </a>
+
+      <a href="/insights/en-18220-en-18219-gs1-digital-link-standards/" class="neo-surface p-6 block hover:shadow-lg transition-all border border-slate-200/80">
+        <div class="text-[11px] font-bold font-mono text-cyan-800 mb-2">CEN/CENELEC · JTC 24</div>
+        <div class="text-sm font-bold text-slate-900 mb-2">EN 18220 and EN 18219 GS1 syntax guide</div>
+        <div class="text-xs text-slate-600 leading-relaxed">The 2D carrier syntax, unique product identifier issuance and role-aware resolver tiers behind the QR code.</div>
+      </a>
+
+      <a href="/insights/sovereign-data-vault-zkp-privacy-guide/" class="neo-surface p-6 block hover:shadow-lg transition-all border border-slate-200/80">
+        <div class="text-[11px] font-bold font-mono text-cyan-800 mb-2">Data Sovereignty · ZKP</div>
+        <div class="text-sm font-bold text-slate-900 mb-2">Protecting battery formulas with zero-knowledge proofs</div>
+        <div class="text-xs text-slate-600 leading-relaxed">How to prove recycled content and carbon thresholds without disclosing cathode chemistry or supplier pricing.</div>
+      </a>
+    </div>
+
+    <div class="mt-8 text-center">
+      <a href="/insights/" class="neo-pill px-6 py-3 rounded-full text-xs font-bold text-slate-800 hover:text-cyan-700">
+        Browse all regulatory briefs →
+      </a>
+    </div>
   </section>
 
   <!-- ==================== FINAL ACTION CARD ==================== -->

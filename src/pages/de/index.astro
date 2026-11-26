@@ -13,7 +13,7 @@ const t = useTranslations(lang);
 
 <Layout
   title="EU DPP Provider | EU-Batteriepass Software & Datensafe"
-  description="Verwandeln Sie Lieferkettendaten in eine prüfsichere Datenkette unter Verordnung (EU) 2023/1542. Enterprise-Software, 10-Jahre Datensafe, Zero-Knowledge-Schutz und Registrierungsunterstützung."
+  description="Prüfsichere Batteriepässe nach Verordnung (EU) 2023/1542: Enterprise-Software, 10-Jahre-Datensafe, ZKP-Formelschutz und EU-Registerunterstützung."
 >
 
   <!-- ==================== HERO SECTION ==================== -->
@@ -76,6 +76,12 @@ const t = useTranslations(lang);
         alt="Industrielle Batteriepack-Lasermarkierung und Scan-Verifizierung" 
         class="absolute inset-0 w-full h-full object-cover object-center"
         loading="lazy"
+        decoding="async"
+        srcset="/images/banner_factory_scan-768.webp 768w, /images/banner_factory_scan-1280.webp 1280w, /images/banner_factory_scan.webp 1792w"
+        sizes="100vw"
+        width="1792"
+        height="1024"
+        fetchpriority="high"
         decoding="async"
       />
 
@@ -209,6 +215,12 @@ const t = useTranslations(lang);
         src="/images/banner_sovereign_vault.webp" 
         alt="Europäisches Datenzentrum und DPP Compliance Kontrollraum in Frankfurt" 
         class="absolute inset-0 w-full h-full object-cover object-center"
+        loading="lazy"
+        decoding="async"
+        srcset="/images/banner_sovereign_vault-768.webp 768w, /images/banner_sovereign_vault-1280.webp 1280w, /images/banner_sovereign_vault.webp 1792w"
+        sizes="100vw"
+        width="1792"
+        height="1024"
         loading="lazy"
         decoding="async"
       />
