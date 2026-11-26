@@ -1,5 +1,6 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
+import FaqBlock from '../../../components/FaqBlock.astro';
 
 const faqs = [
   {
@@ -130,4 +131,6 @@ const faqs = [
     </div>
 
   </article>
+
+  <FaqBlock items={faqs} eyebrow={"常见问题"} heading={"碳足迹申报要点"} />
 </Layout>

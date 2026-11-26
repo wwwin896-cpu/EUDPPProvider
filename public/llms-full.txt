@@ -23,6 +23,19 @@ Machine-readable timeline (ISO 8601):
 | 2028-08-18 | 18 August 2028 | Mandatory recycled content documentation declarations (cobalt, lithium, nickel, lead) |
 | 2031-08-18 | 18 August 2031 | Recycled content minimum percentage targets enforced (cobalt 16%, lead 85%, lithium 6%, nickel 6%) |
 
+### Registry technical readiness (official status, 2026-11-16)
+
+On 16 November 2026 the European Commission (DG GROW) published the technical documentation package for the EU Digital Product Passport Registry, ahead of the Registry launch. The package covers:
+- **OpenAPI specifications and API integration guidance** — Registry interfaces, authentication, DPP registration and API usage.
+- **Service Account guidance** — secure machine-to-machine access to DPP services.
+- **Self-hosted authentication guidance** — how to secure and validate access to DPPs hosted on an economic operator's own infrastructure.
+- **Semantic data resources** — machine-readable definitions and validation rules for creating, interpreting and validating battery passport data.
+
+Architectural consequence: the Registry holds a common EU-level index of unique identifiers and key registration data, while product-specific information stays decentralised and under the control of economic operators, who can update it as needed. A compliant implementation therefore needs a resolvable, operator-controlled data endpoint plus valid Registry registration — not a copy of the full dataset inside the Registry.
+- Technical guidance news: https://single-market-economy.ec.europa.eu/news/digital-product-passport-registry-technical-guidance-available-2026-11-16_en
+- Registry resources and documentation: https://single-market-economy.ec.europa.eu/single-market/digital-product-passport/resources-documentation_en
+- Registry test environment: https://single-market-economy.ec.europa.eu/single-market/digital-product-passport/dpp-registry_en
+
 Primary legal instruments:
 - Regulation (EU) 2023/1542 — Batteries Regulation (Articles 7, 77, 78; Annex XIII data set).
 - Regulation (EU) 2024/1781 — ESPR (Ecodesign for Sustainable Products Regulation).

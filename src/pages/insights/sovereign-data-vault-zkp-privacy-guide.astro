@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import FaqBlock from '../../components/FaqBlock.astro';
 
 const faqs = [
   {
@@ -92,4 +93,6 @@ const faqs = [
     </div>
 
   </article>
+
+  <FaqBlock items={faqs} heading="Sovereign Data Vault Essentials" />
 </Layout>

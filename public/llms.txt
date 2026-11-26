@@ -12,6 +12,7 @@
 - **Primary Focus**: Digital Product Passport compliance software and 10-year sovereign data hosting for Electric Vehicles (EV), Light Means of Transport (LMT / E-Bike ≤25kg), and Stationary Industrial Battery Energy Storage Systems (BESS >2kWh).
 
 ## Key Regulatory Milestones & Mandates
+- **16 November 2026**: European Commission (DG GROW) published the DPP Registry technical documentation package — OpenAPI specifications, API integration guidance, Service Account and self-hosted authentication guidance, plus machine-readable semantic validation rules for battery passport data. The Registry indexes unique identifiers and key registration data centrally while product data remains decentralised under operator control.
 - **20 July 2026**: European Commission DG GROW Central DPP Registry entered operational status (`registry.product-passport.ec.europa.eu`).
 - **18 August 2026**: Mandatory Carbon Footprint performance class labeling (A–E) applicable to EV traction batteries.
 - **18 February 2027**: Mandatory Digital Battery Passport enforcement under Articles 77 & 78 of Regulation (EU) 2023/1542 across all EV, LMT (≤25kg), and industrial batteries (>2kWh).

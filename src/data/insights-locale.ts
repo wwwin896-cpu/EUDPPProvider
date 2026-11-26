@@ -6,6 +6,8 @@ export type InsightSection = {
   code?: string;
 };
 
+export type InsightFaq = { question: string; answer: string };
+
 export type InsightArticle = {
   slug: string;
   badge: string;
@@ -19,6 +21,7 @@ export type InsightArticle = {
   about: string[];
   excerpt: string;
   sections: InsightSection[];
+  faqs?: InsightFaq[];
   actionLabel: string;
   backLabel: string;
 };
@@ -475,8 +478,130 @@ export const insightsLocale: Record<'de' | 'fr' | 'nl', InsightLocalePack> = {
             ],
           },
         ],
-        actionLabel: 'Architectuurscoping aanvragen →',
-        backLabel: 'Terug naar alle inzichten',
+         actionLabel: 'Architectuurscoping aanvragen →',
+         backLabel: 'Terug naar alle inzichten',
+       },
+     ],
+   },
+};
+
+/**
+ * Locale-specific FAQ pairs used to emit FAQPage structured data on the
+ * translated insight articles. Kept separate from the article bodies so the
+ * schema payload can be reviewed and corrected independently of the prose.
+ */
+export const insightsFaqs: Record<'de' | 'fr' | 'nl', Record<string, InsightFaq[]>> = {
+  de: {
+    'eu-battery-carbon-footprint-classes-a-e': [
+      {
+        question: 'Ab wann ist die CO2-Fußabdruck-Erklärung für Batterien verpflichtend?',
+        answer:
+          'Die Erklärung inklusive Verifizierung durch eine unabhängige Stelle gilt ab dem 18. August 2026 für EV-Batterien, LMT-Batterien bis 25 kg und Industriebatterien über 2 kWh.',
+      },
+      {
+        question: 'Welche Lebenszyklusphasen muss die Berechnung abdecken?',
+        answer:
+          'Vier Phasen nach ISO 14067 und PEFCR: Rohstoffgewinnung und Vorverarbeitung, Hauptfertigung, Distribution und Transport sowie End of Life inklusive Recyclinggutschriften.',
+      },
+    ],
+    'en-18220-en-18219-gs1-digital-link-standards': [
+      {
+        question: 'Welche Syntax schreibt EN 18220 für den Batteriepass vor?',
+        answer:
+          'GS1 Digital Link im Format /01/{GTIN}/21/{Seriennummer}, übertragen über einen zweidimensionalen Datenträger auf dem Batteriegehäuse.',
+      },
+      {
+        question: 'Was regelt EN 18219?',
+        answer:
+          'EN 18219 definiert Vergabe und Interoperabilität des Unique Product Identifier (UPI) sowie die Anbindung an das zentrale DPP-Register der EU.',
+      },
+    ],
+    'sovereign-data-vault-zkp-privacy-guide': [
+      {
+        question: 'Wie schützt Zero-Knowledge-Proof die Rezeptur vor Offenlegung?',
+        answer:
+          'Die Berechnung erfolgt im eigenen Datenraum. In das Register geht nur ein kryptografischer Nachweis, dass Grenzwerte erfüllt sind — nicht die Kathodenrezeptur, Lieferantenpreise oder Stücklisten.',
+      },
+      {
+        question: 'Wie lange müssen Batteriepass-Daten verfügbar bleiben?',
+        answer:
+          'Gemäß Artikel 77 der Verordnung (EU) 2023/1542 zehn Jahre nach dem Inverkehrbringen der Batterie.',
+      },
+    ],
+  },
+  fr: {
+    'eu-battery-carbon-footprint-classes-a-e': [
+      {
+        question: "À partir de quand la déclaration d'empreinte carbone est-elle obligatoire ?",
+        answer:
+          "Depuis le 18 août 2026 pour les batteries de véhicules électriques, les batteries LMT jusqu'à 25 kg et les batteries industrielles de plus de 2 kWh, vérification par un tiers incluse.",
+      },
+      {
+        question: 'Quelles étapes du cycle de vie la méthode couvre-t-elle ?',
+        answer:
+          "Quatre étapes selon ISO 14067 et le PEFCR : matières premières, fabrication principale, distribution et transport, puis fin de vie avec les crédits de recyclage.",
+      },
+    ],
+    'en-18220-en-18219-gs1-digital-link-standards': [
+      {
+        question: 'Quelle syntaxe EN 18220 est exigée pour le passeport batterie ?',
+        answer:
+          'Le GS1 Digital Link au format /01/{GTIN}/21/{numéro de série}, porté par un code 2D apposé sur le boîtier de la batterie.',
+      },
+      {
+        question: "Que couvre la norme EN 18219 ?",
+        answer:
+          "L'attribution et l'interopérabilité de l'identifiant unique de produit (UPI), ainsi que le raccordement au registre DPP central de l'Union européenne.",
+      },
+    ],
+    'sovereign-data-vault-zkp-privacy-guide': [
+      {
+        question: 'Comment la preuve à divulgation nulle protège-t-elle les formulations ?',
+        answer:
+          "Le calcul reste dans votre environnement. Seule une preuve cryptographique de conformité est publiée, jamais la chimie de la cathode, les prix fournisseurs ni la nomenclature.",
+      },
+      {
+        question: 'Combien de temps les données doivent-elles rester disponibles ?',
+        answer:
+          "Dix ans après la mise sur le marché, conformément à l'article 77 du règlement (UE) 2023/1542.",
+      },
+    ],
+  },
+  nl: {
+    'eu-battery-carbon-footprint-classes-a-e': [
+      {
+        question: 'Vanaf wanneer is de CO2-voetafdrukverklaring verplicht?',
+        answer:
+          'Vanaf 18 augustus 2026 voor EV-batterijen, LMT-batterijen tot 25 kg en industriële batterijen boven 2 kWh, inclusief verificatie door een onafhankelijke instantie.',
+      },
+      {
+        question: 'Welke levenscyclusfasen moet de berekening omvatten?',
+        answer:
+          'Vier fasen volgens ISO 14067 en PEFCR: winning van grondstoffen, hoofdproductie, distributie en transport, en end-of-life met recyclingkredieten.',
+      },
+    ],
+    'en-18220-en-18219-gs1-digital-link-standards': [
+      {
+        question: 'Welke EN 18220-syntax is vereist voor het batterijpaspoort?',
+        answer:
+          'GS1 Digital Link in de vorm /01/{GTIN}/21/{serienummer}, gedragen door een 2D-code op de batterijbehuizing.',
+      },
+      {
+        question: 'Wat regelt EN 18219?',
+        answer:
+          'De toekenning en interoperabiliteit van de unieke productidentificatie (UPI) en de aansluiting op het centrale DPP-register van de EU.',
+      },
+    ],
+    'sovereign-data-vault-zkp-privacy-guide': [
+      {
+        question: 'Hoe beschermt zero-knowledge-proof de receptuur?',
+        answer:
+          'De berekening blijft in uw eigen omgeving. Alleen een cryptografisch bewijs van conformiteit wordt gepubliceerd, nooit de kathodereceptuur, leveranciersprijzen of stuklijst.',
+      },
+      {
+        question: 'Hoe lang moeten gegevens beschikbaar blijven?',
+        answer:
+          'Tien jaar na het in de handel brengen, conform artikel 77 van Verordening (EU) 2023/1542.',
       },
     ],
   },

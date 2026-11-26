@@ -7,7 +7,7 @@ import type { APIRoute } from 'astro';
  * every deploy (even when nothing changed) is a known signal-quality problem and
  * makes crawlers discount the field entirely.
  */
-const CONTENT_UPDATED = '2026-11-25';
+const CONTENT_UPDATED = '2026-11-26';
 
 const languages = ['', 'zh', 'de', 'fr', 'nl'];
 
@@ -46,16 +46,24 @@ const subpaths = [
 // date so the sitemap does not claim that the entire site changed at once.
 const PREVIOUS_RELEASE = '2026-11-20';
 
-const UPDATED_TODAY = new Set([
+// Per-subpath content dates. Only list sections whose copy actually changed.
+const SECTIONS_UPDATED = new Set([
   'insights',
   'insights/eu-battery-carbon-footprint-classes-a-e',
   'insights/en-18220-en-18219-gs1-digital-link-standards',
   'insights/sovereign-data-vault-zkp-privacy-guide',
+]);
+
+// Sections released on the previous content cycle.
+const SECTIONS_PREVIOUS = new Set([
   'downloads',
   'impressum',
   'legal-notice',
   'solutions/software-license',
 ]);
+
+const lastmodFor = (sub: string) =>
+  SECTIONS_UPDATED.has(sub) ? CONTENT_UPDATED : SECTIONS_PREVIOUS.has(sub) ? '2026-11-25' : PREVIOUS_RELEASE;
 
 export const GET: APIRoute = () => {
   const urls: string[] = [];
@@ -70,7 +78,7 @@ export const GET: APIRoute = () => {
 
       const loc = `https://eudppprovider.com${path}`;
       const priority = path === '/' ? '1.0' : sub === 'battery-passport' || sub === 'pilot-program' ? '0.9' : '0.8';
-      const lastmod = UPDATED_TODAY.has(sub) ? CONTENT_UPDATED : PREVIOUS_RELEASE;
+      const lastmod = lastmodFor(sub);
 
       urls.push(`  <url>
     <loc>${loc}</loc>

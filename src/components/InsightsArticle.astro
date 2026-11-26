@@ -1,10 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { insightsLocale } from '../data/insights-locale';
+import { insightsLocale, insightsFaqs } from '../data/insights-locale';
+import FaqBlock from './FaqBlock.astro';
 
 const { locale, slug } = Astro.props as { locale: 'de' | 'fr' | 'nl'; slug: string };
 const pack = insightsLocale[locale];
 const art = pack.articles.find((a) => a.slug === slug);
+const faqs = insightsFaqs[locale]?.[slug] ?? [];
 
 if (!art) {
   throw new Error(`Unknown insight article: ${slug}`);
@@ -17,6 +19,7 @@ const base = `/${locale}`;
   title={art.metaTitle}
   description={art.description}
   type="article"
+  faqs={faqs}
   article={{
     headline: art.headline,
     datePublished: art.date,
@@ -117,4 +120,9 @@ const base = `/${locale}`;
     </div>
 
   </article>
+
+  <FaqBlock
+    items={faqs}
+    eyebrow={locale === 'de' ? 'Häufige Fragen' : locale === 'fr' ? 'Questions fréquentes' : 'Veelgestelde vragen'}
+  />
 </Layout>
