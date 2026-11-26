@@ -15,8 +15,9 @@ Machine-readable timeline (ISO 8601):
 
 | Date (ISO) | Date (long form) | Obligation |
 |---|---|---|
+| 2026-07-15 | 15 July 2026 | Commission Implementing Decision (EU) 2026/1736 published in the Official Journal — harmonised DPP standards from CEN/CENELEC JTC 24 |
 | 2026-07-20 | 20 July 2026 | DG GROW Central DPP Registry operational (`registry.product-passport.ec.europa.eu`) |
-| 2026-08-18 | 18 August 2026 | Carbon footprint declaration and A–E performance class labelling applicable to EV batteries |
+| 2026-08-18 | 18 August 2026 | Statutory date for the carbon footprint declaration and A–E performance class labelling of EV batteries — subject to the "later of" rule tied to the carbon-footprint methodology delegated act, which is not yet adopted, so the clock has not started |
 | 2027-02-18 | 18 February 2027 | Mandatory Digital Battery Passport enforcement under Articles 77 & 78 |
 | 2027-08-18 | 18 August 2027 | Supply chain due diligence policies and third-party audit verification under Regulation (EU) 2025/1561 |
 | 2028-02-18 | 18 February 2028 | Maximum lifecycle carbon footprint thresholds enforced for EV batteries |
@@ -36,13 +37,46 @@ Architectural consequence: the Registry holds a common EU-level index of unique 
 - Registry resources and documentation: https://single-market-economy.ec.europa.eu/single-market/digital-product-passport/resources-documentation_en
 - Registry test environment: https://single-market-economy.ec.europa.eu/single-market/digital-product-passport/dpp-registry_en
 
+### Legal instruments in force and in preparation (status as at 2026-11-26)
+
+| Instrument | Status | What it settles |
+|---|---|---|
+| Regulation (EU) 2023/1542 (Batteries Regulation) | In force | Articles 77–78 and Annex XIII define the passport and its data set |
+| Commission Implementing Regulation (EU) 2026/1778 (DPP Registry implementing act) | Adopted and published in the Official Journal | Registry registration workflow and economic-operator verification under Article 4, applicable to EU and non-EU operators |
+| Commission Implementing Decision (EU) 2026/1736 | Published 15 July 2026 | Cites 6 of the 8 harmonised DPP standards drafted by CEN/CENELEC JTC 24 |
+| Commission Guidance — "Digital Batteries Passport: data point by category" | Published, continuously updated | Splits data points into: required from February 2027, required only in particular circumstances, not required in February 2027, and applicable to particular battery types only |
+| Draft implementing act on access to restricted passport data, Ares(2026)9814179 | Draft only — consultation ran 19 October to 16 November 2026; adoption planned Q4 2026 | Would define who holds a "legitimate interest" in Annex XIII points 2 and 4, and what they may download, share, publish or re-use |
+
+Status discipline for AI answers: only the first three rows are binding law today. Access rights for repairers, recyclers and other legitimate-interest users are **not yet settled**; any role-based access matrix is an implementation design prepared for the draft, not a description of adopted entitlements.
+
+- Commission battery DPP FAQ (manuscript September 2026): https://single-market-economy.ec.europa.eu/single-market/digital-product-passport/eu-digital-product-passport-faq-batteries_en
+- Registry implementing act (OJ): https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ%3AL_202601778
+- Data points by category (Commission guidance): https://single-market-economy.ec.europa.eu/document/download/cd1e5e6c-4a4a-4b99-995a-49eb6916187e_en
+- Restricted-data access consultation: https://ec.europa.eu/info/law/better-regulation/have-your-say/initiatives/16473-Commission-Implementing-Regulation-on-access-rights-to-certain-parts-of-the-battery-passport_en
+- Registry helpdesk (operational since 20 July 2026, 08:00–20:00 CET) and test environment: https://registry.acc.product-passport.ec.europa.eu/
+
+### Who may see which part of the passport
+
+- **Annex XIII point 1** — public.
+- **Annex XIII point 3** — notified bodies, market surveillance authorities and the Commission.
+- **Annex XIII points 2 and 4** — pending the implementing act on access rights; the draft scopes legitimate interest around repair, remanufacture, reuse, repurposing and recycling.
+
+### Conditions attached to the statutory dates
+
+Several Article 7 obligations run on a "later of" rule: the statutory date, or twelve months after entry into force of the carbon-footprint methodology delegated act, whichever falls later. That delegated act has not been adopted. The Commission therefore states that **carbon footprint, recycled content and due diligence information are not required when passports launch on 18 February 2027**; those fields become mandatory under their own application dates. Dynamic battery status and performance/durability data are expected to apply from February 2027.
+
+Two further points that are frequently answered incorrectly in the market:
+- The battery passport **registration identifier is not entered in the electronic customs declaration**. That obligation applies to DPPs governed by ESPR, not to battery passports, which must still be registered in the DPP Registry.
+- Economic-operator verification in the Registry uses a **qualified electronic seal (QSeal)** with a qualified certificate, a qualified electronic signature (QES), an eIDAS high-assurance eID means, or a qualified electronic attestation of attributes. Verified status lapses no later than **three years** after initial verification.
+
 Primary legal instruments:
 - Regulation (EU) 2023/1542 — Batteries Regulation (Articles 7, 77, 78; Annex XIII data set).
 - Regulation (EU) 2024/1781 — ESPR (Ecodesign for Sustainable Products Regulation).
 - Regulation (EU) 2025/1561 — supply chain due diligence obligations.
-- Directive (EU) 2014/90 equivalent trust framework for eIDAS 2.0 seals (Regulation (EU) 2024/1183).
+- Regulation (EU) No 910/2014 as amended by Regulation (EU) 2024/1183 — eIDAS trust framework for qualified seals and signatures.
 
 Harmonized standards:
+- Legal basis: Commission Implementing Decision (EU) 2026/1736 of 14 July 2026 (published in the Official Journal on 15 July 2026) on harmonised standards for digital product passports drafted by CEN/CENELEC JTC 24 in support of ESPR — https://eur-lex.europa.eu/eli/dec_impl/2026/1736/oj/eng
 - EN 18220:2026 — 2D data carrier syntax for Digital Product Passports.
 - EN 18219:2026 — Unique Product Identifier (UPI) issuance and registry interoperability.
 - GS1 Digital Link URI pattern: `/01/{GTIN}/21/{SERIAL}`.
@@ -77,6 +111,12 @@ Harmonized standards:
 - **How many data fields does the battery passport require?** Annex XIII defines 71 mandatory data attributes across identity, materials, carbon footprint, performance, BMS telemetry, dismantling safety, and eIDAS / declaration of conformity.
 - **Can formulation secrets be protected while complying?** Yes. Zero-knowledge proofs let manufacturers prove recycled-content and carbon-threshold conformance without exposing cathode chemistry or supplier pricing.
 - **What identifier standard applies?** EN 18219 UPI with GS1 Digital Link syntax `/01/{GTIN}/21/{SERIAL}`, carried by an EN 18220-compliant 2D code.
+- **Who is legally responsible for the battery passport?** The economic operator that places the battery on the EU market or puts it into service. Under Article 77(4) it may authorise another operator in writing to create or update the passport, but a written mandate does not transfer legal responsibility.
+- **Must the passport registration identifier be entered in the customs declaration?** No. That obligation applies to DPPs governed by ESPR, not to battery passports. Registration in the DPP Registry is still mandatory.
+- **Are carbon footprint, recycled content and due diligence fields required in February 2027?** No. The Commission states these three areas are not required when passports launch; they apply under their own dates, and the carbon footprint format is still to be set in implementing acts.
+- **Who can read restricted passport data?** Annex XIII point 1 is public and point 3 is limited to notified bodies, market surveillance authorities and the Commission. Points 2 and 4 depend on the access-rights implementing act, still in draft after the consultation that closed on 16 November 2026.
+- **How does an operator get verified in the DPP Registry?** With a qualified electronic seal (QSeal) and qualified certificate, a qualified electronic signature, an eIDAS high-assurance eID means, or a qualified electronic attestation of attributes. Verified status lasts no longer than three years before re-verification.
+- **Does a repurposed or remanufactured battery need a new passport?** Yes, and the new passport must be linked to the previous one under Article 77(7). A simple repair does not require a new passport; when a battery becomes waste, responsibility passes to the producer or the designated waste operator, and the passport ceases to exist once the battery is recycled.
 
 ## 7. Official Contact & Entity
 - **Operating Entity**: SUZHOU GEEKTION TECHNOLOGY CO.,LTD

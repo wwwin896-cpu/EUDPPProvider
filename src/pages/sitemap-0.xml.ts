@@ -48,10 +48,14 @@ const PREVIOUS_RELEASE = '2026-11-20';
 
 // Per-subpath content dates. Only list sections whose copy actually changed.
 const SECTIONS_UPDATED = new Set([
+  '',
   'insights',
   'insights/eu-battery-carbon-footprint-classes-a-e',
   'insights/en-18220-en-18219-gs1-digital-link-standards',
   'insights/sovereign-data-vault-zkp-privacy-guide',
+  'compliance/eu-dpp-registry-guide',
+  'compliance/eu-battery-regulation-2023-1542',
+  'solutions/storage-battery-passport',
 ]);
 
 // Sections released on the previous content cycle.
