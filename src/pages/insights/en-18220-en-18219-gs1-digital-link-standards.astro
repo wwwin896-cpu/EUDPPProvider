@@ -52,19 +52,21 @@ const faqs = [
         <span class="font-bold text-slate-800">Chief Systems Architect</span>
         <span>•</span>
         <span>Standardization Mandate M/594</span>
+        <span>•</span>
+        <span>Last reviewed Nov 27, 2026</span>
       </div>
     </div>
 
     <div class="prose prose-slate max-w-none space-y-6 text-sm text-slate-700 leading-relaxed">
       
       <div class="neo-surface p-6 bg-cyan-50/50 border-cyan-200 rounded-2xl">
-        <h3 class="text-base font-bold text-cyan-950 mb-2">Technical Overview</h3>
+        <h2 class="text-base font-bold text-cyan-950 mb-2">Technical Overview (Direct Answer)</h3>
         <p class="text-xs text-slate-700 leading-relaxed mb-0">
           European Commission Decision (EU) 2026/1736 mandates compliance with CEN/CENELEC JTC24 standards for all Digital Product Passports. This article explains how to format the 2D Data Matrix barcode, configure multi-tier resolvers, and register UPI identifiers with the DG GROW Central Registry.
         </p>
       </div>
 
-      <h2 class="text-xl font-bold text-slate-900 mt-8 mb-3">1. The Standard GS1 Digital Link Syntax</h2>
+      <h2 class="text-xl font-bold text-slate-900 mt-8 mb-3">1. What Is the Standard GS1 Digital Link Syntax?</h2>
       <p>
         Every physical battery pack must carry an indelible QR Code or 2D Data Matrix resolving to a compliant web endpoint conforming to the standard syntax:
       </p>
@@ -73,7 +75,7 @@ const faqs = [
         https://eudppprovider.com/01/04012345999991/21/BP-2027-EU-88902/
       </div>
 
-      <h2 class="text-xl font-bold text-slate-900 mt-8 mb-3">2. Three-Tier Role-Based Resolution (Context-Aware Redirection)</h2>
+      <h2 class="text-xl font-bold text-slate-900 mt-8 mb-3">2. How Does Three-Tier Role-Based Resolution Work?</h2>
       <p>
         A compliant resolver must not merely display a static PDF. Per EN 18220, the resolver evaluates client HTTP headers (or authentication tokens) to serve role-appropriate views:
       </p>

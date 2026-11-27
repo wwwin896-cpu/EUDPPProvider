@@ -4,6 +4,16 @@
 User-agent: *
 Allow: /
 
+# Classic search engines (also serve AI Overviews / AI Mode results)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
 # OpenAI Search & Chat Crawlers
 User-agent: GPTBot
 Allow: /
@@ -15,7 +25,12 @@ User-agent: ChatGPT-User
 Allow: /
 
 # Anthropic Claude Crawlers
+# Claude-SearchBot decides citability inside Claude's search features; ClaudeBot is
+# the separate training crawler. Both are allowed here.
 User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
 Allow: /
 
 User-agent: Claude-User

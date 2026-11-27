@@ -52,19 +52,21 @@ const faqs = [
         <span class="font-bold text-slate-800">安全与密码学实验室</span>
         <span>•</span>
         <span>商业机密与 GDPR 隐私双重合规</span>
+        <span>•</span>
+        <span>最近复核 2026-11-27</span>
       </div>
     </div>
 
     <div class="prose prose-slate max-w-none space-y-6 text-sm text-slate-700 leading-relaxed">
       
       <div class="neo-surface p-6 bg-cyan-50/50 border-cyan-200 rounded-2xl">
-        <h3 class="text-base font-bold text-cyan-950 mb-2">行业痛点</h3>
+        <h2 class="text-base font-bold text-cyan-950 mb-2">行业痛点（直接回答）</h3>
         <p class="text-xs text-slate-700 leading-relaxed mb-0">
           欧盟新法规要求公开 71 项数据字段，若直接上传原始物料清单（BOM）、供应商采购合同与正负极添加剂比例，将导致中国电池企业的核心技术机密与议价底牌全盘暴露。本文阐述如何通过零知识证明破解这一两难困局。
         </p>
       </div>
 
-      <h2 class="text-xl font-bold text-slate-900 mt-8 mb-3">一、可验证计算原理（零知识证明 zk-SNARKs）</h2>
+      <h2 class="text-xl font-bold text-slate-900 mt-8 mb-3">一、如何在不泄露配方的前提下证明合规？</h2>
       <p>
         零知识证明允许证明者（电池制造企业）向验证者（欧盟市场监管机构或公告机构）证明某个事实为真，而无需透露任何除该事实真实性以外的额外私密信息：
       </p>
@@ -73,7 +75,7 @@ const faqs = [
         <li><strong>EU DPP 隐私计算模式（安全）：</strong> 在企业境内私有沙箱内完成运算，生成不可逆密码学证明凭据（Proof Hash），仅将该凭据写入护照，底层配方零泄露。</li>
       </ul>
 
-      <h2 class="text-xl font-bold text-slate-900 mt-8 mb-3">二、10 年法定义务：德国法兰克福主权云托管</h2>
+      <h2 class="text-xl font-bold text-slate-900 mt-8 mb-3">二、护照数据必须存多久？存在哪里？</h2>
       <p>
         欧盟新电池法第 77 条明确要求护照数据在电池投放市场后必须保持 10 年可用。我们为企业提供部署在德国法兰克福 Tier-IV 级机房的主权云节点，满足高可用 SLA 与欧盟数据主权法案。
       </p>
