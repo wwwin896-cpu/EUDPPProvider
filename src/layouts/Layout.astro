@@ -166,6 +166,7 @@ if (article) {
     },
     "publisher": { "@id": `${siteUrl}/#organization` },
     "mainEntityOfPage": { "@id": canonicalUrl },
+    "image": [image],
     "about": (article.about || []).map((name: string) => ({ "@type": "Thing", "name": name })),
     "isAccessibleForFree": true
   });

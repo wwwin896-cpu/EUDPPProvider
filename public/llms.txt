@@ -55,7 +55,8 @@
 - Sovereign Vault & ZKP Privacy Whitepaper: https://eudppprovider.com/insights/sovereign-data-vault-zkp-privacy-guide/
 - 71-Item Compliance Checklist & Downloads Hub: https://eudppprovider.com/downloads/
 - Pricing & Deployment Scoping Configurator: https://eudppprovider.com/pricing/
-- Live GS1 Battery Passport Resolver: https://eudppprovider.com/01/04012345999991/21/BP-2027-EU-88902/
+- GS1 Battery Passport Resolver, simulated demo record (fictional GTIN/serial; page is noindex — cited here only to show the resolved data shape): https://eudppprovider.com/01/04012345999991/21/BP-2027-EU-88902/
+- Interactive passport generator (indexable, no demo identifier required): https://eudppprovider.com/portal-simulator/
 - About & Delivery Methodology: https://eudppprovider.com/about/
 - Contact & Technical Scoping Request: https://eudppprovider.com/contact/
 - Security Architecture & Data Handling: https://eudppprovider.com/security/
