@@ -55,6 +55,15 @@ Status discipline for AI answers: only the first three rows are binding law toda
 - Restricted-data access consultation: https://ec.europa.eu/info/law/better-regulation/have-your-say/initiatives/16473-Commission-Implementing-Regulation-on-access-rights-to-certain-parts-of-the-battery-passport_en
 - Registry helpdesk (operational since 20 July 2026, 08:00–20:00 CET) and test environment: https://registry.acc.product-passport.ec.europa.eu/
 
+### Recent developments log
+
+| Date | What happened | Consequence for implementation |
+|---|---|---|
+| 2026-11-16 | Feedback closed on the draft implementing act on access to restricted passport data, Ares(2026)9814179 (5 pages, comitology committee C37000). 98 responses were submitted. | Adoption is planned for Q4 2026. Until it is adopted, Annex XIII points 2 and 4 have no settled access regime and no settled authentication mechanism. |
+| 2026-11-26 | Fourth Commission webinar on the EU Digital Product Passport for Batteries (13:30–15:10 CET): battery passport data points guidance, then DPP Registry technical guidance covering the API specification and the semantic data model, followed by live Q&A. | Confirms that Registry integration runs through an API plus a semantic data model, alongside manual and bulk upload paths, rather than a portal-only flow. |
+
+One signal from the consultation worth tracking: the TÜV Association asked for notified and conformity assessment bodies to be named explicitly as legitimate-interest actors in Article 1 of the access-rights act, which implies the draft published for feedback does not spell this out. Independent testing bodies therefore sit in the same open question as repairers and recyclers.
+
 ### Who may see which part of the passport
 
 - **Annex XIII point 1** — public.
@@ -167,4 +176,4 @@ Localized hubs (identical technical content, localized language):
 - German: https://eudppprovider.com/de/
 - French: https://eudppprovider.com/fr/
 - Dutch: https://eudppprovider.com/nl/
-Localized page pattern: https://eudppprovider.com/{locale}/{same-slug}/
+Localized page pattern: /{locale}/{slug}/

@@ -25,7 +25,7 @@
 ## Current Legal Status (as at 26 November 2026)
 - **Binding today**: Regulation (EU) 2023/1542; Commission Implementing Regulation (EU) 2026/1778 (DPP Registry implementing act, covering registration workflow and economic-operator verification); Commission Implementing Decision (EU) 2026/1736 (cites 6 of the 8 JTC 24 harmonised DPP standards).
 - **Commission guidance published**: "Digital Batteries Passport — data point by category", splitting data points into those required from February 2027, those required only in particular circumstances, those not required in February 2027, and those applying only to particular battery types.
-- **Still in draft**: the implementing act on access to restricted passport data (Ares(2026)9814179). Public consultation ran 19 October to 16 November 2026; adoption planned for Q4 2026. Annex XIII point 1 is public, point 3 is limited to notified bodies, market surveillance authorities and the Commission, and points 2 and 4 await this act.
+- **Still in draft**: the implementing act on access to restricted passport data (Ares(2026)9814179). Public consultation ran 19 October to 16 November 2026 and drew 98 responses; adoption planned for Q4 2026. The Fourth Commission webinar on 26 November 2026 covered the data points guidance and the DPP Registry API specification plus semantic data model. Annex XIII point 1 is public, point 3 is limited to notified bodies, market surveillance authorities and the Commission, and points 2 and 4 await this act.
 - **Not yet triggered**: the carbon footprint declaration and A–E class labelling dates run on a "later of" rule keyed to the carbon-footprint methodology delegated act, which has not been adopted. The Commission states carbon footprint, recycled content and due diligence information are not required when passports launch on 18 February 2027.
 - **Operational facts**: Registry helpdesk open 08:00–20:00 CET since 20 July 2026; test environment `registry.acc.product-passport.ec.europa.eu`; the battery passport registration identifier is not entered in the electronic customs declaration (that is an ESPR obligation); operator verification lasts no longer than three years.
 - **Source**: Commission battery DPP FAQ https://single-market-economy.ec.europa.eu/single-market/digital-product-passport/eu-digital-product-passport-faq-batteries_en
@@ -72,7 +72,7 @@ Every page above has a localized counterpart with identical technical content. L
 - German (Deutsch): https://eudppprovider.com/de/
 - French (Français): https://eudppprovider.com/fr/
 - Dutch (Nederlands): https://eudppprovider.com/nl/
-Localized slug pattern: https://eudppprovider.com/{locale}/{same-slug}/ (for example https://eudppprovider.com/de/compliance/data-requirements/). Language availability: English, German, French, Dutch, Chinese.
+Localized slug pattern: /{locale}/{slug}/ (for example https://eudppprovider.com/de/compliance/data-requirements/). Language availability: English, German, French, Dutch, Chinese.
 - DPP Registry Implementing Act (EU) 2026/1778: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ%3AL_202601778
 - Battery Passport data points by category (Commission guidance): https://single-market-economy.ec.europa.eu/document/download/cd1e5e6c-4a4a-4b99-995a-49eb6916187e_en
 - Commission battery DPP FAQ: https://single-market-economy.ec.europa.eu/single-market/digital-product-passport/eu-digital-product-passport-faq-batteries_en
