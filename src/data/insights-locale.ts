@@ -558,7 +558,7 @@ export const insightsFaqs: Record<'de' | 'fr' | 'nl', Record<string, InsightFaq[
       {
         question: 'Comment la preuve à divulgation nulle protège-t-elle les formulations ?',
         answer:
-          "Le calcul reste dans votre environnement. Seule une preuve cryptographique de conformité est publiée, jamais la chimie de la cathode, les prix fournisseurs ni la nomenclature.",
+          "Le calcul reste dans votre environnement. Seule une preuve cryptographique de conformité est publiée, non la chimie de la cathode, les prix fournisseurs ni la nomenclature.",
       },
       {
         question: 'Combien de temps les données doivent-elles rester disponibles ?',
@@ -596,7 +596,7 @@ export const insightsFaqs: Record<'de' | 'fr' | 'nl', Record<string, InsightFaq[
       {
         question: 'Hoe beschermt zero-knowledge-proof de receptuur?',
         answer:
-          'De berekening blijft in uw eigen omgeving. Alleen een cryptografisch bewijs van conformiteit wordt gepubliceerd, nooit de kathodereceptuur, leveranciersprijzen of stuklijst.',
+          'De berekening blijft in uw eigen omgeving. Alleen een cryptografisch bewijs van conformiteit wordt gepubliceerd, niet de kathodereceptuur, leveranciersprijzen of stuklijst.',
       },
       {
         question: 'Hoe lang moeten gegevens beschikbaar blijven?',
