@@ -9,6 +9,20 @@ import type { APIRoute } from 'astro';
  */
 const CONTENT_UPDATED = '2026-11-26';
 
+// Sections whose copy was revised after the 2026-11-26 release (metadata rewrite
+// on the French solution pages and the German legal notice).
+const SECTIONS_LATEST = new Set([
+  'impressum',
+  'legal-notice',
+  'solutions/ev-battery-passport',
+  'solutions/lmt-battery-passport',
+  'solutions/storage-battery-passport',
+  'solutions/software-license',
+  'solutions/managed-data-hosting',
+  'compliance/eu-battery-regulation-2023-1542',
+]);
+const LATEST_RELEASE = '2026-11-27';
+
 const languages = ['', 'zh', 'de', 'fr', 'nl'];
 
 const subpaths = [
@@ -81,7 +95,10 @@ const SECTIONS_PREVIOUS = new Set([
 ]);
 
 const lastmodFor = (sub: string) =>
-  SECTIONS_UPDATED.has(sub) ? CONTENT_UPDATED : SECTIONS_PREVIOUS.has(sub) ? '2026-11-25' : PREVIOUS_RELEASE;
+  SECTIONS_LATEST.has(sub) ? LATEST_RELEASE
+  : SECTIONS_UPDATED.has(sub) ? CONTENT_UPDATED
+  : SECTIONS_PREVIOUS.has(sub) ? '2026-11-25'
+  : PREVIOUS_RELEASE;
 
 export const GET: APIRoute = () => {
   const urls: string[] = [];

@@ -16,6 +16,10 @@ const t = useTranslations(lang);
           <img 
             src="/eudpp_logo_light.svg" 
             alt="EU DPP Provider Logo" 
+            width="1040"
+            height="300"
+            loading="lazy"
+            decoding="async"
             class="h-9 w-auto object-contain"
           />
         </a>
@@ -164,6 +168,7 @@ const t = useTranslations(lang);
         <a href={`/${lang === 'en' ? '' : lang + '/'}legal-notice/`} class="hover:text-slate-700 transition-colors">Legal Notice (Impressum)</a>
         <a href={`/${lang === 'en' ? '' : lang + '/'}security/`} class="hover:text-slate-700 transition-colors">Security & Vault</a>
         <a href={`/${lang === 'en' ? '' : lang + '/'}terms/`} class="hover:text-slate-700 transition-colors">Terms & SLA</a>
+        <a href={`/${lang === 'en' ? '' : lang + '/'}impressum/`} class="hover:text-slate-700 transition-colors" hreflang={lang}>Impressum (DDG § 5)</a>
       </div>
     </div>
 
