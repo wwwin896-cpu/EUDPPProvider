@@ -25,6 +25,8 @@ jsonld_pages = {}
 ldjson_re = re.compile(r'<script[^>]+type="application/ld\+json"[^>]*>(.*?)</script>', re.S)
 canon_re = re.compile(r'<link[^>]+rel="canonical"[^>]+href="([^"]+)"')
 alt_re = re.compile(r'<link[^>]+rel="alternate"[^>]+hreflang="([^"]+)"[^>]*>')
+alt_full_re = re.compile(r'<link[^>]+rel="alternate"[^>]+hreflang="([^"]+)"[^>]+href="([^"]+)"')
+alt_full_re2 = re.compile(r'<link[^>]+rel="alternate"[^>]+href="([^"]+)"[^>]+hreflang="([^"]+)"')
 title_re = re.compile(r"<title>(.*?)</title>", re.S)
 desc_re = re.compile(r'<meta[^>]+name="description"[^>]+content="([^"]*)"')
 robots_re = re.compile(r'<meta[^>]+name="robots"[^>]+content="([^"]*)"')
@@ -35,6 +37,9 @@ counts = {"pages": len(html_files), "ldjson_total": 0, "ldjson_bad": 0,
 
 types = {}
 internal_targets = set()
+hreflang_missing = []
+title_map = {}
+desc_map = {}
 
 for fp in html_files:
     raw = open(fp, encoding="utf-8", errors="ignore").read()
@@ -61,15 +66,22 @@ for fp in html_files:
                 counts["ldjson_bad"] += 1
                 issues.append(("JSONLD_INVALID", p))
                 continue
-            items = data if isinstance(data, list) else [data]
-            for it in items:
-                if isinstance(it, dict):
-                    t = it.get("@type")
+            def collect_types(node):
+                # JSON-LD graphs nest entities under @graph; top-level @type is often absent
+                if isinstance(node, dict):
+                    t = node.get("@type")
                     if isinstance(t, list):
                         for tt in t:
                             types[tt] = types.get(tt, 0) + 1
                     elif t:
                         types[t] = types.get(t, 0) + 1
+                    for v in node.values():
+                        if isinstance(v, (dict, list)):
+                            collect_types(v)
+                elif isinstance(node, list):
+                    for v in node:
+                        collect_types(v)
+            collect_types(data)
 
     if not canon_re.search(raw):
         counts["no_canonical"] += 1
@@ -97,6 +109,21 @@ for fp in html_files:
     rm = robots_re.search(raw)
     if rm and "noindex" in rm.group(1).lower():
         counts["noindex"] += 1
+
+    # every hreflang alternate must resolve to a real built page
+    alt_pairs = alt_full_re.findall(raw) + [(h, u) for u, h in alt_full_re2.findall(raw)]
+    for lang, href in alt_pairs:
+        tgt = href[len(SITE):] if href.startswith(SITE) else href
+        if not tgt.startswith("/"):
+            continue
+        tpath = tgt if (tgt.endswith("/") or "." in os.path.basename(tgt.rstrip("/"))) else tgt.rstrip("/") + "/"
+        if tpath not in paths and not os.path.exists(os.path.join(DIST, tpath.lstrip("/"))):
+            hreflang_missing.append((p, lang, href))
+
+    if tm:
+        title_map.setdefault(re.sub(r"\s+", " ", tm.group(1)).strip(), []).append(p)
+    if dm:
+        desc_map.setdefault(dm.group(1).strip(), []).append(p)
 
 broken = []
 for src, href in sorted(internal_targets):
@@ -143,6 +170,21 @@ print()
 print("=== META ===")
 for k in ("no_canonical", "no_hreflang", "no_desc", "desc_long", "title_long", "title_short", "noindex"):
     print(f"{k}: {counts[k]}")
+print()
+print("=== HREFLANG TARGETS ===")
+print("hreflang_alternates_unresolved:", len(hreflang_missing))
+for s, l, h in hreflang_missing[:12]:
+    print("  UNRESOLVED", l, h, "<-", s)
+print()
+print("=== DUPLICATES ===")
+dup_t = {k: v for k, v in title_map.items() if len(v) > 1}
+dup_d = {k: v for k, v in desc_map.items() if len(v) > 1}
+print("unique_titles:", len(title_map), "dup_title_groups:", len(dup_t))
+for k in list(dup_t)[:6]:
+    print("  T:", k[:70], "->", dup_t[k][:5])
+print("unique_descs:", len(desc_map), "dup_desc_groups:", len(dup_d))
+for k in list(dup_d)[:6]:
+    print("  D:", k[:70], "->", dup_d[k][:5])
 print()
 print("=== LINKS ===")
 print("internal_link_edges:", len(internal_targets))
